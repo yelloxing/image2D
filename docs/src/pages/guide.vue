@@ -30,7 +30,7 @@
       一节，这里为了方便介绍，你需要搭建一个基本的开发环境来跟着我们学习，很简单，你只需要下载最新的
       <a
         download='image2D.min.js'
-        href="https://cdn.jsdelivr.net/npm/image2d@1.6.5/build/image2D.min.js"
+        href="https://cdn.jsdelivr.net/npm/image2d@1.6.6/build/image2D.min.js"
       >image2D.min.js</a>
       并通过script标签引入即可。
     </p>

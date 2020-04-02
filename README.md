@@ -28,7 +28,7 @@
 如果你开发的是一个web项目，可以通过CDN引入（请选择对应的[版本](https://github.com/yelloxing/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用：
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.6.5/build/image2D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/image2d@1.6.6/build/image2D.min.js"></script>
 ```
 
 如果你想通过npm方式管理，首先你需要通过命令行安装image2D，就像这样：

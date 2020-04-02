@@ -9,7 +9,7 @@ import isString from '@yelloxing/core.js/isString';
 export default function (dom, name) {
 
     // 获取结点的全部样式
-    var allStyle = document.defaultView && document.defaultView.getComputedStyle ?
+    let allStyle = document.defaultView && document.defaultView.getComputedStyle ?
         document.defaultView.getComputedStyle(dom, null) :
         dom.currentStyle;
 

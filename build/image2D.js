@@ -4,14 +4,14 @@
 *
 * author 心叶
 *
-* version 1.6.5
+* version 1.6.6
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sat Mar 14 2020 15:37:01 GMT+0800 (GMT+08:00)
+* Date:Thu Apr 02 2020 17:48:35 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1497,6 +1497,40 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     }
 
     /**
+     * 返回渲染后的CSS样式值
+     * @param {DOM} dom 目标结点
+     * @param {String} name 属性名称（可选）
+     * @return {String}
+     */
+    function getStyle(dom, name) {
+
+        // 获取结点的全部样式
+        var allStyle = document.defaultView && document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(dom, null) : dom.currentStyle;
+
+        // 如果没有指定属性名称，返回全部样式
+        return isString(name) ? allStyle.getPropertyValue(name) : allStyle;
+    }
+
+    // 把颜色统一转变成rgba(x,x,x,x)格式
+    // 返回数字数组[r,g,b,a]
+    var formatColor = function formatColor(color) {
+        var colorNode = document.getElementsByTagName('head')[0];
+        colorNode.style['color'] = color;
+        var rgba = getStyle(colorNode, 'color');
+        var rgbaArray = rgba.replace(/^rgba?\(([^)]+)\)$/, '$1').split(new RegExp('\\,' + REGEXP.whitespace));
+        return [+rgbaArray[0], +rgbaArray[1], +rgbaArray[2], rgbaArray[3] == undefined ? 1 : +rgbaArray[3]];
+    };
+
+    // 获取一组随机色彩
+    var getRandomColors = function getRandomColors(num) {
+        var temp = [];
+        for (var flag = 1; flag <= num; flag++) {
+            temp.push('rgb(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ')');
+        }
+        return temp;
+    };
+
+    /**
      * 把当前维护的结点加到目标结点内部的结尾
      * @param {selector} target
      * @return {image2D}
@@ -1591,21 +1625,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (this.length <= 0) throw new Error('Target empty!');
         return this[0].textContent;
     };
-
-    /**
-     * 返回渲染后的CSS样式值
-     * @param {DOM} dom 目标结点
-     * @param {String} name 属性名称（可选）
-     * @return {String}
-     */
-    function getStyle(dom, name) {
-
-        // 获取结点的全部样式
-        var allStyle = document.defaultView && document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(dom, null) : dom.currentStyle;
-
-        // 如果没有指定属性名称，返回全部样式
-        return isString(name) ? allStyle.getPropertyValue(name) : allStyle;
-    }
 
     /**
      * 设置或获取样式
@@ -2569,11 +2588,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 二维简单变换
         rotate: _rotate2, move: _move2, scale: _scale2, dot: dot,
 
-        // 工具类
+        // 动画类
         animation: animation$1,
 
         // 插值类计算
-        cardinal: cardinal
+        cardinal: cardinal,
+
+        // 色彩类
+        formatColor: formatColor, getRandomColors: getRandomColors
 
     });
     image2D.prototype.extend({

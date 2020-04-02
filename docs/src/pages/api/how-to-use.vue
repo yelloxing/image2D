@@ -8,7 +8,7 @@
 
     <h4 class="title small">使用</h4>
     <p>如果你开发的是一个web项目，直接在页面引入打包后的文件后即可（在代码中通过image2D或$$调用）：</p>
-    <pre class="prettyprint lang-html">&lt;script src="https://cdn.jsdelivr.net/npm/image2d@1.6.5/build/image2D.min.js"&gt;&lt;/script&gt;</pre>
+    <pre class="prettyprint lang-html">&lt;script src="https://cdn.jsdelivr.net/npm/image2d@1.6.6/build/image2D.min.js"&gt;&lt;/script&gt;</pre>
     <p>如果你想通过npm方式管理，首先你需要通过命令行安装image2D，就像这样：</p>
     <pre class="prettyprint lang-js">npm install --save image2d</pre>
     <p>安装好了以后，在需要的地方引入即可：</p>
