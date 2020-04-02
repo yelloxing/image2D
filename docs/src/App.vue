@@ -184,7 +184,7 @@ div {
   & > footer {
     padding: 0.4rem 0.1rem;
     text-align: center;
-    background-color: #f6f9fa;
+    // background-color: #f6f9fa;
     font-size: 0.12rem;
 
     & > ul {
