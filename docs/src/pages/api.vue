@@ -30,11 +30,12 @@
       <li class="item" @click="goItem($event.target,2)" name="calculate">矩阵坐标变换</li>
       <li class="item" @click="goItem($event.target,3)" name="calculate">曲线插值</li>
       <li class="item" @click="goItem($event.target,4)" name="calculate">布局</li>
-      <li class="item" @click="goItem($event.target,5)" name="calculate">动画轮询</li>
       <li id="tool" class="apimenu-item">
         <router-link to="/api/tool">补充</router-link>
       </li>
       <li class="item" @click="goItem($event.target,1)" name="tool">图层</li>
+      <li class="item" @click="goItem($event.target,2)" name="tool">动画轮询</li>
+      <li class="item" @click="goItem($event.target,3)" name="tool">获取颜色</li>
     </ul>
     <div>
       <router-view></router-view>
@@ -97,7 +98,7 @@ div {
     width: $navWidth;
     padding: 0.3rem 0.1rem;
     position: relative;
-    max-height: calc(100vh - 2rem);
+    max-height: calc(100vh - .8rem);
     overflow-y: scroll;
 
     & > li {
@@ -114,6 +115,7 @@ div {
 
       &[active="yes"] > a {
         color: rgb(113, 30, 50);
+        font-weight: 800;
       }
 
       &.item {
@@ -122,6 +124,7 @@ div {
 
         &[active="yes"] {
           color: rgb(113, 30, 50);
+          font-weight: 800;
         }
 
         padding-left: 1em;
