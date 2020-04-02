@@ -198,17 +198,6 @@
 
     <p>饼图绘制的时候，除了绘制各个弧以外，有时候我们希望添加提示文字，用折线和弧对应起来，radius是一个数组，每个项代表一个半径，我们会计算每个半径对应的小弧中心坐标，最终保存的位置就是dots。</p>
 
-    <h4 class="title small">动画轮询</h4>
-    <p>绘图的时候，为了实现动画效果，你除了可以使用画布或css天然的动画相关属性，还可以使用ES绘制每一帧的方式实现。为了方便你绘制我们提供了下面方法：</p>
-    <pre class="prettyprint lang-js">var stop=$$.animation(function(deep){
-    // deep取值0-1，表示动画进度
-}, speeds, function(deep){
-    // deep和上面一样，提供的原因是有时候结束回调是stop方法触发而不是动画结束了
-},timing);</pre>
-    <p>该方法有四个参数：分别表示画帧方法、动画时长、动画结束回调和进度控制参数（动画时长单位毫秒，最后三个均可选）。</p>
-    <p>其中timing可以为字符串或数组，字符串可选参数有："ease"、"ease-in"、"ease-in-out"、"ease-out"和"linear"（默认值），值的意义和css中的属性 transition-timing-function 基本一致，数组的话也是和这个属性保持一致，长度为4。</p>
-    <p>如果你希望动画立刻结束，可以调用下面的方法强行提前停止：</p>
-    <pre class="prettyprint lang-js">stop();</pre>
     <p class="nav-footer">
       <a href="#/api/painter" class="pre" onclick="document.documentElement.scrollTop = 0;">画笔</a>
       <a href="#/api/tool" class="next" onclick="document.documentElement.scrollTop = 0;">补充</a>

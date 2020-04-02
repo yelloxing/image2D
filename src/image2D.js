@@ -11,6 +11,7 @@ import Matrix4 from '@yelloxing/core.js/tools/Matrix4';
 import animation from './library/calculate/animation';
 import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';
+import { formatColor, getRandomColors } from './library/calculate/color.js';
 image2D.extend({
 
     // 布局
@@ -22,11 +23,14 @@ image2D.extend({
     // 二维简单变换
     rotate, move, scale, dot,
 
-    // 工具类
+    // 动画类
     animation,
 
     // 插值类计算
-    cardinal
+    cardinal,
+
+    // 色彩类
+    formatColor, getRandomColors
 
 });
 
