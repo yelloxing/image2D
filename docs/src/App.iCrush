@@ -1,0 +1,26 @@
+<template>
+    <div>
+        测试
+        <label>开发中</label>
+    </div>
+</template>
+
+<script>
+
+    export default {
+        methods: {
+
+        }
+    };
+</script>
+
+<style>
+
+div{
+    color:red;
+    label{
+        color:blue;
+    }
+}
+
+</style>
