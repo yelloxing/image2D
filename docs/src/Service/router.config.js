@@ -4,15 +4,28 @@ const pages = {
     },
     "api": {
         "content": () => import('../Pages/api.iCrush'),
-        "how-to-use": () => import('../Pages/api/how-to-use.iCrush'),
-        "xhtml": () => import('../Pages/api/xhtml.iCrush'),
-        "painter": () => import('../Pages/api/painter.iCrush'),
-        "calculate": () => import('../Pages/api/calculate.iCrush'),
-        "tool": () => import('../Pages/api/tool.iCrush'),
-        "_default": "how-to-use"
+        "how-to-use": {
+            "content": () => import('../Pages/api/how-to-use.iCrush')
+        },
+        "xhtml": {
+            "content": () => import('../Pages/api/xhtml.iCrush')
+        },
+        "painter": {
+            "content": () => import('../Pages/api/painter.iCrush')
+        },
+        "calculate": {
+            "content": () => import('../Pages/api/calculate.iCrush')
+        },
+        "tool": {
+            "content": () => import('../Pages/api/tool.iCrush')
+        },
+        "_default_": "how-to-use"
     },
     "about": {
         "content": () => import('../Pages/about.iCrush')
+    },
+    "QA": {
+        "content": () => import('../Pages/QA.iCrush')
     },
     "_default_": "guide"
 };
@@ -37,7 +50,7 @@ export function goRouter(doback, keyArray) {
         page = page[keyArray[i]] || page[page['_default_']];
         router += "/" + keyArray[i];
     }
-    
+
     page.content().then(function (data) {
         doback(data.default);
     });

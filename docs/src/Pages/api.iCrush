@@ -1,5 +1,33 @@
 <template>
     <div>
         api
+
+        <li @click='openRouter("how-to-use")'>快速开始</li>
+        <li @click='openRouter("xhtml")'>结点操作</li>
+        <li @click='openRouter("painter")'>画笔</li>
+        <li @click='openRouter("calculate")'>辅助计算</li>
+        <li @click='openRouter("tool")'>有用的补充</li>
+
+        <hr />
+
+        <component :is='page' />
     </div>
 </template>
+<script>
+
+    export default {
+        data() {
+            return {
+                page: null
+            };
+        },
+        mounted() {
+            this.loadRouter(page => this.page = page, 2);
+        },
+        methods: {
+            openRouter(pagename) {
+                this.goRouter(page => this.page = page, ['api', pagename]);
+            }
+        }
+    };
+</script>
