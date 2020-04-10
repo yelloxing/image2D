@@ -1,26 +1,67 @@
 <template>
-    <div>
-        测试
-        <label>开发中</label>
-    </div>
+    <article>
+        <nav>
+            image2D
+            <ul>
+                <li @click='openRouter("api")'>文档</li>
+                <li @click='openRouter("about")'>关于</li>
+                <li onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">帮助</li>
+            </ul>
+        </nav>
+        <component :is='page'></component>
+    </article>
 </template>
 
 <script>
 
     export default {
+        data() {
+            return {
+                page: null
+            };
+        },
+        mounted() {
+            this.loadRouter(page => this.page = page, 1);
+        },
         methods: {
-
+            openRouter(pagename) {
+                this.goRouter(page => this.page = page, [pagename]);
+            }
         }
     };
 </script>
-
 <style>
+    article {
+        &>nav {
+            line-height: .44rem;
+            height: .44rem;
+            padding: 0 .2rem;
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+            font-size: 0.2rem;
+            font-family: fantasy;
+            background-image: url('./assets/image2D.png');
+            background-position: .2rem center;
+            background-size: 0.3rem auto;
+            background-repeat: no-repeat;
+            color: #711e32;
+            padding-left: .5rem;
+            position: relative;
 
-div{
-    color:red;
-    label{
-        color:blue;
+            &>ul {
+                display: inline-block;
+                position: absolute;
+                right: .3rem;
+
+                &>li {
+                    display: inline-block;
+                    color: #030303;
+                    padding: 0 0.05rem;
+                    font-size: 0.12rem;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+            }
+        }
     }
-}
-
 </style>

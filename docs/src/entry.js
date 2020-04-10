@@ -12,7 +12,11 @@ import '@yelloxing/normalize.css';
 // 引入公共样式
 import './style.scss';
 
-document.getElementById('root').innerHTML="";
+document.getElementById('root').innerHTML = "";
+
+// 安装路由
+import { loadRouter, goRouter } from './Service/router.config.js';
+iCrush.prototype.loadRouter = loadRouter; iCrush.prototype.goRouter = goRouter;
 
 //根对象
 window.icrush = new iCrush({
