@@ -3,6 +3,9 @@
         <nav>
             image2D
             <ul>
+                <li @click='openRouter("guide")'>
+                    首页
+                </li>
                 <li @click='openRouter("api")'>
                     文档
                 </li>
