@@ -70,7 +70,7 @@ export default {
     },
     openEdit() {
       window.location.href =
-        "https://github.com/yelloxing/image2D/edit/dev/docs/src/pages/" +
+        "https://github.com/yelloxing/image2D/edit/master/docs/src/pages/" +
         window.location.href.split("#")[1].replace(/\/$/, "") +
         ".vue";
     }
