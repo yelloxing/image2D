@@ -3,3 +3,11 @@
         about
     </div>
 </template>
+<script>
+    import changeActive from '../Service/changeActive.js';
+    export default {
+        created(){
+            changeActive('menu-1','about');
+        }
+    };
+</script>

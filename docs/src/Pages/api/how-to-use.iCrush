@@ -3,3 +3,11 @@
         how to use
     </div>
 </template>
+<script>
+    import changeActive from '../../Service/changeActive.js';
+    export default {
+        created(){
+            changeActive('menu-2','how-to-use');
+        }
+    };
+</script>

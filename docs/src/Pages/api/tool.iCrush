@@ -3,3 +3,11 @@
         tool
     </div>
 </template>
+<script>
+    import changeActive from '../../Service/changeActive.js';
+    export default {
+        created(){
+            changeActive('menu-2','tool');
+        }
+    };
+</script>

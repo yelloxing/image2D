@@ -3,19 +3,19 @@
         <nav>
             image2D
             <ul>
-                <li @click='openRouter("guide")'>
+                <li @click='openRouter("guide")' class='menu-1 guide'>
                     首页
                 </li>
-                <li @click='openRouter("api")'>
+                <li @click='openRouter("api")' class='menu-1 api'>
                     文档
                 </li>
-                <li @click='openRouter("about")'>
+                <li @click='openRouter("about")' class='menu-1 about'>
                     关于我们
                 </li>
-                <li @click='openRouter("QA")'>
+                <li @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>
-                <li onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
+                <li class='menu-1' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
                     提问
                 </li>
                 <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url'>
@@ -87,6 +87,10 @@
                     font-weight: bold;
                     height: 100%;
 
+                    &[active='yes'] {
+                        color: red;
+                    }
+
                     &.git-url {
                         background-image: url('./assets/github.png');
                         font-size: 0;
@@ -107,7 +111,7 @@
         }
 
         &>div {
-            padding: .44rem .3rem 0 .3rem;
+            padding-top: .44rem;
         }
     }
 </style>
