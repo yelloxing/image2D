@@ -65,7 +65,7 @@
         &>nav {
             line-height: .44rem;
             height: .44rem;
-            background-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 1.0);
             box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
             font-size: 0.2rem;
             background-image: url('./assets/image2D.png');

@@ -1,0 +1,38 @@
+.api-view {
+    padding: .2rem .3rem;
+
+    &>h2 {
+        font-size: 0.16rem;
+        color: #cb538b;
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+    }
+
+    &>p {
+        text-indent: 2em;
+        font-size: 0.14rem;
+        font-weight: 600;
+        line-height: 2em;
+
+        &>a {
+            text-indent: 0;
+            color: #ac2c23;
+            text-decoration: underline;
+        }
+    }
+
+    &>pre {
+        font-family: cursive;
+        font-weight: 400;
+        font-size: 0.14rem;
+        padding: .15rem .2rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .api-view {
+        padding: .2rem calc(50vw - 4.5rem);
+    }
+}

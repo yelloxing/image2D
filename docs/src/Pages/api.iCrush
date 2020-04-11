@@ -18,6 +18,7 @@
     </div>
 </template>
 <script>
+    import '../Styles/api.scss';
     import changeActive from '../Service/changeActive.js';
     export default {
         data() {
@@ -43,9 +44,10 @@
 </script>
 <style>
     div {
-        &>div{
+        &>div {
             min-height: calc(100vh - 1.5rem);
         }
+
         &>nav {
             border-top: 1px solid #e8e8e8;
             border-color: #e0e5e6;

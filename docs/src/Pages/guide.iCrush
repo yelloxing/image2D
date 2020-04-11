@@ -23,7 +23,12 @@
                         </li>
                         <li>
                             <a href="#/api/how-to-use?fixed=begin-use" target="_blank">
-                                使用
+                                如何引入?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/how-to-use?fixed=example" target="_blank">
+                                一个简单的用例
                             </a>
                         </li>
                         <li>
@@ -82,7 +87,7 @@
                         </li>
                         <li>
                             <a href="#/api/painter?fixed=method" target="_blank">
-                                绘图方法
+                                画笔上的绘图方法
                             </a>
                         </li>
                         <li>
@@ -129,17 +134,17 @@
                     <ol>
                         <li>
                             <a href="#/api/tool?fixed=layer" target="_blank">
-                                图层
+                                位图图层
                             </a>
                         </li>
                         <li>
                             <a href="#/api/tool?fixed=animation" target="_blank">
-                                动画轮询
+                                动画或定时轮询
                             </a>
                         </li>
                         <li>
                             <a href="#/api/tool?fixed=colors" target="_blank">
-                                获取颜色
+                                颜色计算相关方法
                             </a>
                         </li>
                     </ol>
