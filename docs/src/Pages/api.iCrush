@@ -1,6 +1,8 @@
 <template>
     <div>
-        <component :is='page' />
+        <div>
+            <component :is='page' />
+        </div>
         <nav>
             <ul>
                 <li @click='openRouter("how-to-use")' class='menu-2 how-to-use'>快速开始</li>
@@ -41,6 +43,9 @@
 </script>
 <style>
     div {
+        &>div{
+            min-height: calc(100vh - 1.5rem);
+        }
         &>nav {
             border-top: 1px solid #e8e8e8;
             border-color: #e0e5e6;

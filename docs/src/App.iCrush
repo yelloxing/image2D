@@ -18,9 +18,10 @@
                 <li class='menu-1' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
                     提问
                 </li>
-                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url' title='Code'>
+                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url' title='image2D 源码'>
                     Fork-me-on-Github
                 </li>
+                <li class="editor" @click="openEdit()" title='修复文档中的错误'>编辑</li>
                 <li onclick="window.location.href='https://github.com/image2D'" title='Github Organization'>
                     <span>
                         访问组织
@@ -48,6 +49,12 @@
         methods: {
             openRouter(pagename) {
                 this.goRouter(page => this.page = page, [pagename]);
+            },
+            openEdit() {
+                window.location.href =
+                    "https://github.com/yelloxing/image2D/edit/dev/docs/src/Pages/" +
+                    window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '') +
+                    ".iCrush";
             }
         }
     };
@@ -98,6 +105,14 @@
                         background-size: 90% auto;
                         background-repeat: no-repeat;
                         background-position: center center;
+                    }
+
+                    &.editor {
+                        width: 0.44rem;
+                        height: 0.44rem;
+                        background-image: url("./assets/edit.png");
+                        background-size: 100% auto;
+                        font-size: 0;
                     }
 
                     &>span {
