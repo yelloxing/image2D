@@ -10,13 +10,16 @@ import App from './App.iCrush';
 import '@yelloxing/normalize.css';
 
 // 引入公共样式
-import './style.scss';
+import './Styles/style.scss';
 
 document.getElementById('root').innerHTML = "";
 
 // 安装路由
 import { loadRouter, goRouter } from './Service/router.config.js';
 iCrush.prototype.loadRouter = loadRouter; iCrush.prototype.goRouter = goRouter;
+
+// 引入复制指令
+import './Directives/ui-copy';
 
 //根对象
 window.icrush = new iCrush({

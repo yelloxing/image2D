@@ -23,11 +23,33 @@
         }
     }
 
-    &>pre {
-        font-family: cursive;
-        font-weight: 400;
-        font-size: 0.14rem;
-        padding: .15rem .2rem;
+    &>div {
+        position: relative;
+
+        &>.copy-btn {
+            position: absolute;
+            right: .1rem;
+            top: .1rem;
+            background-color: #f8f8f8;
+            border: none;
+            outline: 0;
+            padding: .05rem .1rem;
+            transition: 0.2s;
+            font-size: .12rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(10, 10, 10);
+                color: white;
+            }
+        }
+
+        &>pre {
+            font-family: cursive;
+            font-weight: 400;
+            font-size: 0.14rem;
+            padding: .15rem .2rem;
+        }
     }
 }
 
