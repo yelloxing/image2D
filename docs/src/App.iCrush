@@ -1,7 +1,7 @@
 <template>
     <article>
         <nav>
-            image2D
+            <span title='一个帮助你快速绘制二维图形的ES库'>image2D</span>
             <ul>
                 <li @click='openRouter("guide")' class='menu-1 guide'>
                     首页
@@ -18,10 +18,10 @@
                 <li class='menu-1' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
                     提问
                 </li>
-                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url'>
+                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url' title='Code'>
                     Fork-me-on-Github
                 </li>
-                <li onclick="window.location.href='https://github.com/image2D'">
+                <li onclick="window.location.href='https://github.com/image2D'" title='Github Organization'>
                     <span>
                         访问组织
                     </span>

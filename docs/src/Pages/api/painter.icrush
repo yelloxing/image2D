@@ -6,8 +6,11 @@
 <script>
     import changeActive from '../../Service/changeActive.js';
     export default {
-        created(){
-            changeActive('menu-2','painter');
+        created() {
+            changeActive('menu-2', 'painter');
+        },
+        mounted() {
+            prettyPrint();
         }
     };
 </script>

@@ -8,6 +8,9 @@
     export default {
         created(){
             changeActive('menu-2','tool');
+        },
+        mounted() {
+            prettyPrint();
         }
     };
 </script>

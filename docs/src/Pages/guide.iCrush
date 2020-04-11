@@ -1,13 +1,237 @@
 <template>
-    <div>
-        guide
+    <div class='root'>
+        <header>
+            image2D.js 官方文档<span>4.0.0</span>
+            <p>
+                本文档由
+                <a href="https://github.com/yelloxing/iCrush" title='文档使用框架'>iCrush</a>
+                提供技术支持。
+            </p>
+        </header>
+        <div>
+            <h2>指南：开始绘图</h2>
+            <ul>
+                <li>
+                    <h4>
+                        <a href="#/api/how-to-use" target="_blank">快速开始</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/api/how-to-use?fixed=purpose" target="_blank">
+                                关注的问题
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/how-to-use?fixed=begin-use" target="_blank">
+                                使用
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/how-to-use?fixed=help" target="_blank">
+                                获取帮助
+                            </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h4>
+                        <a href="#/api/xhtml" target="_blank">结点操作</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/api/xhtml?fixed=object" target="_blank">
+                                结点对象
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/xhtml?fixed=modify" target="_blank">
+                                编辑
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/xhtml?fixed=attribute" target="_blank">
+                                样式和属性
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/xhtml?fixed=event" target="_blank">
+                                事件相关
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/xhtml?fixed=data" target="_blank">
+                                数据绑定
+                            </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h4>
+                        <a href="#/api/painter" target="_blank">画笔</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/api/painter?fixed=canvas2d" target="_blank">
+                                位图画笔
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/painter?fixed=svg" target="_blank">
+                                矢图画笔
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/painter?fixed=method" target="_blank">
+                                绘图方法
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/painter?fixed=gradient" target="_blank">
+                                渐变色
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/painter?fixed=translate" target="_blank">
+                                变换
+                            </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h4>
+                        <a href="#/api/calculate" target="_blank">辅助计算</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/api/calculate?fixed=dot" target="_blank">
+                                二维坐标变换
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/calculate?fixed=matrix4" target="_blank">
+                                矩阵坐标变换
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/calculate?fixed=interpolation" target="_blank">
+                                曲线插值</a>
+                        </li>
+                        <li>
+                            <a href="#/api/calculate?fixed=layout" target="_blank">
+                                布局</a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h4>
+                        <a href="#/api/tool" target="_blank">有用的补充</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/api/tool?fixed=layer" target="_blank">
+                                图层
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/tool?fixed=animation" target="_blank">
+                                动画轮询
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/api/tool?fixed=colors" target="_blank">
+                                获取颜色
+                            </a>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
     import changeActive from '../Service/changeActive.js';
     export default {
-        created(){
-            changeActive('menu-1','guide');
+        created() {
+            changeActive('menu-1', 'guide');
         }
     };
 </script>
+<style>
+    div.root {
+        background: #f6f8f8;
+        min-height: calc(100vh - .44rem);
+
+        &>header {
+            text-align: center;
+            font-size: .3rem;
+            line-height: 1.5em;
+            padding: .3rem 0;
+
+            &>span {
+                border: 1px solid gray;
+                background-color: white;
+                font-size: .12rem;
+                vertical-align: middle;
+                margin-left: .1rem;
+                padding: .03rem .06rem;
+                border-radius: .03rem;
+            }
+
+            &>p {
+                font-size: .16rem;
+
+                &>a {
+                    color: #4078c0;
+                }
+            }
+        }
+
+        &>div {
+            background-color: #fff;
+            padding: .15rem .5rem;
+            min-height: calc(100vh - 2rem);
+            color: #3a585f;
+
+            a {
+                color: inherit;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: rgb(61, 121, 145);
+                }
+            }
+
+            &>h2 {
+                padding-bottom: .09rem;
+                border-bottom: 1px solid #eee;
+                display: block;
+                font-weight: 200;
+            }
+
+            &>ul {
+                padding-top: .09rem;
+                column-count: 3;
+                line-height: 1.6em;
+
+                &>li {
+                    break-inside: avoid;
+
+                    &>h4 {
+                        font-weight: 600;
+                    }
+
+                    &>ol {
+                        margin-left: 1em;
+                        padding-left: .1rem;
+
+                        &>li {
+                            list-style-type: circle;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+</style>
