@@ -223,6 +223,7 @@
 
                     &>h4 {
                         font-weight: 600;
+                        padding-top: .1rem;
                     }
 
                     &>ol {

@@ -38,6 +38,74 @@ import $$ from "image2d";
         <h2 id='fixed-example'>
             一个简单的用例
         </h2>
+        <p>
+            作为入门，我们这里只是简单的说明一下如何绘图，具体的辅助方法和一些细节在文档有进行说明，或者你可以提issue进行交流，为了简化，这里不再赘述。
+        </p>
+        <h6>
+            获取画笔
+        </h6>
+        <p>
+            绘图的第一步当然是获取画笔了，画笔分为两种：Canvas2D和SVG，我们来看看具体的代码：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+var painter=$$("#painter").painter();
+            </pre>
+        </div>
+        <p>
+            上面的$$("#painter")返回一个image2D对象，通过ID选择器查找结点，然后调用对象上的painter方法就可以获取画笔了。
+        </p>
+        <p>
+            如何判断画笔的类型？如果结点是canvas获取的就是Canvas2D画笔，如果结点是svg获取的就是SVG画笔。
+        </p>
+        <h6>
+            配置
+        </h6>
+        <p>
+            不管是什么画笔，都一样可以进行配置（当然有缺省值），比如画笔的粗细，颜色等，下面列出部分选项：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.config({
+    "font-size":文字大小,
+    "lineWidth":线条宽度,
+    ......
+});
+            </pre>
+        </div>
+        <p>
+            具体的配置选项请查看画笔一节。
+        </p>
+        <h6>
+            绘图方法
+        </h6>
+        <p>
+            画笔获取并配置好了以后，直接调用画笔上的方法即可绘图，我们拿canvas举例子。
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+$$("canvas")
+.attr({
+    "with":200,
+    "height":100
+})
+.painter()
+.config({
+    "lineWidth":10,
+    "fillStyle":"red",
+    "strokeStyle":"green"
+})
+.fillArc(100, 0, 50, 100, 0, Math.PI)
+.strokeArc(100, 0, 50, 95, 0, Math.PI);
+            </pre>
+        </div>
+        <p>
+            具体的绘图方法也请查看文档。绘制的结果如下：
+        </p>
+        <div class="guider-demo1"></div>
+        <p>
+            怎么样？是不是很简单，虽然直接使用canvas或svg也可以实现，不过借助这个库绘图会更简单，你可以把更多的精力放在绘制出更有趣的作品上。
+        </p>
         <h2 id='fixed-help'>
             获取帮助
         </h2>
@@ -64,3 +132,12 @@ import $$ from "image2d";
         }
     };
 </script>
+<style>
+    .guider-demo1 {
+        background-image: url("../../assets/guider-demo1.png");
+        height: 1.6rem;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: auto 100%;
+    }
+</style>
