@@ -19,11 +19,21 @@
         color: #85a646;
     }
 
-    &>ul{
+    &>h6 {
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+        font-size: 0.12rem;
+        color: #f00;
+    }
+
+    &>ul {
         margin-left: 5em;
-    font-size: 0.13rem;
-    line-height: 2.4em;
-        &>li{
+        font-size: 0.13rem;
+        line-height: 2.4em;
+
+        &>li {
             list-style-type: decimal;
         }
     }
