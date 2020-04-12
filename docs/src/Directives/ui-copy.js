@@ -1,15 +1,6 @@
 import iCrush from 'icrush';
 import $$ from 'image2d';
-
-// 错误提示
-let errorback = function () {
-
-};
-
-// 正确提示
-let callback = function () {
-
-};
+import notify from '../Service/notify';
 
 iCrush.directive('uiCopy', {
 
@@ -31,12 +22,13 @@ iCrush.directive('uiCopy', {
                 let result = window.document.execCommand("copy", false, null);
 
                 if (result) {
-                    callback();
+                    notify('复制结果', '已经复制到剪切板！');
                 } else {
-                    errorback();
+                    notify('复制结果', '复制到剪切板失败！');
                 }
             } catch (e) {
-                errorback();
+                console.error(e);
+                notify('复制结果', '复制到剪切板失败！');
             }
 
             // 结束后删除
