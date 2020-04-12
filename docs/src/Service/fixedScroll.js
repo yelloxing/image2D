@@ -16,6 +16,8 @@ export default function () {
             });
         }
 
+    }else{
+        document.documentElement.scrollTop=0;
     }
 
 };

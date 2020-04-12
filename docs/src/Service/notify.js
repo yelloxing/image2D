@@ -2,7 +2,7 @@
 function doNotify(title, message) {
     let notification = new Notification(title, {
         body: message,
-        icon: "../src/assets/image2D.png"
+        icon: "src/assets/image2D.png"
     });
     setTimeout(function () { notification.close(); }, 5000);
 }
