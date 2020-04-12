@@ -1,6 +1,14 @@
 <template>
-    <div>
-        tool
+    <div class='api-view'>
+        <h2 id='fixed-layer'>
+            位图图层
+        </h2>
+        <h2 id='fixed-animation'>
+            动画或定时轮询
+        </h2>
+        <h2 id='fixed-colors'>
+            颜色计算相关方法
+        </h2>
     </div>
 </template>
 <script>

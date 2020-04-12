@@ -1,6 +1,20 @@
 <template>
-    <div>
-        painter
+    <div class='api-view'>
+        <h2 id='fixed-canvas2d'>
+            位图画笔
+        </h2>
+        <h2 id='fixed-svg'>
+            矢图画笔
+        </h2>
+        <h2 id='fixed-method'>
+            画笔上的绘图方法
+        </h2>
+        <h2 id='fixed-gradient'>
+            渐变色
+        </h2>
+        <h2 id='fixed-translate'>
+            变换
+        </h2>
     </div>
 </template>
 <script>

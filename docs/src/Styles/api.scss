@@ -10,6 +10,24 @@
         margin-top: -0.3rem;
     }
 
+    &>h4 {
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+        font-size: 0.14rem;
+        color: #85a646;
+    }
+
+    &>ul{
+        margin-left: 5em;
+    font-size: 0.13rem;
+    line-height: 2.4em;
+        &>li{
+            list-style-type: decimal;
+        }
+    }
+
     &>p {
         text-indent: 2em;
         font-size: 0.14rem;
@@ -20,6 +38,15 @@
             text-indent: 0;
             color: #ac2c23;
             text-decoration: underline;
+        }
+
+        &.warn {
+            background-image: url('../assets/warn.png');
+            background-repeat: no-repeat;
+            background-size: auto 0.21rem;
+            font-size: 0.12rem;
+            color: #dac305;
+            font-weight: 400;
         }
     }
 
