@@ -1,0 +1,97 @@
+.api-view {
+    padding: .2rem .3rem;
+
+    &>h2 {
+        font-size: 0.16rem;
+        color: #cb538b;
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+    }
+
+    &>h4 {
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+        font-size: 0.14rem;
+        color: #85a646;
+    }
+
+    &>h6 {
+        font-weight: 800;
+        line-height: 2em;
+        padding: 0.4rem 0 0.2rem;
+        margin-top: -0.3rem;
+        font-size: 0.12rem;
+        color: #f00;
+    }
+
+    &>ul {
+        margin-left: 5em;
+        font-size: 0.13rem;
+        line-height: 2.4em;
+
+        &>li {
+            list-style-type: decimal;
+        }
+    }
+
+    &>p {
+        text-indent: 2em;
+        font-size: 0.14rem;
+        font-weight: 600;
+        line-height: 2em;
+
+        &>a {
+            text-indent: 0;
+            color: #ac2c23;
+            text-decoration: underline;
+        }
+
+        &.warn {
+            background-image: url('../assets/warn.png');
+            background-repeat: no-repeat;
+            background-size: auto 0.21rem;
+            font-size: 0.12rem;
+            color: #dac305;
+            font-weight: 400;
+        }
+    }
+
+    &>div {
+        position: relative;
+
+        &>.copy-btn {
+            position: absolute;
+            right: .1rem;
+            top: .1rem;
+            background-color: #f8f8f8;
+            border: none;
+            outline: 0;
+            padding: .05rem .1rem;
+            transition: 0.2s;
+            font-size: .12rem;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(10, 10, 10);
+                color: white;
+            }
+        }
+
+        &>pre {
+            font-family: cursive;
+            font-weight: 400;
+            font-size: 0.14rem;
+            padding: .15rem .2rem;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .api-view {
+        padding: .2rem calc(50vw - 4.5rem);
+    }
+}

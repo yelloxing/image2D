@@ -1,0 +1,133 @@
+<template>
+    <article>
+        <nav>
+            <span title='一个帮助你快速绘制二维图形的ES库'>image2D</span>
+            <ul>
+                <li @click='openRouter("guide")' class='menu-1 guide'>
+                    首页
+                </li>
+                <li @click='openRouter("api")' class='menu-1 api'>
+                    文档
+                </li>
+                <li @click='openRouter("about")' class='menu-1 about'>
+                    关于我们
+                </li>
+                <li @click='openRouter("QA")' class='menu-1 QA'>
+                    答疑Q&A
+                </li>
+                <li class='menu-1' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
+                    提问
+                </li>
+                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url' title='image2D 源码'>
+                    Fork-me-on-Github
+                </li>
+                <li class="editor" @click="openEdit()" title='修复文档中的错误'>编辑</li>
+                <li onclick="window.location.href='https://github.com/image2D'" title='Github Organization'>
+                    <span>
+                        访问组织
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <component :is='page' />
+        </div>
+    </article>
+</template>
+
+<script>
+
+    export default {
+        data() {
+            return {
+                page: null
+            };
+        },
+        mounted() {
+            this.loadRouter(page => this.page = page, 1);
+        },
+        methods: {
+            openRouter(pagename) {
+                this.goRouter(page => this.page = page, [pagename]);
+            },
+            openEdit() {
+                window.location.href =
+                    "https://github.com/yelloxing/image2D/edit/dev/docs/src/Pages/" +
+                    window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '') +
+                    ".iCrush";
+            }
+        }
+    };
+</script>
+<style>
+    article {
+
+        &>nav {
+            line-height: .44rem;
+            height: .44rem;
+            background-color: rgba(255, 255, 255, 1.0);
+            box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+            font-size: 0.2rem;
+            background-image: url('./assets/image2D.png');
+            background-position: .2rem center;
+            background-size: 0.3rem auto;
+            background-repeat: no-repeat;
+            color: #711e32;
+            padding-left: .5rem;
+            position: fixed;
+            min-width: 100vw;
+            top: 0;
+            z-index: 1;
+
+            &>ul {
+                display: inline-block;
+                position: absolute;
+                right: .3rem;
+                top: 0;
+
+                &>li {
+                    vertical-align: top;
+                    display: inline-block;
+                    color: #030303;
+                    padding: 0 0.05rem;
+                    font-size: 0.12rem;
+                    cursor: pointer;
+                    font-weight: bold;
+                    height: 100%;
+
+                    &[active='yes'] {
+                        color: red;
+                    }
+
+                    &.git-url {
+                        background-image: url('./assets/github.png');
+                        font-size: 0;
+                        width: 1rem;
+                        background-size: 90% auto;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                    }
+
+                    &.editor {
+                        width: 0.44rem;
+                        height: 0.44rem;
+                        background-image: url("./assets/edit.png");
+                        background-size: 100% auto;
+                        font-size: 0;
+                    }
+
+                    &>span {
+                        padding: .04rem;
+                        border-radius: .03rem;
+                        background-color: #711e32;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        &>div {
+            padding-top: .44rem;
+        }
+    }
+</style>

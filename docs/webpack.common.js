@@ -1,4 +1,4 @@
-const { VueLoaderPlugin } = require('vue-loader');
+const iCrushLoaderPlugin = require('icrush/webpack/icrush-loader-plug');
 
 module.exports = {
     entry: ['./src/entry.js'],
@@ -9,18 +9,19 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.vue$/,
-            use: ['vue-loader']
+            test: /\.iCrush$/,
+            loader: ['icrush/webpack/icrush-loader.js'],
+            exclude: /node_modules/
         }, {
             test: /\.(css|scss)$/,
-            use: ['vue-style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+            loader: ['style-loader', 'icrush/webpack/icrush-style-loader.js', 'css-loader', 'postcss-loader', 'sass-loader']
         }, {
             test: /\.js$/,
-            use: 'babel-loader',
+            loader: 'babel-loader',
             exclude: /node_modules/
         }, {
             test: /\.(png|jpg|jpeg|gif|bmp)$/,
-            use: [{
+            loader: [{
                 loader: "url-loader",
                 options: {
                     name: "dist/[name].[ext]",
@@ -31,6 +32,6 @@ module.exports = {
         }]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new iCrushLoaderPlugin()
     ]
 };

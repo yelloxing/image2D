@@ -1,0 +1,23 @@
+<template>
+    <div>
+        功能开发中！
+    </div>
+</template>
+<script>
+    import changeActive from '../Service/changeActive.js';
+    export default {
+        created() {
+            changeActive('menu-1', 'QA');
+        }
+    };
+</script>
+<style>
+    div {
+        text-align: center;
+        line-height: calc(100vh - .44rem);
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: cursive;
+        color: gray;
+    }
+</style>
