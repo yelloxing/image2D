@@ -3,7 +3,7 @@
         <p>
             首先，让我们来了解一个这个库主要解决的问题是什么，如何使用以及问题反馈等基本信息。
         </p>
-        <h2 fixed='purpose'>
+        <h2 id='fixed-purpose'>
             关注的问题
         </h2>
         <p>
@@ -12,7 +12,7 @@
         <p>
             主要是在svg和canvas2D上绘图，虽然有提供比如Maritx4坐标变换等三维相关方法，这是考虑到一些潜在的需求。
         </p>
-        <h2 fixed='import'>
+        <h2 id='fixed-import'>
             如何引入?
         </h2>
         <p>
@@ -35,10 +35,10 @@ npm install --save image2d
 import $$ from "image2d";
             </pre>
         </div>
-        <h2 fixed='example'>
+        <h2 id='fixed-example'>
             一个简单的用例
         </h2>
-        <h2 fixed='help'>
+        <h2 id='fixed-help'>
             获取帮助
         </h2>
         <p>
@@ -53,12 +53,14 @@ import $$ from "image2d";
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';
+    import fixedScroll from '../../Service/fixedScroll.js';
     export default {
         created() {
             changeActive('menu-2', 'how-to-use');
         },
         mounted() {
             prettyPrint();
+            fixedScroll();
         }
     };
 </script>

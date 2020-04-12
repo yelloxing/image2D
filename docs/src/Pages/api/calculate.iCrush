@@ -5,12 +5,14 @@
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';
+    import fixedScroll from '../../Service/fixedScroll.js';
     export default {
         created() {
             changeActive('menu-2', 'calculate');
         },
         mounted() {
             prettyPrint();
+            fixedScroll();
         }
     };
 </script>
