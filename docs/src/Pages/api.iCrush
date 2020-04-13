@@ -18,7 +18,6 @@
     </div>
 </template>
 <script>
-    import '../Styles/api.scss';
     import changeActive from '../Service/changeActive.js';
     export default {
         data() {

@@ -149,6 +149,18 @@
                         </li>
                     </ol>
                 </li>
+                <li>
+                    <h4>
+                        <a href="#/QA" target="_blank">答疑Q&A</a>
+                    </h4>
+                    <ol>
+                        <li>
+                            <a href="#/QA?fixed=issue11" target="_blank">
+                                为什么选择canvas作为画布绘图的时候会出现线条模糊？
+                            </a>
+                        </li>
+                    </ol>
+                </li>
             </ul>
         </div>
     </div>
@@ -160,6 +172,7 @@
             changeActive('menu-1', 'guide');
         }
     };
+
 </script>
 <style>
     div.root {
@@ -240,4 +253,5 @@
         }
 
     }
+
 </style>

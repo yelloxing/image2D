@@ -9,9 +9,6 @@
                 <li @click='openRouter("api")' class='menu-1 api'>
                     文档
                 </li>
-                <li @click='openRouter("about")' class='menu-1 about'>
-                    关于我们
-                </li>
                 <li @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>

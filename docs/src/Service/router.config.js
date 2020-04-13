@@ -21,9 +21,6 @@ const pages = {
         },
         "_default_": "how-to-use"
     },
-    "about": {
-        "content": () => import('../Pages/about.iCrush')
-    },
     "QA": {
         "content": () => import('../Pages/QA.iCrush')
     },
