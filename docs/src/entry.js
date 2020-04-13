@@ -27,6 +27,6 @@ window.icrush = new iCrush({
     //挂载点
     el: document.getElementById('root'),
 
-    // 启动vue
+    // 启动iCrush
     render: createElement => createElement(App)
 });

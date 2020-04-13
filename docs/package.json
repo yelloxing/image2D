@@ -9,7 +9,7 @@
     "release": "npm run clean && npm run prod",
     "prod": "node_modules/.bin/webpack --config webpack.prod.js",
     "start": "npm install && npm run dev",
-    "server":"cuf -s 20000"
+    "server": "cuf -s 20000"
   },
   "keywords": [
     "image2d",
