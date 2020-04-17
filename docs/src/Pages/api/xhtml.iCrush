@@ -26,7 +26,7 @@ var imageObject=$$(selector[, context]);
         <p>
             第二个参数context是可选的，默认选择器在全局查找，你也可以通过传递一个dom结点指定查找上下文（id选择器会忽略此参数直接在全局查找）。
         </p>
-        <h4>
+        <h4 id='fixed-selector'>
             选择器
         </h4>
         <p>

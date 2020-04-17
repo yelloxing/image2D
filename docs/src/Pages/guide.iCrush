@@ -47,6 +47,11 @@
                             <a href="#/api/xhtml?fixed=object" target="_blank">
                                 结点对象
                             </a>
+                            (你可能需要知道有哪些
+                            <a class='link' href="#/api/xhtml?fixed=selector" target="_blank">
+                                选择器
+                            </a>
+                            )
                         </li>
                         <li>
                             <a href="#/api/xhtml?fixed=modify" target="_blank">
@@ -94,6 +99,11 @@
                             <a href="#/api/painter?fixed=gradient" target="_blank">
                                 渐变色
                             </a>
+                            (比如
+                            <a class='link' href="#/api/painter?fixed=linearGradient" target="_blank"> 线性渐变</a>
+                            和
+                            <a class='link' href="#/api/painter?fixed=radialGradient" target="_blank">环形渐变</a>
+                            )
                         </li>
                         <li>
                             <a href="#/api/painter?fixed=translate" target="_blank">
@@ -124,6 +134,16 @@
                         <li>
                             <a href="#/api/calculate?fixed=layout" target="_blank">
                                 布局</a>
+                            (目前布局有两种：
+                            <a class='link' href="#/api/calculate?fixed=fixed-treeLayout" target="_blank"> 树布局</a>
+                            和
+                            <a class='link' href="#/api/calculate?fixed=fixed-pieLayout" target="_blank"> 饼布局</a>
+                            ，其中树布局初始的时候会获得
+                            <a class='link' href="#/api/calculate?fixed=layout-tree_design" target="_blank">基本树</a>
+                            ，而为了方便又提供了常见的几种具体的
+                            <a class='link' href="#/api/calculate?fixed=fixed-treeLayout-config" target="_blank">
+                                配置树</a>
+                            )
                         </li>
                     </ol>
                 </li>
@@ -217,6 +237,11 @@
                     text-decoration: underline;
                     color: rgb(61, 121, 145);
                 }
+
+                &.link {
+                    color: rgb(27, 106, 252);
+                    font-size: .14rem;
+                }
             }
 
             &>h2 {
@@ -253,5 +278,4 @@
         }
 
     }
-
 </style>

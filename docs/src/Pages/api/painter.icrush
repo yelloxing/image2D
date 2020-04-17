@@ -295,7 +295,7 @@ painter.stroke();
         <p>
             除了使用纯色填充，还可以使用渐变色作为画笔的颜色，你把它看成普通的颜色使用就可以了。
         </p>
-        <h4>
+        <h4 id='fixed-linearGradient'>
             线性渐变
         </h4>
         <p>
@@ -309,7 +309,7 @@ var linearGradient = painter.createLinearGradient(x1, y1, x2, y2);
         <p class="warn">
             温馨提示：canvas画笔上述参数的单位是px，svg画笔上述参数是%，请一定要注意区分（下同）。
         </p>
-        <h4>
+        <h4 id='fixed-radialGradient'>
             环形渐变
         </h4>
         <p>
@@ -331,7 +331,7 @@ var radialGradient = painter.createRadialGradient(cx, cy, r);
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-linearGradient.addColorStop(deep, color);
+XXXGradient.addColorStop(deep, color);
             </pre>
         </div>
         <p>
@@ -343,7 +343,7 @@ linearGradient.addColorStop(deep, color);
         <div ui-copy>
             <pre class="prettyprint">
 painter.config({
-    "fillStyle": linearGradient.value()
+    "fillStyle": XXXGradient.value()
 });
             </pre>
         </div>

@@ -230,7 +230,7 @@ var y=cardinal(a);
         <p>
             在绘制一些常见图形的时候，比如关系图，单个结点或连线并不难，麻烦的是位置的计算等，和图形模块不同，布局就是专门计算一些特殊图形位置的模块，用一句通俗的话说就是：决定什么元素绘制在哪里。因此，布局应该和具体的绘图方法无关，她只关心位置的计算。
         </p>
-        <h4>
+        <h4 id='fixed-treeLayout'>
             树布局
         </h4>
         <p>
@@ -287,7 +287,7 @@ treeLayout.drawer(function(data){ /*绘制*/ });
 treeLayout(data);
             </pre>
         </div>
-        <h6>
+        <h6 id='fixed-treeLayout-basic'>
             基本模型
         </h6>
         <div class="layout-tree_design"></div>
@@ -314,7 +314,7 @@ treeLayout(data);
         <p>
             主要看看top和left，和右边的图对应，是不是很清晰了。tree布局的核心位置计算就是把每个结点看成一个1x1的正方形，别的具体树图都是从此出发计算得出的，这就是基本模型。
         </p>
-        <h6>
+        <h6 id='fixed-treeLayout-config'>
             配置模型
         </h6>
         <p>
@@ -327,7 +327,7 @@ treeLayout(data);
             <li>radius:number，设置树图半径（如果类型是circle需要设置）。</li>
             <li>begin-deg,deg:number，开始和跨越弧度（可选，如果类型是circle设置该参数有效）。</li>
         </ul>
-        <h4>
+        <h4 id='fixed-pieLayout'>
             饼布局
         </h4>
         <p>
