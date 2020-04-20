@@ -1,7 +1,7 @@
 <template>
     <div class='root'>
         <header>
-            image2D.js 官方文档<span>4.0.0</span>
+            image2D.js 官方文档<span>4.0.1</span>
             <p>
                 本文档由
                 <a href="https://github.com/yelloxing/iCrush" title='文档使用框架'>iCrush</a>

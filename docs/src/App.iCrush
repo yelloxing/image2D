@@ -12,9 +12,14 @@
                 <li title='汇集的一些常用答疑' @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>
+                <li class="line"></li>
                 <li title='一些绘制的图形用例' class='menu-1'
                     onclick="window.location.href='https://image2d.github.io/examples/index.html#/menu'">
                     用例
+                </li>
+                <li title='🍎 🍪 🍦 🍓  图形组件库' class='menu-1'
+                    onclick="window.location.href='https://github.com/yelloxing/lookview'">
+                    组件
                 </li>
                 <li title='任何疑惑都可以在这里提问' class='menu-1'
                     onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
@@ -97,6 +102,13 @@
                     cursor: pointer;
                     font-weight: bold;
                     height: 100%;
+
+                    &.line {
+                        height: .44rem;
+                        padding: 0;
+                        border-left: 1px dashed rgb(199, 199, 207);
+                        margin: 0 .1rem;
+                    }
 
                     &[active='yes'] {
                         color: red;
