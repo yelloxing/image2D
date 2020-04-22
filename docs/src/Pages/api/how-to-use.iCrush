@@ -20,7 +20,7 @@
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.6.8/build/image2D.min.js"></script>
+{{CDN}}
             </pre>
         </div>
         <p>如果你想通过npm方式管理，首先你需要通过命令行安装image2D，就像这样：</p>
@@ -122,7 +122,13 @@ $$("canvas")
 <script>
     import changeActive from '../../Service/changeActive.js';
     import fixedScroll from '../../Service/fixedScroll.js';
+    import pkg from '../../../../package.json';
     export default {
+        data() {
+            return {
+                CDN: '<script src="https://cdn.jsdelivr.net/npm/image2d@' + pkg.version + '/build/image2D.min.js"><\/script>'
+            };
+        },
         created() {
             changeActive('menu-2', 'how-to-use');
         },
