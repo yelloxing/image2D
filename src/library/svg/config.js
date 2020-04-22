@@ -78,7 +78,7 @@ export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
 
 // 画圆统一设置方法
 export let initCircle = function (painter, cx, cy, r) {
-    if (painter[0].nodeName.toLowerCase() !== 'circle') throw new Error('Need a <circle> !');
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'circle') throw new Error('Need a <circle> !');
     painter.attr({
         "cx": cx,
         "cy": cy,
@@ -89,14 +89,14 @@ export let initCircle = function (painter, cx, cy, r) {
 
 // 路径统一设置方法
 export let initPath = function (painter, path) {
-    if (painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
     painter.attr('d', path);
     return painter;
 };
 
 // 画矩形统一设置方法
 export let initRect = function (painter, x, y, width, height) {
-    if (painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
     painter.attr({
         "x": x,
         "y": y,

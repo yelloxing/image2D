@@ -41,8 +41,8 @@
   },
   "dependencies": {
     "@yelloxing/normalize.css": "^0.2.1",
-    "icrush": "^1.6.0",
-    "image2d": "^1.6.7",
+    "icrush": "^1.6.2",
+    "image2d": "^1.6.8",
     "promise-polyfill": "8.1.3"
   }
 }

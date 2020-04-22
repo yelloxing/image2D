@@ -143,3 +143,7 @@ v1.6.6
     changes:
       -  添加颜色格式化方法formatColor（把颜色统一转变成rgba(x,x,x,x)格式，返回数字数组[r,g,b,a]）
       -  添加一组随机色彩获取方法getRandomColors
+v1.6.8
+    date:2020-04-22
+    changes:
+      -  针对使用SVG绘图，添加更健壮的错误提示

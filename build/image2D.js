@@ -4,14 +4,14 @@
 *
 * author 心叶
 *
-* version 1.6.7
+* version 1.6.8
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Apr 20 2020 19:29:34 GMT+0800 (GMT+08:00)
+* Date:Wed Apr 22 2020 16:48:30 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2192,7 +2192,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 画圆统一设置方法
     var initCircle$1 = function initCircle$1(painter, cx, cy, r) {
-        if (painter[0].nodeName.toLowerCase() !== 'circle') throw new Error('Need a <circle> !');
+        if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'circle') throw new Error('Need a <circle> !');
         painter.attr({
             "cx": cx,
             "cy": cy,
@@ -2203,14 +2203,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 路径统一设置方法
     var initPath = function initPath(painter, path) {
-        if (painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+        if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
         painter.attr('d', path);
         return painter;
     };
 
     // 画矩形统一设置方法
     var initRect$1 = function initRect$1(painter, x, y, width, height) {
-        if (painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+        if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
         painter.attr({
             "x": x,
             "y": y,
