@@ -59,9 +59,21 @@
                 this.goRouter(page => this.page = page, [pagename]);
             },
             openEdit() {
+
+                let fileurl;
+
+                try {
+                    fileurl = window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '').replace(/^\//, "");
+                    if (fileurl == 'api') {
+                        fileurl = "api/how-to-use";
+                    }
+                } catch (e) {
+                    fileurl = 'guide';
+                }
+
                 window.location.href =
                     "https://github.com/yelloxing/image2D/edit/dev/docs/src/Pages/" +
-                    window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '') +
+                    fileurl +
                     ".iCrush";
             }
         }

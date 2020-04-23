@@ -34,7 +34,7 @@ import $$ from 'image2d';
 <h2 align="center">图表用例</h2>
 
 <p align="center"><a href="https://image2d.github.io/examples/index.html" target="_blank" rel="noopener noreferrer">
-<img width="700" src="./docs/examples.jpg" alt="image2D example"></a></p>
+<img width="700" src="./docs/examples.png" alt="image2D example"></a></p>
 
 除了基本的测试和实验性功能的验证或探索外，为了更好的实践绘图库的友好性，我们建立了一个专门用于交流和分享的地方：[image2D讨论角](https://github.com/image2D)，此外，我们会在[examples](https://github.com/image2D/examples)中添加一些比较随意的用例。
 
