@@ -34,9 +34,9 @@ import $$ from 'image2d';
 <h2 align="center">图表用例</h2>
 
 <p align="center"><a href="https://image2d.github.io/examples/index.html" target="_blank" rel="noopener noreferrer">
-<img width="700" src="./docs/examples.png" alt="image2D example"></a></p>
+<img width="700" src="./docs/examples.png" alt="image2D 用例截图"></a></p>
 
-除了基本的测试和实验性功能的验证或探索外，为了更好的实践绘图库的友好性，我们建立了一个专门用于交流和分享的地方：[image2D讨论角](https://github.com/image2D)，此外，我们会在[examples](https://github.com/image2D/examples)中添加一些比较随意的用例。
+此外，我们为了营造更自由的氛围，特地建立了一个专门用于交流和分享的地方：[image2D讨论角](https://github.com/image2D)，如果想加入其中可以通过[issue](https://github.com/yelloxing/image2D/issues)联系我们
 
 ## 相关项目 
 
@@ -45,10 +45,12 @@ import $$ from 'image2d';
 | [image3D]          | [![image3D-status]][image3D-package] | 基于WebGL开发的3D绘图库 |
 | [lookview]          | [![lookview-status]][lookview-package] | 一个轻量级图表组件库 |
 | [iCrush]          | [![iCrush-status]][iCrush-package] | 文档依赖框架 |
+| [examples]          | [🍎 🍪 🍦 🍓][examples-websit] | 一些比较随意的用例 |
 
 [lookview]: https://github.com/yelloxing/lookview
 [image3D]: https://github.com/yelloxing/image3D
 [iCrush]: https://github.com/yelloxing/iCrush
+[examples]: https://github.com/image2D/examples
 
 [lookview-status]: https://img.shields.io/npm/v/lookview.svg
 [image3D-status]: https://img.shields.io/npm/v/image3d.svg
@@ -57,6 +59,8 @@ import $$ from 'image2d';
 [lookview-package]: https://npmjs.com/package/lookview
 [image3D-package]: https://npmjs.com/package/image3d
 [iCrush-package]: https://npmjs.com/package/icrush
+
+[examples-websit]: https://image2d.github.io/examples/index.html
 
 ## 开源协议
 
