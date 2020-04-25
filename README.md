@@ -45,12 +45,12 @@ import $$ from 'image2d';
 | [image3D]          | [![image3D-status]][image3D-package] | 基于WebGL开发的3D绘图库 |
 | [lookview]          | [![lookview-status]][lookview-package] | 一个轻量级图表组件库 |
 | [iCrush]          | [![iCrush-status]][iCrush-package] | 文档依赖框架 |
-| [example]          | [🍎 🍪 🍦 🍓][example-websit] | 一些比较随意的用例 |
+| [examples]          | [🍎 🍪 🍦 🍓][examples-websit] | 一些比较随意的用例 |
 
 [lookview]: https://github.com/yelloxing/lookview
 [image3D]: https://github.com/yelloxing/image3D
 [iCrush]: https://github.com/yelloxing/iCrush
-[example]: https://github.com/image2D/examples
+[examples]: https://github.com/image2D/examples
 
 [lookview-status]: https://img.shields.io/npm/v/lookview.svg
 [image3D-status]: https://img.shields.io/npm/v/image3d.svg
@@ -60,7 +60,7 @@ import $$ from 'image2d';
 [image3D-package]: https://npmjs.com/package/image3d
 [iCrush-package]: https://npmjs.com/package/icrush
 
-[example-websit]: https://image2d.github.io/examples/index.html
+[examples-websit]: https://image2d.github.io/examples/index.html
 
 ## 开源协议
 
