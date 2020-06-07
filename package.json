@@ -1,6 +1,6 @@
 {
   "name": "image2d",
-  "version": "1.6.8",
+  "version": "1.7.0",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
   "scripts": {
@@ -13,9 +13,6 @@
     "build:uglifyjs": "cuf --config ./cuf.config.js uglifyjs",
     "support": "npx browserslist",
     "server": "cuf --server 30000"
-  },
-  "bin": {
-    "image2d-cli": "bin/cli"
   },
   "keywords": [
     "image",
@@ -46,12 +43,10 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^8.0.0",
+    "cuf": "^1.2.0",
     "rollup": "^1.17.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "uglify-js": "^3.5.6"
-  },
-  "dependencies": {
-    "cuf": "^1.2.0"
   }
 }

@@ -1,9 +1,0 @@
-#!/usr/bin/env node
-
-'use strict';
-
-process.title = 'image2d-cli';
-
-const cuf = require('cuf');
-
-cuf.log('\n🍇 You may need to go → https://github.com/image2D/README\n');

@@ -1,7 +1,7 @@
 <template>
     <div class='root'>
         <header>
-            image2D.js 官方文档<span :title='info'>{{version}}</span>
+            image2D.js 官方文档<span :title='info' @click='goNpmList()'>{{version}}</span>
             <p>
                 本文档由
                 <a href="https://github.com/yelloxing/iCrush" title='文档使用框架'>iCrush</a>
@@ -194,6 +194,11 @@
                 version: pkg.version,
                 info: "本文档对应image2D.js的版本是v" + pkg.version + "。"
             };
+        },
+        methods: {
+            goNpmList() {
+                window.location.href = 'https://github.com/yelloxing/image2D/blob/master/CHANGELOG';
+            }
         },
         created() {
             changeActive('menu-1', 'guide');
