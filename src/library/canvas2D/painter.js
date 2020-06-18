@@ -15,7 +15,22 @@ export default function (canvas) {
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
     if (width == 0 || height == 0) {
-        throw new Error('Canvas is hidden or size is zero!');
+        console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+
+        if (canvas.__image2D__noLayer_getSize__ == 'yes') {
+
+            width = canvas.width / 2;
+            height = canvas.height / 2;
+
+        } else {
+
+            width = canvas.width;
+            height = canvas.height;
+
+            // 标记已经特殊获取大小了
+            canvas.__image2D__noLayer_getSize__ = 'yes';
+        }
+
     }
 
     // 设置显示大小

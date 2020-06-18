@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "main": "dist/main.js",
   "scripts": {
