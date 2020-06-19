@@ -11,7 +11,8 @@ import Matrix4 from '@yelloxing/core.js/tools/Matrix4';
 import animation from './library/calculate/animation';
 import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';
-import { formatColor, getRandomColors } from './library/calculate/color.js';
+import { formatColor, getRandomColors } from './library/calculate/color';
+import { stopPropagation, preventDefault } from './library/xhtml/event';
 image2D.extend({
 
     // 布局
@@ -30,7 +31,10 @@ image2D.extend({
     cardinal,
 
     // 色彩类
-    formatColor, getRandomColors
+    formatColor, getRandomColors,
+
+    // 事件相关
+    stopPropagation, preventDefault
 
 });
 
@@ -45,16 +49,17 @@ image2D.extend({
  * 后者只是单纯的方法，前者是针对image2D对象维护的结点进行操作
  */
 import { appendTo, prependTo, afterTo, beforeTo, remove, filter, text } from './library/xhtml/dom';
+import { size } from './library/xhtml/calculate';
 import style from './library/xhtml/style';
 import attribute from './library/xhtml/attribute';
 import { datum, data, enter, exit, loop } from './library/xhtml/data';
-import { bind, position } from './library/xhtml/event';
+import { bind, unbind, position } from './library/xhtml/event';
 import painter from './library/painter';
 import layer from './library/canvas2D/layer';
 image2D.prototype.extend({
 
     // 结点操作
-    appendTo, prependTo, afterTo, beforeTo, remove, filter, text,
+    appendTo, prependTo, afterTo, beforeTo, remove, filter, text, size,
 
     // 结点属性或样式操作
     css: style, attr: attribute,
@@ -63,7 +68,7 @@ image2D.prototype.extend({
     datum, data, enter, exit, loop,
 
     // 结点事件
-    bind, position,
+    bind, unbind, position,
 
     // 自定义画笔
     painter,

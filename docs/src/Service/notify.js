@@ -19,5 +19,7 @@ export default function (title, message) {
                 }
             });
         }
+    } else {
+        alert("[" + title + "]" + message);
     }
 }

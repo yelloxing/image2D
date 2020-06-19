@@ -2,16 +2,16 @@
 * image2D - 🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.
 * git+https://github.com/yelloxing/image2D.git
 *
-* author 心叶
+* author 心叶(yelloxing@gmail.com)
 *
-* version 1.7.0
+* version 1.7.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Thu Jun 18 2020 14:51:21 GMT+0800 (GMT+08:00)
+* Date:Fri Jun 19 2020 16:18:29 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1531,6 +1531,93 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     /**
+     * 绑定事件
+     * @param {string} eventType
+     * @param {function} callback
+     */
+    var bind = function bind(eventType, callback) {
+
+        if (window.attachEvent) {
+            for (var flag = 0; flag < this.length; flag++) {
+                this[flag].attachEvent("on" + eventType, callback);
+            } // 后绑定的先执行
+        } else {
+            for (var _flag2 = 0; _flag2 < this.length; _flag2++) {
+                this[_flag2].addEventListener(eventType, callback, false);
+            } // 捕获
+        }
+
+        return this;
+    };
+
+    /**
+     * 解除绑定事件
+     * @param {string} eventType
+     * @param {function} handler
+     */
+    var unbind = function unbind(eventType, handler) {
+
+        if (window.detachEvent) {
+            for (var flag = 0; flag < this.length; flag++) {
+                this[flag].detachEvent("on" + eventType, handler);
+            }
+        } else {
+            for (var _flag3 = 0; _flag3 < this.length; _flag3++) {
+                this[_flag3].removeEventListener(eventType, handler, false);
+            }
+        }
+
+        return this;
+    };
+
+    /**
+     * 获取鼠标相对特定元素左上角位置
+     * @param {Event} event
+     */
+    var position = function position(event) {
+
+        // 返回元素的大小及其相对于视口的位置
+        var bounding = this[0].getBoundingClientRect();
+
+        if (!event || !event.clientX) throw new Error('Event is necessary!');
+        return {
+
+            // 鼠标相对元素位置 = 鼠标相对窗口坐标 - 元素相对窗口坐标
+            "x": event.clientX - bounding.left,
+            "y": event.clientY - bounding.top
+        };
+    };
+
+    /**
+     * 阻止冒泡
+     * @param {Event} event 
+     */
+    var stopPropagation = function stopPropagation(event) {
+        event = event || window.event;
+        if (event.stopPropagation) {
+            //这是其他非IE浏览器
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+        return this;
+    };
+
+    /**
+     * 阻止默认事件
+     * @param {Event} event 
+     */
+    var preventDefault = function preventDefault(event) {
+        event = event || window.event;
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+        return this;
+    };
+
+    /**
      * 把当前维护的结点加到目标结点内部的结尾
      * @param {selector} target
      * @return {image2D}
@@ -1624,6 +1711,40 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
         if (this.length <= 0) throw new Error('Target empty!');
         return this[0].textContent;
+    };
+
+    // 获取元素大小
+    var size = function size(type) {
+        if (this.length <= 0) throw new Error('Target empty!');
+
+        var elemHeight = void 0,
+            elemWidth = void 0,
+            dom = this[0];
+
+        if (type == 'content') {
+            //内容
+            elemWidth = dom.clientWidth - (getStyle(dom, 'padding-left') + "").replace('px', '') - (getStyle(dom, 'padding-right') + "").replace('px', '');
+            elemHeight = dom.clientHeight - (getStyle(dom, 'padding-top') + "").replace('px', '') - (getStyle(dom, 'padding-bottom') + "").replace('px', '');
+        } else if (type == 'padding') {
+            //内容+内边距
+            elemWidth = dom.clientWidth;
+            elemHeight = dom.clientHeight;
+        } else if (type == 'border') {
+            //内容+内边距+边框
+            elemWidth = dom.offsetWidth;
+            elemHeight = dom.offsetHeight;
+        } else if (type == 'scroll') {
+            //包含滚动的尺寸（不包括border）
+            elemWidth = dom.scrollWidth;
+            elemHeight = dom.scrollHeight;
+        } else {
+            elemWidth = dom.offsetWidth;
+            elemHeight = dom.offsetHeight;
+        }
+        return {
+            width: elemWidth,
+            height: elemHeight
+        };
     };
 
     /**
@@ -1772,44 +1893,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         for (var i = 0; i < this.length; i++) {
             doback(this[i].__data__, i, image2D(this[i]));
         }return this;
-    };
-
-    /**
-     * 绑定事件
-     * @param {string} eventType
-     * @param {function} callback
-     */
-    var bind = function bind(eventType, callback) {
-
-        if (window.attachEvent) {
-            for (var flag = 0; flag < this.length; flag++) {
-                this[flag].attachEvent("on" + eventType, callback);
-            } // 后绑定的先执行
-        } else {
-            for (var _flag2 = 0; _flag2 < this.length; _flag2++) {
-                this[_flag2].addEventListener(eventType, callback, false);
-            } // 捕获
-        }
-
-        return this;
-    };
-
-    /**
-     * 获取鼠标相对特定元素左上角位置
-     * @param {Event} event
-     */
-    var position = function position(event) {
-
-        // 返回元素的大小及其相对于视口的位置
-        var bounding = this[0].getBoundingClientRect();
-
-        if (!event || !event.clientX) throw new Error('Event is necessary!');
-        return {
-
-            // 鼠标相对元素位置 = 鼠标相对窗口坐标 - 元素相对窗口坐标
-            "x": event.clientX - bounding.left,
-            "y": event.clientY - bounding.top
-        };
     };
 
     // r1和r2，内半径和外半径
@@ -2608,13 +2691,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         cardinal: cardinal,
 
         // 色彩类
-        formatColor: formatColor, getRandomColors: getRandomColors
+        formatColor: formatColor, getRandomColors: getRandomColors,
+
+        // 事件相关
+        stopPropagation: stopPropagation, preventDefault: preventDefault
 
     });
     image2D.prototype.extend({
 
         // 结点操作
-        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text,
+        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text, size: size,
 
         // 结点属性或样式操作
         css: style, attr: attribute,
@@ -2623,7 +2709,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         datum: datum, data: data, enter: enter, exit: exit, loop: loop,
 
         // 结点事件
-        bind: bind, position: position,
+        bind: bind, unbind: unbind, position: position,
 
         // 自定义画笔
         painter: painter,

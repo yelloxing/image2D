@@ -17,6 +17,24 @@ export let bind = function (eventType, callback) {
 };
 
 /**
+ * 解除绑定事件
+ * @param {string} eventType
+ * @param {function} handler
+ */
+export let unbind = function (eventType, handler) {
+
+    if (window.detachEvent) {
+        for (let flag = 0; flag < this.length; flag++)
+            this[flag].detachEvent("on" + eventType, handler);
+    } else {
+        for (let flag = 0; flag < this.length; flag++)
+            this[flag].removeEventListener(eventType, handler, false);
+    }
+
+    return this;
+};
+
+/**
  * 获取鼠标相对特定元素左上角位置
  * @param {Event} event
  */
@@ -33,4 +51,32 @@ export let position = function (event) {
         "x": event.clientX - bounding.left,
         "y": event.clientY - bounding.top
     };
+};
+
+/**
+ * 阻止冒泡
+ * @param {Event} event 
+ */
+export let stopPropagation = function (event) {
+    event = event || window.event;
+    if (event.stopPropagation) { //这是其他非IE浏览器
+        event.stopPropagation();
+    } else {
+        event.cancelBubble = true;
+    }
+    return this;
+};
+
+/**
+ * 阻止默认事件
+ * @param {Event} event 
+ */
+export let preventDefault = function (event) {
+    event = event || window.event;
+    if (event.preventDefault) {
+        event.preventDefault();
+    } else {
+        event.returnValue = false;
+    }
+    return this;
 };

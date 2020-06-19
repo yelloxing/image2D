@@ -1,6 +1,6 @@
 {
   "name": "image2d",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
   "scripts": {
@@ -11,32 +11,26 @@
     "build:bundle": "cuf --config ./cuf.config.js bundle",
     "build:babel": "cuf --config ./cuf.config.js babel",
     "build:uglifyjs": "cuf --config ./cuf.config.js uglifyjs",
-    "support": "npx browserslist",
     "server": "cuf --server 30000"
   },
   "keywords": [
     "image",
     "algorithm",
     "svg",
-    "canvas"
+    "canvas",
+    "tree",
+    "js"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yelloxing/image2D.git"
   },
-  "author": "心叶",
+  "author": "心叶(yelloxing@gmail.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yelloxing/image2D/issues"
   },
   "homepage": "https://yelloxing.github.io/image2D/index.html",
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "ie > 8",
-    "chrome >= 61",
-    "firefox >= 65"
-  ],
   "devDependencies": {
     "@yelloxing/core.js": "^0.3.7",
     "babel-core": "^6.26.0",

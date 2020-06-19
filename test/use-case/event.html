@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../../docs/src/assets/image2D.png">
+    <script src="../../build/image2D.js"></script>
+    <title>image2D - 用例测试 - 事件</title>
+</head>
+
+<body>
+
+    <h2>
+        阻止冒泡
+    </h2>
+
+    <fieldset>
+        <legend>未阻止冒泡</legend>
+        <div onclick='console.error("外层1");'>
+            <input type="text" value='点击我' id='stopPropagation1'>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>阻止了冒泡</legend>
+        <div onclick='console.error("外层2");'>
+            <input type="text" value='点击我' id='stopPropagation2'>
+        </div>
+    </fieldset>
+
+    <h2>
+        事件解除绑定
+    </h2>
+
+    <fieldset>
+        <legend>unbind</legend>
+        <ul>
+            <li id='unbind1'>点击我触发事件</li>
+            <li id='unbind2'>点击我解除前面按钮的绑定事件</li>
+        </ul>
+    </fieldset>
+
+    <script>
+        // 阻止冒泡
+
+        $$('#stopPropagation1').bind('click', function (event) {
+            console.log("内层1");
+        });
+
+        $$('#stopPropagation2').bind('click', function (event) {
+            let _$$ = $$.stopPropagation(event);
+            console.log(_$$);
+            console.log("内层2");
+        });
+
+        // 事件解除绑定
+        var doit = function () {
+            alert('还没有解除绑定');
+        };
+
+        $$('#unbind1').bind('click', doit);
+
+        $$('#unbind2').bind('click', function () {
+            alert('解除了，再去点点上面按钮试试');
+            $$('#unbind1').unbind('click', doit);
+        });
+
+    </script>
+
+</body>
+
+</html>

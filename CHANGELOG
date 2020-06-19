@@ -155,3 +155,8 @@ v1.7.1
     date:2020-06-18
     changes:
       -  修复由于没有显示而导致浏览器未渲染的canvas无法绘制图片问题
+v1.7.2
+    date:2020-06-19
+    changes:
+      -  丰富静态方法（stopPropagation + preventDefault）
+      -  丰富结点对象方法（unbind + size）

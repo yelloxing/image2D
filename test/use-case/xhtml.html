@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../../docs/src/assets/image2D.png">
+    <script src="../../build/image2D.js"></script>
+    <title>image2D - 用例测试 - 普通结点操作</title>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>size</legend>
+        <div id='size-dom'
+            style='display:inline-block;width:100px;height:100px;padding:10px;border:20px solid red;background:pink;outline: 1px solid blue;overflow: auto;box-sizing: content-box;'>
+            <div style='height: 300px;background-color: aqua;'></div>
+        </div>
+        </div>
+    </fieldset>
+
+    <script>
+        console.log('>size<');
+
+        console.warn($$('#size-dom').size(), 'height:160');
+        console.warn($$('#size-dom').size('error'), 'height:160');
+        console.log($$('#size-dom').size("content"), 'height:100');
+        console.log($$('#size-dom').size("padding"), 'height:120');
+        console.log($$('#size-dom').size("border"), 'height:160');
+        console.log($$('#size-dom').size("scroll"), 'height:320');
+
+    </script>
+
+</body>
+
+</html>

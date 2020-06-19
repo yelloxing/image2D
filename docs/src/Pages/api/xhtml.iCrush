@@ -108,6 +108,26 @@ imageObject.remove();
 imageObject.text([content]);
             </pre>
         </div>
+        <h2 id='fixed-calculate'>
+            计算
+        </h2>
+        <p>
+            计算结点大小：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+imageObject.size(type);
+            </pre>
+        </div>
+        <p>
+            其中type表示计算的尺寸类型，有如下可选：
+        </p>
+        <ul>
+            <li>"content":包含内容部分的尺寸。</li>
+            <li>"padding":内容+内边距。</li>
+            <li>"border":内容+内边距+边框（默认值）。</li>
+            <li>"scroll":包含滚动的尺寸（不包括border）</li>
+        </ul>
         <h2 id='fixed-attribute'>
             样式和属性
         </h2>
@@ -133,7 +153,7 @@ imageObject.css();
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-                imageObject.attr();
+imageObject.attr();
             </pre>
         </div>
         <p>
@@ -156,11 +176,38 @@ imageObject.bind(eventType, callback);
             </pre>
         </div>
         <p>
+            给维护的结点解除绑定事件：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+imageObject.unbind(eventType, handler);
+            </pre>
+        </div>
+        <p>
             获取鼠标相对当前维护的元素左上角位置：
         </p>
         <div ui-copy>
             <pre class="prettyprint">
 imageObject.position(event);
+            </pre>
+        </div>
+        <h4>
+            静态事件方法
+        </h4>
+        <p>
+            阻止冒泡
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+$$.stopPropagation(event);
+            </pre>
+        </div>
+        <p>
+            阻止默认事件
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+$$.preventDefault(event);
             </pre>
         </div>
         <h2 id='fixed-data'>
@@ -250,13 +297,15 @@ imageObject.loop(function(data,index,target){
             fixedScroll();
         }
     };
+
 </script>
 <style>
-.enter_exit{
-    background-image: url("../../assets/enter_exit.png");
-    height: 2.2rem;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: auto 100%;
-}
+    .enter_exit {
+        background-image: url("../../assets/enter_exit.png");
+        height: 2.2rem;
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: auto 100%;
+    }
+
 </style>

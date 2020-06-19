@@ -59,6 +59,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="#/api/xhtml?fixed=calculate" target="_blank">
+                                计算(比如结点大小等常用方法)
+                            </a>
+                        </li>
+                        <li>
                             <a href="#/api/xhtml?fixed=attribute" target="_blank">
                                 样式和属性
                             </a>
@@ -290,4 +295,5 @@
         }
 
     }
+
 </style>
