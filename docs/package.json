@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "main": "dist/main.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "file-loader": "^4.2.0",
     "icrush-loader": "^0.2.1",
     "icrush-loader-plug": "^0.2.1",
-    "icrush-style-loader": "^1.0.0",
+    "icrush-style-loader": "^1.0.3",
     "node-sass": "^4.13.1",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",

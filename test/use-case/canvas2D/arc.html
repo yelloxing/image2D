@@ -20,29 +20,9 @@
         }).appendTo('body');
 
         // 获取并配置画笔
-        var painter = canvas.painter();
+        window.painter = canvas.painter();
 
-        /**
-         * 测试开始
-         * ----------------------------
-         */
-
-        painter.fillArc(200, 200, 140, 200, 0, Math.PI);
-
-        painter.config({
-            "fillStyle": "green",
-            "arc-start-cap": "round"
-        }).fillArc(200, 200, 160, 180, Math.PI / 2, Math.PI);
-
-        painter.config({
-            "strokeStyle": "blue",
-            "arc-end-cap": "round",
-            "arc-start-cap": "butt"
-        }).strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, Math.PI / 4);
-
-        painter.fillArc(200, 200, 10, 30, 0, -Math.PI * 3);
-
-        painter.config("arc-start-cap", "round").fillArc(200, 200, 50, 70, 1, -Math.PI * 2 + 1);
+     
 
     </script>
 </body>
