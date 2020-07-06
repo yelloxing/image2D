@@ -47,7 +47,7 @@ import $$ from 'image2d';
 | [iCrush]          | [![iCrush-status]][iCrush-package] | 文档依赖框架 |
 | [examples]          | [🍎 🍪 🍦 🍓][examples-websit] | 一些比较随意的用例 |
 
-[lookview]: https://github.com/yelloxing/lookview
+[lookview]: https://github.com/image2D/lookview
 [image3D]: https://github.com/yelloxing/image3D
 [iCrush]: https://github.com/yelloxing/iCrush
 [examples]: https://github.com/image2D/examples
