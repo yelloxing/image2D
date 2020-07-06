@@ -18,7 +18,7 @@
                     用例
                 </li>
                 <li title='🍎 🍪 🍦 🍓  图形组件库' class='menu-1'
-                    onclick="window.location.href='https://github.com/yelloxing/lookview'">
+                    onclick="window.location.href='https://image2d.github.io/lookview/'">
                     组件
                 </li>
                 <li title='任何疑惑都可以在这里提问' class='menu-1'
