@@ -1,8 +1,8 @@
-<p align="center"><a href="https://yelloxing.github.io/image2D/index.html" target="_blank" rel="noopener noreferrer">
-<img width="100" src="https://yelloxing.github.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
+<p align="center"><a href="https://yelloxing.gitee.io/image2D/index.html" target="_blank" rel="noopener noreferrer">
+<img width="100" src="https://yelloxing.gitee.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
 
 <p align="center">
-  <a href="https://yelloxing.github.io/npm-downloads?interval=7&packages=image2d"><img src="https://img.shields.io/npm/dm/image2d.svg" alt="downloads"></a>
+  <a href="https://yelloxing.gitee.io/npm-downloads?interval=7&packages=image2d"><img src="https://img.shields.io/npm/dm/image2d.svg" alt="downloads"></a>
   <a href="https://packagephobia.now.sh/result?p=image2d"><img src="https://packagephobia.now.sh/badge?p=image2d" alt="install size"></a>
   <a href="https://www.jsdelivr.com/package/npm/image2d"><img src="https://data.jsdelivr.com/v1/package/npm/image2d/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/image2d"><img src="https://img.shields.io/npm/v/image2d.svg" alt="Version"></a>
@@ -29,16 +29,16 @@ npm install --save image2d
 import $$ from 'image2d';
 ```
 
-具体的接口或相关说明请查阅[接口文档](https://yelloxing.github.io/image2D/index.html)或者在遇到困难的时候通过[issue](https://github.com/yelloxing/image2D/issues)和我们取得联系！
+具体的接口或相关说明请查阅[接口文档](https://yelloxing.gitee.io/image2D/index.html)或者在遇到困难的时候通过[issue](https://github.com/yelloxing/image2D/issues)和我们取得联系！
 
 <h2 align="center">图表用例</h2>
 
-<p align="center"><a href="https://image2d.github.io/examples/index.html" target="_blank" rel="noopener noreferrer">
+<p align="center"><a href="http://yelloxing.gitee.io/image2d-examples/index.html" target="_blank" rel="noopener noreferrer">
 <img width="700" src="./docs/examples.png" alt="image2D 用例截图"></a></p>
 
 此外，我们为了营造更自由的氛围，特地建立了一个专门用于交流和分享的地方：[image2D讨论角](https://github.com/image2D)，如果想加入其中可以通过[issue](https://github.com/yelloxing/image2D/issues)联系我们
 
-## 相关项目 
+## 相关项目
 
 | Project | Status | Description |
 |---------|--------|-------------|
@@ -60,7 +60,7 @@ import $$ from 'image2d';
 [image3D-package]: https://npmjs.com/package/image3d
 [iCrush-package]: https://npmjs.com/package/icrush
 
-[examples-websit]: https://image2d.github.io/examples/index.html
+[examples-websit]: http://yelloxing.gitee.io/image2d-examples/index.html
 
 ## 开源协议
 

@@ -14,11 +14,11 @@
                 </li>
                 <li class="line"></li>
                 <li title='一些绘制的图形用例' class='menu-1'
-                    onclick="window.location.href='https://image2d.github.io/examples/index.html#/menu'">
+                    onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/index.html#/menu'">
                     用例
                 </li>
                 <li title='🍎 🍪 🍦 🍓  图形组件库' class='menu-1'
-                    onclick="window.location.href='https://image2d.github.io/lookview/'">
+                    onclick="window.location.href='http://yelloxing.gitee.io/lookview/index.html'">
                     组件
                 </li>
                 <li title='任何疑惑都可以在这里提问' class='menu-1'
