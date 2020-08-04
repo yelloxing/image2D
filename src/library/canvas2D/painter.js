@@ -95,7 +95,7 @@ export default function (canvas) {
         "moveTo": function (x, y) { painter.moveTo(x, y); return enhancePainter; },
         "lineTo": function (x, y) { painter.lineTo(x, y); return enhancePainter; },
         "arc": function (x, y, r, beginDeg, deg) {
-            painter.arc(x, y, r, beginDeg, beginDeg + deg);
+            painter.arc(x, y, r, beginDeg, beginDeg + deg, deg < 0);
             return enhancePainter;
         },
         "fill": function () { painter.fill(); return enhancePainter; },

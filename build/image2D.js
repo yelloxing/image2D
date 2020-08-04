@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.7.2
+* version 1.8.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Aug 02 2020 00:55:36 GMT+0800 (GMT+08:00)
+* Date:Tue Aug 04 2020 17:46:23 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2101,7 +2101,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 painter.lineTo(x, y);return enhancePainter;
             },
             "arc": function arc(x, y, r, beginDeg, deg) {
-                painter.arc(x, y, r, beginDeg, beginDeg + deg);
+                painter.arc(x, y, r, beginDeg, beginDeg + deg, deg < 0);
                 return enhancePainter;
             },
             "fill": function fill() {

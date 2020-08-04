@@ -38,7 +38,8 @@
             "strokeStyle": "blue",
             "arc-end-cap": "round",
             "arc-start-cap": "butt"
-        }).strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, Math.PI / 4).appendTo(svg);
+        })
+        .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
 
         painter.bind('<path>').fillArc(200, 200, 10, 30, 0, -Math.PI * 3).appendTo(svg);
 
