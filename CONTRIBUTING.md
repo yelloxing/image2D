@@ -28,7 +28,7 @@ Note:这是一个仅仅专注于 *image2D code* 本身开发的项目，在你�
 
 - 【文档维护】位于docs下的接口API的维护工作，针对描述不准确或需要补充等地方，进行文案修改。
 
-- 【用例开发】[Image Demo](https://github.com/image2D/examples)中维护的是基于image2D开发的用例。
+- 【用例开发】[Image Demo](https://github.com/yelloxing/2D-Examples)中维护的是基于image2D开发的用例。
 
 - 【测试】目前测试位于test文件夹中，分为用例测试、单元测试和基准测试，你可以对不合理的用例进行修改或针对未涉及的用例进行添加（测试时发现问题可以提[issue](https://github.com/yelloxing/image2D/issues)）。
 

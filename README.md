@@ -36,27 +36,23 @@ import $$ from 'image2d';
 <p align="center"><a href="http://yelloxing.gitee.io/image2d-examples/index.html" target="_blank" rel="noopener noreferrer">
 <img width="700" src="./docs/examples.png" alt="image2D 用例截图"></a></p>
 
-此外，我们为了营造更自由的氛围，特地建立了一个专门用于交流和分享的地方：[image2D讨论角](https://github.com/image2D)，如果想加入其中可以通过[issue](https://github.com/yelloxing/image2D/issues)联系我们
+如果想加入其中可以通过[issue](https://github.com/yelloxing/image2D/issues)联系我们
 
 ## 相关项目
 
 | Project | Status | Description |
 |---------|--------|-------------|
 | [image3D]          | [![image3D-status]][image3D-package] | 基于WebGL开发的3D绘图库 |
-| [lookview]          | [![lookview-status]][lookview-package] | 一个轻量级图表组件库 |
 | [iCrush]          | [![iCrush-status]][iCrush-package] | 文档依赖框架 |
 | [examples]          | [🍎 🍪 🍦 🍓][examples-websit] | 一些比较随意的用例 |
 
-[lookview]: https://github.com/image2D/lookview
 [image3D]: https://github.com/yelloxing/image3D
 [iCrush]: https://github.com/yelloxing/iCrush
-[examples]: https://github.com/image2D/examples
+[examples]: https://github.com/yelloxing/2D-Examples
 
-[lookview-status]: https://img.shields.io/npm/v/lookview.svg
 [image3D-status]: https://img.shields.io/npm/v/image3d.svg
 [iCrush-status]: https://img.shields.io/npm/v/icrush.svg
 
-[lookview-package]: https://npmjs.com/package/lookview
 [image3D-package]: https://npmjs.com/package/image3d
 [iCrush-package]: https://npmjs.com/package/icrush
 
