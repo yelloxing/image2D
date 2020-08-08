@@ -1,9 +1,9 @@
 {
   "name": "image2d",
-  "version": "1.8.1-alpha.1",
+  "version": "1.8.1-alpha.2",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
-  "typings": "types/index.d.ts",
+  "typings": "./types/index.d.ts",
   "scripts": {
     "start": "npm install && npm run build",
     "build": "npm run build:init && npm run build:bundle && npm run build:babel && npm run build:uglifyjs && npm run build:end",
