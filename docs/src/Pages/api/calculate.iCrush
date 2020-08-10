@@ -164,7 +164,7 @@ matrix4.scale(xTimes, yTimes, zTimes, cx, cy, cz);
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-                matrix4.rotate(deg, a1, b1, c1, a2, b2, c2);
+matrix4.rotate(deg, a1, b1, c1, a2, b2, c2);
             </pre>
         </div>
         <p>
@@ -194,7 +194,7 @@ matrix4.scale(xTimes, yTimes, zTimes, cx, cy, cz);
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-var cardinal=$$.cardinal();     
+var cardinal=$$.cardinal();
             </pre>
         </div>
         <p>
