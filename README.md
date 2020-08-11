@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/image2d@1.8.1/build/image2D.min.js"></script>
 ```
 
-你可以通过CDN的方式引入（[版本历史](https://github.com/yelloxing/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。
+你可以通过CDN的方式引入（[版本历史](https://github.com/yelloxing/image2D/blob/master/.github/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。
 
 ```bash
 npm install --save image2d
