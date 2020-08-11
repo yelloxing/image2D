@@ -6,4 +6,4 @@ image2D是一个用于Web端绘图的ES库，这是一个开源项目，任何�
 
 使用这个库可以帮助你更容易的绘制二维图形，同时库本身提供了一些绘图中实用的工具。
 
-我们欢迎任何人的加入，具体的内容你可以通过访问[贡献指南](https://github.com/yelloxing/image2D/blob/master/CONTRIBUTING.md)来找到你可以参与的部分。当然，任何时候，特别是遇到疑惑，提[issue](https://github.com/yelloxing/image2D/issues)都是不错的选择！
+我们欢迎任何人的加入，具体的内容你可以通过访问[贡献指南](https://github.com/yelloxing/image2D/blob/master/.github/CONTRIBUTING.md)来找到你可以参与的部分。当然，任何时候，特别是遇到疑惑，提[issue](https://github.com/yelloxing/image2D/issues)都是不错的选择！
