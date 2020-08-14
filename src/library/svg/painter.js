@@ -1,6 +1,6 @@
 import image2D from '../core';
 import normalConfig, { initText, initArc, initCircle, initPath, initRect } from './config';
-import { linearGradient,radialGradient } from './Gradient';
+import { linearGradient, radialGradient } from './Gradient';
 import { rotate } from '../calculate/transform';
 
 export default function (target, selector) {
@@ -26,7 +26,10 @@ export default function (target, selector) {
 
         // arc二端闭合方式['butt':直线闭合,'round':圆帽闭合]
         "arc-start-cap": "butt",
-        "arc-end-cap": "butt"
+        "arc-end-cap": "butt",
+
+        // 虚线设置
+        "lineDash": []
 
     };
 
@@ -82,7 +85,12 @@ export default function (target, selector) {
             return enhancePainter;
         },
         "stroke": function () {
-            initPath(painter, path).attr('transform', transform_current).attr({ "stroke-width": config.lineWidth, "stroke": config.strokeStyle, "fill": "none" });
+            initPath(painter, path).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            });
             return enhancePainter;
         },
 
@@ -111,7 +119,11 @@ export default function (target, selector) {
         },
         "strokeText": function (text, x, y, deg) {
             let returnJSon = initText(painter, config, x, y, deg || 0);
-            painter.attr('transform', transform_current + returnJSon.transform).attr({ "stroke": config.strokeStyle, "fill": "none" })[0].textContent = text;
+            painter.attr('transform', transform_current + returnJSon.transform).attr({
+                "stroke": config.strokeStyle,
+                "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            })[0].textContent = text;
             return enhancePainter;
         },
 
@@ -121,7 +133,12 @@ export default function (target, selector) {
             return enhancePainter;
         },
         "strokeArc": function (cx, cy, r1, r2, beginDeg, deg) {
-            initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({ "stroke-width": config.lineWidth, "stroke": config.strokeStyle, "fill": "none" });
+            initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            });
             return enhancePainter;
         },
 
@@ -130,7 +147,12 @@ export default function (target, selector) {
             initCircle(painter, cx, cy, r).attr('transform', transform_current).attr("fill", config.fillStyle); return enhancePainter;
         },
         "strokeCircle": function (cx, cy, r) {
-            initCircle(painter, cx, cy, r).attr('transform', transform_current).attr({ "stroke-width": config.lineWidth, "stroke": config.strokeStyle, "fill": "none" }); return enhancePainter;
+            initCircle(painter, cx, cy, r).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            }); return enhancePainter;
         },
 
         // 矩形
@@ -138,7 +160,12 @@ export default function (target, selector) {
             initRect(painter, x, y, width, height).attr('transform', transform_current).attr("fill", config.fillStyle); return enhancePainter;
         },
         "strokeRect": function (x, y, width, height) {
-            initRect(painter, x, y, width, height).attr('transform', transform_current).attr({ "stroke-width": config.lineWidth, "stroke": config.strokeStyle, "fill": "none" }); return enhancePainter;
+            initRect(painter, x, y, width, height).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            }); return enhancePainter;
         },
 
         /**
@@ -152,7 +179,7 @@ export default function (target, selector) {
         },
 
         // 环形渐变
-        "createRadialGradient":function( cx, cy, r){
+        "createRadialGradient": function (cx, cy, r) {
             return radialGradient(painter, target, cx, cy, r);
         },
 

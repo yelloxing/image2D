@@ -58,6 +58,9 @@
         painter.config('fillStyle', 'red').fillText('红色', 100, 100);
         painter.config({ 'font-size': '30', 'strokeStyle': '#000' }).strokeText('30px', 300, 100, Math.PI / -4);
 
+        // 虚线测试
+        painter.config('lineDash', [10, 3]).config('font-size', '60').strokeText('虚线？', 100, 140);
+
     </script>
 </body>
 

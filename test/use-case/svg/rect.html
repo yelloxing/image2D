@@ -30,6 +30,9 @@
         painter.bind("<rect>").strokeRect(10, 10, 80, 180).appendTo(svg);
         painter.bind("<rect>").fillRect(100, 10, 290, 180).appendTo(svg);
 
+        // 测试虚线
+        painter.config('lineDash', [15, 5]).bind("<rect>").strokeRect(20, 20, 60, 160).appendTo(svg);
+
     </script>
 </body>
 

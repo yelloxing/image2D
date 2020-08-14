@@ -164,3 +164,7 @@ v1.8.0
     date:2020-08-04
     changes:
       -  修复canvas画笔的路径方法arc最后一个参数deg为负的时候绘制方向错误问题
+v1.8.2
+    date:2020-08-14
+    changes:
+      -  添加对虚线设置的支持：https://github.com/yelloxing/image2D/issues/35
