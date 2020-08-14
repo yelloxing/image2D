@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.1
+* version 1.8.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Aug 10 2020 22:59:44 GMT+0800 (GMT+08:00)
+* Date:Fri Aug 14 2020 23:21:43 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2050,11 +2050,41 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         // 默认配置不应该有canvas2D对象已经存在的属性
         // 这里是为了简化或和svg统一接口而自定义的属性
-        var _config2 = {
+        var config = {
             "font-size": "16", // 文字大小
             "font-family": "sans-serif", // 字体
             "arc-start-cap": "butt", // 弧开始闭合方式
             "arc-end-cap": "butt" // 弧结束闭合方式
+        };
+
+        // 配置生效方法
+        var useConfig = function useConfig(key, value) {
+
+            /**
+             * -----------------------------
+             * 特殊的设置开始
+             * -----------------------------
+             */
+
+            if (key == 'lineDash') {
+                painter.setLineDash(value);
+            }
+
+            /**
+             * -----------------------------
+             * 常规的配置开始
+             * -----------------------------
+             */
+
+            // 如果已经存在默认配置中，说明只需要缓存起来即可
+            else if (config[key]) {
+                    config[key] = value;
+                }
+
+                // 其它情况直接生效即可
+                else {
+                        painter[key] = value;
+                    }
         };
 
         // 画笔
@@ -2065,10 +2095,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 if (arguments.length === 1) {
                     if (_typeof(arguments[0]) !== 'object') return painter[arguments[0]];
                     for (var key in arguments[0]) {
-                        if (_config2[key]) _config2[key] = arguments[0][key];else painter[key] = arguments[0][key];
+                        useConfig(key, arguments[0][key]);
                     }
                 } else if (arguments.length === 2) {
-                    if (_config2[arguments[0]]) _config2[arguments[0]] = arguments[1];else painter[arguments[0]] = arguments[1];
+                    useConfig(arguments[0], arguments[1]);
                 }
                 return enhancePainter;
             },
@@ -2076,13 +2106,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 文字
             "fillText": function fillText(text, x, y, deg) {
                 painter.save();
-                initText(painter, _config2, x, y, deg || 0).fillText(text, 0, 0);
+                initText(painter, config, x, y, deg || 0).fillText(text, 0, 0);
                 painter.restore();
                 return enhancePainter;
             },
             "strokeText": function strokeText(text, x, y, deg) {
                 painter.save();
-                initText(painter, _config2, x, y, deg || 0).strokeText(text, 0, 0);
+                initText(painter, config, x, y, deg || 0).strokeText(text, 0, 0);
                 painter.restore();
                 return enhancePainter;
             },
@@ -2165,10 +2195,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             // 弧
             "fillArc": function fillArc(cx, cy, r1, r2, beginDeg, deg) {
-                initArc(painter, _config2, cx, cy, r1, r2, beginDeg, deg).fill();return enhancePainter;
+                initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).fill();return enhancePainter;
             },
             "strokeArc": function strokeArc(cx, cy, r1, r2, beginDeg, deg) {
-                initArc(painter, _config2, cx, cy, r1, r2, beginDeg, deg).stroke();return enhancePainter;
+                initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).stroke();return enhancePainter;
             },
 
             // 圆形
@@ -2367,7 +2397,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (selector) painter = image2D(selector, target);
 
         // 类似canvas画笔的属性
-        var _config3 = {
+        var _config2 = {
 
             // 基本设置
             "fillStyle": "#000",
@@ -2384,7 +2414,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             // arc二端闭合方式['butt':直线闭合,'round':圆帽闭合]
             "arc-start-cap": "butt",
-            "arc-end-cap": "butt"
+            "arc-end-cap": "butt",
+
+            // 虚线设置
+            "lineDash": []
 
         };
 
@@ -2402,11 +2435,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 属性设置或获取
             "config": function config() {
                 if (arguments.length === 1) {
-                    if (_typeof(arguments[0]) !== 'object') return _config3[arguments[0]];
+                    if (_typeof(arguments[0]) !== 'object') return _config2[arguments[0]];
                     for (var key in arguments[0]) {
-                        _config3[key] = normalConfig(key, arguments[0][key]);
+                        _config2[key] = normalConfig(key, arguments[0][key]);
                     }
-                } else if (arguments.length === 2) _config3[arguments[0]] = normalConfig(arguments[0], arguments[1]);
+                } else if (arguments.length === 2) _config2[arguments[0]] = normalConfig(arguments[0], arguments[1]);
                 return enhancePainter;
             },
 
@@ -2457,11 +2490,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 return enhancePainter;
             },
             "fill": function fill() {
-                initPath(painter, path).attr('transform', transform_current).attr("fill", _config3.fillStyle);
+                initPath(painter, path).attr('transform', transform_current).attr("fill", _config2.fillStyle);
                 return enhancePainter;
             },
             "stroke": function stroke() {
-                initPath(painter, path).attr('transform', transform_current).attr({ "stroke-width": _config3.lineWidth, "stroke": _config3.strokeStyle, "fill": "none" });
+                initPath(painter, path).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
                 return enhancePainter;
             },
 
@@ -2484,40 +2522,59 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             // 文字
             "fillText": function fillText(text, x, y, deg) {
-                var returnJSon = initText$1(painter, _config3, x, y, deg || 0);
-                painter.attr('transform', transform_current + returnJSon.transform).attr("fill", _config3.fillStyle)[0].textContent = text;
+                var returnJSon = initText$1(painter, _config2, x, y, deg || 0);
+                painter.attr('transform', transform_current + returnJSon.transform).attr("fill", _config2.fillStyle)[0].textContent = text;
                 return enhancePainter;
             },
             "strokeText": function strokeText(text, x, y, deg) {
-                var returnJSon = initText$1(painter, _config3, x, y, deg || 0);
-                painter.attr('transform', transform_current + returnJSon.transform).attr({ "stroke": _config3.strokeStyle, "fill": "none" })[0].textContent = text;
+                var returnJSon = initText$1(painter, _config2, x, y, deg || 0);
+                painter.attr('transform', transform_current + returnJSon.transform).attr({
+                    "stroke": _config2.strokeStyle,
+                    "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                })[0].textContent = text;
                 return enhancePainter;
             },
 
             // 弧
             "fillArc": function fillArc(cx, cy, r1, r2, beginDeg, deg) {
-                initArc$1(painter, _config3, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr("fill", _config3.fillStyle);
+                initArc$1(painter, _config2, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr("fill", _config2.fillStyle);
                 return enhancePainter;
             },
             "strokeArc": function strokeArc(cx, cy, r1, r2, beginDeg, deg) {
-                initArc$1(painter, _config3, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({ "stroke-width": _config3.lineWidth, "stroke": _config3.strokeStyle, "fill": "none" });
+                initArc$1(painter, _config2, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
                 return enhancePainter;
             },
 
             // 圆形
             "fillCircle": function fillCircle(cx, cy, r) {
-                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr("fill", _config3.fillStyle);return enhancePainter;
+                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr("fill", _config2.fillStyle);return enhancePainter;
             },
             "strokeCircle": function strokeCircle(cx, cy, r) {
-                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr({ "stroke-width": _config3.lineWidth, "stroke": _config3.strokeStyle, "fill": "none" });return enhancePainter;
+                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
             },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
-                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr("fill", _config3.fillStyle);return enhancePainter;
+                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr("fill", _config2.fillStyle);return enhancePainter;
             },
             "strokeRect": function strokeRect(x, y, width, height) {
-                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr({ "stroke-width": _config3.lineWidth, "stroke": _config3.strokeStyle, "fill": "none" });return enhancePainter;
+                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
             },
 
             /**

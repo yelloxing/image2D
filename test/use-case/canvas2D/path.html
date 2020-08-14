@@ -42,7 +42,16 @@
                 "strokeStyle": "blue",
                 "lineWidth": "10"
             })
-            .arc(120, 120, 50, Math.PI / 3, -Math.PI/2)
+            .arc(120, 120, 50, Math.PI / 3, -Math.PI / 2)
+            .stroke();
+
+        // 测试虚线
+        painter
+            .config({
+                'lineDash': [10, 10, 40]
+            })
+            .beginPath()
+            .lineTo(100, 50).lineTo(300, 100).arc(120, 120, 50, Math.PI / 3, -Math.PI / 2)
             .stroke();
 
     </script>

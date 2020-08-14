@@ -48,6 +48,16 @@
             .stroke()
             .appendTo(svg);
 
+        // 测试虚线
+        painter.bind("<path>")
+            .config({
+                'lineDash': [10, 10, 40]
+            })
+            .beginPath()
+            .lineTo(100, 50).lineTo(300, 100).arc(120, 120, 50, Math.PI / 3, -Math.PI / 2)
+            .stroke()
+            .appendTo(svg);
+
     </script>
 </body>
 

@@ -30,6 +30,9 @@
         painter.bind("<circle>").strokeCircle(100, 100, 90).appendTo(svg);
         painter.bind("<circle>").fillCircle(300, 100, 70).appendTo(svg);
 
+        // 测试虚线
+        painter.config('lineDash', [15]).bind("<circle>").strokeCircle(100, 100, 70).appendTo(svg);
+
     </script>
 </body>
 

@@ -57,6 +57,9 @@
         painter.config('fillStyle', 'red').bind('<text>').fillText('红色', 100, 100).appendTo(svg);
         painter.bind('<text>').config('font-size', '30').strokeText('30px', 300, 100, Math.PI / -4).appendTo(svg);
 
+        // 虚线测试
+        painter.bind('<text>').config('lineDash', [10, 3]).config('font-size', '60').strokeText('虚线？', 100, 140).appendTo(svg);
+
     </script>
 </body>
 

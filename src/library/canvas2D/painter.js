@@ -57,6 +57,36 @@ export default function (canvas) {
         "arc-end-cap": "butt" // 弧结束闭合方式
     };
 
+    // 配置生效方法
+    let useConfig = (key, value) => {
+
+        /**
+         * -----------------------------
+         * 特殊的设置开始
+         * -----------------------------
+         */
+
+        if (key == 'lineDash') {
+            painter.setLineDash(value);
+        }
+
+        /**
+         * -----------------------------
+         * 常规的配置开始
+         * -----------------------------
+         */
+
+        // 如果已经存在默认配置中，说明只需要缓存起来即可
+        else if (config[key]) {
+            config[key] = value;
+        }
+
+        // 其它情况直接生效即可
+        else {
+            painter[key] = value;
+        }
+    };
+
     // 画笔
     let enhancePainter = {
 
@@ -65,12 +95,10 @@ export default function (canvas) {
             if (arguments.length === 1) {
                 if (typeof arguments[0] !== 'object') return painter[arguments[0]];
                 for (let key in arguments[0]) {
-                    if (config[key]) config[key] = arguments[0][key];
-                    else painter[key] = arguments[0][key];
+                    useConfig(key, arguments[0][key]);
                 }
             } else if (arguments.length === 2) {
-                if (config[arguments[0]]) config[arguments[0]] = arguments[1];
-                else painter[arguments[0]] = arguments[1];
+                useConfig(arguments[0], arguments[1]);
             }
             return enhancePainter;
         },

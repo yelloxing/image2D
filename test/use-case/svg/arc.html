@@ -39,11 +39,22 @@
             "arc-end-cap": "round",
             "arc-start-cap": "butt"
         })
-        .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
+            .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
 
         painter.bind('<path>').fillArc(200, 200, 10, 30, 0, -Math.PI * 3).appendTo(svg);
 
         painter.bind('<path>').config("arc-start-cap", "round").fillArc(200, 200, 50, 70, 1, -Math.PI * 2 + 1).appendTo(svg);
+
+        // 测试虚线
+        painter
+            .bind('<path>')
+            .config('lineDash', [5])
+            .config('lineWidth', 10)
+            .strokeArc(200, 200, 100, 130, 0, Math.PI)
+            .appendTo(svg)
+            .bind('<path>')
+            .fillArc(200, 200, 100, 130, 0, -Math.PI)
+            .appendTo();
 
     </script>
 </body>

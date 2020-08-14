@@ -42,7 +42,11 @@ painter.config();
             <li>"font-family":字体，默认"sans-serif"。</li>
             <li>"arc-start-cap":圆弧开始端闭合方式，默认"butt"直线闭合（还有"round"圆帽闭合）。</li>
             <li>"arc-end-cap":圆弧结束端闭合方式，和上一个类似。</li>
+            <li>"lineDash":设置线条虚线，默认为[]表示使用实线绘制。</li>
         </ul>
+        <p class="warn">
+            上面的配置项lineDash值应该是一个数组，格式：[实线长，虚线长，实线长 ...]，数组长度任意，会自动循环！
+        </p>
         <h2 id='fixed-canvas2d'>
             位图画笔
         </h2>
@@ -100,7 +104,7 @@ var painter=imageObject.painter(selector);
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-                painter.bind(selector);
+painter.bind(selector);
             </pre>
         </div>
         <p>
