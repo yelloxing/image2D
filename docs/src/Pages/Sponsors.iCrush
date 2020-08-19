@@ -1,0 +1,20 @@
+<template>
+    <div></div>
+</template>
+<script>
+    import changeActive from '../Service/changeActive.js';
+    export default {
+        created() {
+            changeActive('menu-1', 'Sponsors');
+        }
+    };
+</script>
+<style>
+    div {
+        background-image: url('../assets/zfb.jpg');
+        height: 400px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: auto 100%;
+    }
+</style>

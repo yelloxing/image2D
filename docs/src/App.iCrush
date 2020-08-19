@@ -31,6 +31,9 @@
                         开源中国
                     </span>
                 </li>
+                <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持！'>
+                    Sponsors
+                </li>
             </ul>
         </nav>
         <div>
@@ -118,10 +121,6 @@
                         margin: 0 .1rem;
                     }
 
-                    &[active='yes'] {
-                        color: red;
-                    }
-
                     &.git-url {
                         background-image: url('./assets/github.png');
                         font-size: 0;
@@ -137,6 +136,17 @@
                         background-image: url("./assets/edit.png");
                         background-size: 100% auto;
                         font-size: 0;
+                    }
+
+                    &.Sponsors {
+                        color: #d1bba1;
+                        font-weight: 800;
+                        font-size: 16px;
+                        font-family: fantasy;
+                    }
+
+                    &[active='yes'] {
+                        color: red;
                     }
 
                     &>span {

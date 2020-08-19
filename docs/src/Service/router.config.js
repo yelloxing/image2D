@@ -24,6 +24,9 @@ const pages = {
     "QA": {
         "content": () => import('../Pages/QA.iCrush')
     },
+    "Sponsors": {
+        "content": () => import('../Pages/Sponsors.iCrush')
+    },
     "_default_": "guide"
 };
 
