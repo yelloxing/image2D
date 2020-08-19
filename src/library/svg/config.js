@@ -18,7 +18,6 @@ export default function (key, value) {
 
 // 文字统一设置方法
 export let initText = function (painter, config, x, y, deg) {
-    if (!isElement(painter[0])) throw new Error('Target empty!');
     if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
     // 垂直对齐采用dy实现
