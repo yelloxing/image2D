@@ -19,7 +19,7 @@ export default function (key, value) {
 // 文字统一设置方法
 export let initText = function (painter, config, x, y, deg) {
     if (!isElement(painter[0])) throw new Error('Target empty!');
-    if (painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
     // 垂直对齐采用dy实现
     painter.attr('dy', {
@@ -45,7 +45,7 @@ export let initText = function (painter, config, x, y, deg) {
 
 // 画弧统一设置方法
 export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
-    if (painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
     arc(beginDeg, deg, cx, cy, r1, r2, function (
         beginA, endA,
         begInnerX, begInnerY,

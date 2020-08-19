@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.2
+* version 1.8.3
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Fri Aug 14 2020 23:21:43 GMT+0800 (GMT+08:00)
+* Date:Wed Aug 19 2020 17:03:49 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2273,7 +2273,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 文字统一设置方法
     var initText$1 = function initText$1(painter, config, x, y, deg) {
         if (!isElement(painter[0])) throw new Error('Target empty!');
-        if (painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
+        if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
         // 垂直对齐采用dy实现
         painter.attr('dy', {
@@ -2298,7 +2298,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 画弧统一设置方法
     var initArc$1 = function initArc$1(painter, config, cx, cy, r1, r2, beginDeg, deg) {
-        if (painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+        if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
         arc(beginDeg, deg, cx, cy, r1, r2, function (beginA, endA, begInnerX, begInnerY, begOuterX, begOuterY, endInnerX, endInnerY, endOuterX, endOuterY, r) {
             var f = endA - beginA > Math.PI ? 1 : 0,
                 d = "M" + begInnerX + " " + begInnerY;
