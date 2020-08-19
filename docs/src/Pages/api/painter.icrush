@@ -264,7 +264,7 @@ painter.quadraticCurveTo(cpx, cpy, x, y);
             </pre>
         </div>
         <p class='warn'>
-            只有一个控制点p(cpx, cpy),画笔当前的位置和p(x, y)分别的起点和终点。
+            只有一个控制点p(cpx, cpy),画笔当前的位置和p(x, y)分别是起点和终点。
         </p>
         <p>
             三次贝塞尔曲线到：
@@ -275,7 +275,7 @@ painter.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
             </pre>
         </div>
         <p class="warn">
-            有二个控制点p(cp1x, cp1y)和p(cp2x, cp2y),画笔当前的位置和p(x, y)分别的起点和终点。
+            有二个控制点p(cp1x, cp1y)和p(cp2x, cp2y),画笔当前的位置和p(x, y)分别是起点和终点。
         </p>
         <p>
             把当前路径包裹的区域填充颜色：
