@@ -172,3 +172,7 @@ v1.8.5
     date:2020-08-19
     changes:
       -  针对svg绘图丰富错误提示（帮助更快定位错误）
+v1.8.6
+    date:2020-08-19
+    changes:
+      -  关于canvas图层layer获取图层重复问题进行了修复：https://github.com/yelloxing/image2D/issues/38

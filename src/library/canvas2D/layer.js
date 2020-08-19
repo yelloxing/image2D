@@ -1,4 +1,3 @@
-import { isCanvas2D } from '../../core/type';
 import image2D from '../core';
 import isElement from '@yelloxing/core.js/isElement';
 
@@ -20,7 +19,7 @@ export default function () {
 
         // 获取指定图层画笔
         "painter": function (id) {
-            if (!layer[id] || !isCanvas2D(layer[id].painter)) {
+            if (!layer[id]) {
                 // 初始化的图层都可见
                 layer[id] = { "visible": true };
 
@@ -31,7 +30,7 @@ export default function () {
                 layer[id].canvas.setAttribute('height', height);
 
                 // 标记是图层
-                layer[id].canvas.__image2D__layer__='yes';
+                layer[id].canvas.__image2D__layer__ = 'yes';
 
                 layer[id].painter = image2D(layer[id].canvas).painter();
 

@@ -18,6 +18,10 @@
   ],
   "author": "心叶",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yelloxing/image2D.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
@@ -43,7 +47,7 @@
   "dependencies": {
     "@yelloxing/normalize.css": "^0.2.1",
     "icrush": "^2.0.1",
-    "image2d": "^1.8.2",
+    "image2d": "^1.8.6",
     "promise-polyfill": "8.1.3"
   }
 }
