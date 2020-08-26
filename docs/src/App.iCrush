@@ -9,17 +9,18 @@
                 <li title='接口文档' @click='openRouter("api")' class='menu-1 api'>
                     文档
                 </li>
+                <li title='使用教程' @click='openRouter("course")' class='menu-1 course'>
+                    教程
+                </li>
                 <li title='汇集的一些常用答疑' @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>
                 <li class="line"></li>
-                <li title='一些绘制的图形用例' class='menu-1'
-                    onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/'">
+                <li title='一些绘制的图形用例' onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/'">
                     用例
                 </li>
-                <li title='任何疑惑都可以在这里提问' class='menu-1'
-                    onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
-                    提问
+                <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
+                    参与讨论
                 </li>
                 <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url'
                     title='image2D 源码'>
@@ -140,7 +141,7 @@
 
                     &.Sponsors {
                         color: #d1bba1;
-                        font-weight: 800;
+                        font-weight: 200;
                         font-size: 16px;
                         font-family: fantasy;
                     }

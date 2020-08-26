@@ -1,0 +1,27 @@
+<template>
+    <div>正在快马加鞭整理中......</div>
+</template>
+<script>
+    import changeActive from '../Service/changeActive.js';
+    export default {
+        created() {
+            changeActive('menu-1', 'course');
+        }
+    };
+
+</script>
+<style>
+    div {
+        background-image: url('../assets/cry.png');
+        padding-top: 4rem;
+        background-size: auto 2.5rem;
+        background-repeat: no-repeat;
+        background-position: center .7rem;
+        text-align: center;
+        font-size: .3rem;
+        color: #607D8B;
+        font-family: monospace;
+        height: calc(100vh - .44rem);
+        background-color: #f6f8f8;
+    }
+</style>
