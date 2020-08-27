@@ -40,7 +40,7 @@ import $$ from 'image2d';
 
 <h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 快速使用</h2>
 
-> 下面我们来演示如何绘制一个圆弧，更复杂的图形（比如树图、地图等请通过[教程](https://yelloxing.gitee.io/image2d/#/course)进行学习）！
+> 下面我们来演示如何绘制一个圆弧（更复杂的图形，比如树图、地图等请通过[教程](https://yelloxing.gitee.io/image2d/#/course)进行学习）！
 
 - 获取画笔
 
@@ -80,9 +80,9 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 
 这样，一个圆弧就绘制好了，可以[点击此次查看运行效果](https://yelloxing.gitee.io/image2d/inline/example-1.html)。
 
-怎么样？是不是很简单，虽然直接使用 canvas 或 svg 也可以实现，不过借助这个库绘图会更简单（我们主要解决了浏览器兼容和复制计算上的问题，并使得SVG和Canvas2D绘图习惯保持一致，同时抽象了部分有用的概念）。
+怎么样？是不是很简单，虽然直接使用 Canvas2D 或 SVG 也可以实现，不过借助这个库绘图会更简单（我们主要解决了浏览器兼容和复杂计算上的问题，并使得SVG和Canvas2D绘图习惯保持一致，同时抽象了部分有用的概念）。
 
-你可以把更多的精力放在绘制出更有趣的作品上（如果借助本库开发了有趣的作品，可以联系我们，和大家一起分享）。
+你可以把更多的精力放在绘制出更有趣的作品上（如果借助本库开发了有趣的作品，可以去[这里添加](https://github.com/yelloxing/2D-Examples)，如果使用过程中有好的意见，可以来[issue](https://github.com/yelloxing/image2D/issues)中提出）。
 
 ## 开源协议
 
