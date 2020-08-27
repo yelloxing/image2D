@@ -108,6 +108,14 @@ imageObject.remove();
 imageObject.text([content]);
             </pre>
         </div>
+        <p>
+            设置或获取结点中的xhtml字符串模板（相当于innerHTML）：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+imageObject.html([xhtmlString]);
+            </pre>
+        </div>
         <h2 id='fixed-calculate'>
             计算
         </h2>
@@ -148,6 +156,7 @@ imageObject.size(type);
 imageObject.css();
             </pre>
         </div>
+
         <p>
             通过不同的参数来确定是获取样式还是设置样式，具体有下列参数选项可选：
         </p>

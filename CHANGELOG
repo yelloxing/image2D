@@ -176,3 +176,8 @@ v1.8.6
     date:2020-08-19
     changes:
       -  关于canvas图层layer获取图层重复问题进行了修复：https://github.com/yelloxing/image2D/issues/38
+v1.8.7
+    date:2020-08-27
+    changes:
+      -  添加imageObject.html()方法
+      -  修复imageObject.css()方法中关于设置还是获取的判断条件模糊问题

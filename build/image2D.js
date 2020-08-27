@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.6
+* version 1.8.7
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Wed Aug 19 2020 20:24:37 GMT+0800 (GMT+08:00)
+* Date:Thu Aug 27 2020 21:16:53 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1704,13 +1704,34 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 修改文本或获取结点文本
     var text = function text(content) {
-        if (content) {
+        if (arguments.length > 0) {
             for (var i = 0; i < this.length; i++) {
                 this[i].textContent = content;
             }return this;
         }
         if (this.length <= 0) throw new Error('Target empty!');
         return this[0].textContent;
+    };
+
+    // 设置或获取结点中的xhtml字符串模板（相当于innerHTML）
+    var html = function html(xhtmlString) {
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+
+                // 如果是SVG标签
+                if (/[a-z]/.test(this[i].tagName)) {
+                    setSVG(this[i], xhtmlString);
+                }
+
+                // 否则是普通html标签
+                else {
+                        this[i].innerHTML = xhtmlString;
+                    }
+            }
+            return this;
+        }
+        if (this.length <= 0) throw new Error('Target empty!');
+        return this[0].innerHTML;
     };
 
     // 获取元素大小
@@ -2747,7 +2768,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     image2D.prototype.extend({
 
         // 结点操作
-        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text, size: size,
+        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text, html: html, size: size,
 
         // 结点属性或样式操作
         css: style, attr: attribute,
