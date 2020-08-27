@@ -26,7 +26,7 @@
                     title='image2D 源码'>
                     Fork-me-on-Github
                 </li>
-                <li class="editor" @click="openEdit()" title='修复文档中的错误'>编辑</li>
+                <li class="editor" @click="openEdit()" title='发现错误？想参与编辑？ 在 GitHub 上编辑此页！'>编辑</li>
                 <li onclick="window.location.href='https://www.oschina.net/p/image2d'" title='Open Source China'>
                     <span>
                         开源中国

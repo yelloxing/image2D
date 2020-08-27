@@ -9,8 +9,8 @@ body {
 /* webkit下滚动条样式 */
 
 ::-webkit-scrollbar {
-    width: .07rem;
-    height: .07rem;
+    width: .0rem;
+    height: .0rem;
     background-color: #eee;
 }
 
@@ -18,6 +18,11 @@ body {
     height: .3rem;
     background-color: rgb(113, 30, 50);
     border-radius: .05rem;
+}
+
+:hover::-webkit-scrollbar {
+    width: .04rem;
+    height: .04rem;
 }
 
 /* IE浏览器下 */

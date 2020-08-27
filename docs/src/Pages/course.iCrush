@@ -1,5 +1,129 @@
 <template>
-    <div>正在快马加鞭整理中......</div>
+    <div class='course-view'>
+        <div>
+            <h2>🚀 基础</h2>
+            <ul>
+                <li>
+                    <h3>安装</h3>
+                </li>
+                <li>
+                    <h3>介绍</h3>
+                    <ul>
+                        <li>
+                            <h4>image2D.js是什么？</h4>
+                        </li>
+                        <li>
+                            <h4>获取画笔</h4>
+                        </li>
+                        <li>
+                            <h4>配置画笔</h4>
+                        </li>
+                        <li>
+                            <h4>绘制简单图形</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>矢图画笔</h3>
+                    <ul>
+                        <li>
+                            <h4>获取画笔</h4>
+                        </li>
+                        <li>
+                            <h4>绘制简单图形</h4>
+                        </li>
+                        <li>
+                            <h4>数据绑定</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>
+                🚀 辅助计算
+            </h2>
+            <ul>
+                <li>
+                    <h3>坐标变换</h3>
+                    <ul>
+                        <li>
+                            <h4>二维坐标变换</h4>
+                        </li>
+                        <li>
+                            <h4>变换矩阵</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>插值</h3>
+                    <ul>
+                        <li>
+                            <h4>函数插值</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>布局</h3>
+                    <ul>
+                        <li>
+                            <h4>树布局</h4>
+                            <ul>
+                                <li>
+                                    <h5>基本模型</h5>
+                                </li>
+                                <li>
+                                    <h5>类型配置</h5>
+                                </li>
+                                <li>
+                                    <h5>自定义类型</h5>
+                                </li>
+                                <li>
+                                    <h5>绘制技巧</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4>饼布局</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>🚀 有用的抽象</h2>
+            <ul>
+                <li>
+                    <h3>位图图层</h3>
+                </li>
+            </ul>
+            <h2>🚀 补充</h2>
+            <ul>
+                <li>
+                    <h3>如何添加动画效果？</h3>
+                </li>
+                <li>
+                    <h3>画布缩放问题</h3>
+                    <ul>
+                        <li>
+                            <h4>位图画布</h4>
+                        </li>
+                        <li>
+                            <h4>矢图画布</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>🚀 更多</h2>
+            <ul>
+                <li>
+                    <h3>认识作者</h3>
+                </li>
+                <li>
+                    <h3>加入我们</h3>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <component :is='page' />
+        </div>
+    </div>
 </template>
 <script>
     import changeActive from '../Service/changeActive.js';
@@ -11,17 +135,54 @@
 
 </script>
 <style>
-    div {
-        background-image: url('../assets/cry.png');
-        padding-top: 4rem;
-        background-size: auto 2.5rem;
-        background-repeat: no-repeat;
-        background-position: center .7rem;
-        text-align: center;
-        font-size: .3rem;
-        color: #607D8B;
-        font-family: monospace;
+    div.course-view {
+        overflow: hidden;
         height: calc(100vh - .44rem);
-        background-color: #f6f8f8;
+        white-space: nowrap;
+
+        &>div {
+            height: calc(100vh - .44rem);
+            overflow: auto;
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+
+            &:first-child {
+                width: 2.8rem;
+                padding: .2rem;
+
+                h3,
+                h4,
+                h5 {
+                    font-weight: 400;
+                    font-size: .14rem;
+                    color: #304455;
+                    cursor: pointer;
+                    display: inline-block;
+                    margin:.07rem 0;
+                    height: 1.2em;
+                    color: #304455;
+
+                    &:hover {
+                        border-bottom: 2px solid #711e32;
+                    }
+                }
+
+                h2 {
+                    padding: 10px 0;
+                    font-size: .18rem;
+                }
+
+                li {
+                    margin-left: 1em;
+                }
+
+            }
+
+            &:last-child {
+                width: calc(100vw - 2.8rem);
+            }
+        }
+
     }
 </style>
