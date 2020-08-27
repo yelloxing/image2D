@@ -127,8 +127,16 @@ imageObject.size(type);
             <li>"padding":内容+内边距。</li>
             <li>"border":内容+内边距+边框（默认值）。</li>
             <li>"scroll":包含滚动的尺寸（不包括border）</li>
-            <p>计算返回的结果类型为{width：结点宽度，height：结点高度}</p>
         </ul>
+        <p>返回的结果格式为：</p>
+        <div ui-copy>
+            <pre class="prettyprint">
+{
+    width:宽,
+    height:高
+}
+            </pre>
+        </div>
         <h2 id='fixed-attribute'>
             样式和属性
         </h2>
@@ -308,5 +316,4 @@ imageObject.loop(function(data,index,target){
         background-position: left center;
         background-size: auto 100%;
     }
-
 </style>

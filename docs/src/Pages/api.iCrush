@@ -66,8 +66,8 @@
                     cursor: pointer;
 
                     &[active='yes'] {
-                        color: rgb(104, 98, 98);
-                        font-weight: 600;
+                        color: #701e32;
+                        font-weight: 800;
                     }
                 }
             }
