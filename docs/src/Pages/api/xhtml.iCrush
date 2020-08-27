@@ -128,6 +128,15 @@ imageObject.size(type);
             <li>"border":内容+内边距+边框（默认值）。</li>
             <li>"scroll":包含滚动的尺寸（不包括border）</li>
         </ul>
+        <p>返回的结果格式为：</p>
+        <div ui-copy>
+            <pre class="prettyprint">
+{
+    width:宽,
+    height:高
+}
+            </pre>
+        </div>
         <h2 id='fixed-attribute'>
             样式和属性
         </h2>
@@ -307,5 +316,4 @@ imageObject.loop(function(data,index,target){
         background-position: left center;
         background-size: auto 100%;
     }
-
 </style>
