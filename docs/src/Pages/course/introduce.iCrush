@@ -1,5 +1,21 @@
 <template>
-    <div class='course-view'>介绍</div>
+    <div class='course-view'>
+        <header>
+            介绍
+        </header>
+        <h2 id='fixed-what'>
+            image2D.js是什么？
+        </h2>
+        <h2 id='fixed-painter'>
+            获取画笔
+        </h2>
+        <h2 id='fixed-config'>
+            配置画笔
+        </h2>
+        <h2 id='fixed-chart'>
+            绘制简单图形
+        </h2>
+    </div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';
@@ -10,7 +26,7 @@
         },
         mounted() {
             prettyPrint();
-            fixedScroll();
+            fixedScroll(document.getElementById('course-id'),44);
         }
     };
 </script>

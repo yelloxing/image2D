@@ -10,7 +10,7 @@
         },
         mounted() {
             prettyPrint();
-            fixedScroll();
+            fixedScroll(document.getElementById('course-id'),44);
         }
     };
 </script>

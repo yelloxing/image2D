@@ -5,21 +5,48 @@
             <ul>
                 <li>
                     <h3 @click='openRouter("install")' class='menu-2 install'>安装</h3>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("compatibility")'>兼容性</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("log")'>更新日志</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("script")'>直接用 script 引入</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("cdn")'>CDN</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("npm")'>通过 NPM 方式管理</h4>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <h3 @click='openRouter("introduce")' class='menu-2 introduce'>介绍</h3>
                     <ul>
                         <li>
-                            <h4>image2D.js是什么？</h4>
+                            <h4 @click='doScroll("what")'>image2D.js是什么？</h4>
                         </li>
                         <li>
-                            <h4>获取画笔</h4>
+                            <h4 @click='doScroll("painter")'>获取画笔</h4>
                         </li>
                         <li>
-                            <h4>配置画笔</h4>
+                            <h4 @click='doScroll("config")'>配置画笔</h4>
                         </li>
                         <li>
-                            <h4>绘制简单图形</h4>
+                            <h4 @click='doScroll("chart")'>绘制简单图形</h4>
                         </li>
                     </ul>
                 </li>
@@ -89,13 +116,14 @@
                 </li>
             </ul>
         </div>
-        <div>
+        <div id='course-id'>
             <component :is='page' />
         </div>
     </div>
 </template>
 <script>
     import changeActive from '../Service/changeActive.js';
+    import fixedScroll from '../Service/fixedScroll.js';
     export default {
         data() {
             return {
@@ -111,6 +139,10 @@
         methods: {
             openRouter(pagename) {
                 this.goRouter(page => this.page = page, ['course', pagename]);
+            },
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll(document.getElementById('course-id'), 44);
             }
         }
     };
