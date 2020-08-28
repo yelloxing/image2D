@@ -22,7 +22,35 @@ const pages = {
         "_default_": "how-to-use"
     },
     "course": {
-        "content": () => import('../Pages/course.iCrush')
+        "content": () => import('../Pages/course.iCrush'),
+        "animation": {
+            "content": () => import('../Pages/course/animation.iCrush')
+        },
+        "author": {
+            "content": () => import('../Pages/course/author.iCrush')
+        },
+        "install": {
+            "content": () => import('../Pages/course/install.iCrush')
+        },
+        "interpolation": {
+            "content": () => import('../Pages/course/interpolation.iCrush')
+        },
+        "introduce": {
+            "content": () => import('../Pages/course/introduce.iCrush')
+        },
+        "join-us": {
+            "content": () => import('../Pages/course/join-us.iCrush')
+        },
+        "layer": {
+            "content": () => import('../Pages/course/layer.iCrush')
+        },
+        "layout": {
+            "content": () => import('../Pages/course/layout.iCrush')
+        },
+        "svg-painter": {
+            "content": () => import('../Pages/course/svg-painter.iCrush')
+        },
+        "_default_": "install"
     },
     "QA": {
         "content": () => import('../Pages/QA.iCrush')

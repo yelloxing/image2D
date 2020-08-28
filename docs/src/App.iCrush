@@ -66,6 +66,8 @@
                     fileurl = window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '').replace(/^\//, "");
                     if (fileurl == 'api') {
                         fileurl = "api/how-to-use";
+                    } else if (fileurl == 'course') {
+                        fileurl = 'course/install';
                     }
                 } catch (e) {
                     fileurl = 'guide';

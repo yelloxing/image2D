@@ -4,10 +4,10 @@
             <h2>🚀 基础</h2>
             <ul>
                 <li>
-                    <h3>安装</h3>
+                    <h3 @click='openRouter("install")' class='menu-2 install'>安装</h3>
                 </li>
                 <li>
-                    <h3>介绍</h3>
+                    <h3 @click='openRouter("introduce")' class='menu-2 introduce'>介绍</h3>
                     <ul>
                         <li>
                             <h4>image2D.js是什么？</h4>
@@ -24,7 +24,7 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>矢图画笔</h3>
+                    <h3 @click='openRouter("svg-painter")' class='menu-2 svg-painter'>矢图画笔</h3>
                     <ul>
                         <li>
                             <h4>获取画笔</h4>
@@ -43,18 +43,7 @@
             </h2>
             <ul>
                 <li>
-                    <h3>坐标变换</h3>
-                    <ul>
-                        <li>
-                            <h4>二维坐标变换</h4>
-                        </li>
-                        <li>
-                            <h4>变换矩阵</h4>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3>插值</h3>
+                    <h3 @click='openRouter("interpolation")' class='menu-2 interpolation'>插值</h3>
                     <ul>
                         <li>
                             <h4>函数插值</h4>
@@ -62,22 +51,13 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>布局</h3>
+                    <h3 @click='openRouter("layout")' class='menu-2 layout'>布局</h3>
                     <ul>
                         <li>
                             <h4>树布局</h4>
                             <ul>
                                 <li>
-                                    <h5>基本模型</h5>
-                                </li>
-                                <li>
-                                    <h5>类型配置</h5>
-                                </li>
-                                <li>
-                                    <h5>自定义类型</h5>
-                                </li>
-                                <li>
-                                    <h5>绘制技巧</h5>
+                                    <h5>计算模型</h5>
                                 </li>
                             </ul>
                         </li>
@@ -90,33 +70,22 @@
             <h2>🚀 有用的抽象</h2>
             <ul>
                 <li>
-                    <h3>位图图层</h3>
+                    <h3 @click='openRouter("layer")' class='menu-2 layer'>位图图层</h3>
                 </li>
             </ul>
             <h2>🚀 补充</h2>
             <ul>
                 <li>
-                    <h3>如何添加动画效果？</h3>
-                </li>
-                <li>
-                    <h3>画布缩放问题</h3>
-                    <ul>
-                        <li>
-                            <h4>位图画布</h4>
-                        </li>
-                        <li>
-                            <h4>矢图画布</h4>
-                        </li>
-                    </ul>
+                    <h3 @click='openRouter("animation")' class='menu-2 animation'>如何添加动画效果？</h3>
                 </li>
             </ul>
             <h2>🚀 更多</h2>
             <ul>
                 <li>
-                    <h3>认识作者</h3>
+                    <h3 @click='openRouter("author")' class='menu-2 author'>认识作者</h3>
                 </li>
                 <li>
-                    <h3>加入我们</h3>
+                    <h3 @click='openRouter("join-us")' class='menu-2 join-us'>加入我们</h3>
                 </li>
             </ul>
         </div>
@@ -128,8 +97,21 @@
 <script>
     import changeActive from '../Service/changeActive.js';
     export default {
+        data() {
+            return {
+                page: null
+            };
+        },
+        mounted() {
+            this.loadRouter(page => this.page = page, 2);
+        },
         created() {
             changeActive('menu-1', 'course');
+        },
+        methods: {
+            openRouter(pagename) {
+                this.goRouter(page => this.page = page, ['course', pagename]);
+            }
         }
     };
 
@@ -159,7 +141,7 @@
                     color: #304455;
                     cursor: pointer;
                     display: inline-block;
-                    margin:.07rem 0;
+                    margin: .07rem 0;
                     height: 1.2em;
                     color: #304455;
 
@@ -168,9 +150,23 @@
                     }
                 }
 
+                h3[active='yes'] {
+                    color: #711e32;
+                    font-weight: 800;
+                    border-bottom: 2px solid #711e32;
+
+                    &~ul {
+                        display: block;
+                    }
+                }
+
+                h3~ul {
+                    display: none;
+                }
+
                 h2 {
                     padding: 10px 0;
-                    font-size: .18rem;
+                    font-size: .16rem;
                 }
 
                 li {
