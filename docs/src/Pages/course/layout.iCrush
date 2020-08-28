@@ -1,5 +1,5 @@
 <template>
-    <div>布局</div>
+    <div class='course-view'>布局</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';

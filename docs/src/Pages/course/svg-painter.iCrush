@@ -1,5 +1,5 @@
 <template>
-    <div>矢图画笔</div>
+    <div class='course-view'>矢图画笔</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';

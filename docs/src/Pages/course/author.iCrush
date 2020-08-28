@@ -1,5 +1,5 @@
 <template>
-    <div>关于作者</div>
+    <div class='course-view'>关于作者</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';

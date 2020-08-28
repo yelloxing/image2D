@@ -12,6 +12,7 @@ import '@yelloxing/normalize.css';
 // 引入公共样式
 import './Styles/style.scss';
 import './Styles/api.scss';
+import './Styles/course.scss';
 
 document.getElementById('root').innerHTML = "";
 

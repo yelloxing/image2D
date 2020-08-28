@@ -1,5 +1,5 @@
 <template>
-    <div class='course-view'>
+    <div class='root'>
         <div>
             <h2>🚀 基础</h2>
             <ul>
@@ -117,7 +117,7 @@
 
 </script>
 <style>
-    div.course-view {
+    div.root {
         overflow: hidden;
         height: calc(100vh - .44rem);
         white-space: nowrap;

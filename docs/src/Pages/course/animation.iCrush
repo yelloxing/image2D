@@ -1,5 +1,5 @@
 <template>
-    <div>如何添加动画效果？</div>
+    <div class='course-view'>如何添加动画效果？</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';

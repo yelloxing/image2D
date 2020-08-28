@@ -1,5 +1,5 @@
 <template>
-    <div>介绍</div>
+    <div class='course-view'>介绍</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';

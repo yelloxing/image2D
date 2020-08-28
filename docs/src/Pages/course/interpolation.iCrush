@@ -1,5 +1,5 @@
 <template>
-    <div>插值</div>
+    <div class='course-view'>插值</div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';
