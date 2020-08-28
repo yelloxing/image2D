@@ -37,7 +37,7 @@
                     <h3 @click='openRouter("introduce")' class='menu-2 introduce'>介绍</h3>
                     <ul>
                         <li>
-                            <h4 @click='doScroll("what")'>image2D.js是什么？</h4>
+                            <h4 @click='doScroll("what")'>image2D是什么？</h4>
                         </li>
                         <li>
                             <h4 @click='doScroll("painter")'>获取画笔</h4>

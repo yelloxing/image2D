@@ -76,4 +76,15 @@
         }
     }
 
+    &>ul {
+        margin-left: .5rem;
+
+        li {
+            list-style-type: disc;
+            line-height: 2em;
+            font-size: .13rem;
+            color: #000000;
+        }
+    }
+
 }
