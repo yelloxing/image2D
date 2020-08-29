@@ -80,6 +80,11 @@ export default function (selector, context) {
         let temp = [];
         for (let i = 0; i < selector.length; i++) {
             if (isElement(selector[i])) temp.push(selector[i]);
+            else if (selector[i] && selector[i].constructor === image2D) {
+                for (let j = 0; j < selector[i].length; j++) {
+                    temp.push(selector[i][j]);
+                }
+            }
         }
         return temp;
     }

@@ -69,6 +69,14 @@
                         </li>
                         <li>
                             <h4 @click='doScroll("data")'>数据绑定</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("gradient")'>如何快速绘制柱状图</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("gradient-auto")'>数据个数动态改变如何绘制</h5>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>

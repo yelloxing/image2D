@@ -181,3 +181,7 @@ v1.8.7
     changes:
       -  添加imageObject.html()方法
       -  修复imageObject.css()方法中关于设置还是获取的判断条件模糊问题
+v1.8.8
+    date:2020-08-29
+    changes:
+      -  选择器新增数组中支持image2D对象作为元素的功能

@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.7
+* version 1.8.8
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Thu Aug 27 2020 21:16:53 GMT+0800 (GMT+08:00)
+* Date:Sat Aug 29 2020 21:41:48 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -389,7 +389,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             else if (selector && (selector.constructor === Array || selector.constructor === HTMLCollection || selector.constructor === NodeList)) {
                     var _temp = [];
                     for (var _i = 0; _i < selector.length; _i++) {
-                        if (isElement(selector[_i])) _temp.push(selector[_i]);
+                        if (isElement(selector[_i])) _temp.push(selector[_i]);else if (selector[_i] && selector[_i].constructor === image2D) {
+                            for (var _j = 0; _j < selector[_i].length; _j++) {
+                                _temp.push(selector[_i][_j]);
+                            }
+                        }
                     }
                     return _temp;
                 }
