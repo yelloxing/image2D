@@ -1,7 +1,24 @@
 <template>
     <div class='root'>
         <div>
-            <h2>🚀 基础</h2>
+            <h2>写在前面</h2>
+            <ul>
+                <li>
+                    <h3 @click='openRouter("author")' class='menu-2 author'>认识作者</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='openRouter("projects")'>当前在做什么？</h4>
+                        </li>
+                        <li>
+                            <h4 @click='openRouter("new-task")'>新任务如何产生？</h4>
+                        </li>
+                        <li>
+                            <h4 @click='openRouter("join-us")'>加入我们</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>基础</h2>
             <ul>
                 <li>
                     <h3 @click='openRouter("install")' class='menu-2 install'>安装</h3>
@@ -79,56 +96,6 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-            </ul>
-            <h2>
-                🚀 辅助计算
-            </h2>
-            <ul>
-                <li>
-                    <h3 @click='openRouter("interpolation")' class='menu-2 interpolation'>插值</h3>
-                    <ul>
-                        <li>
-                            <h4>函数插值</h4>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h3 @click='openRouter("layout")' class='menu-2 layout'>布局</h3>
-                    <ul>
-                        <li>
-                            <h4>树布局</h4>
-                            <ul>
-                                <li>
-                                    <h5>计算模型</h5>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h4>饼布局</h4>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <h2>🚀 有用的抽象</h2>
-            <ul>
-                <li>
-                    <h3 @click='openRouter("layer")' class='menu-2 layer'>位图图层</h3>
-                </li>
-            </ul>
-            <h2>🚀 补充</h2>
-            <ul>
-                <li>
-                    <h3 @click='openRouter("animation")' class='menu-2 animation'>如何添加动画效果？</h3>
-                </li>
-            </ul>
-            <h2>🚀 更多</h2>
-            <ul>
-                <li>
-                    <h3 @click='openRouter("author")' class='menu-2 author'>认识作者</h3>
-                </li>
-                <li>
-                    <h3 @click='openRouter("join-us")' class='menu-2 join-us'>加入我们</h3>
                 </li>
             </ul>
         </div>
