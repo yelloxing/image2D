@@ -14,8 +14,9 @@ export default function (element, overValue) {
         let fixedDom = $$('#fixed-' + fixed);
         if (fixedDom.length > 0) {
             let offsetTop = fixedDom[0].offsetTop - overValue;
+            let currentScrollTop = element.scrollTop || 0;
             $$.animation(deep => {
-                element.scrollTop = offsetTop * deep;
+                element.scrollTop = (offsetTop - currentScrollTop) * deep + currentScrollTop;
             }, 500, () => {
                 element.scrollTop = offsetTop;
             });

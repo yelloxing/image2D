@@ -78,7 +78,7 @@ painter.config({
 painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 ```
 
-这样，一个圆弧就绘制好了，可以[点击此次查看运行效果](https://yelloxing.gitee.io/image2d/inline/example-1.html)。
+这样，一个圆弧就绘制好了，可以[点击此次](https://yelloxing.gitee.io/image2d/inline/example-1.html)查看运行效果。
 
 怎么样？是不是很简单，虽然直接使用 Canvas2D 或 SVG 也可以实现，不过借助这个库绘图会更简单（我们主要解决了浏览器兼容和复杂计算上的问题，并使得SVG和Canvas2D绘图习惯保持一致，同时抽象了部分有用的概念）。
 

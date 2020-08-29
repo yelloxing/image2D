@@ -54,13 +54,21 @@
                     <h3 @click='openRouter("svg-painter")' class='menu-2 svg-painter'>矢图画笔</h3>
                     <ul>
                         <li>
-                            <h4>获取画笔</h4>
+                            <h4 @click='doScroll("painter")'>获取画笔</h4>
                         </li>
                         <li>
-                            <h4>绘制简单图形</h4>
+                            <h4 @click='doScroll("config")'>配置画笔</h4>
                         </li>
                         <li>
-                            <h4>数据绑定</h4>
+                            <h4 @click='doScroll("chart")'>绘制简单图形</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("diff")'>SVG和Canvas画布的区别</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("data")'>数据绑定</h4>
                         </li>
                     </ul>
                 </li>
@@ -139,6 +147,7 @@
         methods: {
             openRouter(pagename) {
                 this.goRouter(page => this.page = page, ['course', pagename]);
+                this.doScroll("top");
             },
             doScroll(fixedName) {
                 window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;

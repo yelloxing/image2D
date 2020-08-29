@@ -1,6 +1,6 @@
 <template>
     <div class='course-view'>
-        <header>
+        <header id='fixed-top'>
             介绍
         </header>
         <h2 id='fixed-what'>

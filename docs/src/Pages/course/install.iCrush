@@ -1,6 +1,6 @@
 <template>
     <div class='course-view'>
-        <header>
+        <header id='fixed-top'>
             安装
         </header>
         <h2 id='fixed-compatibility'>
@@ -94,7 +94,7 @@
         },
         mounted() {
             prettyPrint();
-            fixedScroll(document.getElementById('course-id'),44);
+            fixedScroll(document.getElementById('course-id'), 44);
         }
     };
 </script>

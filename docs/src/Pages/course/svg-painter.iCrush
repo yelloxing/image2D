@@ -1,5 +1,92 @@
 <template>
-    <div class='course-view'>矢图画笔</div>
+    <div class='course-view'>
+        <header id='fixed-top'>
+            矢图画笔
+        </header>
+        <p>
+            因为位图的画布是基于
+            <span class="important">Canvas</span>
+            ，而矢图基于
+            <span class="important">SVG</span>
+            ，因此我们需要先假设页面有一个SVG标签。
+        </p>
+        <h2 id='fixed-painter'>
+            获取画笔
+        </h2>
+        <div ui-copy>
+            <pre class="prettyprint">var painter=$$('svg').attr({
+    "width":300,
+    "height":300
+}).painter();</pre>
+        </div>
+        <p>
+            可以看到，除了传递的结点变成了SVG外没有区别，我们同样设置了画布大小。
+        </p>
+        <h2 id='fixed-config'>
+            配置画笔
+        </h2>
+        <div ui-copy>
+            <pre class="prettyprint">painter.config({
+    'strokeStyle':'red',
+    'lineWidth':3,
+    'lineDash':[5]
+});</pre>
+        </div>
+        <h2 id='fixed-chart'>
+            绘制简单图形
+        </h2>
+        <p>
+            画笔获取并配置好了以后，同样的，我们直接调用
+            <a href="#/api/painter?fixed=method" target="_blank">画笔上的方法</a>
+            试试：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);</pre>
+        </div>
+        <p>
+            很可惜，报错了（打开浏览器
+            <span class="important">控制台</span>
+            查看）：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">Uncaught Error: Need a <path> !
+    at t (image2d:17)
+    at Object.t [as strokeArc] (image2d:17)
+    at example-2.html:40</pre>
+        </div>
+        <p>
+            通过打印的错误提示可以看到，我们缺乏一个
+            <span class="important">path</span>
+            结点，为什么会这样，不是已经有画布了吗？
+        </p>
+        <h1 id='fixed-diff'>SVG和Canvas画布的区别</h1>
+        <p>
+            由于Canvas是位图，绘制类似在一块画布上不停的涂鸦，而SVG有点类似普通的HTML类型标签（比如输入框是input），SVG绘制的各种图形其实也需要对应页面中一个SVG类型标签，上面就是对应一个path标签。
+        </p>
+        <p>
+            因此，我们把最后一行绘制的方法稍微改造一下（下面涉及的
+            <span class="important">bind</span>
+            和
+            <span class="important">appendTo</span>
+            方法请查看
+            <a href="#/api/painter?fixed=svg" target="_blank">矢图画笔</a>
+            一节中的说明）：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">painter
+    .bind('<path>')
+    .appendTo()
+    .strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);</pre>
+        </div>
+        <p>
+            再次运行，一个圆弧就绘制好了，可以
+            <a href="./inline/example-2.html" target="_blank">点击此次</a>
+            查看运行效果。
+        </p>
+        <h2 id='fixed-data'>
+            数据绑定
+        </h2>
+    </div>
 </template>
 <script>
     import changeActive from '../../Service/changeActive.js';
