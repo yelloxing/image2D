@@ -7,13 +7,13 @@
                     <h3 @click='openRouter("author")' class='menu-2 author'>认识作者</h3>
                     <ul>
                         <li>
-                            <h4 @click='openRouter("projects")'>当前在做什么？</h4>
+                            <h4 @click='doScroll("projects")'>当前在做什么？</h4>
                         </li>
                         <li>
-                            <h4 @click='openRouter("new-task")'>新任务如何产生？</h4>
+                            <h4 @click='doScroll("new-task")'>新任务如何产生？</h4>
                         </li>
                         <li>
-                            <h4 @click='openRouter("join-us")'>加入我们</h4>
+                            <h4 @click='doScroll("join-us")'>加入我们</h4>
                         </li>
                     </ul>
                 </li>
