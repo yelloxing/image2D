@@ -34,7 +34,7 @@ import $$ from 'image2d';
 <h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 图表用例</h2>
 
 <p align="center"><a href="http://yelloxing.gitee.io/image2d-examples/index.html" target="_blank" rel="noopener noreferrer">
-<img width="700" src="./docs/examples.png" alt="image2D 用例截图"></a></p>
+<img width="700" src="https://yelloxing.gitee.io/image2d/inline/examples.png" alt="image2D 用例截图"></a></p>
 
 如果想加入其中可以通过[issue](https://github.com/yelloxing/image2D/issues)联系我们
 

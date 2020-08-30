@@ -11,7 +11,7 @@
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Aug 30 2020 18:27:10 GMT+0800 (GMT+08:00)
+* Date:Mon Aug 31 2020 01:13:00 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1700,7 +1700,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
                 default:
                     {
-                        throw new Error('🍇 image2D:Map type configuration error!');
+                        throw new Error('Map type configuration error!');
                     }
             }
         };
@@ -2135,7 +2135,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
         if (width == 0 || height == 0) {
-            console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+            console.warn('Canvas is hidden or size is zero!');
 
             if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 

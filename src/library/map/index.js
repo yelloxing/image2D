@@ -26,7 +26,7 @@ export default function (_config) {
                 return eoap(config, longitude, latitude);
             }
             default: {
-                throw new Error('🍇 image2D:Map type configuration error!');
+                throw new Error('Map type configuration error!');
             }
         }
 
