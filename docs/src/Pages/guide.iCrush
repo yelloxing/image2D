@@ -138,17 +138,26 @@
                         </li>
                         <li>
                             <a href="#/api/calculate?fixed=layout" target="_blank">
-                                布局</a>
+                                布局
+                            </a>
                             (目前布局有两种：
-                            <a class='link' href="#/api/calculate?fixed=treeLayout" target="_blank"> 树布局</a>
+                            <a class='link' href="#/api/calculate?fixed=treeLayout" target="_blank">树布局</a>
                             和
-                            <a class='link' href="#/api/calculate?fixed=pieLayout" target="_blank"> 饼布局</a>
+                            <a class='link' href="#/api/calculate?fixed=pieLayout" target="_blank">饼布局</a>
                             ，其中树布局初始的时候会获得
                             <a class='link' href="#/api/calculate?fixed=treeLayout-basic" target="_blank">基本树</a>
                             ，而为了方便又提供了常见的几种具体的
                             <a class='link' href="#/api/calculate?fixed=treeLayout-config" target="_blank">
                                 配置树</a>
                             )
+                        </li>
+                        <li>
+                            <a href="#/api/calculate?fixed=map" target="_blank">
+                                地图坐标映射
+                            </a>
+                            （根据不同的需求映射算法有很多中，目前提供的映射方法有：
+                            <a class='link' href="#/api/calculate?fixed=map-eoap" target="_blank">等角斜方位投影</a>
+                            ）
                         </li>
                     </ol>
                 </li>
@@ -182,6 +191,26 @@
                         <li>
                             <a href="#/QA?fixed=issue11" target="_blank">
                                 为什么选择canvas作为画布绘图的时候会出现线条模糊？
+                            </a>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    <h4>更多</h4>
+                    <ol>
+                        <li>
+                            <a href="#/course/author?fixed=join-us" target="_blank">
+                                加入我们，参与日常维护？
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" target='_blank'>
+                                查看版本日志
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/yelloxing/image2D/projects/4" target="_blank">
+                                开发或bug任务清单
                             </a>
                         </li>
                     </ol>
@@ -295,5 +324,4 @@
         }
 
     }
-
 </style>

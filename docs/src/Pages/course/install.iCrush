@@ -18,9 +18,7 @@
         </h2>
         <p>
             最新稳定版本：
-            <a href="https://www.npmjs.com/package/image2d" target="_blank">
-                <img src="https://img.shields.io/npm/v/image2d.svg" alt="Version">
-            </a>
+            <span class="important">{{version}}</span>
         </p>
         <p>
             每个版本的更新日志见
@@ -83,6 +81,7 @@
     export default {
         data() {
             return {
+                version: pkg.version,
                 CDN: {
                     noVersion: '<script src="https://cdn.jsdelivr.net/npm/image2d"><\/script>',
                     version: '<script src="https://cdn.jsdelivr.net/npm/image2d@' + pkg.version + '"><\/script>'

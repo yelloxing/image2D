@@ -16,7 +16,7 @@
         // 准备画布
         var canvas = $$('<canvas>非常抱歉，您的浏览器不支持canvas!</canvas>').attr({
             "width": 400,
-            "height": 200
+            "height": 400
         }).appendTo('body');
 
         // 获取并配置画笔
@@ -32,6 +32,11 @@
 
         // 虚线测试
         painter.config('lineDash', [15, 5]).strokeRect(20, 20, 60, 160);
+
+        // 测试负数
+        painter.fillRect(0, 400, 100, -150);
+        painter.fillRect(250, 250, -100, 150);
+        painter.fillRect(400, 400, -100, -150);
 
     </script>
 </body>

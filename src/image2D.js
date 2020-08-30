@@ -13,6 +13,7 @@ import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';
 import { formatColor, getRandomColors } from './library/calculate/color';
 import { stopPropagation, preventDefault } from './library/xhtml/event';
+import map from './library/map/index';
 image2D.extend({
 
     // 布局
@@ -34,7 +35,10 @@ image2D.extend({
     formatColor, getRandomColors,
 
     // 事件相关
-    stopPropagation, preventDefault
+    stopPropagation, preventDefault,
+
+    // 地图映射
+    map
 
 });
 

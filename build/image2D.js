@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.8
+* version 1.8.9
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sat Aug 29 2020 21:41:48 GMT+0800 (GMT+08:00)
+* Date:Sun Aug 30 2020 18:27:10 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1621,6 +1621,99 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return this;
     };
 
+    /* 等角斜方位投影 */
+
+    var
+    // 围绕X轴旋转
+    _rotateX = function _rotateX(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x, y * cos - z * sin, y * sin + z * cos];
+    },
+
+    // 围绕Y轴旋转
+    _rotateY = function _rotateY(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [z * sin + x * cos, y, z * cos - x * sin];
+    },
+
+    // 围绕Z轴旋转
+    _rotateZ = function _rotateZ(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x * cos - y * sin, x * sin + y * cos, z];
+    };
+
+    var p = [];
+
+    function eoap(config, longitude, latitude) {
+        /**
+         * 通过旋转的方法
+         * 先旋转出点的位置
+         * 然后根据把地心到旋转中心的这条射线变成OZ这条射线的变换应用到初始化点上
+         * 这样求的的点的x,y就是最终结果
+         *
+         *  计算过程：
+         *  1.初始化点的位置是p（x,0,0）,其中x的值是地球半径除以缩放倍速
+         *  2.根据点的纬度对p进行旋转，旋转后得到的p的坐标纬度就是目标纬度
+         *  3.同样的对此刻的p进行经度的旋转，这样就获取了极点作为中心点的坐标
+         *  4.接着想象一下为了让旋转中心移动到极点需要进行旋转的经纬度是多少，记为lo和la
+         *  5.然后再对p进行经度度旋转lo获得新的p
+         *  6.然后再对p进行纬度旋转la获得新的p
+         *  7.旋转结束
+         *
+         * 特别注意：第5和第6步顺序一定不可以调换，原因来自经纬度定义上
+         * 【除了经度为0的位置，不然纬度的旋转会改变原来的经度值，反过来不会】
+         *
+         */
+        p = _rotateY((360 - latitude) / 180 * Math.PI, 100 * config.scale, 0, 0);
+        p = _rotateZ(longitude / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateZ((90 - config.center[0]) / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateX((90 - config.center[1]) / 180 * Math.PI, p[0], p[1], p[2]);
+
+        return [-p[0], //加-号是因为浏览器坐标和地图不一样
+        p[1], p[2]];
+    }
+
+    function map(_config) {
+
+        var config = initConfig({
+
+            // 默认使用「等角斜方位投影」
+            type: 'eoap',
+
+            // 缩放比例
+            scale: 1,
+
+            // 投影中心经纬度
+            center: [107, 36]
+
+        }, _config);
+
+        var map = function map(longitude, latitude) {
+
+            switch (config.type) {
+                case 'eoap':
+                    {
+                        return eoap(config, longitude, latitude);
+                    }
+                default:
+                    {
+                        throw new Error('🍇 image2D:Map type configuration error!');
+                    }
+            }
+        };
+
+        // 修改配置
+        map.config = function (_config) {
+            config = initConfig(config, _config);
+            return map;
+        };
+
+        return map;
+    }
+
     /**
      * 把当前维护的结点加到目标结点内部的结尾
      * @param {selector} target
@@ -2361,6 +2454,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 画矩形统一设置方法
     var initRect$1 = function initRect$1(painter, x, y, width, height) {
         if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+
+        // 由于height和宽不可以是负数，校对一下
+
+        if (height < 0) {
+            height *= -1;y -= height;
+        }
+
+        if (width < 0) {
+            width *= -1;x -= width;
+        }
+
         painter.attr({
             "x": x,
             "y": y,
@@ -2766,7 +2870,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         formatColor: formatColor, getRandomColors: getRandomColors,
 
         // 事件相关
-        stopPropagation: stopPropagation, preventDefault: preventDefault
+        stopPropagation: stopPropagation, preventDefault: preventDefault,
+
+        // 地图映射
+        map: map
 
     });
     image2D.prototype.extend({

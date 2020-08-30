@@ -96,6 +96,13 @@ export let initPath = function (painter, path) {
 // 画矩形统一设置方法
 export let initRect = function (painter, x, y, width, height) {
     if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+
+    // 由于height和宽不可以是负数，校对一下
+
+    if (height < 0) { height *= -1; y -= height; }
+
+    if (width < 0) { width *= -1; x -= width; }
+
     painter.attr({
         "x": x,
         "y": y,

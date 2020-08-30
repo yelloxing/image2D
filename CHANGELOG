@@ -185,3 +185,8 @@ v1.8.8
     date:2020-08-29
     changes:
       -  选择器新增数组中支持image2D对象作为元素的功能
+v1.8.9
+    date:2020-08-30
+    changes:
+      -  修复svg画笔的绘制矩形的时候width和height不可以为负数的问题：https://github.com/yelloxing/image2D/issues/44
+      -  添加地图Map投影计算（目前只支持「等角斜方位投影」），也就是经纬度到坐标的映射
