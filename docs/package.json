@@ -31,7 +31,7 @@
     "css-loader": "^2.1.1",
     "cuf": "^1.2.0",
     "file-loader": "^4.2.0",
-    "icrush-loader": "^0.2.1",
+    "icrush-loader": "^0.4.0",
     "icrush-loader-plug": "^0.2.1",
     "icrush-style-loader": "^1.0.3",
     "node-sass": "^4.13.1",
