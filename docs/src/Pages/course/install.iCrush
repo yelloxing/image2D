@@ -41,13 +41,13 @@
             CDN
         </h2>
         <p>
-            对于制作原型或学习，你可以这样使用最新版本：
+            对于制作学习或者用例项目等，你可以这样使用最新版本：
         </p>
         <div ui-copy>
             <pre class="prettyprint">{{CDN.noVersion}}</pre>
         </div>
         <p>
-            对于生产环境，我们推荐链接到一个明确的版本号和构建文件，以避免新版本造成的不可预期的破坏：
+            对于生产环境，我们推荐链接到一个明确的版本号，以避免新版本造成的不可预期的破坏：
         </p>
         <div ui-copy>
             <pre class="prettyprint">{{CDN.version}}</pre>

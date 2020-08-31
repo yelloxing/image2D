@@ -98,6 +98,9 @@
                     </ul>
                 </li>
             </ul>
+            <a class='need-help' href='https://github.com/yelloxing/image2D/issues/46' target="_blank">
+                没有你想看的？点我
+            </a>
         </div>
         <div id='course-id'>
             <component :is='page' />
@@ -144,6 +147,18 @@
             display: inline-block;
             vertical-align: top;
             white-space: normal;
+
+            &>.need-help {
+                background-color: #529bcf;
+                color: white;
+                text-align: center;
+                margin-top: .3rem;
+                cursor: pointer;
+                font-size: .15rem;
+                display: block;
+                width: 2.6rem;
+                padding: .1rem 0;
+            }
 
             &:first-child {
                 width: 2.8rem;
