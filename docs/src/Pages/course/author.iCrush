@@ -90,6 +90,13 @@
             <a href="mailto:1276327934@qq.com">1276327934@qq.com</a>
             和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
         </p>
+        <p>
+            你可以查看
+            <a href="https://github.com/yelloxing/image2D/blob/master/.mailmap" target="_blank">.mailmap</a>
+            文件了解当前主要维护人员，查看
+            <a href="https://github.com/yelloxing/image2D/blob/master/AUTHORS.txt" target="_blank">AUTHORS.txt</a>
+            了解所有的贡献者。
+        </p>
     </div>
 </template>
 <script>
