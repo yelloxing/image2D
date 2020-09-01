@@ -93,6 +93,15 @@ export default function (target, selector) {
             });
             return enhancePainter;
         },
+        "full": function () {
+            initPath(painter, path).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": config.fillStyle,
+                "stroke-dasharray": config.lineDash.join(',')
+            });
+            return enhancePainter;
+        },
 
         "save": function () {
             transform_history.push(transform_current);
@@ -126,6 +135,15 @@ export default function (target, selector) {
             })[0].textContent = text;
             return enhancePainter;
         },
+        "fullText": function (text, x, y, deg) {
+            let returnJSon = initText(painter, config, x, y, deg || 0);
+            painter.attr('transform', transform_current + returnJSon.transform).attr({
+                "stroke": config.strokeStyle,
+                "fill": config.fillStyle,
+                "stroke-dasharray": config.lineDash.join(',')
+            })[0].textContent = text;
+            return enhancePainter;
+        },
 
         // 弧
         "fillArc": function (cx, cy, r1, r2, beginDeg, deg) {
@@ -137,6 +155,15 @@ export default function (target, selector) {
                 "stroke-width": config.lineWidth,
                 "stroke": config.strokeStyle,
                 "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            });
+            return enhancePainter;
+        },
+        "fullArc": function (cx, cy, r1, r2, beginDeg, deg) {
+            initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": config.fillStyle,
                 "stroke-dasharray": config.lineDash.join(',')
             });
             return enhancePainter;
@@ -154,6 +181,14 @@ export default function (target, selector) {
                 "stroke-dasharray": config.lineDash.join(',')
             }); return enhancePainter;
         },
+        "fullCircle": function (cx, cy, r) {
+            initCircle(painter, cx, cy, r).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": config.fillStyle,
+                "stroke-dasharray": config.lineDash.join(',')
+            }); return enhancePainter;
+        },
 
         // 矩形
         "fillRect": function (x, y, width, height) {
@@ -164,6 +199,14 @@ export default function (target, selector) {
                 "stroke-width": config.lineWidth,
                 "stroke": config.strokeStyle,
                 "fill": "none",
+                "stroke-dasharray": config.lineDash.join(',')
+            }); return enhancePainter;
+        },
+        "fullRect": function (x, y, width, height) {
+            initRect(painter, x, y, width, height).attr('transform', transform_current).attr({
+                "stroke-width": config.lineWidth,
+                "stroke": config.strokeStyle,
+                "fill": config.fillStyle,
                 "stroke-dasharray": config.lineDash.join(',')
             }); return enhancePainter;
         },
