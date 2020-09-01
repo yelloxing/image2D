@@ -1,5 +1,6 @@
 import sizzle from '../../core/sizzle';
 import image2D from '../core';
+import { setSVG } from '../../core/polyfill';
 
 /**
  * 把当前维护的结点加到目标结点内部的结尾
@@ -84,10 +85,32 @@ export let filter = function (filterback) {
 
 // 修改文本或获取结点文本
 export let text = function (content) {
-    if (content) {
+    if (arguments.length > 0) {
         for (let i = 0; i < this.length; i++) this[i].textContent = content;
         return this;
     }
     if (this.length <= 0) throw new Error('Target empty!');
     return this[0].textContent;
+};
+
+// 设置或获取结点中的xhtml字符串模板（相当于innerHTML）
+export let html = function (xhtmlString) {
+    if (arguments.length > 0) {
+        for (let i = 0; i < this.length; i++) {
+
+            // 如果是SVG标签
+            if (/[a-z]/.test(this[i].tagName)) {
+                setSVG(this[i], xhtmlString);
+            }
+
+            // 否则是普通html标签
+            else {
+                this[i].innerHTML = xhtmlString;
+            }
+
+        }
+        return this;
+    }
+    if (this.length <= 0) throw new Error('Target empty!');
+    return this[0].innerHTML;
 };

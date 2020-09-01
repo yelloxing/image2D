@@ -57,6 +57,7 @@ layer.hidden(id);
 layer.show(id);
             </pre>
         </div>
+        <p class="warn">图层的创建越晚离眼睛距离越近。</p>
         <h2 id='fixed-animation'>
             动画或定时轮询
         </h2>

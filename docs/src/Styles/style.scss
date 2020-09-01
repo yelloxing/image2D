@@ -8,29 +8,34 @@ body {
 
 /* webkit下滚动条样式 */
 
-::-webkit-scrollbar {
-    width: .07rem;
-    height: .07rem;
-    background-color: #eee;
-}
+// ::-webkit-scrollbar {
+//     width: .0rem;
+//     height: .0rem;
+//     background-color: #eee;
+// }
 
-::-webkit-scrollbar-thumb {
-    height: .3rem;
-    background-color: rgb(113, 30, 50);
-    border-radius: .05rem;
-}
+// ::-webkit-scrollbar-thumb {
+//     height: .3rem;
+//     background-color: rgb(113, 30, 50);
+//     border-radius: .05rem;
+// }
+
+// :hover::-webkit-scrollbar {
+//     width: .04rem;
+//     height: .04rem;
+// }
 
 /* IE浏览器下 */
 
-* {
-    /*三角箭头的颜色*/
-    scrollbar-arrow-color: rgb(113, 30, 50);
-    /*滚动条滑块按钮的颜色*/
-    scrollbar-face-color: #eeeeee;
-    /*滚动条整体颜色*/
-    scrollbar-highlight-color: #fff;
-    /*滚动条阴影*/
-    scrollbar-shadow-color: #ccc;
-    /*滚动条轨道颜色*/
-    scrollbar-track-color: #fff;
-}
+// * {
+//     /*三角箭头的颜色*/
+//     scrollbar-arrow-color: rgb(113, 30, 50);
+//     /*滚动条滑块按钮的颜色*/
+//     scrollbar-face-color: #eeeeee;
+//     /*滚动条整体颜色*/
+//     scrollbar-highlight-color: #fff;
+//     /*滚动条阴影*/
+//     scrollbar-shadow-color: #ccc;
+//     /*滚动条轨道颜色*/
+//     scrollbar-track-color: #fff;
+// }

@@ -15,7 +15,7 @@ export default function (canvas) {
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
     if (width == 0 || height == 0) {
-        console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+        console.warn('Canvas is hidden or size is zero!');
 
         if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 

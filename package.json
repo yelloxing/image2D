@@ -1,6 +1,6 @@
 {
   "name": "image2d",
-  "version": "1.8.3",
+  "version": "1.8.9",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
   "scripts": {
@@ -36,7 +36,6 @@
     "babel-core": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "babelify": "^8.0.0",
     "cuf": "^1.2.0",
     "rollup": "^1.17.0",
     "rollup-plugin-commonjs": "^10.1.0",

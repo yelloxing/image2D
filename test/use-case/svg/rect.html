@@ -16,7 +16,7 @@
         // 准备画布
         var svg = $$('<svg></svg>').attr({
             "width": 400,
-            "height": 200
+            "height": 400
         }).appendTo('body');
 
         // 获取并配置画笔
@@ -32,6 +32,11 @@
 
         // 测试虚线
         painter.config('lineDash', [15, 5]).bind("<rect>").strokeRect(20, 20, 60, 160).appendTo(svg);
+
+        // 测试负数
+        painter.bind("<rect>").fillRect(0, 400, 100, -150).appendTo(svg);
+        painter.bind("<rect>").fillRect(250, 250, -100, 150).appendTo(svg);
+        painter.bind("<rect>").fillRect(400, 400, -100, -150).appendTo(svg);
 
     </script>
 </body>

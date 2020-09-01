@@ -39,6 +39,8 @@ var imageObject=$$(selector[, context]);
             <li>全部选择器，也就是字符串“*”，会选中全部结点。</li>
             <li>非查询选择器，包括：结点，结点数组和结点对象。这类选择器不会进行查找，直接把传递的结点作为维护结点，因此也会忽略查找上下文。</li>
             <li>筛选函数，传递一个函数，函数形参是当前面对的结点，通过返回true或false来判断是否把当前面对的结点加入结点对象中。</li>
+            <li>结点对象元素，比如结点或image2D对象。</li>
+            <li>数组，数组的元素是结点对象元素。</li>
         </ul>
         <p>
             创建好了结点对象以后，后续依旧可以对维护的结点进行筛选后获取新的结点对象：
@@ -108,6 +110,14 @@ imageObject.remove();
 imageObject.text([content]);
             </pre>
         </div>
+        <p>
+            设置或获取结点中的xhtml字符串模板（相当于innerHTML）：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+imageObject.html([xhtmlString]);
+            </pre>
+        </div>
         <h2 id='fixed-calculate'>
             计算
         </h2>
@@ -128,6 +138,15 @@ imageObject.size(type);
             <li>"border":内容+内边距+边框（默认值）。</li>
             <li>"scroll":包含滚动的尺寸（不包括border）</li>
         </ul>
+        <p>返回的结果格式为：</p>
+        <div ui-copy>
+            <pre class="prettyprint">
+{
+    width:宽,
+    height:高
+}
+            </pre>
+        </div>
         <h2 id='fixed-attribute'>
             样式和属性
         </h2>
@@ -139,6 +158,7 @@ imageObject.size(type);
 imageObject.css();
             </pre>
         </div>
+
         <p>
             通过不同的参数来确定是获取样式还是设置样式，具体有下列参数选项可选：
         </p>
@@ -274,7 +294,8 @@ var exit=update.exit();
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-imageObject.loop(function(data,index,target){
+// 因为当前有用的结点其实是原来的和追加的，因此需要拼接这两者
+$$([imageObject, enter]).loop(function(data,index,target){
     // 绘制图像
     // data是当前结点对象target维护的数据，index是当前结点对象序号
 });
@@ -307,5 +328,4 @@ imageObject.loop(function(data,index,target){
         background-position: left center;
         background-size: auto 100%;
     }
-
 </style>

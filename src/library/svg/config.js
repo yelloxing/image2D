@@ -18,7 +18,6 @@ export default function (key, value) {
 
 // 文字统一设置方法
 export let initText = function (painter, config, x, y, deg) {
-    if (!isElement(painter[0])) throw new Error('Target empty!');
     if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
     // 垂直对齐采用dy实现
@@ -97,6 +96,13 @@ export let initPath = function (painter, path) {
 // 画矩形统一设置方法
 export let initRect = function (painter, x, y, width, height) {
     if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+
+    // 由于height和宽不可以是负数，校对一下
+
+    if (height < 0) { height *= -1; y -= height; }
+
+    if (width < 0) { width *= -1; x -= width; }
+
     painter.attr({
         "x": x,
         "y": y,

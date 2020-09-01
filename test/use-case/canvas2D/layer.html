@@ -36,6 +36,17 @@
 
         layer.update();
 
+        // 下面来测试同名图层会不会重叠
+        var p1 = layer.painter('p1');
+        p1._a_ = '有了';
+        var p2 = layer.painter('p1');
+        var p3 = layer.painter('p3');
+        if (p3._a_ != p1._a_ && p2._a_ == p1._a_) {
+            console.log('图层画笔测试：通过');
+        } else {
+            console.error('图层画笔测试：失败');
+        }
+
     </script>
 </body>
 

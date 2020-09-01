@@ -9,27 +9,31 @@
                 <li title='接口文档' @click='openRouter("api")' class='menu-1 api'>
                     文档
                 </li>
+                <li title='使用教程' @click='openRouter("course")' class='menu-1 course'>
+                    教程
+                </li>
                 <li title='汇集的一些常用答疑' @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>
                 <li class="line"></li>
-                <li title='一些绘制的图形用例' class='menu-1'
-                    onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/'">
+                <li title='一些绘制的图形用例' onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/'">
                     用例
                 </li>
-                <li title='任何疑惑都可以在这里提问' class='menu-1'
-                    onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
-                    提问
+                <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
+                    参与讨论
                 </li>
                 <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url'
                     title='image2D 源码'>
                     Fork-me-on-Github
                 </li>
-                <li class="editor" @click="openEdit()" title='修复文档中的错误'>编辑</li>
+                <li class="editor" @click="openEdit()" title='发现错误？想参与编辑？ 在 GitHub 上编辑此页！'>编辑</li>
                 <li onclick="window.location.href='https://www.oschina.net/p/image2d'" title='Open Source China'>
                     <span>
                         开源中国
                     </span>
+                </li>
+                <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持！'>
+                    Sponsors
                 </li>
             </ul>
         </nav>
@@ -62,6 +66,8 @@
                     fileurl = window.location.href.split("#")[1].replace(/\/$/, "").replace(/\?.{0,}$/, '').replace(/^\//, "");
                     if (fileurl == 'api') {
                         fileurl = "api/how-to-use";
+                    } else if (fileurl == 'course') {
+                        fileurl = 'course/install';
                     }
                 } catch (e) {
                     fileurl = 'guide';
@@ -118,10 +124,6 @@
                         margin: 0 .1rem;
                     }
 
-                    &[active='yes'] {
-                        color: red;
-                    }
-
                     &.git-url {
                         background-image: url('./assets/github.png');
                         font-size: 0;
@@ -137,6 +139,17 @@
                         background-image: url("./assets/edit.png");
                         background-size: 100% auto;
                         font-size: 0;
+                    }
+
+                    &.Sponsors {
+                        color: #d1bba1;
+                        font-weight: 200;
+                        font-size: 16px;
+                        font-family: fantasy;
+                    }
+
+                    &[active='yes'] {
+                        color: red;
                     }
 
                     &>span {

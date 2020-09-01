@@ -400,6 +400,67 @@ pieLayout.config({
         <p>
             饼图绘制的时候，除了绘制各个弧以外，有时候我们希望添加提示文字，用折线和弧对应起来，radius是一个数组，每个项代表一个半径，我们会计算每个半径对应的小弧中心坐标，最终保存的位置就是dots。
         </p>
+        <h2 id='fixed-map'>
+            地图坐标映射
+        </h2>
+        <p>
+            比如绘制一个区域，我们拿到的区域信息大部分情况下都是一堆经纬度的值，绘制的时候需要转成xOy坐标，让我们先来获取一个映射对象：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+var map = $$.map(config);
+            </pre>
+        </div>
+        <p>
+            可以看到，建立地图对象的时候需要传递配置config（后续也可以提供config方法来修改配置）来确定采用何种映射算法，不同的映射算法需要配置的参数不一样，这个我们在介绍具体的映射算法的时候再说。
+        </p>
+        <p>
+            到这里，映射对象就有了，然后你就可以直接调用映射对象获取一个经纬度对应的坐标：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+// 特别需要注意，计算出来的位置是偏离中心点的距离
+var d_xyz=map(longitude, latitude);
+            </pre>
+        </div>
+        <p>
+            怎么样，是不是很简单。无论哪种投影，都是把地球看成一个半径为100px的圆球，然后在此基础上计算出经纬度分别为longitude和latitude的点对应的（dx, dy, dz)坐标值。
+        </p>
+        <p>
+            config配置项中有几项是所有投影共有的：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+map.config({
+
+    // 设置缩放比例，默认1
+    scale:number,
+
+    // 设置旋转中心，你可以把你绘制的部分的中心的经纬度设置为中心，默认[107, 36]
+    center:[longitude, latitude]
+
+});
+            </pre>
+        </div>
+        <p>
+            接下来，我们来看看具体的投影算法：
+        </p>
+        <h4 id='fixed-map-eoap'>
+            等角斜方位投影
+        </h4>
+        <p>
+            这种投影会保持角度正确，也就是没有角度变形，但面积变形较大。
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+map.config({
+
+    // 表示使用「等角斜方位投影」
+    type:'eoap'
+
+});
+            </pre>
+        </div>
     </div>
 </template>
 <script>
