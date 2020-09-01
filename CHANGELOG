@@ -193,4 +193,4 @@ v1.8.9
 v1.8.10
     date:2020-09-01
     chagnes:
-      -  针对原来的轮廓stroke和填充full新增full方法，表示stroke+fill
+      -  针对原来的轮廓stroke和填充fill新增full方法，表示stroke+fill
