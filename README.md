@@ -1,3 +1,6 @@
+
+- 开源不易，去[Github](https://github.com/yelloxing/image2D)给个<i>Star</i>吧！
+
 <p align="center"><a href="https://yelloxing.gitee.io/image2D/index.html" target="_blank" rel="noopener noreferrer">
 <img width="100" src="https://yelloxing.gitee.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
 
