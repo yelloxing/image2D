@@ -330,7 +330,7 @@ painter.stroke();
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-painter.stroke();
+painter.full();
             </pre>
         </div>
         <h2 id='fixed-gradient'>
