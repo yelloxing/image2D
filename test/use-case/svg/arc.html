@@ -41,6 +41,8 @@
         })
             .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
 
+        painter.bind('<path>').config("lineWidth", "2").fullArc(200, 200, 180, 200, 0, -Math.PI / 2).appendTo(svg);
+
         painter.bind('<path>').fillArc(200, 200, 10, 30, 0, -Math.PI * 3).appendTo(svg);
 
         painter.bind('<path>').config("arc-start-cap", "round").fillArc(200, 200, 50, 70, 1, -Math.PI * 2 + 1).appendTo(svg);

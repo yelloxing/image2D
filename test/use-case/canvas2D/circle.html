@@ -15,7 +15,7 @@
 
         // 准备画布
         var canvas = $$('<canvas>非常抱歉，您的浏览器不支持canvas!</canvas>').attr({
-            "width": 400,
+            "width": 600,
             "height": 200
         }).appendTo('body');
 
@@ -29,10 +29,9 @@
 
         painter.strokeCircle(100, 100, 90);
         painter.fillCircle(300, 100, 70);
-
+        painter.config({ fillStyle: "red", strokeStyle: "black" }).fullCircle(500, 100, 80);
         // 测试虚线
         painter.config('lineDash', [15]).strokeCircle(100, 100, 70);
-
     </script>
 </body>
 

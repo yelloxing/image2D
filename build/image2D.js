@@ -11,7 +11,7 @@
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Aug 31 2020 01:13:00 GMT+0800 (GMT+08:00)
+* Date:Tue Sep 01 2020 14:30:21 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2234,6 +2234,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 painter.restore();
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                painter.save();
+                initText(painter, config, x, y, deg || 0);
+                painter.fillText(text, 0, 0);
+                painter.strokeText(text, 0, 0);
+                painter.restore();
+                return enhancePainter;
+            },
 
             // 路径
             "beginPath": function beginPath() {
@@ -2257,6 +2265,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "stroke": function stroke() {
                 painter.stroke();return enhancePainter;
+            },
+            "full": function full() {
+                painter.fill();painter.stroke();return enhancePainter;
             },
 
             "save": function save() {
@@ -2318,6 +2329,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeArc": function strokeArc(cx, cy, r1, r2, beginDeg, deg) {
                 initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).stroke();return enhancePainter;
             },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc(painter, config, cx, cy, r1, r2, beginDeg, deg);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 圆形
             "fillCircle": function fillCircle(cx, cy, r) {
@@ -2326,6 +2343,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeCircle": function strokeCircle(cx, cy, r) {
                 initCircle(painter, cx, cy, r).stroke();return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle(painter, cx, cy, r);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2333,6 +2356,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "strokeRect": function strokeRect(x, y, width, height) {
                 initRect(painter, x, y, width, height).stroke();return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect(painter, x, y, width, height);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
             },
 
             /**
@@ -2630,6 +2659,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 });
                 return enhancePainter;
             },
+            "full": function full() {
+                initPath(painter, path).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
 
             "save": function save() {
                 transform_history.push(transform_current);
@@ -2663,6 +2701,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 })[0].textContent = text;
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                var returnJSon = initText$1(painter, _config2, x, y, deg || 0);
+                painter.attr('transform', transform_current + returnJSon.transform).attr({
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                })[0].textContent = text;
+                return enhancePainter;
+            },
 
             // 弧
             "fillArc": function fillArc(cx, cy, r1, r2, beginDeg, deg) {
@@ -2674,6 +2721,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc$1(painter, _config2, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });
                 return enhancePainter;
@@ -2691,6 +2747,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2701,6 +2765,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
