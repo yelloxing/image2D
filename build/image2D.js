@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.10
+* version 1.8.11
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Tue Sep 01 2020 15:34:20 GMT+0800 (GMT+08:00)
+* Date:Thu Sep 03 2020 00:05:50 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -238,21 +238,30 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 2.'SVG'，svg结点(默认值)
     var toNode = function toNode(template, type) {
         var frame = void 0,
-            childNodes = void 0;
+            childNodes = void 0,
+            frameTagName = 'div';
         if (type === 'html' || type === 'HTML') {
+
+            // 大部分的标签可以直接使用div作为容器
+            // 部分特殊的需要特殊的容器标签
+
             if (/^<tr[> ]/.test(template)) {
-                frame = document.createElement("tbody");
+
+                frameTagName = "tbody";
             } else if (/^<th[> ]/.test(template) || /^<td[> ]/.test(template)) {
-                frame = document.createElement("tr");
+
+                frameTagName = "tr";
             } else if (/^<thead[> ]/.test(template) || /^<tbody[> ]/.test(template)) {
-                frame = document.createElement("table");
-            } else {
-                frame = document.createElement("div");
+
+                frameTagName = "table";
             }
+
+            frame = document.createElement(frameTagName);
             frame.innerHTML = template;
 
             // 比如tr标签，它应该被tbody或thead包含
-            // 这里容器是div，这类标签无法生成
+            // 如果采用别的标签，比如div,这类标签无法生成
+            // 为了方便校对，这里给出提示
             if (!/</.test(frame.innerHTML)) {
                 throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/yelloxing/image2D/issues");
             }
@@ -283,7 +292,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 画布canvas特殊知道，一定是html
         if ("canvas" === mark.toLowerCase()) type = 'HTML';
 
-        // 此外，如果没有特殊设定，给常用的html标签默认
+        // 此外，如果没有特殊设定，规定一些标签是html标签
         if (!isString(type) && [
 
         // 三大display元素
@@ -293,7 +302,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         "em", "i",
 
         // 关系元素
-        "table", "ul", "ol", "dl",
+        "table", "ul", "ol", "dl", "dt", "li", "dd",
 
         // 表单相关
         "form", "input", "button", "textarea",
@@ -389,11 +398,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             else if (selector && (selector.constructor === Array || selector.constructor === HTMLCollection || selector.constructor === NodeList)) {
                     var _temp = [];
                     for (var _i = 0; _i < selector.length; _i++) {
-                        if (isElement(selector[_i])) _temp.push(selector[_i]);else if (selector[_i] && selector[_i].constructor === image2D) {
-                            for (var _j = 0; _j < selector[_i].length; _j++) {
-                                _temp.push(selector[_i][_j]);
+
+                        // 如果是结点
+                        if (isElement(selector[_i])) _temp.push(selector[_i]);
+
+                        // 如果是image2D对象
+                        else if (selector[_i] && selector[_i].constructor === image2D) {
+                                for (var _j = 0; _j < selector[_i].length; _j++) {
+                                    _temp.push(selector[_i][_j]);
+                                }
                             }
-                        }
                     }
                     return _temp;
                 }
@@ -534,7 +548,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 // 一些对象的特殊属性不允许覆盖，比如name
                 // 执行：image2D.extend({'name':'新名称'})
                 // 会抛出TypeError
-                throw new Error("Illegal property value！");
+                throw new Error("Illegal property key：" + key + "！");
             }
         }
 

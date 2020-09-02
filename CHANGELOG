@@ -194,3 +194,7 @@ v1.8.10
     date:2020-09-01
     chagnes:
       -  针对原来的轮廓stroke和填充fill新增full方法，表示stroke+fill
+v1.8.11
+    date:2020-09-02
+    chagnes:
+      -  对一些方法内置判断进行校正和优化
