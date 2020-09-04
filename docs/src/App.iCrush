@@ -16,13 +16,17 @@
                     答疑Q&A
                 </li>
                 <li class="line"></li>
+                <li title='友情链接：自由开源 JavaScript 3D绘图'
+                    onclick="window.location.href='https://yelloxing.gitee.io/image3d/'">
+                    3D绘图
+                </li>
                 <li title='一些绘制的图形用例' onclick="window.location.href='http://yelloxing.gitee.io/image2d-examples/'">
                     用例
                 </li>
                 <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/yelloxing/image2D/issues'">
                     参与讨论
                 </li>
-                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='git-url'
+                <li onclick="window.location.href='https://github.com/yelloxing/image2D'" class='icon git-url'
                     title='image2D 源码'>
                     Fork-me-on-Github
                 </li>
@@ -31,6 +35,9 @@
                     <span>
                         开源中国
                     </span>
+                </li>
+                <li class='icon AC-graph' onclick="window.location.href='https://github.com/AC-graph'" title='进入组织'>
+                    AC-graph
                 </li>
                 <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持！'>
                     Sponsors
@@ -124,13 +131,22 @@
                         margin: 0 .1rem;
                     }
 
-                    &.git-url {
-                        background-image: url('./assets/github.png');
+                    &.icon {
                         font-size: 0;
-                        width: 1rem;
-                        background-size: 90% auto;
                         background-repeat: no-repeat;
                         background-position: center center;
+
+                        &.git-url {
+                            background-image: url('./assets/github.png');
+                            width: 1rem;
+                            background-size: 90% auto;
+                        }
+
+                        &.AC-graph {
+                            background-image: url('./assets/AC-graph-100.png');
+                            width: .4rem;
+                            background-size: 70% auto;
+                        }
                     }
 
                     &.editor {
