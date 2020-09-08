@@ -15,7 +15,7 @@
 
         // 准备画布
         var svg = $$('<svg></svg>').attr({
-            "width": 400,
+            "width": 800,
             "height": 400
         }).appendTo('body');
 
@@ -40,6 +40,9 @@
             "arc-start-cap": "butt"
         })
             .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
+        painter.config({
+            lineWidth: 30
+        }).strokeArc(600, 200, 100, 160, 0, Math.PI).appendTo(svg);
 
         painter.bind('<path>').config("lineWidth", "2").fullArc(200, 200, 180, 200, 0, -Math.PI / 2).appendTo(svg);
 
