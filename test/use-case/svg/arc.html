@@ -40,7 +40,7 @@
             "arc-start-cap": "butt"
         })
             .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4).appendTo(svg);
-        painter.config({
+        painter.bind('<path>').config({
             lineWidth: 30
         }).strokeArc(600, 200, 100, 160, 0, Math.PI).appendTo(svg);
 

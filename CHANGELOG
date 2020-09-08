@@ -198,3 +198,7 @@ v1.8.11
     date:2020-09-02
     chagnes:
       -  对一些方法内置判断进行校正和优化
+v1.8.12
+    date:2020-09-08
+    chagnes:
+      -  解决arc轮廓线闭合问题：https://github.com/yelloxing/image2D/issues/49

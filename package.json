@@ -1,6 +1,6 @@
 {
   "name": "image2d",
-  "version": "1.8.11",
+  "version": "1.8.12",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/yelloxing/image2D/issues"
   },
-  "homepage": "https://yelloxing.github.io/image2D/index.html",
+  "homepage": "https://yelloxing.gitee.io/image2d/index.html",
   "devDependencies": {
     "@yelloxing/core.js": "^0.3.7",
     "babel-core": "^6.26.0",
