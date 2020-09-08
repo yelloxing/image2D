@@ -33,6 +33,20 @@
 
     </script>
 
+
+    <svg width="400" height="200">
+        <circle cx="100" cy="100" r="90" transform="" stroke-width="1" stroke="#000" fill="none" stroke-dasharray="">
+        </circle>
+
+        <circle cx="100" cy="100" r="70" transform="" stroke-width="1" stroke="#000" fill="none" stroke-dasharray="15">
+        </circle>
+    </svg>
+
+    <script>
+        $$('svg').html('<circle cx="300" cy="100" r="70" transform="" fill="#000"></circle>');
+        console.log($$('svg').html());
+    </script>
+
 </body>
 
 </html>

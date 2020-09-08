@@ -1,0 +1,107 @@
+<template>
+    <div class='course-view'>
+        <header id='fixed-top'>
+            介绍
+        </header>
+        <h2 id='fixed-what'>
+            image2D是什么？
+        </h2>
+        <p>
+            原生浏览器提供了
+            <span class='important'>Canvas2D</span>
+            和
+            <span class='important'>SVG</span>
+            画布，分别用于绘制位图和矢图，不过存在一些问题：
+        </p>
+        <ul>
+            <li>
+                不同浏览器存在兼容问题，同样的代码绘制出来的效果存在非常明显的差异。
+            </li>
+            <li>
+                画布本身的缺陷，Canvas2D存在锯齿模糊问题而SVG标签操作比较麻烦。
+            </li>
+            <li>
+                计算问题，比如树图、插值、坐标变换等较麻烦的计算会消耗绘图的乐趣。
+            </li>
+        </ul>
+        <p>
+            为了解决这些问题我们抽象出了
+            <span class='important'>image2D</span>
+            库以兼容不同浏览器，在屏蔽了两种画布差异的同时保留了各自的优点，并且进行一些必要的抽象（比如针对Canvas2D新增了图层），又提供了一些有意义的辅助计算和补充方法。
+        </p>
+        <h1>
+            演示如何绘制一个圆弧
+        </h1>
+        <p>
+            下面我们来演示如何使用Canvas2D画笔绘制一个圆弧（SVG画笔和复杂图形请通过后续教程进行学习）！
+        </p>
+        <h2 id='fixed-painter'>
+            获取画笔
+        </h2>
+        <p>
+            需要注意的是，image2D的思想是进行一层抽象来屏蔽那些不友好的差异，因此整体设计和原生的类似，同样存在两种画笔，我们来看看Canvas2D画笔如何获取：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">// 我们假定我们现在在页面有一个canvas标签
+var painter=$$('canvas').attr({
+    "width":300,
+    "height":300
+}).painter();</pre>
+        </div>
+        <p>
+            上面的$$('canvas')返回一个 image2D 对象，通过属性
+            <a href="#/api/xhtml?fixed=selector" target="_blank">选择器</a>
+            查找结点，我们设置了画布的大小，然后调用对象上的 painter 方法就可以获取画笔了。
+        </p>
+        <h2 id='fixed-config'>
+            配置画笔
+        </h2>
+        <p>
+            比如说画笔的颜色，线条粗细等，虽然全部有默认值，不过大部分情况下你可能需要对某些特性进行配置：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">painter.config({
+    'strokeStyle':'red',
+    'lineWidth':3,
+    'lineDash':[5]
+});</pre>
+        </div>
+        <p>
+            上面我们配置了线条的颜色，粗细和类型。
+        </p>
+        <h2 id='fixed-chart'>
+            绘制简单图形
+        </h2>
+        <p>
+            画笔获取并配置好了以后，直接调用
+            <a href="#/api/painter?fixed=method" target="_blank">画笔上的方法</a>
+            即可绘图：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);</pre>
+        </div>
+        <p>
+            这样，一个圆弧就绘制好了，可以
+            <a href="./inline/example-1.html" target="_blank">点击此次</a>
+            查看运行效果。
+        </p>
+        <p>
+            怎么样？是不是很简单，你可以把更多的精力放在设计更多有趣图形上，这个库永远都是自由、开源、讨论和进步的，欢迎提出任何
+            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">意见</a>
+            来帮忙我们改进。
+        </p>
+    </div>
+</template>
+<script>
+    import changeActive from '../../Service/changeActive.js';
+    import fixedScroll from '../../Service/fixedScroll.js';
+    export default {
+        created() {
+            changeActive('menu-2', 'introduce');
+        },
+        mounted() {
+            prettyPrint();
+            fixedScroll(document.getElementById('course-id'), 44);
+        }
+    };
+</script>

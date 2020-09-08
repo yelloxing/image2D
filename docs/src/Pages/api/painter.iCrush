@@ -159,6 +159,14 @@ painter.strokeText(text, x, y[, deg]);
             </pre>
         </div>
         <p>
+            在点(x, y)处绘制轮廓并填充的文字text；deg表示文字旋转角度，可选：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.fullText(text, x, y[, deg]);
+            </pre>
+        </div>
+        <p>
             以(cx, cy)为圆心，内外半径分别是r1和r2，从弧度beginDeg开始，跨越弧度deg，绘制填充圆弧：
         </p>
         <div ui-copy>
@@ -178,6 +186,14 @@ painter.strokeArc(cx, cy, r1, r2, beginDeg, deg);
             </pre>
         </div>
         <p>
+            和fillArc方法类似，只不过绘制的是轮廓并填充圆弧：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.fullArc(cx, cy, r1, r2, beginDeg, deg);
+            </pre>
+        </div>
+        <p>
             以(cx, cy)为圆心，半径r绘制填充圆形：
         </p>
         <div ui-copy>
@@ -194,6 +210,14 @@ painter.strokeCircle(cx, cy, r);
             </pre>
         </div>
         <p>
+            以(cx, cy)为圆心，半径r绘制轮廓并填充圆形：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.fullCircle(cx, cy, r);
+            </pre>
+        </div>
+        <p>
             以(x, y)为左上角，宽width，高height绘制填充矩形：
         </p>
         <div ui-copy>
@@ -207,6 +231,14 @@ painter.fillRect(x, y, width, height);
         <div ui-copy>
             <pre class="prettyprint">
 painter.strokeRect(x, y, width, height);
+            </pre>
+        </div>
+        <p>
+            以(x, y)为左上角，宽width，高height绘制轮廓并填充矩形：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.fullRect(x, y, width, height);
             </pre>
         </div>
         <h4>
@@ -291,6 +323,14 @@ painter.fill();
         <div ui-copy>
             <pre class="prettyprint">
 painter.stroke();
+            </pre>
+        </div>
+        <p>
+            把当前路径画上轮廓线并填充颜色到当前路径所包裹的区域：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+painter.full();
             </pre>
         </div>
         <h2 id='fixed-gradient'>

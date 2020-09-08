@@ -15,7 +15,7 @@ export default function (canvas) {
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
     if (width == 0 || height == 0) {
-        console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+        console.warn('Canvas is hidden or size is zero!');
 
         if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 
@@ -116,6 +116,14 @@ export default function (canvas) {
             painter.restore();
             return enhancePainter;
         },
+        "fullText":function (text, x, y, deg) {
+            painter.save();
+            initText(painter, config, x, y, deg || 0);
+            painter.fillText(text,0,0);
+            painter.strokeText(text, 0, 0);
+            painter.restore();
+            return enhancePainter;
+        },
 
         // 路径
         "beginPath": function () { painter.beginPath(); return enhancePainter; },
@@ -128,6 +136,7 @@ export default function (canvas) {
         },
         "fill": function () { painter.fill(); return enhancePainter; },
         "stroke": function () { painter.stroke(); return enhancePainter; },
+        "full": function () { painter.fill(); painter.stroke(); return enhancePainter; },
 
         "save": function () { painter.save(); return enhancePainter; },
         "restore": function () { painter.restore(); return enhancePainter; },
@@ -180,6 +189,12 @@ export default function (canvas) {
         "strokeArc": function (cx, cy, r1, r2, beginDeg, deg) {
             initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).stroke(); return enhancePainter;
         },
+        "fullArc": function (cx, cy, r1, r2, beginDeg, deg) {
+            initArc(painter, config, cx, cy, r1, r2, beginDeg, deg);
+            painter.fill();
+            painter.stroke();
+            return enhancePainter;
+        },
 
         // 圆形
         "fillCircle": function (cx, cy, r) {
@@ -188,6 +203,12 @@ export default function (canvas) {
         "strokeCircle": function (cx, cy, r) {
             initCircle(painter, cx, cy, r).stroke(); return enhancePainter;
         },
+        "fullCircle": function (cx, cy, r) {
+            initCircle(painter, cx, cy, r);
+            painter.fill();
+            painter.stroke();
+            return enhancePainter;
+        },
 
         // 矩形
         "fillRect": function (x, y, width, height) {
@@ -195,6 +216,12 @@ export default function (canvas) {
         },
         "strokeRect": function (x, y, width, height) {
             initRect(painter, x, y, width, height).stroke(); return enhancePainter;
+        },
+        "fullRect": function (x, y, width, height) {
+            initRect(painter, x, y, width, height);
+            painter.fill();
+            painter.stroke();
+            return enhancePainter;
         },
 
         /**

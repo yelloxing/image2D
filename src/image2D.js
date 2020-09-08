@@ -13,6 +13,7 @@ import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';
 import { formatColor, getRandomColors } from './library/calculate/color';
 import { stopPropagation, preventDefault } from './library/xhtml/event';
+import map from './library/map/index';
 image2D.extend({
 
     // 布局
@@ -34,7 +35,10 @@ image2D.extend({
     formatColor, getRandomColors,
 
     // 事件相关
-    stopPropagation, preventDefault
+    stopPropagation, preventDefault,
+
+    // 地图映射
+    map
 
 });
 
@@ -48,7 +52,7 @@ image2D.extend({
  * image2D对象上调用的方法和静态方法的区别在于
  * 后者只是单纯的方法，前者是针对image2D对象维护的结点进行操作
  */
-import { appendTo, prependTo, afterTo, beforeTo, remove, filter, text } from './library/xhtml/dom';
+import { appendTo, prependTo, afterTo, beforeTo, remove, filter, text, html } from './library/xhtml/dom';
 import { size } from './library/xhtml/calculate';
 import style from './library/xhtml/style';
 import attribute from './library/xhtml/attribute';
@@ -59,7 +63,7 @@ import layer from './library/canvas2D/layer';
 image2D.prototype.extend({
 
     // 结点操作
-    appendTo, prependTo, afterTo, beforeTo, remove, filter, text, size,
+    appendTo, prependTo, afterTo, beforeTo, remove, filter, text, html, size,
 
     // 结点属性或样式操作
     css: style, attr: attribute,

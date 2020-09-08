@@ -1,0 +1,99 @@
+<template>
+    <div class='course-view'>
+        <header id='fixed-top'>
+            安装
+        </header>
+        <h2 id='fixed-compatibility'>
+            兼容性
+        </h2>
+        <p>
+            image2D 不支持 IE9 以下版本（IE9支持），因为 IE9 以下对
+            <a href="https://caniuse.com/#search=canvas" target="_blank">Canvans</a>
+            和
+            <a href="https://caniuse.com/#search=svg" target="_blank">SVG</a>
+            本身就没有很好的支持，而且使用的人越来越少，没有太多兼容的意义。
+        </p>
+        <h2 id='fixed-log'>
+            更新日志
+        </h2>
+        <p>
+            最新稳定版本：
+            <span class="important">{{version}}</span>
+        </p>
+        <p>
+            每个版本的更新日志见
+            <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" target="_blank">GitHub</a>
+            。
+        </p>
+        <h1 id='fixed-script'>
+            直接用 <span class='important'>script</span> 引入
+        </h1>
+        <p class="warn">
+            直接下载并用
+            <span class='important'>script</span>
+            标签引入，
+            <span class='important'>image2D</span>
+            和
+            <span class='important'>$$</span>
+            会被注册为一个全局变量。
+        </p>
+        <h2 id='fixed-cdn'>
+            CDN
+        </h2>
+        <p>
+            对于制作学习或者用例项目等，你可以这样使用最新版本：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">{{CDN.noVersion}}</pre>
+        </div>
+        <p>
+            对于生产环境，我们推荐链接到一个明确的版本号，以避免新版本造成的不可预期的破坏：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">{{CDN.version}}</pre>
+        </div>
+        <p>
+            你可以在
+            <a href="https://cdn.jsdelivr.net/npm/image2d/" target="_blank">cdn.jsdelivr.net/npm/image2D</a>
+            浏览 NPM 包的源代码。
+        </p>
+        <h1 id='fixed-npm'>
+            通过 <span class="important">NPM</span> 方式管理
+        </h1>
+        <p>
+            同样的，你可以使用 NPM 安装。
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">npm install image2d</pre>
+        </div>
+        <p>
+            安装好了以后，在需要的地方引入即可：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">import $$ from "image2d";</pre>
+        </div>
+    </div>
+</template>
+<script>
+    import changeActive from '../../Service/changeActive.js';
+    import fixedScroll from '../../Service/fixedScroll.js';
+    import pkg from '../../../../package.json';
+    export default {
+        data() {
+            return {
+                version: pkg.version,
+                CDN: {
+                    noVersion: '<script src="https://cdn.jsdelivr.net/npm/image2d"><\/script>',
+                    version: '<script src="https://cdn.jsdelivr.net/npm/image2d@' + pkg.version + '"><\/script>'
+                }
+            };
+        },
+        created() {
+            changeActive('menu-2', 'install');
+        },
+        mounted() {
+            prettyPrint();
+            fixedScroll(document.getElementById('course-id'), 44);
+        }
+    };
+</script>

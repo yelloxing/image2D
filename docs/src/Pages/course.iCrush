@@ -1,0 +1,215 @@
+<template>
+    <div class='root'>
+        <div>
+            <h2>写在前面</h2>
+            <ul>
+                <li>
+                    <h3 @click='openRouter("author")' class='menu-2 author'>认识作者</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='doScroll("projects")'>当前在做什么？</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("new-task")'>新任务如何产生？</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("join-us")'>加入我们</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>基础</h2>
+            <ul>
+                <li>
+                    <h3 @click='openRouter("install")' class='menu-2 install'>安装</h3>
+                    <ul>
+                        <li>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("compatibility")'>兼容性</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("log")'>更新日志</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("script")'>直接用 script 引入</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("cdn")'>CDN</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("npm")'>通过 NPM 方式管理</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 @click='openRouter("introduce")' class='menu-2 introduce'>介绍</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='doScroll("what")'>image2D是什么？</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("painter")'>获取画笔</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("config")'>配置画笔</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("chart")'>绘制简单图形</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 @click='openRouter("svg-painter")' class='menu-2 svg-painter'>矢图画笔</h3>
+                    <ul>
+                        <li>
+                            <h4 @click='doScroll("painter")'>获取画笔</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("config")'>配置画笔</h4>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("chart")'>绘制简单图形</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("diff")'>SVG和Canvas画布的区别</h5>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4 @click='doScroll("data")'>数据绑定</h4>
+                            <ul>
+                                <li>
+                                    <h5 @click='doScroll("gradient")'>如何快速绘制柱状图</h5>
+                                </li>
+                                <li>
+                                    <h5 @click='doScroll("gradient-auto")'>数据个数动态改变如何绘制</h5>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <a class='need-help' href='https://github.com/yelloxing/image2D/issues/46' target="_blank">
+                没有你想看的？点我
+            </a>
+        </div>
+        <div id='course-id'>
+            <component :is='page' />
+        </div>
+    </div>
+</template>
+<script>
+    import changeActive from '../Service/changeActive.js';
+    import fixedScroll from '../Service/fixedScroll.js';
+    export default {
+        data() {
+            return {
+                page: null
+            };
+        },
+        mounted() {
+            this.loadRouter(page => this.page = page, 2);
+        },
+        created() {
+            changeActive('menu-1', 'course');
+        },
+        methods: {
+            openRouter(pagename) {
+                this.goRouter(page => this.page = page, ['course', pagename]);
+                this.doScroll("top");
+            },
+            doScroll(fixedName) {
+                window.location.href = (window.location.href + "").replace(/\?fixed=.*$/, '') + "?fixed=" + fixedName;
+                fixedScroll(document.getElementById('course-id'), 44);
+            }
+        }
+    };
+
+</script>
+<style>
+    div.root {
+        overflow: hidden;
+        height: calc(100vh - .44rem);
+        white-space: nowrap;
+
+        &>div {
+            height: calc(100vh - .44rem);
+            overflow: auto;
+            display: inline-block;
+            vertical-align: top;
+            white-space: normal;
+
+            &>.need-help {
+                background-color: #529bcf;
+                color: white;
+                text-align: center;
+                margin-top: .3rem;
+                cursor: pointer;
+                font-size: .15rem;
+                display: block;
+                width: 2.6rem;
+                padding: .1rem 0;
+            }
+
+            &:first-child {
+                width: 2.8rem;
+                padding: .2rem;
+
+                h3,
+                h4,
+                h5 {
+                    font-weight: 400;
+                    font-size: .14rem;
+                    color: #304455;
+                    cursor: pointer;
+                    display: inline-block;
+                    margin: .07rem 0;
+                    height: 1.2em;
+                    color: #304455;
+
+                    &:hover {
+                        border-bottom: 2px solid #711e32;
+                    }
+                }
+
+                h3[active='yes'] {
+                    color: #711e32;
+                    font-weight: 800;
+                    border-bottom: 2px solid #711e32;
+
+                    &~ul {
+                        display: block;
+                    }
+                }
+
+                h3~ul {
+                    display: none;
+                }
+
+                h2 {
+                    padding: 10px 0;
+                    font-size: .16rem;
+                }
+
+                li {
+                    margin-left: 1em;
+                }
+
+            }
+
+            &:last-child {
+                width: calc(100vw - 2.8rem);
+            }
+        }
+
+    }
+</style>

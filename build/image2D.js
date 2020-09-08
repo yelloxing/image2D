@@ -4,14 +4,14 @@
 *
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.6
+* version 1.8.11
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Wed Aug 19 2020 20:24:37 GMT+0800 (GMT+08:00)
+* Date:Thu Sep 03 2020 00:05:50 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -238,21 +238,30 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 2.'SVG'，svg结点(默认值)
     var toNode = function toNode(template, type) {
         var frame = void 0,
-            childNodes = void 0;
+            childNodes = void 0,
+            frameTagName = 'div';
         if (type === 'html' || type === 'HTML') {
+
+            // 大部分的标签可以直接使用div作为容器
+            // 部分特殊的需要特殊的容器标签
+
             if (/^<tr[> ]/.test(template)) {
-                frame = document.createElement("tbody");
+
+                frameTagName = "tbody";
             } else if (/^<th[> ]/.test(template) || /^<td[> ]/.test(template)) {
-                frame = document.createElement("tr");
+
+                frameTagName = "tr";
             } else if (/^<thead[> ]/.test(template) || /^<tbody[> ]/.test(template)) {
-                frame = document.createElement("table");
-            } else {
-                frame = document.createElement("div");
+
+                frameTagName = "table";
             }
+
+            frame = document.createElement(frameTagName);
             frame.innerHTML = template;
 
             // 比如tr标签，它应该被tbody或thead包含
-            // 这里容器是div，这类标签无法生成
+            // 如果采用别的标签，比如div,这类标签无法生成
+            // 为了方便校对，这里给出提示
             if (!/</.test(frame.innerHTML)) {
                 throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/yelloxing/image2D/issues");
             }
@@ -283,7 +292,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 画布canvas特殊知道，一定是html
         if ("canvas" === mark.toLowerCase()) type = 'HTML';
 
-        // 此外，如果没有特殊设定，给常用的html标签默认
+        // 此外，如果没有特殊设定，规定一些标签是html标签
         if (!isString(type) && [
 
         // 三大display元素
@@ -293,7 +302,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         "em", "i",
 
         // 关系元素
-        "table", "ul", "ol", "dl",
+        "table", "ul", "ol", "dl", "dt", "li", "dd",
 
         // 表单相关
         "form", "input", "button", "textarea",
@@ -389,7 +398,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             else if (selector && (selector.constructor === Array || selector.constructor === HTMLCollection || selector.constructor === NodeList)) {
                     var _temp = [];
                     for (var _i = 0; _i < selector.length; _i++) {
+
+                        // 如果是结点
                         if (isElement(selector[_i])) _temp.push(selector[_i]);
+
+                        // 如果是image2D对象
+                        else if (selector[_i] && selector[_i].constructor === image2D) {
+                                for (var _j = 0; _j < selector[_i].length; _j++) {
+                                    _temp.push(selector[_i][_j]);
+                                }
+                            }
                     }
                     return _temp;
                 }
@@ -530,7 +548,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 // 一些对象的特殊属性不允许覆盖，比如name
                 // 执行：image2D.extend({'name':'新名称'})
                 // 会抛出TypeError
-                throw new Error("Illegal property value！");
+                throw new Error("Illegal property key：" + key + "！");
             }
         }
 
@@ -1617,6 +1635,99 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return this;
     };
 
+    /* 等角斜方位投影 */
+
+    var
+    // 围绕X轴旋转
+    _rotateX = function _rotateX(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x, y * cos - z * sin, y * sin + z * cos];
+    },
+
+    // 围绕Y轴旋转
+    _rotateY = function _rotateY(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [z * sin + x * cos, y, z * cos - x * sin];
+    },
+
+    // 围绕Z轴旋转
+    _rotateZ = function _rotateZ(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x * cos - y * sin, x * sin + y * cos, z];
+    };
+
+    var p = [];
+
+    function eoap(config, longitude, latitude) {
+        /**
+         * 通过旋转的方法
+         * 先旋转出点的位置
+         * 然后根据把地心到旋转中心的这条射线变成OZ这条射线的变换应用到初始化点上
+         * 这样求的的点的x,y就是最终结果
+         *
+         *  计算过程：
+         *  1.初始化点的位置是p（x,0,0）,其中x的值是地球半径除以缩放倍速
+         *  2.根据点的纬度对p进行旋转，旋转后得到的p的坐标纬度就是目标纬度
+         *  3.同样的对此刻的p进行经度的旋转，这样就获取了极点作为中心点的坐标
+         *  4.接着想象一下为了让旋转中心移动到极点需要进行旋转的经纬度是多少，记为lo和la
+         *  5.然后再对p进行经度度旋转lo获得新的p
+         *  6.然后再对p进行纬度旋转la获得新的p
+         *  7.旋转结束
+         *
+         * 特别注意：第5和第6步顺序一定不可以调换，原因来自经纬度定义上
+         * 【除了经度为0的位置，不然纬度的旋转会改变原来的经度值，反过来不会】
+         *
+         */
+        p = _rotateY((360 - latitude) / 180 * Math.PI, 100 * config.scale, 0, 0);
+        p = _rotateZ(longitude / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateZ((90 - config.center[0]) / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateX((90 - config.center[1]) / 180 * Math.PI, p[0], p[1], p[2]);
+
+        return [-p[0], //加-号是因为浏览器坐标和地图不一样
+        p[1], p[2]];
+    }
+
+    function map(_config) {
+
+        var config = initConfig({
+
+            // 默认使用「等角斜方位投影」
+            type: 'eoap',
+
+            // 缩放比例
+            scale: 1,
+
+            // 投影中心经纬度
+            center: [107, 36]
+
+        }, _config);
+
+        var map = function map(longitude, latitude) {
+
+            switch (config.type) {
+                case 'eoap':
+                    {
+                        return eoap(config, longitude, latitude);
+                    }
+                default:
+                    {
+                        throw new Error('Map type configuration error!');
+                    }
+            }
+        };
+
+        // 修改配置
+        map.config = function (_config) {
+            config = initConfig(config, _config);
+            return map;
+        };
+
+        return map;
+    }
+
     /**
      * 把当前维护的结点加到目标结点内部的结尾
      * @param {selector} target
@@ -1704,13 +1815,34 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 修改文本或获取结点文本
     var text = function text(content) {
-        if (content) {
+        if (arguments.length > 0) {
             for (var i = 0; i < this.length; i++) {
                 this[i].textContent = content;
             }return this;
         }
         if (this.length <= 0) throw new Error('Target empty!');
         return this[0].textContent;
+    };
+
+    // 设置或获取结点中的xhtml字符串模板（相当于innerHTML）
+    var html = function html(xhtmlString) {
+        if (arguments.length > 0) {
+            for (var i = 0; i < this.length; i++) {
+
+                // 如果是SVG标签
+                if (/[a-z]/.test(this[i].tagName)) {
+                    setSVG(this[i], xhtmlString);
+                }
+
+                // 否则是普通html标签
+                else {
+                        this[i].innerHTML = xhtmlString;
+                    }
+            }
+            return this;
+        }
+        if (this.length <= 0) throw new Error('Target empty!');
+        return this[0].innerHTML;
     };
 
     // 获取元素大小
@@ -2017,7 +2149,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
         if (width == 0 || height == 0) {
-            console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+            console.warn('Canvas is hidden or size is zero!');
 
             if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 
@@ -2116,6 +2248,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 painter.restore();
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                painter.save();
+                initText(painter, config, x, y, deg || 0);
+                painter.fillText(text, 0, 0);
+                painter.strokeText(text, 0, 0);
+                painter.restore();
+                return enhancePainter;
+            },
 
             // 路径
             "beginPath": function beginPath() {
@@ -2139,6 +2279,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "stroke": function stroke() {
                 painter.stroke();return enhancePainter;
+            },
+            "full": function full() {
+                painter.fill();painter.stroke();return enhancePainter;
             },
 
             "save": function save() {
@@ -2200,6 +2343,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeArc": function strokeArc(cx, cy, r1, r2, beginDeg, deg) {
                 initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).stroke();return enhancePainter;
             },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc(painter, config, cx, cy, r1, r2, beginDeg, deg);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 圆形
             "fillCircle": function fillCircle(cx, cy, r) {
@@ -2208,6 +2357,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeCircle": function strokeCircle(cx, cy, r) {
                 initCircle(painter, cx, cy, r).stroke();return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle(painter, cx, cy, r);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2215,6 +2370,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "strokeRect": function strokeRect(x, y, width, height) {
                 initRect(painter, x, y, width, height).stroke();return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect(painter, x, y, width, height);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
             },
 
             /**
@@ -2336,6 +2497,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 画矩形统一设置方法
     var initRect$1 = function initRect$1(painter, x, y, width, height) {
         if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+
+        // 由于height和宽不可以是负数，校对一下
+
+        if (height < 0) {
+            height *= -1;y -= height;
+        }
+
+        if (width < 0) {
+            width *= -1;x -= width;
+        }
+
         painter.attr({
             "x": x,
             "y": y,
@@ -2501,6 +2673,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 });
                 return enhancePainter;
             },
+            "full": function full() {
+                initPath(painter, path).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
 
             "save": function save() {
                 transform_history.push(transform_current);
@@ -2534,6 +2715,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 })[0].textContent = text;
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                var returnJSon = initText$1(painter, _config2, x, y, deg || 0);
+                painter.attr('transform', transform_current + returnJSon.transform).attr({
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                })[0].textContent = text;
+                return enhancePainter;
+            },
 
             // 弧
             "fillArc": function fillArc(cx, cy, r1, r2, beginDeg, deg) {
@@ -2545,6 +2735,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc$1(painter, _config2, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });
                 return enhancePainter;
@@ -2562,6 +2761,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2572,6 +2779,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
@@ -2741,13 +2956,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         formatColor: formatColor, getRandomColors: getRandomColors,
 
         // 事件相关
-        stopPropagation: stopPropagation, preventDefault: preventDefault
+        stopPropagation: stopPropagation, preventDefault: preventDefault,
+
+        // 地图映射
+        map: map
 
     });
     image2D.prototype.extend({
 
         // 结点操作
-        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text, size: size,
+        appendTo: appendTo, prependTo: prependTo, afterTo: afterTo, beforeTo: beforeTo, remove: remove, filter: filter, text: text, html: html, size: size,
 
         // 结点属性或样式操作
         css: style, attr: attribute,

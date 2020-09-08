@@ -21,6 +21,22 @@ const pages = {
         },
         "_default_": "how-to-use"
     },
+    "course": {
+        "content": () => import('../Pages/course.iCrush'),
+        "author": {
+            "content": () => import('../Pages/course/author.iCrush')
+        },
+        "install": {
+            "content": () => import('../Pages/course/install.iCrush')
+        },
+        "introduce": {
+            "content": () => import('../Pages/course/introduce.iCrush')
+        },
+        "svg-painter": {
+            "content": () => import('../Pages/course/svg-painter.iCrush')
+        },
+        "_default_": "install"
+    },
     "QA": {
         "content": () => import('../Pages/QA.iCrush')
     },
@@ -52,6 +68,7 @@ export function goRouter(doback, keyArray) {
     }
 
     page.content().then(function (data) {
+        console.log(data.default);
         doback(data.default);
     });
 

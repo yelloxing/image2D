@@ -48,6 +48,7 @@
             text-indent: 0;
             color: #ac2c23;
             text-decoration: underline;
+            padding:0 10px;
         }
 
         &.warn {
@@ -86,6 +87,7 @@
             font-weight: 400;
             font-size: 0.14rem;
             padding: .15rem .2rem;
+            line-height: 1.6em;
         }
     }
 }

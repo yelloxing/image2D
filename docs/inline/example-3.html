@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../src/assets/image2D.png">
+    <title>演示-3 | image2D - Drawing Two-Dimensional Pictures Using ECMAScript. </title>
+    <meta name="Keywords" content="image2D canvas svg docs api" />
+    <meta name="author" content="心叶" />
+    <meta name="email" content="yelloxing@gmail.com" />
+    <script src="https://cdn.jsdelivr.net/npm/image2d"></script>
+    <script>
+        console.log(
+            '\u001B[92m👉   Thank you for using (\u001B[94m https://github.com/yelloxing/image2D \u001B[92m) as the Image2D Library! 🍇\u001B[0m\n'
+        );;
+
+    </script>
+</head>
+
+<body>
+        <a href="https://github.com/yelloxing/image2D/blob/master/docs/inline/example-3.html" target="_blank">查看源码</a>
+    <svg id='painter'></svg>
+    <script>
+
+        // 准备好数据
+        var datas = [220, 182, 191, 234, 290, 330, 310, 123, 442, 321, 90, 149, 210, 122, 133, 334, 198, 123, 125, 220];
+
+        // 获取画笔
+        var painter = $$('#painter').attr({
+            "width": datas.length * 30,
+            "height": 500
+        }).painter();
+
+        // 首先查找页面中的rect
+        var imageObject = $$('rect');
+
+        // 然后把数据绑定到rect结点上，返回的是更新对象
+        var update = imageObject.data(datas);
+
+        // 因为页面中rect结点可能不够，不足的进行补充
+        var enter = update.enter('<rect>')
+
+            // 补充的结点追加回页面
+            .appendTo('#painter');
+
+        // 一切准备好了，进行绘制
+        $$([imageObject, enter]).loop(function (data, index, target) {
+
+            // 绘制图像
+            // data是当前结点对象target维护的数据，index是当前结点对象序号
+
+            painter.bind(target).fillRect(index * 30 + 5, 500 - data, 20, data);
+
+
+        });
+
+    </script>
+</body>
+
+</html>

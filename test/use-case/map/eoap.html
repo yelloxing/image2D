@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../../../docs/src/assets/image2D.png">
+    <script src="../../../build/image2D.js"></script>
+    <script src="../_data//map.china.js"></script>
+    <title>image2D - 用例测试 - map等角斜方位投影</title>
+</head>
+
+<body>
+
+    <script>
+
+        /**
+         * 绘制区域
+         */
+        function drawRegion(map, data, painter) {
+
+            painter.beginPath();
+
+            var pointer;
+
+            for (var i = 0; i < data.length; i++) {
+                pointer = map(data[i][0], data[i][1]);
+                painter.lineTo(400 + pointer[0], 250 + pointer[1]);
+            }
+
+            painter.closePath().fill();
+
+        };
+
+        /**
+         * 绘制一个地区的方法
+         */
+        function doDraw(map, data, painter) {
+
+            // 绘制区域
+            if (data.geometry.type == "Polygon") {
+                drawRegion(map, data.geometry.coordinates[0], painter);
+            } else {
+                for (var i = 0; i < data.geometry.coordinates.length; i++) {
+                    drawRegion(map, data.geometry.coordinates[i][0], painter);
+                }
+            }
+
+            // 绘制文字
+            var pointer = map(data.properties.cp[0], data.properties.cp[1]);
+            if (data.properties.name == '香港') {
+                pointer[0] += 20; pointer[1] += 10;
+            } else if (data.properties.name == '澳门') {
+                pointer[1] += 20;
+            }
+            painter.strokeText(data.properties.name, 400 + pointer[0], 250 + pointer[1]);
+
+        };
+
+        var map = $$.map().config({
+            type: 'eoap',
+            scale: 7
+        });
+        var width = 800,
+            height = 500;
+
+        var painter = $$("<canvas>非常抱歉，您的浏览器不支持canvas!</canvas>")
+            .appendTo('body')
+            // 设置画布大小
+            .attr({
+                width,
+                height
+            })
+            // 获取画笔
+            .painter()
+            .config({
+                'font-size': 10,
+                'textAlign': 'center'
+            });
+
+
+        var colors = $$.getRandomColors(mapChina.data.features.length);
+        for (var i = 0; i < colors.length; i++) {
+            (function (i) {
+                setTimeout(function () {
+                    doDraw(map, mapChina.data.features[i], painter.config({
+                        'fillStyle': colors[i]
+                    }));
+                }, i * 200);
+            })(i);
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@
 
         // 准备画布
         var svg = $$('<svg></svg>').attr({
-            "width": 400,
+            "width": 600,
             "height": 200
         }).appendTo('body');
 
@@ -29,10 +29,16 @@
 
         painter.bind("<circle>").strokeCircle(100, 100, 90).appendTo(svg);
         painter.bind("<circle>").fillCircle(300, 100, 70).appendTo(svg);
-
+        painter.bind("<circle>").config({
+            fillStyle: "red",
+            strokeStyle: "black",
+            lineDash: []
+        }).fullCircle(500, 100, 80).appendTo(svg);
         // 测试虚线
         painter.config('lineDash', [15]).bind("<circle>").strokeCircle(100, 100, 70).appendTo(svg);
+        // 测试fullCircle
 
+       
     </script>
 </body>
 
