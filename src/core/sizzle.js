@@ -79,7 +79,11 @@ export default function (selector, context) {
     else if (selector && (selector.constructor === Array || selector.constructor === HTMLCollection || selector.constructor === NodeList)) {
         let temp = [];
         for (let i = 0; i < selector.length; i++) {
+
+            // 如果是结点
             if (isElement(selector[i])) temp.push(selector[i]);
+
+            // 如果是image2D对象
             else if (selector[i] && selector[i].constructor === image2D) {
                 for (let j = 0; j < selector[i].length; j++) {
                     temp.push(selector[i][j]);

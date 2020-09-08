@@ -68,6 +68,7 @@ export function goRouter(doback, keyArray) {
     }
 
     page.content().then(function (data) {
+        console.log(data.default);
         doback(data.default);
     });
 

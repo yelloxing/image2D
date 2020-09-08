@@ -1,33 +1,39 @@
-import {
-    NAMESPACE,
-    REGEXP
-} from './config';
+import { NAMESPACE, REGEXP } from './config';
 import isElement from '@yelloxing/core.js/isElement';
 import isString from '@yelloxing/core.js/isString';
-import {
-    setSVG
-} from './polyfill';
+import { setSVG } from './polyfill';
 
 // 变成指定类型的结点
 // type可以取：
 // 1.'HTML'，html结点
 // 2.'SVG'，svg结点(默认值)
 let toNode = function (template, type) {
-    let frame, childNodes;
+    let frame, childNodes, frameTagName = 'div';
     if (type === 'html' || type === 'HTML') {
+
+        // 大部分的标签可以直接使用div作为容器
+        // 部分特殊的需要特殊的容器标签
+
         if (/^<tr[> ]/.test(template)) {
-            frame = document.createElement("tbody");
+
+            frameTagName = "tbody";
+
         } else if (/^<th[> ]/.test(template) || /^<td[> ]/.test(template)) {
-            frame = document.createElement("tr");
+
+            frameTagName = "tr";
+
         } else if (/^<thead[> ]/.test(template) || /^<tbody[> ]/.test(template)) {
-            frame = document.createElement("table");
-        } else {
-            frame = document.createElement("div");
+
+            frameTagName = "table";
+
         }
+
+        frame = document.createElement(frameTagName);
         frame.innerHTML = template;
 
         // 比如tr标签，它应该被tbody或thead包含
-        // 这里容器是div，这类标签无法生成
+        // 如果采用别的标签，比如div,这类标签无法生成
+        // 为了方便校对，这里给出提示
         if (!/</.test(frame.innerHTML)) {
             throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/yelloxing/image2D/issues");
         }
@@ -58,7 +64,7 @@ export default function (template, type) {
     // 画布canvas特殊知道，一定是html
     if ("canvas" === mark.toLowerCase()) type = 'HTML';
 
-    // 此外，如果没有特殊设定，给常用的html标签默认
+    // 此外，如果没有特殊设定，规定一些标签是html标签
     if (!isString(type) && [
 
         // 三大display元素
@@ -68,7 +74,7 @@ export default function (template, type) {
         "em", "i",
 
         // 关系元素
-        "table", "ul", "ol", "dl",
+        "table", "ul", "ol", "dl", "dt", "li", "dd",
 
         // 表单相关
         "form", "input", "button", "textarea",

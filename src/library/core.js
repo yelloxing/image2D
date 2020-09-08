@@ -114,7 +114,7 @@ image2D.prototype.extend = image2D.extend = function () {
             // 一些对象的特殊属性不允许覆盖，比如name
             // 执行：image2D.extend({'name':'新名称'})
             // 会抛出TypeError
-            throw new Error("Illegal property value！");
+            throw new Error("Illegal property key：" + key + "！");
         }
     }
 
