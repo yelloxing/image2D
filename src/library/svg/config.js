@@ -46,7 +46,7 @@ export let initText = function (painter, config, x, y, deg) {
 export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
 
     // 当|deg|>=2π的时候都认为是一个圆环
-    if (deg >= Math.PI * 2 || deg <= -Math.PI * 2) {
+    if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
         deg = Math.PI * 1.999999
     }
 

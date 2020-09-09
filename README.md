@@ -1,5 +1,5 @@
 
-- 开源不易，去[Github](https://github.com/yelloxing/image2D)给个<i>Star</i>吧！
+- 开源不易，去 <i>[Github给个Star](https://github.com/yelloxing/image2D) <i>吧！
 
 <p align="center"><a href="https://yelloxing.gitee.io/image2D/index.html" target="_blank" rel="noopener noreferrer">
 <img width="100" src="https://yelloxing.gitee.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
@@ -32,7 +32,7 @@ npm install --save image2d
 import $$ from 'image2d';
 ```
 
-具体的接口或相关说明请查阅[接口文档](https://yelloxing.gitee.io/image2D/index.html)或者在遇到困难的时候通过[issue](https://github.com/yelloxing/image2D/issues)和我们取得联系！
+具体的接口或相关说明请查阅[接口文档](https://yelloxing.gitee.io/image2d/index.html)或者在遇到困难的时候通过[issue](https://github.com/yelloxing/image2D/issues)和我们取得联系！
 
 <h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 图表用例</h2>
 
