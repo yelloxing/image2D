@@ -2,16 +2,18 @@
 * image2D - 🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.
 * git+https://github.com/yelloxing/image2D.git
 *
+* [DOC] https://yelloxing.gitee.io/image2d/index.html 
+*
 * author 心叶(yelloxing@gmail.com)
 *
-* version 1.8.11
+* version 1.8.12
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Thu Sep 03 2020 00:05:50 GMT+0800 (GMT+08:00)
+* Date:Tue Sep 08 2020 23:17:48 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2086,6 +2088,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 开头
             if (config["arc-start-cap"] != 'round') painter.lineTo(begInnerX, begInnerY);else painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);
         });
+        painter.closePath();
         return painter;
     };
 
@@ -2471,7 +2474,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
             // 开头
             if (config["arc-start-cap"] != 'round') d += "L" + begInnerX + " " + begInnerY;else d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
-            painter.attr('d', d);
+            painter.attr('d', d + "Z");
         });
         return painter;
     };

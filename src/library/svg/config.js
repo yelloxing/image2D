@@ -70,7 +70,7 @@ export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
             d += "L" + begInnerX + " " + begInnerY;
         else
             d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
-        painter.attr('d', d);
+        painter.attr('d', d+"Z");
     });
     return painter;
 };
