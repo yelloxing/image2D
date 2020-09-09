@@ -5,7 +5,7 @@ module.exports = {
     output: {
         path: __dirname,
         filename: 'dist/main.js',
-        chunkFilename: 'dist/bundle.[name].[chunkhash].js'
+        chunkFilename: 'dist/bundle.[name].js'
     },
     module: {
         rules: [{

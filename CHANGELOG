@@ -203,6 +203,6 @@ v1.8.12
     chagnes:
       -  解决arc轮廓线闭合问题：https://github.com/yelloxing/image2D/issues/49
 v1.8.13
-    date:
+    date:2020-09-09
     chagnes:
       -  svg里画弧的跨越弧度取不到2π的解决办法
