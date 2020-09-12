@@ -6,14 +6,14 @@
 *
 * author [object Object]
 *
-* version 1.9.0-alpha.0
+* version 1.9.0-alpha.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sat Sep 12 2020 12:14:00 GMT+0800 (GMT+08:00)
+* Date:Sat Sep 12 2020 15:51:53 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
