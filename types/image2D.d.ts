@@ -1,4 +1,5 @@
 import { painter } from "./painter.d";
+import { point } from "./type.d";
 
 /**
  * image2D对象
@@ -117,10 +118,7 @@ export interface image2D_Object {
      * 获取鼠标相对当前维护的元素左上角位置
      * @param event 事件
      */
-    position(event: Event): {
-        x: number,
-        y: number
-    },
+    position(event: Event): point,
 
     // 数据绑定
 

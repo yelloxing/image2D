@@ -12,30 +12,42 @@
 <body>
     <script>
 
-        var painter = $$('<svg>').appendTo('body').attr({
+        var image2D = $$('<svg>').appendTo('body').attr({
             width: 500,
             height: 100
-        }).painter();
+        });
 
         // 文字
-        JSLitmus.test('fillText', function () { painter.bind('<text>').appendTo().fillText('fillText', 50, 50); });
-        JSLitmus.test('stokeText', function () { painter.bind('<text>').appendTo().stokeText('strokeText', 50, 50); });
-        JSLitmus.test('fullText', function () { painter.bind('<text>').appendTo().fullText('fullText', 50, 50); });
+        var painter1 = image2D.painter().bind('<text>').appendTo();
+        JSLitmus.test('fillText', function () { painter1.fillText('fillText', 50, 50); });
+        var painter2 = image2D.painter().bind('<text>').appendTo();
+        JSLitmus.test('strokeText', function () { painter2.strokeText('strokeText', 50, 50); });
+        var painter3 = image2D.painter().bind('<text>').appendTo();
+        JSLitmus.test('fullText', function () { painter3.fullText('fullText', 50, 50); });
 
         // 弧
-        JSLitmus.test('fillArc', function () { painter.bind('<path>').appendTo().fillArc(50, 50, 10, 30, 0, 1); });
-        JSLitmus.test('strokeArc', function () { painter.bind('<path>').appendTo().strokeArc(50, 50, 10, 30, 0, 1); });
-        JSLitmus.test('fullArc', function () { painter.bind('<path>').appendTo().fullArc(50, 50, 10, 30, 0, 1); });
+        var painter4 = image2D.painter().bind('<path>').appendTo();
+        JSLitmus.test('fillArc', function () { painter4.fillArc(50, 50, 10, 30, 0, 1); });
+        var painter5 = image2D.painter().bind('<path>').appendTo();
+        JSLitmus.test('strokeArc', function () { painter5.strokeArc(50, 50, 10, 30, 0, 1); });
+        var painter6 = image2D.painter().bind('<path>').appendTo();
+        JSLitmus.test('fullArc', function () { painter6.fullArc(50, 50, 10, 30, 0, 1); });
 
         // 矩形
-        JSLitmus.test('fillRect', function () { painter.bind('<rect>').appendTo().fillRect(0, 0, 100, 100); });
-        JSLitmus.test('strokeRect', function () { painter.bind('<rect>').appendTo().strokeRect(0, 0, 100, 100); });
-        JSLitmus.test('fullRect', function () { painter.bind('<rect>').appendTo().fullRect(0, 0, 100, 100); });
+        var painter7 = image2D.painter().bind('<rect>').appendTo();
+        JSLitmus.test('fillRect', function () { painter7.fillRect(0, 0, 100, 100); });
+        var painter8 = image2D.painter().bind('<rect>').appendTo();
+        JSLitmus.test('strokeRect', function () { painter8.strokeRect(0, 0, 100, 100); });
+        var painter9 = image2D.painter().bind('<rect>').appendTo();
+        JSLitmus.test('fullRect', function () { painter9.fullRect(0, 0, 100, 100); });
 
         // 圆
-        JSLitmus.test('fillCircle', function () { painter.bind('<circle>').appendTo().fillCircle(0, 0, 100); });
-        JSLitmus.test('strokeCircle', function () { painter.bind('<circle>').appendTo().strokeCircle(0, 0, 100); });
-        JSLitmus.test('fullCircle', function () { painter.bind('<circle>').appendTo().fullCircle(0, 0, 100); });
+        var painter10 = image2D.painter().bind('<circle>').appendTo();
+        JSLitmus.test('fillCircle', function () { painter10.fillCircle(0, 0, 100); });
+        var painter11 = image2D.painter().bind('<circle>').appendTo();
+        JSLitmus.test('strokeCircle', function () { painter11.strokeCircle(0, 0, 100); });
+        var painter12 = image2D.painter().bind('<circle>').appendTo();
+        JSLitmus.test('fullCircle', function () { painter12.fullCircle(0, 0, 100); });
 
     </script>
 
