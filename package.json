@@ -1,8 +1,10 @@
 {
   "name": "image2d",
-  "version": "1.8.13",
+  "version": "1.9.0-alpha.0",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
+  "typings": "types/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "start": "npm install && npm run build",
     "build": "npm run build:init && npm run build:bundle && npm run build:babel && npm run build:uglifyjs && npm run build:end",
@@ -25,7 +27,10 @@
     "type": "git",
     "url": "git+https://github.com/yelloxing/image2D.git"
   },
-  "author": "心叶(yelloxing@gmail.com)",
+  "author": {
+    "name": "yelloxing",
+    "url": "http://yelloxing.gitee.io/homepage/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yelloxing/image2D/issues"

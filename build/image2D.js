@@ -4,16 +4,16 @@
 *
 * [DOC] https://yelloxing.gitee.io/image2d/index.html 
 *
-* author 心叶(yelloxing@gmail.com)
+* author [object Object]
 *
-* version 1.8.13
+* version 1.9.0-alpha.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Wed Sep 09 2020 11:55:21 GMT+0800 (GMT+08:00)
+* Date:Sat Sep 12 2020 12:14:00 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
