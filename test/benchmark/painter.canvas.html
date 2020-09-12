@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>image2D - 性能基准测试 - canvas画笔</title>
+    <link rel="shortcut icon" href="../../docs/src/assets/image2D.png">
+    <script src="./JSLitmus.js"></script>
+    <script src="../../build/image2D.js"></script>
+</head>
+
+<body>
+
+    <canvas></canvas>
+
+    <script>
+
+        var painter = $$('<canvas>').appendTo('body').attr({
+            width: 500,
+            height: 100
+        }).painter();
+
+        // 文字
+        JSLitmus.test('fillText', function () { painter.fillText('fillText', 50, 50); });
+        JSLitmus.test('strokeText', function () { painter.strokeText('strokeText', 50, 50); });
+        JSLitmus.test('fullText', function () { painter.fullText('fullText', 50, 50); });
+
+        // 弧
+        JSLitmus.test('fillArc', function () { painter.fillArc(50, 50, 10, 30, 0, 1); });
+        JSLitmus.test('strokeArc', function () { painter.strokeArc(50, 50, 10, 30, 0, 1); });
+        JSLitmus.test('fullArc', function () { painter.fullArc(50, 50, 10, 30, 0, 1); });
+
+        // 矩形
+        JSLitmus.test('fillRect', function () { painter.fillRect(0, 0, 100, 100); });
+        JSLitmus.test('strokeRect', function () { painter.strokeRect(0, 0, 100, 100); });
+        JSLitmus.test('fullRect', function () { painter.fullRect(0, 0, 100, 100); });
+
+        // 圆
+        JSLitmus.test('fillCircle', function () { painter.fillCircle(0, 0, 100); });
+        JSLitmus.test('strokeCircle', function () { painter.strokeCircle(0, 0, 100); });
+        JSLitmus.test('fullCircle', function () { painter.fullCircle(0, 0, 100); });
+
+    </script>
+
+</body>
+
+</html>

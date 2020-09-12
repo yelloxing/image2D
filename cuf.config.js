@@ -11,9 +11,10 @@ let banner = function (pkg) {
 * image2D - `+ pkg.description + `
 * `+ pkg.repository.url + `
 *
-* [DOC] `+ pkg.homepage + ` 
+* For online documents, please visit
+* `+ pkg.homepage + `
 *
-* author `+ pkg.author + `
+* author `+ pkg.author.name + `
 *
 * version `+ pkg.version + `
 *

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>image2D - 性能基准测试 - svg画笔</title>
+    <link rel="shortcut icon" href="../../docs/src/assets/image2D.png">
+    <script src="./JSLitmus.js"></script>
+    <script src="../../build/image2D.js"></script>
+</head>
+
+<body>
+    <script>
+
+        var painter = $$('<svg>').appendTo('body').attr({
+            width: 500,
+            height: 100
+        }).painter();
+
+        // 文字
+        JSLitmus.test('fillText', function () { painter.bind('<text>').appendTo().fillText('fillText', 50, 50); });
+        JSLitmus.test('stokeText', function () { painter.bind('<text>').appendTo().stokeText('strokeText', 50, 50); });
+        JSLitmus.test('fullText', function () { painter.bind('<text>').appendTo().fullText('fullText', 50, 50); });
+
+        // 弧
+        JSLitmus.test('fillArc', function () { painter.bind('<path>').appendTo().fillArc(50, 50, 10, 30, 0, 1); });
+        JSLitmus.test('strokeArc', function () { painter.bind('<path>').appendTo().strokeArc(50, 50, 10, 30, 0, 1); });
+        JSLitmus.test('fullArc', function () { painter.bind('<path>').appendTo().fullArc(50, 50, 10, 30, 0, 1); });
+
+        // 矩形
+        JSLitmus.test('fillRect', function () { painter.bind('<rect>').appendTo().fillRect(0, 0, 100, 100); });
+        JSLitmus.test('strokeRect', function () { painter.bind('<rect>').appendTo().strokeRect(0, 0, 100, 100); });
+        JSLitmus.test('fullRect', function () { painter.bind('<rect>').appendTo().fullRect(0, 0, 100, 100); });
+
+        // 圆
+        JSLitmus.test('fillCircle', function () { painter.bind('<circle>').appendTo().fillCircle(0, 0, 100); });
+        JSLitmus.test('strokeCircle', function () { painter.bind('<circle>').appendTo().strokeCircle(0, 0, 100); });
+        JSLitmus.test('fullCircle', function () { painter.bind('<circle>').appendTo().fullCircle(0, 0, 100); });
+
+    </script>
+
+</body>
+
+</html>
