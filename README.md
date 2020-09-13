@@ -17,7 +17,7 @@
 使用ECMAScript绘制二维图片,开发这个库的初衷是希望越来越多的人可以更自由的发挥自己的创意，感受绘图的乐趣，并把积累的经验分享出来，推动库本身的发展，从而不断优化！因此，这个库永远都是自由、开源、讨论和进步的。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.8.13/build/image2D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/image2d@1.9.0/build/image2D.min.js"></script>
 ```
 
 你可以通过CDN的方式引入（[版本历史](https://github.com/yelloxing/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。

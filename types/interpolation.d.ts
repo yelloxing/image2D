@@ -14,6 +14,6 @@ export interface cardinal {
      * 设置点的位置
      * @param points 格式：[[x,y],[x,y],...]
      */
-    setP(points): cardinal
+    setP(pointArray: Array<Array<number>>): cardinal
 
 }

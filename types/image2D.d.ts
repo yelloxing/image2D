@@ -1,5 +1,5 @@
 import { painter } from "./painter.d";
-import { point } from "./type.d";
+import { point, rectSize } from "./type.d";
 import { layer } from "./layer.d";
 
 /**
@@ -74,10 +74,7 @@ export interface image2D_Object {
      * 
      * "scroll":包含滚动的尺寸（不包括border）
      */
-    size(type: 'content' | 'padding' | 'border' | 'scroll'): {
-        width: number,
-        height: number
-    },
+    size(type: 'content' | 'padding' | 'border' | 'scroll'): rectSize,
 
     /**
      * 修改或获取结点样式:
@@ -152,13 +149,13 @@ export interface image2D_Object {
     data(): image2D_Object,
 
     /**
-     * update上的节点追加方法
-     * 
-     * @param template 模板字符串
-     * @param type 可选，表示模板字符串类型
-     * 
-     * @return enter
-     */
+    * update上的节点追加方法
+    * 
+    * @param template 模板字符串
+    * @param type 可选，表示模板字符串类型
+    * 
+    * @return enter
+    */
     enter(template: string, type: 'svg' | 'html'): image2D_Object,
 
     /**

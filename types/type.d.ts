@@ -15,3 +15,11 @@ export interface point3 {
     y: number,
     z: number
 }
+
+/**
+ * 一个矩形的大小
+ */
+export interface rectSize {
+    width: number,
+    height: number
+}

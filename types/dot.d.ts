@@ -1,7 +1,7 @@
 import { point } from './type';
 
 /**
- * 点
+ * 点对象
  */
 export interface dot {
 
@@ -10,17 +10,17 @@ export interface dot {
      * 
      * 注意：改变的是前进方向，不是当前坐标
      */
-    rotate(deg): dot,
+    rotate(deg: number): dot,
 
     /**
      * 沿着当前前进方向前进d
      */
-    move(d): dot,
+    move(d: number): dot,
 
     /**
      * 围绕中心坐标缩放
      */
-    scale(times): dot,
+    scale(times: number): dot,
 
     /**
      * 返回当前位置
