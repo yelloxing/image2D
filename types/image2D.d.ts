@@ -1,5 +1,6 @@
 import { painter } from "./painter.d";
 import { point } from "./type.d";
+import { layer } from "./layer.d";
 
 /**
  * image2D对象
@@ -187,6 +188,13 @@ export interface image2D_Object {
     /**
      * 画笔：根据当前绑定的结点不同，获取的是不同类型的画笔，目前支持svg和canvas2D画笔
      */
-    painter(): painter
+    painter(): painter,
+
+    // 补充
+
+    /**
+     * 获取位图图层
+     */
+    layer(): layer
 
 }
