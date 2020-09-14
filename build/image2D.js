@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.9.1-beta.1
+* version 1.9.1-beta.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Sep 14 2020 13:08:37 GMT+0800 (GMT+08:00)
+* Date:Mon Sep 14 2020 16:44:11 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2108,7 +2108,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 开头
             if (config["arc-start-cap"] != 'round') painter.lineTo(begInnerX, begInnerY);else painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);
         });
-        painter.closePath();
+        if (config["arc-start-cap"] == 'butt') painter.closePath();
         return painter;
     };
 
@@ -2513,7 +2513,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
             // 开头
             if (config["arc-start-cap"] != 'round') d += "L" + begInnerX + " " + begInnerY;else d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
-            painter.attr('d', d + "Z");
+            if (config["arc-start-cap"] == 'butt') d += "Z";
+            painter.attr('d', d);
         });
         return painter;
     };

@@ -55,7 +55,7 @@ export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
         else
             painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);
     });
-    painter.closePath();
+    if (config["arc-start-cap"] == 'butt') painter.closePath();
     return painter;
 };
 
