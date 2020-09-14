@@ -104,7 +104,8 @@ var rgbaArray=$$.formatColor(colorString);
         </p>
         <div ui-copy>
             <pre class="prettyprint">
-var colors=$$.getRandomColors(number);
+// alpha可选，取值是0-1，表示颜色透明度
+var colors=$$.getRandomColors(number, alpha);
             </pre>
         </div>
     </div>

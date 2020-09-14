@@ -99,9 +99,9 @@ image2D.animation = (doit: Function, speeds: number, endBack: Function, timing):
 /**
  * 定任意一个合法的css颜色字符串，把颜色统一转变成rgba格式，返回一个数组[r,g,b,a]
  */
-image2D.formatColor = (colorString: string): Array => { };
+image2D.formatColor = (colorString: string): Array<number> => { };
 
 /**
  * 传递需要的颜色个数，返回一组随机色彩
  */
-image2D.getRandomColors = (num: number): Array => { };
+image2D.getRandomColors = (num: number, alpha?: number): Array<string> => { };

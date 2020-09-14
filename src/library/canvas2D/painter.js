@@ -116,10 +116,10 @@ export default function (canvas) {
             painter.restore();
             return enhancePainter;
         },
-        "fullText":function (text, x, y, deg) {
+        "fullText": function (text, x, y, deg) {
             painter.save();
             initText(painter, config, x, y, deg || 0);
-            painter.fillText(text,0,0);
+            painter.fillText(text, 0, 0);
             painter.strokeText(text, 0, 0);
             painter.restore();
             return enhancePainter;

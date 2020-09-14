@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.9.1-beta.2
+* version 1.9.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Sep 14 2020 16:44:11 GMT+0800 (GMT+08:00)
+* Date:Mon Sep 14 2020 22:23:55 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1543,10 +1543,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     // 获取一组随机色彩
-    var getRandomColors = function getRandomColors(num) {
+    var getRandomColors = function getRandomColors(num, alpha) {
+        if (!(alpha && alpha >= 0 && alpha <= 1)) alpha = 1;
         var temp = [];
         for (var flag = 1; flag <= num; flag++) {
-            temp.push('rgb(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ')');
+            temp.push('rgba(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + alpha + ')');
         }
         return temp;
     };
