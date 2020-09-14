@@ -41,11 +41,11 @@
         })
             .strokeArc(200, 200, 140, 160, Math.PI * 7 / 4, -Math.PI / 4);
         painter.config({
-            lineWidth:30
-        }).strokeArc(600,200,100,160,0,Math.PI);
-        
+            lineWidth: 30
+        }).strokeArc(600, 200, 100, 160, 0, Math.PI);
+
         painter.config('lineWidth', "2").fullArc(200, 200, 180, 200, 0, -Math.PI / 2);
-    
+
         painter.fillArc(200, 200, 10, 30, 0, -Math.PI * 3);
 
         painter.config("arc-start-cap", "round").fillArc(200, 200, 50, 70, 1, -Math.PI * 2 + 1);
@@ -56,6 +56,19 @@
             .config('lineWidth', 10)
             .strokeArc(200, 200, 100, 130, 0, Math.PI)
             .fillArc(200, 200, 100, 130, 0, -Math.PI);
+
+        // 测试弧度闭合问题
+        painter.config({
+            "strokeStyle": "pink",
+            "lineDash": []
+        })
+            .strokeArc(300, 300, 80, 40, 0, -Math.PI);
+
+        painter.config({
+            "strokeStyle": "red",
+            "lineDash": []
+        })
+            .strokeArc(300, 300, 80, 100, 0, -Math.PI);
 
     </script>
 </body>

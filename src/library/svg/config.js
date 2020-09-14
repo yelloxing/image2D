@@ -20,6 +20,8 @@ export default function (key, value) {
 export let initText = function (painter, config, x, y, deg) {
     if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
+    deg = deg % (Math.PI * 2);
+
     // 垂直对齐采用dy实现
     painter.attr('dy', {
         "top": config['font-size'] * 0.5,
@@ -45,12 +47,23 @@ export let initText = function (painter, config, x, y, deg) {
 // 画弧统一设置方法
 export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
 
-    // 当|deg|>=2π的时候都认为是一个圆环
-    if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
-        deg = Math.PI * 1.999999
+    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+
+    beginDeg = beginDeg % (Math.PI * 2);
+
+    if (r1 > r2) {
+        let temp = r1;
+        r1 = r2;
+        r2 = temp;
     }
 
-    if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+    // 当|deg|>=2π的时候都认为是一个圆环
+    if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
+        deg = Math.PI * 1.999999;
+    } else {
+        deg = deg % (Math.PI * 2);
+    }
+
     arc(beginDeg, deg, cx, cy, r1, r2, function (
         beginA, endA,
         begInnerX, begInnerY,

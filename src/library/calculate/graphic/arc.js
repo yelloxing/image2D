@@ -4,8 +4,9 @@ import { rotate } from '../transform';
 // beginA起点弧度，rotateA旋转弧度式
 export default function (beginA, rotateA, cx, cy, r1, r2, doback) {
 
-    if (rotateA > Math.PI * 2) rotateA = Math.PI * 2;
-    if (rotateA < -Math.PI * 2) rotateA = -Math.PI * 2;
+    // 有了前置的判断，这里可以省略了
+    // if (rotateA > Math.PI * 2) rotateA = Math.PI * 2;
+    // if (rotateA < -Math.PI * 2) rotateA = -Math.PI * 2;
 
     // 保证逆时针也是可以的
     if (rotateA < 0) {

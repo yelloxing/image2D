@@ -2,6 +2,9 @@ import arc from '../calculate/graphic/arc';
 
 // 文字统一设置方法
 export let initText = function (painter, config, x, y, deg) {
+
+    deg = deg % (Math.PI * 2);
+
     painter.beginPath();
     painter.translate(x, y);
     painter.rotate(deg);
@@ -12,9 +15,19 @@ export let initText = function (painter, config, x, y, deg) {
 // 画弧统一设置方法
 export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
 
+    if (r1 > r2) {
+        let temp = r1;
+        r1 = r2;
+        r2 = temp;
+    }
+
+    beginDeg = beginDeg % (Math.PI * 2);
+
     // 当|deg|>=2π的时候都认为是一个圆环
     if (deg >= Math.PI * 2 || deg <= -Math.PI * 2) {
-        deg = Math.PI * 2
+        deg = Math.PI * 2;
+    } else {
+        deg = deg % (Math.PI * 2);
     }
 
     arc(beginDeg, deg, cx, cy, r1, r2, function (
