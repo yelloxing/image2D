@@ -55,13 +55,13 @@
         // 文字颜色，大小等零碎测试
         painter.config("textBaseline", "middle");
         painter.config('fillStyle', 'red').bind('<text>').fillText('红色', 100, 100).appendTo(svg);
-        painter.bind('<text>').config('font-size', '30').strokeText('30px', 300, 100, Math.PI / -4).appendTo(svg);
+        painter.bind('<text>').config('font-size', '30').strokeText('30px', 300, 100, Math.PI / -4 + Math.PI * 100000).appendTo(svg);
 
         // 虚线测试
         painter.bind('<text>').config('lineDash', [10, 3]).config('font-size', '60').strokeText('虚线？', 100, 140).appendTo(svg);
 
         //填充加轮廓测试
-        painter.bind('<text>').config('font-size','30').fullText('同时完成?',100,240).appendTo(svg);
+        painter.bind('<text>').config('font-size', '30').fullText('同时完成?', 100, 240).appendTo(svg);
     </script>
 </body>
 

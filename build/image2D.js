@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.9.1-beta.0
+* version 1.9.1-beta.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Mon Sep 14 2020 11:39:24 GMT+0800 (GMT+08:00)
+* Date:Mon Sep 14 2020 13:08:37 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2069,8 +2069,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 文字统一设置方法
     var initText = function initText(painter, config, x, y, deg) {
 
-        deg = deg % (Math.PI * 2);
-
         painter.beginPath();
         painter.translate(x, y);
         painter.rotate(deg);
@@ -2090,7 +2088,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         beginDeg = beginDeg % (Math.PI * 2);
 
         // 当|deg|>=2π的时候都认为是一个圆环
-        if (deg >= Math.PI * 2 || deg <= -Math.PI * 2) {
+        // 为什么不取2π比较，是怕部分浏览器浮点不精确，同时也是为了和svg保持一致
+        if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
             deg = Math.PI * 2;
         } else {
             deg = deg % (Math.PI * 2);
@@ -2862,6 +2861,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             //  旋转
             "rotate": function rotate(deg) {
+                deg = deg % (Math.PI * 2);
                 transform_current += ' rotate(' + deg / Math.PI * 180 + ')';
                 return enhancePainter;
             },

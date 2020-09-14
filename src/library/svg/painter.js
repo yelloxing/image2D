@@ -239,6 +239,7 @@ export default function (target, selector) {
 
         //  旋转
         "rotate": function (deg) {
+            deg = deg % (Math.PI * 2);
             transform_current += ' rotate(' + (deg / Math.PI * 180) + ')';
             return enhancePainter;
         },

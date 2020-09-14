@@ -3,8 +3,6 @@ import arc from '../calculate/graphic/arc';
 // 文字统一设置方法
 export let initText = function (painter, config, x, y, deg) {
 
-    deg = deg % (Math.PI * 2);
-
     painter.beginPath();
     painter.translate(x, y);
     painter.rotate(deg);
@@ -24,7 +22,8 @@ export let initArc = function (painter, config, cx, cy, r1, r2, beginDeg, deg) {
     beginDeg = beginDeg % (Math.PI * 2);
 
     // 当|deg|>=2π的时候都认为是一个圆环
-    if (deg >= Math.PI * 2 || deg <= -Math.PI * 2) {
+    // 为什么不取2π比较，是怕部分浏览器浮点不精确，同时也是为了和svg保持一致
+    if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
         deg = Math.PI * 2;
     } else {
         deg = deg % (Math.PI * 2);
