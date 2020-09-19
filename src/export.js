@@ -30,6 +30,19 @@ import { bind, unbind, position } from './library/xhtml/event';
 import painter from './library/painter';
 import layer from './library/canvas2D/layer';
 
+/**
+ * 部分比较重的部分，我们进行切割
+ */
+
+import painter_canvas2D from './library/canvas2D/painter';
+import painter_svg from './library/svg/painter';
+
+// 位图画笔
+let painterCanvas2D = function () { return painter_canvas2D(this[0]); };
+
+// 矢图画笔
+let painterSVG = function () { return painter_svg(this[0], arguments[0]); };
+
 export {
     image2D,
 
@@ -68,6 +81,8 @@ export {
     unbind,
     position,
     painter,
+    painterCanvas2D,
+    painterSVG,
     layer
 
 };
