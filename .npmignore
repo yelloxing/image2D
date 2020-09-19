@@ -5,12 +5,9 @@ node_modules
 .github
 docs
 laboratory
-src
 test
 .babelrc
 .editorconfig
 .gitignore
 cuf.config.js
 package-lock.json
-CODE_OF_CONDUCT.md
-CONTRIBUTING.md
