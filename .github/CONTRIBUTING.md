@@ -3,8 +3,9 @@
 目前image2D主要由 [心叶](http://yelloxing.gitee.io/homepage) 维护，当然也有来自一些使用者的 [意见](https://github.com/yelloxing/image2D/issues) 和 [Pull requests](https://github.com/yelloxing/image2D/pulls) 在帮忙我们不断改进和完善，在此我们表示由衷的感谢，我们会带着初心矢志不渝的坚持维护，并永远保持自由、开源、讨论和进步，期待你的加入。
 
 ## 当前在做什么？
-如果你想知道我们在做什么，你可以查看 [开发或BUG任务清单](https://github.com/yelloxing/image2D/projects/4) 页面，其中分为三个阶段：
+如果你想知道我们在做什么，你可以查看 [开发或BUG任务清单](https://github.com/yelloxing/image2D/projects/4) 页面，其中分为四个阶段：
 
+- In discussion：讨论阶段，不一定会去实现，只是提出了进行讨论。
 - To do：准备做的，列在日程表中，不过还没有准备做的任务。
 - In progress：正在做的，当前已经被领取的任务，表示已经有人在完成这件事了，只是还没有完成。
 - Done：已经完成的，进入这个阶段就意味着该任务已经关闭。

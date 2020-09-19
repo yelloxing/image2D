@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.9.2
+* version 1.10.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sat Sep 19 2020 14:01:58 GMT+0800 (GMT+08:00)
+* Date:Sat Sep 19 2020 17:53:20 GMT+0800 (GMT+08:00)
 */
 
 'use strict';

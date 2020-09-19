@@ -20,9 +20,13 @@
         <p>
             如果你想知道我们在做什么，你可以查看
             <a href="https://github.com/yelloxing/image2D/projects/4" target="_blank">开发或BUG任务清单</a>
-            页面，其中分为三个阶段：
+            页面，其中分为四个阶段：
         </p>
         <ul>
+            <li>
+                <span class="important">In discussion</span>
+                ：讨论阶段，不一定会去实现，只是提出了进行讨论。
+            </li>
             <li>
                 <span class="important">To do</span>
                 ：准备做的，列在日程表中，不过还没有准备做的任务。</li>
