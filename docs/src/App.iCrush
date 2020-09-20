@@ -36,10 +36,10 @@
                         开源中国
                     </span>
                 </li>
-                <li class='icon AC-graph' onclick="window.location.href='https://github.com/AC-graph'" title='进入组织'>
+                <li class='icon AC-graph' onclick="window.location.href='https://github.com/AC-graph'" title='图形框架lookview研发基地'>
                     AC-graph
                 </li>
-                <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持！'>
+                <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持我们！'>
                     Sponsors
                 </li>
             </ul>
