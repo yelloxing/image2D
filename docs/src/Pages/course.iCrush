@@ -48,6 +48,9 @@
                         <li>
                             <h4 @click='doScroll("npm")'>通过 NPM 方式管理</h4>
                         </li>
+                        <li>
+                            <h4 @click='doScroll("export")'>部分导入</h4>
+                        </li>
                     </ul>
                 </li>
                 <li>

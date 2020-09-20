@@ -72,6 +72,86 @@
         <div ui-copy>
             <pre class="prettyprint">import $$ from "image2d";</pre>
         </div>
+        <h1 id='fixed-export'>
+            <span class="important">部分导入</span>
+        </h1>
+        <p>
+            如果你想基于
+            <span class='important'>image2D</span>
+            进行
+            <span class='important'>二次开发</span>
+            ，可能和之间使用本库不一样，比如你选择了SVG作为画笔，这样，Canvas部分对你而言可能就是“累赘”，我们希望提供按需导入的方式来帮助你减小你基于image2D开发的项目的最终产品尺寸。
+        </p>
+        <p>
+            你可以参考这个项目：
+            <a href="https://github.com/AC-graph/lookview" target="_blank">lookview</a>
+            来看看具体的例子，下面，我们来说明一下如何实现：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">import {
+
+    // 对象
+    image2D,
+
+    // 静态方法
+    treeLayout, pieLayout, Matrix4, animation, cardinal,
+    rotate, move, scale, dot, formatColor, getRandomColors,
+    stopPropagation, preventDefault, map,
+
+    // 对象方法
+    appendTo, prependTo, afterTo, beforeTo, remove, filter,
+    text, html, size, css, attr, datum, data, enter, exit,
+    loop, bind, unbind, position,
+    painter, painterCanvas2D, painterSVG, layer
+
+} from "image2d/src/export.js";</pre>
+        </div>
+        <p>
+            首先，你需要像上面这样导入需要的
+            <span class='important'>静态方法</span>
+            和
+            <span class='important'>对象方法</span>
+            ，而
+            <span class='important'>对象</span>
+            是必须的，上面列出了全部可导出方法，和
+            <a href="#/api" target="_blank">文档</a>
+            是对应的。
+        </p>
+        <p>
+            然后，拼接出你想要的
+            <span class='important'>image2D</span>
+            即可：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">// 挂载需要的静态方法
+image2D.extend({
+    
+    animation
+
+});
+
+// 挂载需要的类方法
+image2D.prototype.extend({
+
+    css,
+    attr,
+
+    // 画笔比较特殊，默认是painter，你也可以选择只用canvas或者svg画笔，
+    // 因此名称没办法完全和接口保持一致
+    painter: painterCanvas2D
+
+});
+
+export default image2D;</pre>
+        </div>
+        <p>
+            比如上面导出的最终成品支持动画，可以设置样式和属性，还可以获取canvas2D画笔。
+        </p>
+        <p>
+            如果上面有没有说清楚的，欢迎去
+            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">issue</a>
+            给我们留言！
+        </p>
     </div>
 </template>
 <script>
