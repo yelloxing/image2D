@@ -36,9 +36,6 @@
                         开源中国
                     </span>
                 </li>
-                <li class='icon AC-graph' onclick="window.location.href='https://github.com/AC-graph'" title='图形框架lookview研发基地'>
-                    AC-graph
-                </li>
                 <li class='Sponsors menu-1' @click="openRouter('Sponsors')" title='完全开源的项目，捐款支持我们！'>
                     Sponsors
                 </li>
@@ -140,12 +137,6 @@
                             background-image: url('./assets/github.png');
                             width: 1rem;
                             background-size: 90% auto;
-                        }
-
-                        &.AC-graph {
-                            background-image: url('./assets/AC-graph-100.png');
-                            width: .4rem;
-                            background-size: 70% auto;
                         }
                     }
 
