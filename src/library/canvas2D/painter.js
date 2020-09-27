@@ -2,7 +2,7 @@ import { initText, initArc, initCircle, initRect } from './config';
 import { linearGradient, radialGradient } from './Gradient';
 
 // 加强版本的画笔
-export default function (canvas) {
+export default function (canvas, noHiddenWarn) {
 
     // 获取canvas2D画笔
     let painter = canvas.getContext("2d");
@@ -15,7 +15,8 @@ export default function (canvas) {
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
     if (width == 0 || height == 0) {
-        console.warn('Canvas is hidden or size is zero!');
+
+        if (!noHiddenWarn) console.warn('Canvas is hidden or size is zero!');
 
         if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 

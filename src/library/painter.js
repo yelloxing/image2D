@@ -12,7 +12,7 @@ export default function () {
     let target = this[0], nodeName = target.nodeName.toLowerCase();
 
     // canvas2D
-    if (nodeName === 'canvas') return painter_canvas2D(target);
+    if (nodeName === 'canvas') return painter_canvas2D(target, arguments[0]);
 
     // svg
     if (nodeName === 'svg') return painter_svg(target, arguments[0]);

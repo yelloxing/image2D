@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.10.4
+* version 1.10.5
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Sep 20 2020 10:00:54 GMT+0800 (GMT+08:00)
+* Date:Sun Sep 27 2020 11:31:29 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -2159,7 +2159,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     // 加强版本的画笔
-    function painter_canvas2D(canvas) {
+    function painter_canvas2D(canvas, noHiddenWarn) {
 
         // 获取canvas2D画笔
         var painter = canvas.getContext("2d");
@@ -2173,7 +2173,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
         if (width == 0 || height == 0) {
-            console.warn('Canvas is hidden or size is zero!');
+
+            if (!noHiddenWarn) console.warn('Canvas is hidden or size is zero!');
 
             if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 
@@ -2891,7 +2892,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             nodeName = target.nodeName.toLowerCase();
 
         // canvas2D
-        if (nodeName === 'canvas') return painter_canvas2D(target);
+        if (nodeName === 'canvas') return painter_canvas2D(target, arguments[0]);
 
         // svg
         if (nodeName === 'svg') return painter_svg(target, arguments[0]);

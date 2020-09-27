@@ -221,3 +221,7 @@ v1.10.4
     chagnes:
       -  从此版本开始，npm发布的时候包含源码src，并提供 “部分导入” 功能来帮助二次开发的库或框架获得更小的打包尺寸
         （ https://yelloxing.gitee.io/image2d/#/course?fixed=export ）
+v1.10.5
+    date:2020-09-27
+    chagnes:
+      -  对于隐藏或者大小为零的canvas画布，获取画笔的时候，添加是否需要警告配置

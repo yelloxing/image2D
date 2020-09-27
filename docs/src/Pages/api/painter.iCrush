@@ -51,6 +51,14 @@ painter.config();
             位图画笔
         </h2>
         <p>
+            因为画布隐藏或者大小为零是比较特殊的情况，我们默认会给出警告，你可以在获取画笔的时候传递一个boolean值noHiddenWarn来控制是否需要提示，默认false，也就是给出警告：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+var painter=imageObject.painter(noHiddenWarn);
+            </pre>
+        </div>
+        <p>
             除了上面列出的可配置项，因为canvas2D的配置是直接连原始画笔的（不是全部），因此其自身的2d画笔原来可配置的属性依旧可以配置，请知悉。这种绘图方法相对比较简单，下面我们来看看其特有的一些简单的绘图方法
         </p>
         <p class="warn">
