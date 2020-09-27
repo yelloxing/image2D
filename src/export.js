@@ -1,36 +1,36 @@
 /**
  * 如果是一个基于image2D开发的项目，你可以导入这份image2D来帮助你减小打包后的文件大小
  * 温馨提示：这里导出的接口是稳定的，请放心进行二次开发
- * 
+ *
  * 如何拼接成一个完整的image2D?
- * 
+ *
  * 第一步：导入基本的对象
- * 
+ *
  * import {image2D} from 'image2d/src/export.js';
- * 
+ *
  * 第二步：拼接你需要的静态方法
- * 
+ *
  * // 比如你需要树布局
  * import {treeLayout} from 'image2d/src/export.js';
  * image2D.extend({
  *      treeLayout
  * });
- * 
+ *
  * 第三步：拼接你需要的对象方法
- * 
+ *
  * // 比如是画笔
  * import {painter} from 'image2d/src/export.js';
  * image2D.extend({
  *      painter
  * });
- * 
+ *
  * 补充：比如这里的画笔，默认导入的是svg+canvas画笔，如果你只用到了一种，比如canvas,可以这样改造：
- * 
+ *
  * import {painter_canvas2D} from 'image2d/src/export.js';
  * image2D.extend({
  *      painter:painter_canvas2D
  * });
- * 
+ *
  * 除了一些比较重的部分外，查阅文档 { https://yelloxing.gitee.io/image2d/index.html } 的时候，需要什么再挂载什么即可，
  * 无论是这个的按需导入，还是全部导入，都可以查阅文档，并保证向后兼容。
  */
@@ -70,7 +70,7 @@ import painter_canvas2D from './library/canvas2D/painter';
 import painter_svg from './library/svg/painter';
 
 // 位图画笔
-let painterCanvas2D = function () { return painter_canvas2D(this[0]); };
+let painterCanvas2D = function () { return painter_canvas2D(this[0], arguments[0]); };
 
 // 矢图画笔
 let painterSVG = function () { return painter_svg(this[0], arguments[0]); };
