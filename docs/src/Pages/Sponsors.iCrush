@@ -8,6 +8,7 @@
             <li title='2020年10月12日 ￥0.01'></li>
             <li title='2020年10月12日 ￥1.88'></li>
             <li title='2020年10月12日 ￥1.11'></li>
+            <li title='2020年10月12日 ￥1.00'></li>
         </ul>
     </div>
 </template>
@@ -57,6 +58,10 @@
 
                 &:nth-child(3) {
                     background-image: url('../assets/Sponsors/no3-20201012.jpg');
+                }
+
+                &:nth-child(4) {
+                    background-image: url('../assets/Sponsors/no4-20201012.jpg');
                 }
             }
         }
