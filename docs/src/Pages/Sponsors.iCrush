@@ -5,7 +5,9 @@
             特别感谢以下捐献者：
         </h2>
         <ul>
-            <li title='2020年10月12日'></li>
+            <li title='2020年10月12日 ￥0.01'></li>
+            <li title='2020年10月12日 ￥1.88'></li>
+            <li title='2020年10月12日 ￥1.11'></li>
         </ul>
     </div>
 </template>
@@ -47,6 +49,14 @@
 
                 &:nth-child(1) {
                     background-image: url('../assets/Sponsors/no1-20201012.jpg');
+                }
+
+                &:nth-child(2) {
+                    background-image: url('../assets/Sponsors/no2-20201012.jpg');
+                }
+
+                &:nth-child(3) {
+                    background-image: url('../assets/Sponsors/no3-20201012.jpg');
                 }
             }
         }
