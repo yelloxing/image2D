@@ -32,7 +32,7 @@
     "file-loader": "^4.2.0",
     "icrush-loader": "^0.4.2",
     "icrush-loader-plug": "^0.2.1",
-    "icrush-style-loader": "^1.0.3",
+    "icrush-style-loader": "^1.0.4",
     "node-sass": "^4.13.1",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
