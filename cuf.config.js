@@ -133,7 +133,7 @@ module.exports = {
                     fs.writeFileSync("./build/image2D.js", banner(pkg));
                     fs.appendFileSync("./build/image2D.js", result.code);
                     fs.appendFileSync("./build/image2D.js", `
-                    
+
 /*!
 
     我还惊讶地意识到， 在我生命中有很多时刻， 每当我遇到一个遥不可及、令人害怕的情境，

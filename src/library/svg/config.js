@@ -1,4 +1,3 @@
-import isElement from '@yelloxing/core.js/isElement';
 import arc from '../calculate/graphic/arc';
 import toNode from '../../core/to-node';
 

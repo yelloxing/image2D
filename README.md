@@ -1,7 +1,7 @@
 
 - 开源不易，去 <i>[Github给个Star](https://github.com/yelloxing/image2D) </i>吧！
 
-<p align="center"><a href="https://yelloxing.gitee.io/image2D/index.html" target="_blank" rel="noopener noreferrer">
+<p align="center"><a href="https://yelloxing.gitee.io/image2D/index.html" target="_blank">
 <img width="100" src="https://yelloxing.gitee.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 使用ECMAScript绘制二维图片,开发这个库的初衷是希望越来越多的人可以更自由的发挥自己的创意，感受绘图的乐趣，并把积累的经验分享出来，推动库本身的发展，从而不断优化！因此，这个库永远都是自由、开源、讨论和进步的。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.10.6/build/image2D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/image2d@1.10.7/build/image2D.min.js"></script>
 ```
 
 你可以通过CDN的方式引入（[版本历史](https://github.com/yelloxing/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。
@@ -120,6 +120,12 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 
 你可以查看[.mailmap](https://github.com/yelloxing/image2D/blob/master/.mailmap)文件了解当前主要维护人员，查看[AUTHORS.txt](https://github.com/yelloxing/image2D/blob/master/AUTHORS.txt)了解所有的贡献者。
 
+<h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 支持我们</h2>
+
+你可以[点击此处](https://yelloxing.gitee.io/image2d/#/Sponsors)查看捐款统计。
+
+<p align="center"><a href="https://yelloxing.gitee.io/image2d/#/Sponsors" target="_blank">
+<img width="300" src="https://yelloxing.gitee.io/image2D/dist/zfb.jpg" alt="image2D Sponsors"></a></p>
 
 ## 开源协议
 

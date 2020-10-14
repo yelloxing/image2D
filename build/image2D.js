@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.10.6
+* version 1.10.7
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Sep 27 2020 11:49:47 GMT+0800 (GMT+08:00)
+* Date:Wed Oct 14 2020 10:22:34 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -3032,6 +3032,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     image2D.fn = image2D.prototype;
 
+    // 添加版本信息，方便调试
+    image2D.version = '1.10.7';
+
     // 判断当前环境，如果不是浏览器环境
     if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
         module.exports = image2D;
@@ -3073,7 +3076,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             window.image2D = window.$$ = image2D;
         }
 })();
-                    
+
 /*!
 
     我还惊讶地意识到， 在我生命中有很多时刻， 每当我遇到一个遥不可及、令人害怕的情境，
