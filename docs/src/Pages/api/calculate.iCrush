@@ -250,7 +250,7 @@ var treeLayout=$$.treeLayout(config);
             <li>"child":function(parentTree, initTree){ /*返回孩子结点*/ }</li>
         </ul>
         <p>
-            你还必须配置绘图方法，因为布局并不知道如何绘制：
+            你还可以配置绘图方法（非必输），因为布局并不知道如何绘制：
         </p>
         <div ui-copy>
             <pre class="prettyprint">
@@ -284,6 +284,9 @@ treeLayout.drawer(function(data){ /*绘制*/ });
         </p>
         <div ui-copy>
             <pre class="prettyprint">
+// 如果通过drawer方法配置了绘图方法这里就返回布局对象并启动绘图
+// 否则返回计算后的数据
+// (所有布局都一样)
 treeLayout(data);
             </pre>
         </div>
@@ -350,7 +353,7 @@ var pieLayout=$$.pieLayout(config);
             value是必须的，begin-deg和deg都是可选的，有默认值，分别为：-Math.PI / 2和Math.PI * 2。
         </p>
         <p>
-            你还必须配置绘图方法，因为布局并不知道如何绘制：
+            你还可以配置绘图方法（非必输），因为布局并不知道如何绘制：
         </p>
         <div ui-copy>
             <pre class="prettyprint">

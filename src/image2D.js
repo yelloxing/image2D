@@ -85,6 +85,6 @@ image2D.prototype.extend({
 image2D.fn = image2D.prototype;
 
 // 添加版本信息，方便调试
-image2D.version = '1.10.7';
+image2D.version = '1.11.0';
 
 export default image2D;

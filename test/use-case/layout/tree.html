@@ -123,12 +123,14 @@
 
         var doNormal = function (type) {
             // 启动布局
-            layout.config({
+            var temp = layout.config({
                 // 配置类型
                 "type": type,
                 "width": 300 + Math.random() * 300,
                 "height": 300 + Math.random() * 300
             })(data);
+
+            // console.log(temp);
         };
 
         var doCircle = function () {

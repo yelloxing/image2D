@@ -73,6 +73,9 @@ export default function (config) {
         // 启动绘图
         if (isFunction(config.drawer)) {
             config.drawer(innerData);
+            return pieObj;
+        } else {
+            return innerData;
         }
 
     };

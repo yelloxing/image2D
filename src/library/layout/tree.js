@@ -1,6 +1,7 @@
 import treeLayout from '@yelloxing/core.js/tools/tree';
 import { initConfig } from '../../core/config';
 import { rotate } from '../calculate/transform';
+import isFunction from '@yelloxing/core.js/isFunction';
 
 export default function (config) {
 
@@ -79,9 +80,17 @@ export default function (config) {
         }
 
         // 启动绘图
-        config.drawer(orgData);
+        if (isFunction(config.drawer)) {
 
-        return treeObj;
+            // 如果配置了绘图方法，就调用绘图方法
+            config.drawer(orgData);
+            return treeObj;
+        } else {
+
+            // 否则返回数据
+            return orgData;
+        }
+
     };
 
     // 配置

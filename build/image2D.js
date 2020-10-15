@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.10.7
+* version 1.11.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Wed Oct 14 2020 10:22:34 GMT+0800 (GMT+08:00)
+* Date:Thu Oct 15 2020 15:11:39 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -877,9 +877,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
 
             // 启动绘图
-            config.drawer(orgData);
+            if (isFunction(config.drawer)) {
 
-            return treeObj;
+                // 如果配置了绘图方法，就调用绘图方法
+                config.drawer(orgData);
+                return treeObj;
+            } else {
+
+                // 否则返回数据
+                return orgData;
+            }
         };
 
         // 配置
@@ -975,6 +982,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 启动绘图
             if (isFunction(config.drawer)) {
                 config.drawer(innerData);
+                return pieObj;
+            } else {
+                return innerData;
             }
         };
 
@@ -3033,7 +3043,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     image2D.fn = image2D.prototype;
 
     // 添加版本信息，方便调试
-    image2D.version = '1.10.7';
+    image2D.version = '1.11.0';
 
     // 判断当前环境，如果不是浏览器环境
     if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === "object" && _typeof(module.exports) === "object") {

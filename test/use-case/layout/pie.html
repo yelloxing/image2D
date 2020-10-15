@@ -25,7 +25,7 @@
 
         var colors = ['red', 'blue', 'green', 'pink', 'purple'];
 
-        $$.pieLayout({
+        var temp = $$.pieLayout({
             // "begin-deg": 0,
             // "deg": Math.PI*2,
             "value": function (data, key, index) { return data.value },
@@ -56,6 +56,8 @@
             { value: 135, name: "视频广告" },
             { value: 1548, name: "搜索引擎" }
         ]);
+
+        // console.log(temp);
 
     </script>
 </body>
