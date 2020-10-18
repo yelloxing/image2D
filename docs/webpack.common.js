@@ -7,8 +7,8 @@ module.exports = {
     entry: ['./src/entry.js'],
     output: {
         path: __dirname,
-        filename: 'dist/main-' + pkg.version + '.js',
-        chunkFilename: 'dist/bundle-[hash].[name].js'
+        filename: 'dist/image2D.docs@v' + pkg.version + '.js',
+        chunkFilename: 'dist/image2D.docs@v' + pkg.version + '-bundle[name].js'
     },
     module: {
         rules: [{
