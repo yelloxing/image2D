@@ -65,16 +65,26 @@ export default function (config) {
 
         } else if (config.type === 'circle') {
 
-            // 每层间距
-            let dis1 = config.radius / (orgData.deep - 1);
-            // 兄弟间隔弧度
-            let dis2 = config.deg / (orgData.size - (-0.5));
-            for (let i in orgData.node) {
-                let node = orgData.node[i];
-                orgData.node[i].deg = (config['begin-deg'] - (-dis2 * node.top)) % (Math.PI * 2);
-                let pos = rotate(config.cx, config.cy, orgData.node[i].deg, config.cx - (-dis1 * (node.left - 0.5)), config.cy);
-                orgData.node[i].left = +pos[0];
-                orgData.node[i].top = +pos[1];
+            // 如果只有一个结点
+            if (orgData.deep == 1 && orgData.size == 1) {
+                orgData.node[orgData.root].left = config.cx;
+                orgData.node[orgData.root].top = config.cy;
+            }
+
+            // 如果有多个结点
+            else {
+
+                // 每层间距
+                let dis1 = config.radius / (orgData.deep - 1);
+                // 兄弟间隔弧度
+                let dis2 = config.deg / (orgData.size - (-0.5));
+                for (let i in orgData.node) {
+                    let node = orgData.node[i];
+                    orgData.node[i].deg = (config['begin-deg'] - (-dis2 * node.top)) % (Math.PI * 2);
+                    let pos = rotate(config.cx, config.cy, orgData.node[i].deg, config.cx - (-dis1 * (node.left - 0.5)), config.cy);
+                    orgData.node[i].left = +pos[0];
+                    orgData.node[i].top = +pos[1];
+                }
             }
 
         }

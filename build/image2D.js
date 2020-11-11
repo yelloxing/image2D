@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.11.0
+* version 1.11.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Thu Oct 15 2020 15:11:39 GMT+0800 (GMT+08:00)
+* Date:Wed Nov 11 2020 11:27:23 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -683,10 +683,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 "id": id,
                 "children": []
             };
+
+            var num = 1;
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
                     flag = void 0;
+                num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
                     tempTree[pid].children.push(id);
@@ -700,7 +703,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             })(temp, id);
 
-            return [rid, tempTree];
+            return {
+                value: [rid, tempTree],
+                num: num
+            };
         };
 
         // 可以传递任意格式的树原始数据
@@ -708,8 +714,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var tree = function tree(initTree) {
 
             var treeData = toInnerTree(initTree);
-            alltreedata = treeData[1];
-            rootid = treeData[0];
+            alltreedata = treeData.value[1];
+            rootid = treeData.value[0];
+
+            if (treeData.num == 1) {
+                alltreedata[rootid].left = 0.5;
+                alltreedata[rootid].top = 0.5;
+                return {
+                    deep: 1,
+                    node: alltreedata,
+                    root: rootid,
+                    size: 1
+                };
+            }
+
             return update();
         };
 
@@ -863,17 +881,27 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             } else if (config.type === 'circle') {
 
-                // 每层间距
-                var _dis3 = config.radius / (orgData.deep - 1);
-                // 兄弟间隔弧度
-                var _dis4 = config.deg / (orgData.size - -0.5);
-                for (var _i4 in orgData.node) {
-                    var _node3 = orgData.node[_i4];
-                    orgData.node[_i4].deg = (config['begin-deg'] - -_dis4 * _node3.top) % (Math.PI * 2);
-                    var pos = _rotate2(config.cx, config.cy, orgData.node[_i4].deg, config.cx - -_dis3 * (_node3.left - 0.5), config.cy);
-                    orgData.node[_i4].left = +pos[0];
-                    orgData.node[_i4].top = +pos[1];
+                // 如果只有一个结点
+                if (orgData.deep == 1 && orgData.size == 1) {
+                    orgData.node[orgData.root].left = config.cx;
+                    orgData.node[orgData.root].top = config.cy;
                 }
+
+                // 如果有多个结点
+                else {
+
+                        // 每层间距
+                        var _dis3 = config.radius / (orgData.deep - 1);
+                        // 兄弟间隔弧度
+                        var _dis4 = config.deg / (orgData.size - -0.5);
+                        for (var _i4 in orgData.node) {
+                            var _node3 = orgData.node[_i4];
+                            orgData.node[_i4].deg = (config['begin-deg'] - -_dis4 * _node3.top) % (Math.PI * 2);
+                            var pos = _rotate2(config.cx, config.cy, orgData.node[_i4].deg, config.cx - -_dis3 * (_node3.left - 0.5), config.cy);
+                            orgData.node[_i4].left = +pos[0];
+                            orgData.node[_i4].top = +pos[1];
+                        }
+                    }
             }
 
             // 启动绘图
