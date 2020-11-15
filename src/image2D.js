@@ -7,7 +7,7 @@ import image2D from './library/core';
  */
 import treeLayout from './library/layout/tree';
 import pieLayout from './library/layout/pie';
-import Matrix4 from '@yelloxing/core.js/tools/Matrix4';
+import Matrix4 from '@hai2007/tool/Matrix4.js';
 import animation from './library/calculate/animation';
 import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';

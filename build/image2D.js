@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.11.2
+* version 1.12.0
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Wed Nov 11 2020 11:27:23 GMT+0800 (GMT+08:00)
+* Date:Sun Nov 15 2020 13:36:13 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -560,16 +560,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     image2D.prototype.init.prototype = image2D.prototype;
 
-    /**
-     * 无论绘制的树结构是什么样子的
-     * 计算时都假想目标树的样子如下：
-     *  1.根结点在最左边，且上下居中
-     *  2.树是从左往右生长的结构
-     *  3.每个结点都是一块1*1的正方形，top和left分别表示正方形中心的位置
-     * @since V0.2.0
-     * @public
-     */
+    // 基本的树结构位置生成算法
+
     function treeLayout(_config) {
+
+        /**
+         * 无论绘制的树结构是什么样子的
+         * 计算时都假想目标树的样子如下：
+         *  1.根结点在最左边，且上下居中
+         *  2.树是从左往右生长的结构
+         *  3.每个结点都是一块1*1的正方形，top和left分别表示正方形中心的位置
+         */
 
         var config = _config || {},
 
@@ -683,13 +684,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 "id": id,
                 "children": []
             };
-
-            var num = 1;
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
                     flag = void 0;
-                num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
                     tempTree[pid].children.push(id);
@@ -703,10 +701,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             })(temp, id);
 
-            return {
-                value: [rid, tempTree],
-                num: num
-            };
+            return [rid, tempTree];
         };
 
         // 可以传递任意格式的树原始数据
@@ -714,20 +709,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var tree = function tree(initTree) {
 
             var treeData = toInnerTree(initTree);
-            alltreedata = treeData.value[1];
-            rootid = treeData.value[0];
-
-            if (treeData.num == 1) {
-                alltreedata[rootid].left = 0.5;
-                alltreedata[rootid].top = 0.5;
-                return {
-                    deep: 1,
-                    node: alltreedata,
-                    root: rootid,
-                    size: 1
-                };
-            }
-
+            alltreedata = treeData[1];
+            rootid = treeData[0];
             return update();
         };
 
@@ -1033,7 +1016,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 在(a,b,c)方向位移d
-     * @private
      */
     function _move(d, a, b, c) {
         c = c || 0;
@@ -1045,8 +1027,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * 围绕0Z轴旋转
      * 其它的旋转可以借助transform实现
      * 旋转角度单位采用弧度制
-     * 
-     * @private
      */
     function _rotate(deg) {
         var sin = Math.sin(deg),
@@ -1056,8 +1036,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 围绕圆心x、y和z分别缩放xTimes, yTimes和zTimes倍
-     * 
-     * @private
      */
     function _scale(xTimes, yTimes, zTimes, cx, cy, cz) {
         cx = cx || 0;cy = cy || 0;cz = cz || 0;
@@ -1068,8 +1046,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * 针对任意射线(a1,b1,c1)->(a2,b2,c2)
      * 计算出二个变换矩阵
      * 分别为：任意射线变成OZ轴变换矩阵 + OZ轴变回原来的射线的变换矩阵
-     * 
-     * @private
      */
     function _transform(a1, b1, c1, a2, b2, c2) {
 
@@ -1120,12 +1096,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return newParam;
     };
 
-    /**
-     * 4x4矩阵
-     * 列主序存储
-     * @since V0.2.0
-     * @public
-     */
+    // 列主序存储的4x4矩阵
+
     function Matrix4(initMatrix4) {
 
         var matrix4 = initMatrix4 || [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
@@ -1190,10 +1162,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     //定时器ID
     var $timerId = null;
 
+    // 动画轮播
+
     /**
-     * 动画轮播
-     * @since V0.2.0
-     * @public
      * @param {function} doback 轮询函数，有一个形参deep，0-1，表示执行进度
      * @param {number} duration 动画时长，可选
      * @param {function} callback 动画结束回调，可选，有一个形参deep，0-1，表示执行进度

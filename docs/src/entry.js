@@ -7,7 +7,7 @@ import 'promise-polyfill/src/polyfill';
 import App from './App.iCrush';
 
 // 引入基础样式
-import '@yelloxing/normalize.css';
+import '@hai2007/style/normalize.css';
 
 // 引入公共样式
 import './Styles/style.scss';

@@ -44,7 +44,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
-    "@yelloxing/normalize.css": "^0.2.1",
+    "@hai2007/style": "^0.1.1",
     "icrush": "^2.1.0",
     "image2d": "^1.11.0",
     "promise-polyfill": "8.1.3",

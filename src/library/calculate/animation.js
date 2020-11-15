@@ -1,4 +1,4 @@
-import animation from '@yelloxing/core.js/tools/animation';
+import animation from '@hai2007/tool/animation.js';
 import isFunction from '@yelloxing/core.js/isFunction';
 import isArray from '@yelloxing/core.js/isArray';
 import Hermite from '@yelloxing/core.js/tools/Hermite';
