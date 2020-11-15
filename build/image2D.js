@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.12.0
+* version 1.12.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Nov 15 2020 13:36:13 GMT+0800 (GMT+08:00)
+* Date:Sun Nov 15 2020 14:03:13 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -684,10 +684,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 "id": id,
                 "children": []
             };
+
+            var num = 1;
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
                     flag = void 0;
+                num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
                     tempTree[pid].children.push(id);
@@ -701,7 +704,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             })(temp, id);
 
-            return [rid, tempTree];
+            return {
+                value: [rid, tempTree],
+                num: num
+            };
         };
 
         // 可以传递任意格式的树原始数据
@@ -709,8 +715,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var tree = function tree(initTree) {
 
             var treeData = toInnerTree(initTree);
-            alltreedata = treeData[1];
-            rootid = treeData[0];
+            alltreedata = treeData.value[1];
+            rootid = treeData.value[0];
+
+            if (treeData.num == 1) {
+                alltreedata[rootid].left = 0.5;
+                alltreedata[rootid].top = 0.5;
+                return {
+                    deep: 1,
+                    node: alltreedata,
+                    root: rootid,
+                    size: 1
+                };
+            }
+
             return update();
         };
 
