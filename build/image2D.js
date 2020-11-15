@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.12.1
+* version 1.12.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Nov 15 2020 14:03:13 GMT+0800 (GMT+08:00)
+* Date:Sun Nov 15 2020 17:52:56 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -1363,7 +1363,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @public
      * @param {Json} config 可选
      */
-    function hermite(config) {
+    function Hermite(config) {
 
         config = initConfig$1({
             // 张弛系数
@@ -1448,7 +1448,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             return deep;
         };
         if (transition_timing && isArray(transition_timing) && transition_timing.length == 4) {
-            transition_timing_function = hermite({
+            transition_timing_function = Hermite({
                 "u": 1
             }).setP(0, 0, 1, 1, transition_timing[1] / transition_timing[0], (1 - transition_timing[3]) / (1 - transition_timing[2]));
         }
@@ -1461,6 +1461,81 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 callback(deep);
             }
         });
+    }
+
+    /**
+     * 初始化配置文件
+     *
+     * @param {Json} init 默认值
+     * @param {Json} data
+     * @return {Json}
+     */
+    function initConfig$2(init, data) {
+        for (var key in data) {
+            try {
+                init[key] = data[key];
+            } catch (e) {
+                throw new Error("Illegal property value！");
+            }
+        }return init;
+    }
+
+    // Hermite三次插值
+
+    function hermite(config) {
+
+        config = initConfig$2({
+            // 张弛系数
+            "u": 0.5
+        }, config);
+
+        var MR = void 0,
+            a = void 0,
+            b = void 0;
+
+        /**
+         * 根据x值返回y值
+         * @param {Number} x
+         */
+        var hermite = function hermite(x) {
+            if (MR) {
+                var sx = (x - a) / (b - a),
+                    sx2 = sx * sx,
+                    sx3 = sx * sx2;
+                var sResult = sx3 * MR[0] + sx2 * MR[1] + sx * MR[2] + MR[3];
+                return sResult * (b - a);
+            } else throw new Error('You shoud first set the position!');
+        };
+
+        /**
+         * 设置点的位置
+         * @param {Number} x1 左边点的位置
+         * @param {Number} y1
+         * @param {Number} x2 右边点的位置
+         * @param {Number} y2
+         * @param {Number} s1 二个点的斜率
+         * @param {Number} s2
+         */
+        hermite.setP = function (x1, y1, x2, y2, s1, s2) {
+            if (x1 < x2) {
+                // 记录原始尺寸
+                a = x1;b = x2;
+                var p3 = config.u * s1,
+                    p4 = config.u * s2;
+                // 缩放到[0,1]定义域
+                y1 /= x2 - x1;
+                y2 /= x2 - x1;
+                // MR是提前计算好的多项式通解矩阵
+                // 为了加速计算
+                // 如上面说的
+                // 统一在[0,1]上计算后再通过缩放和移动恢复
+                // 避免了动态求解矩阵的麻烦
+                MR = [2 * y1 - 2 * y2 + p3 + p4, 3 * y2 - 3 * y1 - 2 * p3 - p4, p3, y1];
+            } else throw new Error('The point x-position should be increamented!');
+            return hermite;
+        };
+
+        return hermite;
     }
 
     /**

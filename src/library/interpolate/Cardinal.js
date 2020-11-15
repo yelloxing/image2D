@@ -9,7 +9,7 @@
  * 第二个点的斜率由第一个点和第二个点的后一个点的斜率确定
  */
 
-import hermite from '@yelloxing/core.js/tools/Hermite';
+import hermite from '@hai2007/tool/Hermite.js';
 import { initConfig } from '../../core/config';
 
 export default function (config) {
