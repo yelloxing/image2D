@@ -1,6 +1,6 @@
 {
   "name": "image2d",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "description": "🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.",
   "main": "build/image2D.min.js",
   "typings": "types/index.d.ts",
@@ -47,8 +47,8 @@
     "uglify-js": "^3.5.6"
   },
   "dependencies": {
-    "@hai2007/algorithm": "^0.1.1",
-    "@hai2007/tool": "^0.2.0",
+    "@hai2007/algorithm": "^0.4.0",
+    "@hai2007/tool": "^0.3.1",
     "@yelloxing/core.js": "^0.4.2"
   }
 }

@@ -7,14 +7,14 @@
 *
 * author yelloxing
 *
-* version 1.12.2
+* version 1.12.3
 *
 * build Thu Apr 11 2019
 *
 * Copyright yelloxing
 * Released under the MIT license
 *
-* Date:Sun Nov 15 2020 17:52:56 GMT+0800 (GMT+08:00)
+* Date:Wed Nov 25 2020 09:39:00 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -560,7 +560,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     image2D.prototype.init.prototype = image2D.prototype;
 
-    // 基本的树结构位置生成算法
+    /*!
+     * 🔪 - 基本的树结构位置生成算法
+     * https://github.com/hai2007/algorithm.js/blob/master/tree.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
 
     function treeLayout(_config) {
 
@@ -1114,7 +1122,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return newParam;
     };
 
-    // 列主序存储的4x4矩阵
+    /*!
+     * 💡 - 列主序存储的4x4矩阵
+     * https://github.com/hai2007/tool.js/blob/master/Matrix4.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
 
     function Matrix4(initMatrix4) {
 
@@ -1180,7 +1196,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     //定时器ID
     var $timerId = null;
 
-    // 动画轮播
+    /*!
+     * 💡 - 动画轮播
+     * https://github.com/hai2007/tool.js/blob/master/animation.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
 
     /**
      * @param {function} doback 轮询函数，有一个形参deep，0-1，表示执行进度
@@ -1480,7 +1504,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return init;
     }
 
-    // Hermite三次插值
+    /*!
+     * 💡 - Hermite三次插值
+     * https://github.com/hai2007/tool.js/blob/master/Hermite.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
 
     function hermite(config) {
 
