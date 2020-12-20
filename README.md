@@ -5,7 +5,7 @@
 <img width="100" src="https://yelloxing.gitee.io/image2D/dist/image2D.png" alt="image2D logo"></a></p>
 
 <p align="center">
-  <a href="https://yelloxing.gitee.io/npm-downloads?interval=7&packages=image2d"><img src="https://img.shields.io/npm/dm/image2d.svg" alt="downloads"></a>
+  <a href="https://hai2007.gitee.io/npm-downloads?interval=7&packages=image2d"><img src="https://img.shields.io/npm/dm/image2d.svg" alt="downloads"></a>
   <a href="https://packagephobia.now.sh/result?p=image2d"><img src="https://packagephobia.now.sh/badge?p=image2d" alt="install size"></a>
   <a href="https://www.jsdelivr.com/package/npm/image2d"><img src="https://data.jsdelivr.com/v1/package/npm/image2d/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/image2d"><img src="https://img.shields.io/npm/v/image2d.svg" alt="Version"></a>
