@@ -3,7 +3,7 @@ name: 建议或改进意见（Suggestions or improvements）。
 about: 如果是给出建议，请选择此模板，在未来的项目设计中，会把这里的意见考虑进去（If you give suggestions, please choose this template. In future project design, you will take into account the opinions here.）。
 title: 标题（title）
 labels: enhancement, help wanted
-assignees: yelloxing
+assignees: hai2007
 
 ---
 
