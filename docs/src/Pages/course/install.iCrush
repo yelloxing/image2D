@@ -22,7 +22,7 @@
         </p>
         <p>
             每个版本的更新日志见
-            <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" target="_blank">GitHub</a>
+            <a href="https://github.com/hai2007/image2D/blob/master/CHANGELOG" target="_blank">GitHub</a>
             。
         </p>
         <h1 id='fixed-script'>
@@ -123,7 +123,7 @@
         <div ui-copy>
             <pre class="prettyprint">// 挂载需要的静态方法
 image2D.extend({
-    
+
     animation
 
 });
@@ -147,7 +147,7 @@ export default image2D;</pre>
         </p>
         <p>
             如果上面有没有说清楚的，欢迎去
-            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">issue</a>
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">issue</a>
             给我们留言！
         </p>
     </div>

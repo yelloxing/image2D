@@ -20,7 +20,7 @@ let banner = function (pkg) {
 *
 * build Thu Apr 11 2019
 *
-* Copyright yelloxing
+* Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the `+ pkg.license + ` license
 *
 * Date:`+ new Date() + `

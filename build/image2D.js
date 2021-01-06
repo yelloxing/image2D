@@ -1,20 +1,20 @@
 /*!
 * image2D - 🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.
-* git+https://github.com/yelloxing/image2D.git
+* git+https://github.com/hai2007/image2D.git
 *
 * For online documents, please visit
-* https://yelloxing.gitee.io/image2d/index.html
+* https://hai2007.gitee.io/image2d/index.html
 *
-* author yelloxing
+* author 你好2007
 *
 * version 1.12.4
 *
 * build Thu Apr 11 2019
 *
-* Copyright yelloxing
+* Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Wed Nov 25 2020 12:03:12 GMT+0800 (GMT+08:00)
+* Date:Thu Jan 07 2021 00:42:37 GMT+0800 (GMT+08:00)
 */
 
 'use strict';
@@ -266,7 +266,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 如果采用别的标签，比如div,这类标签无法生成
             // 为了方便校对，这里给出提示
             if (!/</.test(frame.innerHTML)) {
-                throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/yelloxing/image2D/issues");
+                throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/hai2007/image2D/issues");
             }
         } else {
             frame = document.createElementNS(NAMESPACE.svg, 'svg');

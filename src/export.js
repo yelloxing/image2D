@@ -31,7 +31,7 @@
  *      painter:painter_canvas2D
  * });
  *
- * 除了一些比较重的部分外，查阅文档 { https://yelloxing.gitee.io/image2d/index.html } 的时候，需要什么再挂载什么即可，
+ * 除了一些比较重的部分外，查阅文档 { https://hai2007.gitee.io/image2d/index.html } 的时候，需要什么再挂载什么即可，
  * 无论是这个的按需导入，还是全部导入，都可以查阅文档，并保证向后兼容。
  */
 

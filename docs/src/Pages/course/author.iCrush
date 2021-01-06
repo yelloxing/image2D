@@ -7,11 +7,11 @@
             目前
             <span class="important">image2D</span>
             主要由
-            <a href="http://yelloxing.gitee.io/homepage/#home" class="important" target="_blank">心叶</a>
+            <a href="https://hai2007.gitee.io/sweethome/" class="important" target="_blank">你好2007</a>
             维护，当然也有来自一些使用者的
-            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">意见</a>
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">意见</a>
             和
-            <a href="https://github.com/yelloxing/image2D/pulls" target="_blank">Pull requests</a>
+            <a href="https://github.com/hai2007/image2D/pulls" target="_blank">Pull requests</a>
             在帮忙我们不断改进和完善，在此我们表示由衷的感谢，我们会带着初心矢志不渝的坚持维护，并永远保持自由、开源、讨论和进步，期待你的加入。
         </p>
         <h2 id='fixed-projects'>
@@ -19,7 +19,7 @@
         </h2>
         <p>
             如果你想知道我们在做什么，你可以查看
-            <a href="https://github.com/yelloxing/image2D/projects/4" target="_blank">开发或BUG任务清单</a>
+            <a href="https://github.com/hai2007/image2D/projects/4" target="_blank">开发或BUG任务清单</a>
             页面，其中分为四个阶段：
         </p>
         <ul>
@@ -42,7 +42,7 @@
         </h2>
         <p>
             主要来自
-            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">issue</a>
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">issue</a>
             和前端本身的发展（可能一些新的技术等原因，催促一些改变是有意义的），如果你对未来版本有什么期望，也可以告诉我们。
         </p>
         <p>
@@ -59,9 +59,9 @@
         </h2>
         <p>
             虽然通过提
-            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">issue</a>
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">issue</a>
             和
-            <a href="https://github.com/yelloxing/image2D/pulls" target="_blank">Pull requests</a>
+            <a href="https://github.com/hai2007/image2D/pulls" target="_blank">Pull requests</a>
             也可以很好的参与贡献，不过你无法完全的融入进来，无法更全面的把控image2D的发展规划。通过加入我们成为长期稳定的贡献者，和我们保持密切的联系，这非常利于你，因为你有了一定的主动权。
         </p>
         <p>
@@ -77,10 +77,8 @@
                 ：主要是接口文档和教程需要编辑，这很重要。
             </li>
             <li>
-                <span class="important">用例开发和测试</span>
-                ：在项目的test文件夹下有一些测试，而在
-                <a href="https://github.com/yelloxing/2D-Examples" target="_blank">examples</a>
-                项目中维护了一些用例。
+                <span class="important">用例测试</span>
+                ：在项目的test文件夹下有一些测试用例。
             </li>
             <li>
                 <span class="important">参与讨论</span>
@@ -89,16 +87,14 @@
         </ul>
         <p>
             如果有意向加入我们，你可以通过邮箱
-            <a href="mailto:yelloxing@gmail.com">yelloxing@gmail.com</a>
-            或
-            <a href="mailto:1276327934@qq.com">1276327934@qq.com</a>
+            <a href="mailto:2501482523@qq.com">2501482523@qq.com</a>
             和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
         </p>
         <p>
             你可以查看
-            <a href="https://github.com/yelloxing/image2D/blob/master/.mailmap" target="_blank">.mailmap</a>
+            <a href="https://github.com/hai2007/image2D/blob/master/.mailmap" target="_blank">.mailmap</a>
             文件了解当前主要维护人员，查看
-            <a href="https://github.com/yelloxing/image2D/blob/master/AUTHORS.txt" target="_blank">AUTHORS.txt</a>
+            <a href="https://github.com/hai2007/image2D/blob/master/AUTHORS.txt" target="_blank">AUTHORS.txt</a>
             了解所有的贡献者。
         </p>
     </div>
