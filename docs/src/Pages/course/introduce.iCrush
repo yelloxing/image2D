@@ -87,7 +87,7 @@ var painter=$$('canvas').attr({
         </p>
         <p>
             怎么样？是不是很简单，你可以把更多的精力放在设计更多有趣图形上，这个库永远都是自由、开源、讨论和进步的，欢迎提出任何
-            <a href="https://github.com/yelloxing/image2D/issues" target="_blank">意见</a>
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">意见</a>
             来帮忙我们改进。
         </p>
     </div>

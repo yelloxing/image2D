@@ -3,9 +3,7 @@
         <header>
             image2D.js 官方文档<span :title='info' @click='goNpmList()'>{{version}}</span>
             <p>
-                本文档由
-                <a href="https://github.com/yelloxing/iCrush" title='文档使用框架'>iCrush</a>
-                提供技术支持。
+                非常感谢每一位开发、使用等参与的人员的贡献。
             </p>
         </header>
         <div>
@@ -204,12 +202,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" target='_blank'>
+                            <a href="https://github.com/hai2007/image2D/blob/master/CHANGELOG" target='_blank'>
                                 查看版本日志
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/yelloxing/image2D/projects/4" target="_blank">
+                            <a href="https://github.com/hai2007/image2D/projects/4" target="_blank">
                                 开发或bug任务清单
                             </a>
                         </li>
@@ -231,7 +229,7 @@
         },
         methods: {
             goNpmList() {
-                window.location.href = 'https://github.com/yelloxing/image2D/blob/master/CHANGELOG';
+                window.location.href = 'https://github.com/hai2007/image2D/blob/master/CHANGELOG';
             }
         },
         created() {
