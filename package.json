@@ -25,17 +25,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yelloxing/image2D.git"
+    "url": "git+https://github.com/hai2007/image2D.git"
   },
   "author": {
-    "name": "yelloxing",
-    "url": "http://yelloxing.gitee.io/homepage/"
+    "name": "你好2007",
+    "url": "https://hai2007.gitee.io/sweethome/"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yelloxing/image2D/issues"
+    "url": "https://github.com/hai2007/image2D/issues"
   },
-  "homepage": "https://yelloxing.gitee.io/image2d/index.html",
+  "homepage": "https://hai2007.gitee.io/image2d/index.html",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",

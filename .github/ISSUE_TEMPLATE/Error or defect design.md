@@ -3,7 +3,7 @@ name: 错误或缺陷设计（Error or defect design）。
 about: 如果是错误或缺陷，请选择此模板，报告具体的错误信息以帮助我们改进（If there are errors or defects, please select this template and report specific error information to help us improve.）。
 title: 标题（title）
 labels: bug, enhancement, invalid
-assignees: yelloxing
+assignees: hai2007
 
 ---
 

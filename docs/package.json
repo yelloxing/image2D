@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",
@@ -15,11 +15,11 @@
     "doc",
     "icrush"
   ],
-  "author": "心叶",
+  "author": "你好2007",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yelloxing/image2D.git"
+    "url": "git+https://github.com/hai2007/image2D.git"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
