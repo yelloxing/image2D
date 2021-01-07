@@ -12,6 +12,10 @@
                 <li title='使用教程' @click='openRouter("course")' class='menu-1 course'>
                     教程
                 </li>
+                <li title='一些绘图的例子'
+                    onclick="window.location.href='./examples/index.html'">
+                    用例
+                </li>
                 <li title='汇集的一些常用答疑' @click='openRouter("QA")' class='menu-1 QA'>
                     答疑Q&A
                 </li>

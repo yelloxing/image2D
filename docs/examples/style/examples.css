@@ -1,0 +1,162 @@
+.examples>li.money-schedule {
+  background-image: url(../image/examples/money-schedule.png);
+}
+
+.examples>li.tree-radial {
+  background-image: url(../image/examples/tree-radial.png);
+}
+
+.examples>li.multiple-x-axis {
+  background-image: url(../image/examples/multiple-x-axis.png);
+}
+
+.examples>li.From-Left-to-Right-Tree {
+  background-image: url(../image/examples/From-Left-to-Right-Tree.png);
+}
+
+.examples>li.bar-gradient {
+  background-image: url(../image/examples/bar-gradient.png);
+}
+
+.examples>li.bar-simple {
+  background-image: url(../image/examples/bar-simple.png);
+}
+
+.examples>li.bar-polar-real-estate {
+  background-image: url(../image/examples/bar-polar-real-estate.png);
+}
+
+.examples>li.radar-basic {
+  background-image: url(../image/examples/radar-basic.png);
+}
+
+.examples>li.gauge-simple {
+  background-image: url(../image/examples/gauge-simple.png);
+}
+
+.examples>li.skybox {
+  background-image: url(../image/examples/skybox.png);
+}
+
+.examples>li.china-map {
+  background-image: url(../image/examples/china-map.png);
+}
+
+/*
+----------------------------------------
+例子界面
+----------------------------------------
+*/
+
+.example-view {
+  text-align: center;
+  width: 9rem;
+  height: 100vh;
+  margin: auto;
+}
+
+.example-view>.goBack,
+.example-view>.codeview {
+  position: fixed;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  width: .5rem;
+  height: .5rem;
+  display: inline-block;
+  font-size: 0;
+  top: .1rem;
+  cursor: pointer;
+}
+
+.example-view>.goBack {
+  background-image: url(../image/goBack.png);
+  left: .1rem;
+}
+
+.example-view>.codeview {
+  background-image: url(../image/edit.png);
+  right: .1rem;
+}
+
+.example-view>.goBack:hover,
+.example-view>.codeview:hover {
+  background-size: 100%;
+  background-position-y: bottom;
+}
+
+#palette {
+  margin-top: .5rem;
+}
+
+.examples {
+  width: 9rem;
+  margin: auto;
+  text-align: center;
+  user-select: none;
+  position: relative;
+}
+
+.menu-view .examples>li.item {
+  width: 1.9rem;
+}
+
+.menu-view .examples>li.item:not(.help) {
+  height: 1.45rem;
+}
+
+.examples>li.item {
+  display: inline-block;
+  width: 2.6rem;
+  height: 2rem;
+  margin: .1rem;
+  border: 2px solid #eee;
+  cursor: pointer;
+  border-radius: .07rem;
+  background-position: center center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.examples>li.more {
+  position: relative;
+  height: .4rem;
+  background-image: url('../image/ico2.png');
+  background-repeat: no-repeat;
+}
+
+.examples>li.more>.btn {
+  background-image: url('../image/ico1.png');
+  color: #6d757a;
+  font-size: .12rem;
+  background-size: 100% auto;
+  display: inline-block;
+  width: .94rem;
+  height: .3rem;
+  line-height: .3rem;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  top: -.1rem;
+  padding-bottom: .1rem;
+  position: relative;
+}
+
+.examples>li.more>.btn:hover {
+  color: #03A9F4;
+}
+
+.examples>li:hover {
+  background-size: 110%;
+  transition: background-size 2s;
+  -moz-transition: background-size 2s;
+  -webkit-transition: background-size 2s;
+  -o-transition: background-size 2s;
+}
+
+.examples>li.help {
+  height: 0;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  border: none;
+}

@@ -109,7 +109,7 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 - 用例开发和测试：在项目的test文件夹下有一些测试，而在examples项目中维护了一些用例。
 - 参与讨论：主要是讨论image2D未来如何发展，改造的方向等。
 
-如果有意向加入我们，你可以通过邮箱 <i>hai2007@gmail.com</i> 或 <i>1276327934@qq.com</i> 和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
+如果有意向加入我们，你可以通过邮箱 <i>1276327934@qq.com</i> 和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
 
 你可以查看[.mailmap](https://github.com/hai2007/image2D/blob/master/.mailmap)文件了解当前主要维护人员，查看[AUTHORS.txt](https://github.com/hai2007/image2D/blob/master/AUTHORS.txt)了解所有的贡献者。
 
