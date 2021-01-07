@@ -1,0 +1,66 @@
+<section class='entry-view' ng-init='initMethod()'>
+
+  <a href="https://github.com/hai2007/image2D" class='github'>Fork Me on Github</a>
+
+  <header class='header'>
+
+    <nav>
+      <a href="#entry" class='active'>Home</a>
+      <a href="https://hai2007.gitee.io/image2d">Doc</a>
+      <a href="https://github.com/hai2007/image2D">Library</a>
+      <a href="#menu">Examples</a>
+      <a href="https://github.com/hai2007/image2D/issues">Issue</a>
+    </nav>
+
+    <h1 class='title'>
+      Image's Examples
+    </h1>
+
+  </header>
+
+  <ul class='examples'>
+
+    <!-- 用例入口 -->
+    <li ng-click='goto("money-schedule")' class='item money-schedule'></li>
+    <li ng-click='goto("tree-radial")' class='item tree-radial'></li>
+    <li ng-click='goto("multiple-x-axis")' class='item multiple-x-axis'></li>
+
+    <li class="more">
+      <a class='btn' href="javascript:void(0)" ng-click='goto("menu")'>查看更多 >></a>
+    </li>
+
+  </ul>
+
+  <a class='advertisement' href="https://www.oschina.net/p/image2d">
+    📊📈🎉 本项目依赖库加入了开源中国并在其开源，欢迎大家关注！
+  </a>
+
+  <p class='item'>
+    <span class="black pointer" ng-click='open2DDoc()'>image2D.js</span>
+    是一个专注于前端二维绘图的JavaScript库，本项目主要是用于演示一些基于此开发的用例，欢迎你的加入。
+  </p>
+
+  <p class="item">
+    我们推荐你使用npm方式引入：
+  </p>
+  <pre class='item prettyprint lang-js'>import $$ from 'image2d';</pre>
+
+  <p class="item">
+    当然，你也可以直接通过CDN引入（请选择你使用的版本）：
+  </p>
+  <pre
+    class='item prettyprint lang-html'>&lt;script src='https://cdn.jsdelivr.net/npm/image2d@1.12.4/build/image2D.min.js'&gt;&lt;/script&gt;</pre>
+  <p class="item">
+    在使用的过程中，你可以查看
+    <a href="https://github.com/hai2007/image2D/blob/master/CHANGELOG" class='link'>更新日志</a>
+    来判断是否需要升级或应该选择那个版本。当然，我们提供向下兼容，因此在大部分情况下，最新版本可能都是比较好的选择！
+  </p>
+
+  <footer class='item'>
+    Library released under MIT license
+    . Copyright 2018 - 2021
+    <a href="http://hai2007.gitee.io/sweethome/" class='link'>你好2007</a>
+    .
+  </footer>
+
+</section>

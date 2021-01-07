@@ -1,0 +1,47 @@
+.entry-view>.advertisement {
+  line-height: .65rem;
+  height: .65rem;
+  background: linear-gradient(to bottom, #ffc, #ffa);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 100%;
+  color: #000;
+  padding-left: calc(50vw - 4.5rem);
+  min-width: 9rem;
+  margin-bottom: .5rem;
+}
+
+.entry-view>.advertisement>span {
+  text-decoration: underline;
+  color: #03A9F4;
+}
+
+.entry-view>.item {
+  margin: auto;
+  margin-top: .3rem;
+  width: 9rem;
+  line-height: 2em;
+  color: #555;
+  text-indent: 2em;
+}
+
+.entry-view>.item .black {
+  color: #000;
+  font-weight: 800;
+}
+
+.entry-view>.item .pointer {
+  cursor: pointer;
+}
+
+.entry-view>.item.prettyprint {
+  background-color: #fff0;
+  margin-top: 0;
+  line-height: 1.4em;
+}
+
+.entry-view>.item .link {
+  color: #5379b0;
+  font-weight: 800;
+  text-decoration: underline;
+}

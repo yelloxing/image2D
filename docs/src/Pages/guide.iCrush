@@ -3,7 +3,11 @@
         <header>
             image2D.js 官方文档<span :title='info' @click='goNpmList()'>{{version}}</span>
             <p>
-                非常感谢每一位开发、使用等参与的人员的贡献。
+                在此，我们对
+                <a href="https://github.com/hai2007/image2D/blob/master/AUTHORS.txt" target="_blank">
+                    所有的贡献者
+                </a>
+                表示感谢！
             </p>
         </header>
         <div>

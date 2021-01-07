@@ -1,0 +1,71 @@
+html {
+  font-size: 100px;
+}
+
+body {
+  font-size: .16rem;
+}
+
+/* webkit下滚动条样式 */
+
+::-webkit-scrollbar {
+  width: .07rem;
+  height: .07rem;
+  background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  height: .3rem;
+  background-color: rgb(113, 30, 50);
+  border-radius: .05rem;
+}
+
+/* IE浏览器下 */
+
+* {
+  /*三角箭头的颜色*/
+  scrollbar-arrow-color: rgb(113, 30, 50);
+  /*滚动条滑块按钮的颜色*/
+  scrollbar-face-color: #eeeeee;
+  /*滚动条整体颜色*/
+  scrollbar-highlight-color: #fff;
+  /*滚动条阴影*/
+  scrollbar-shadow-color: #ccc;
+  /*滚动条轨道颜色*/
+  scrollbar-track-color: #fff;
+}
+
+.github {
+  position: fixed;
+  transform: rotate(45deg);
+  line-height: 1.6em;
+  transform-origin: 1.5rem 0.23rem;
+  text-align: center;
+  font-family: sans-serif;
+  display: inline-block;
+  top: 0.6rem;
+  right: -0.6rem;
+  width: 3rem;
+  background-color: #ac2c23;
+  outline: 0.04rem solid #ac2c23;
+  border: 0.02rem dashed #d14742;
+  color: #ebdbd9;
+}
+
+footer.item {
+  font-size: .12rem;
+  line-height: 10em;
+  margin: auto;
+  margin-top: .3rem;
+  width: 9rem;
+  line-height: 2em;
+  color: #555;
+  text-indent: 2em;
+  padding-bottom: .5rem;
+}
+
+footer.item .link {
+  color: #5379b0;
+  font-weight: 800;
+  text-decoration: underline;
+}
