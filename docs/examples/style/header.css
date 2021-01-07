@@ -1,0 +1,31 @@
+.header {
+    width: 9rem;
+    margin: auto;
+}
+
+.header>nav {
+    line-height: .6rem;
+}
+
+.header>nav>a {
+    margin-right: .1rem;
+    color: #4683b5;
+}
+
+.header>nav>a.active {
+    font-weight: 800;
+    color: #108bf0;
+}
+
+.header>.title {
+    line-height: 1rem;
+    height: 1rem;
+    font-size: .60rem;
+    color: #555;
+    font-weight: 100;
+    background-image: url('../image/logo.png');
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 1rem;
+    margin-bottom: .4rem;
+}

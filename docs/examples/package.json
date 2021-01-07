@@ -1,0 +1,30 @@
+{
+  "name": "examples",
+  "version": "2.0.0",
+  "description": "🍎 🍪 🍦 🍓  基于image2D开发的图形用例。",
+  "scripts": {
+    "start": "npm run update && npm run dev",
+    "dev": "cuf --server 30000",
+    "update": "npm install && cuf --copy node_modules/image2d/build/image2D.js lib/min/image2D.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hai2007/image2D.git"
+  },
+  "keywords": [
+    "algorithm",
+    "image"
+  ],
+  "author": "你好2007",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hai2007/image2D/issues"
+  },
+  "homepage": "https://hai2007.gitee.io/image2d/",
+  "devDependencies": {
+    "cuf": "^1.2.0"
+  },
+  "dependencies": {
+    "image2d": "^1.9.0"
+  }
+}
