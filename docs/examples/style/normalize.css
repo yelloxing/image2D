@@ -1,0 +1,167 @@
+/*!
+* 统一不同浏览器的基础样式
+* git+https://github.com/yelloxing/normalize.css.git
+*
+* @since v0.1.0 
+* @public
+* 
+* 引入方式：
+* import '@yelloxing/normalize.css';
+*/
+
+html {
+    /*
+  ------------------
+  防止iPhone在坚屏转向横屏时放大文字
+  ------------------
+  */
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    /*
+  ------------------
+  统一行高
+  ------------------
+  */
+    line-height: 1.15;
+}
+
+button,
+input {
+    /*
+  ------------------
+  兼容部分手机下border不显示问题
+  ------------------
+  */
+    border: 1px solid #b2b2bd;
+}
+
+article,
+footer,
+header,
+nav,
+section {
+    /*
+  ------------------
+  修正旧浏览器未定义的块级元素
+  ------------------
+  */
+    display: block;
+}
+
+canvas,
+svg {
+    /*
+  ------------------
+  修正旧浏览器未定义的行内块元素
+  ------------------
+  */
+    display: inline-block;
+}
+
+* {
+    /*
+  ------------------
+  统一不同浏览器盒子尺寸计算方法
+  ------------------
+  */
+    box-sizing: border-box;
+}
+
+::-ms-clear,
+::-ms-reveal {
+    /*
+  ------------------
+  去掉IE浏览器输入框叉叉和眼睛
+  ------------------
+  */
+    display: none;
+}
+
+img {
+    /*
+  ------------------
+  针对火狐浏览器在img标签没有src时候的差异修复
+  ------------------
+  */
+    display: inline-block;
+}
+
+html {
+    /*
+  ------------------
+  设置默认字体为统一的安全字体
+  ------------------
+  */
+    font-family: sans-serif;
+}
+
+a {
+    /*
+  ------------------
+  默认去掉下划线
+  ------------------
+  */
+    text-decoration: none;
+}
+
+li {
+    /*
+  ------------------
+  去掉前置索引
+  ------------------
+  */
+    list-style-type: none;
+}
+
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /*
+  ------------------
+  去掉不喜欢的间距
+  ------------------
+  */
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+    /*
+  ------------------
+  去掉不喜欢的间距，针对火狐浏览器等
+  ------------------
+  */
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    /*
+  ------------------
+  修改IE和其它浏览器不一致问题
+  ------------------
+  */
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /*
+  ------------------
+  去掉默认的8px
+  ------------------
+  */
+    margin: 0;
+}
+
+table {
+    /*
+  ------------------
+  设置默认表格边框合并为一个单一的边框
+  ------------------
+  */
+    border-collapse: collapse;
+}
