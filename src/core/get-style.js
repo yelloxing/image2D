@@ -1,4 +1,4 @@
-import isString from '@yelloxing/core.js/isString';
+import { isString } from '@hai2007/tool/type';
 
 /**
  * 返回渲染后的CSS样式值

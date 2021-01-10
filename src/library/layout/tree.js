@@ -1,7 +1,7 @@
 import treeLayout from '@hai2007/algorithm/tree.js';
 import { initConfig } from '../../core/config';
 import { rotate } from '../calculate/transform';
-import isFunction from '@yelloxing/core.js/isFunction';
+import { isFunction } from '@hai2007/tool/type';
 
 export default function (config) {
 

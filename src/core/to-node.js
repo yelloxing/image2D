@@ -1,7 +1,6 @@
 import { NAMESPACE, REGEXP } from './config';
-import isElement from '@yelloxing/core.js/isElement';
-import isString from '@yelloxing/core.js/isString';
 import { setSVG } from './polyfill';
+import { isElement, isString } from '@hai2007/tool/type';
 
 // 变成指定类型的结点
 // type可以取：

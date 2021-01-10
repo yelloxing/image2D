@@ -1,5 +1,5 @@
 import { NAMESPACE, XLINK_ATTRIBUTE } from './config';
-import isText from '@yelloxing/core.js/isText';
+import { isText } from '@hai2007/tool/type';
 
 /**
  * 设置svg字符串

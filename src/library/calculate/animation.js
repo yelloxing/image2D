@@ -1,7 +1,6 @@
 import animation from '@hai2007/tool/animation.js';
-import isFunction from '@yelloxing/core.js/isFunction';
-import isArray from '@yelloxing/core.js/isArray';
-import Hermite from '@yelloxing/core.js/tools/Hermite';
+import { isFunction, isArray } from '@hai2007/tool/type';
+import Hermite from '@hai2007/tool/Hermite';
 
 /**
  * 轮询动画

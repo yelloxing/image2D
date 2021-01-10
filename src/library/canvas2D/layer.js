@@ -1,5 +1,5 @@
 import image2D from '../core';
-import isElement from '@yelloxing/core.js/isElement';
+import { isElement } from '@hai2007/tool/type';
 
 export default function () {
 
