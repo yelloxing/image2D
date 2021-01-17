@@ -96,7 +96,7 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 
 主要来自 [issue](https://github.com/hai2007/image2D/issues) 和前端本身的发展（可能一些新的技术等原因，催促一些改变是有意义的），如果你对未来版本有什么期望，也可以告诉我们。
 
-当前，这也包括 [接口文档](https://hai2007.gitee.io/image2d) 和 [教程](https://hai2007.gitee.io/image2d/#/course) 等，甚至包括 [用例](http://hai2007.gitee.io/image2d-examples/#/entry) ，一切围绕或和image2D相关的都可以提。
+当前，这也包括 [接口文档](https://hai2007.gitee.io/image2d) 和 [教程](https://hai2007.gitee.io/image2d/#/course) 等，甚至包括 [用例](https://hai2007.gitee.io/image2d/examples/index.html#/entry) ，一切围绕或和image2D相关的都可以提。
 
 ## 为什么要加入我们？
 
