@@ -10,6 +10,7 @@
   <a href="https://www.jsdelivr.com/package/npm/image2d"><img src="https://data.jsdelivr.com/v1/package/npm/image2d/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/image2d"><img src="https://img.shields.io/npm/v/image2d.svg" alt="Version"></a>
   <a href="https://github.com/hai2007/image2D/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/image2d.svg" alt="License"></a>
+  <a href="https://github.com/hai2007/image2d" target='_blank'><img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/image2d?style=social"></a>
 </p>
 
 <h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 关于项目</h2>
