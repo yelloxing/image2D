@@ -23,3 +23,14 @@ export interface rectSize {
     width: number,
     height: number
 }
+
+/**
+ * 一个记录刻度尺如何绘制的信息对象
+ */
+export interface ruler {
+    min: number,
+    max: number,
+    distance: number,
+    num: number
+    ruler: Array<number>
+}

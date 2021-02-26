@@ -11,9 +11,10 @@ import Matrix4 from '@hai2007/tool/Matrix4.js';
 import animation from './library/calculate/animation';
 import cardinal from './library/interpolate/Cardinal';
 import { rotate, move, scale, dot } from './library/calculate/transform';
-import { formatColor, getRandomColors } from './library/calculate/color';
+import { formatColor, getRandomColors, getLoopColors } from './library/calculate/color';
 import { stopPropagation, preventDefault } from './library/xhtml/event';
 import map from './library/map/index';
+import ruler from './library/calculate/ruler';
 image2D.extend({
 
     // 布局
@@ -32,13 +33,16 @@ image2D.extend({
     cardinal,
 
     // 色彩类
-    formatColor, getRandomColors,
+    formatColor, getRandomColors, getLoopColors,
 
     // 事件相关
     stopPropagation, preventDefault,
 
     // 地图映射
-    map
+    map,
+
+    // 刻度尺辅助计算
+    ruler
 
 });
 

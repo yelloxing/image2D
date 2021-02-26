@@ -1,5 +1,5 @@
 import { image2D_Object } from "./image2D.d";
-import { point } from './type.d';
+import { point , ruler} from './type.d';
 import { dot } from './dot.d';
 import { matrix4 } from './matrix4.d';
 import { cardinal } from './interpolation.d';
@@ -105,3 +105,13 @@ image2D.formatColor = (colorString: string): Array<number> => { };
  * 传递需要的颜色个数，返回一组随机色彩
  */
 image2D.getRandomColors = (num: number, alpha?: number): Array<string> => { };
+
+/**
+ * 传递需要的颜色个数，返回一组循环色彩
+ */
+image2D.getLoopColors = (num: number, alpha?: number): Array<string> => { };
+
+/**
+ * 刻度尺辅助计算
+ */
+image2D.ruler = (maxValue: number, minValue: number, number: number): ruler => { };

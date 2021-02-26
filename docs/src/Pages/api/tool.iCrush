@@ -108,6 +108,41 @@ var rgbaArray=$$.formatColor(colorString);
 var colors=$$.getRandomColors(number, alpha);
             </pre>
         </div>
+        <p>
+            传递需要的颜色个数，返回一组循环色彩：
+        </p>
+        <div ui-copy>
+            <pre class="prettyprint">
+// alpha可选，取值是0-1，表示颜色透明度
+var colors=$$.getLoopColors(number, alpha);
+            </pre>
+        </div>
+        <h2 id='fixed-ruler'>
+            刻度尺辅助计算
+        </h2>
+        <div ui-copy>
+            <pre class='prettyprint'>
+// 分别表示最大值，最小值和间隔数
+var rulerData = $$.ruler(maxValue, minValue, number);
+            </pre>
+        </div>
+        <div ui-copy>
+            <pre class="prettyprint">
+rulerData = {
+    min: number, // 最小值
+    max: number , // 最大值
+    distance: number , // 步进
+    num: number // 间隔数
+    ruler: Array<number> // 刻度数数组
+};
+            </pre>
+        </div>
+        <p>
+                返回的数据格式如下：
+        </p>
+        <p class="warn">
+                温馨提示：传递的间隔数对于最终计算只是作为一个参考，实际的间隔数以返回的结果为准。
+        </p>
     </div>
 </template>
 <script>

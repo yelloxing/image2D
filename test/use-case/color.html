@@ -13,6 +13,7 @@
 <body>
 
     <svg id="random"></svg>
+    <svg id="loop"></svg>
     <script>
 
         // 随机色彩
@@ -28,6 +29,21 @@
             .appendTo('#random')
             .loop(function (data, index, target) {
                 painter1.bind(target).config('fillStyle', randoms[index]).fillRect(index * 30, 0, 30, 30);
+            });
+
+        // 循环色彩
+        var loops = $$.getLoopColors(30);
+        var painter2 = $$('#loop').attr({
+            "width": 900,
+            "height": 30
+        }).painter();
+
+        $$('rect', $$('#loop')[0])
+            .data(loops)
+            .enter('<rect>')
+            .appendTo('#loop')
+            .loop(function (data, index, target) {
+                painter2.bind(target).config('fillStyle', loops[index]).fillRect(index * 30, 0, 30, 30);
             });
 
     </script>
