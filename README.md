@@ -114,11 +114,6 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 
 你可以查看[.mailmap](https://github.com/hai2007/image2D/blob/master/.mailmap)文件了解当前主要维护人员，查看[AUTHORS.txt](https://github.com/hai2007/image2D/blob/master/AUTHORS.txt)了解所有的贡献者。
 
-## 联系我们
-
-- QQ: 2501482523
-- Email: 2501482523@qq.com
-
 开源协议
 ---------------------------------------
 [MIT](https://github.com/hai2007/image2D/blob/master/LICENSE)
