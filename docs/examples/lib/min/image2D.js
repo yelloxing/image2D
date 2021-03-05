@@ -1,121 +1,28 @@
 /*!
 * image2D - 🍇 使用ECMAScript绘制二维图片。Drawing Two-Dimensional Pictures Using ECMAScript.
-* git+https://github.com/yelloxing/image2D.git
+* git+https://github.com/hai2007/image2D.git
 *
-* author 心叶(yelloxing@gmail.com)
+* For online documents, please visit
+* https://hai2007.gitee.io/image2d/index.html
 *
-* version 1.8.7
+* author 你好2007
+*
+* version 1.13.0
 *
 * build Thu Apr 11 2019
 *
-* Copyright yelloxing
+* Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Thu Aug 27 2020 21:16:53 GMT+0800 (GMT+08:00)
+* Date:Sun Jan 10 2021 11:34:38 GMT+0800 (GMT+08:00)
 */
 
-'use strict';
+"use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function () {
     'use strict';
-
-    var toString = Object.prototype.toString;
-
-    /**
-     * 获取一个值的类型字符串[object type]
-     *
-     * @private
-     * @param {*} value 需要返回类型的值
-     * @returns {string} 返回类型字符串
-     */
-    function getType(value) {
-        if (value == null) {
-            return value === undefined ? '[object Undefined]' : '[object Null]';
-        }
-        return toString.call(value);
-    }
-
-    /**
-     * 判断一个值是不是一个朴素的'对象'
-     *
-     * @private
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是朴素的'对象'返回true，否则返回false
-     */
-
-    function isPlainObject(value) {
-        if (value === null || (typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object' || getType(value) != '[object Object]') {
-            return false;
-        }
-
-        // 如果原型为null
-        if (Object.getPrototypeOf(value) === null) {
-            return true;
-        }
-
-        var proto = value;
-        while (Object.getPrototypeOf(proto) !== null) {
-            proto = Object.getPrototypeOf(proto);
-        }
-        return Object.getPrototypeOf(value) === proto;
-    }
-
-    /**
-     * 判断一个值是不是结点元素。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是结点元素返回true，否则返回false
-     */
-    function isElement(value) {
-        return value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && (value.nodeType === 1 || value.nodeType === 9 || value.nodeType === 11) && !isPlainObject(value);
-    }
-
-    /**
-     * 判断一个值是不是Object。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是Object返回true，否则返回false
-     */
-    function isObject(value) {
-        var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
-        return value != null && (type === 'object' || type === 'function');
-    }
-
-    /**
-     * 判断一个值是不是Function。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是Function返回true，否则返回false
-     */
-    function isFunction(value) {
-        if (!isObject(value)) {
-            return false;
-        }
-
-        var type = getType(value);
-        return type === '[object Function]' || type === '[object AsyncFunction]' || type === '[object GeneratorFunction]' || type === '[object Proxy]';
-    }
-
-    /**
-     * 判断一个值是不是String。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是String返回true，否则返回false
-     */
-    function isString(value) {
-        var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
-        return type === 'string' || type === 'object' && value != null && !Array.isArray(value) && getType(value) === '[object String]';
-    }
 
     /**
      * 初始化配置文件
@@ -123,6 +30,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @param {Json} data
      * @return {Json}
      */
+
     var initConfig = function initConfig(init, data) {
         for (var key in data) {
             try {
@@ -159,16 +67,123 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var XLINK_ATTRIBUTE = ["href", "title", "show", "type", "role", "actuate"];
 
     /**
-     * 判断一个值是不是文本结点。
+     * 判断一个值是不是Object。
      *
-     * @since V0.1.2
-     * @public
      * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是结点元素返回true，否则返回false
+     * @returns {boolean} 如果是Object返回true，否则返回false
      */
-    function isText(value) {
-        return value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.nodeType === 3 && !isPlainObject(value);
+    function _isObject(value) {
+        var type = typeof value === "undefined" ? "undefined" : _typeof(value);
+        return value != null && (type === 'object' || type === 'function');
     }
+
+    var toString = Object.prototype.toString;
+
+    /**
+     * 获取一个值的类型字符串[object type]
+     *
+     * @param {*} value 需要返回类型的值
+     * @returns {string} 返回类型字符串
+     */
+    function getType(value) {
+        if (value == null) {
+            return value === undefined ? '[object Undefined]' : '[object Null]';
+        }
+        return toString.call(value);
+    }
+
+    /**
+     * 判断一个值是不是number。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是number返回true，否则返回false
+     */
+    function _isNumber(value) {
+        return typeof value === 'number' || value !== null && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && getType(value) === '[object Number]';
+    }
+
+    /**
+     * 判断一个值是不是String。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是String返回true，否则返回false
+     */
+    function _isString(value) {
+        var type = typeof value === "undefined" ? "undefined" : _typeof(value);
+        return type === 'string' || type === 'object' && value != null && !Array.isArray(value) && getType(value) === '[object String]';
+    }
+
+    /**
+     * 判断一个值是不是Function。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是Function返回true，否则返回false
+     */
+    function _isFunction(value) {
+        if (!_isObject(value)) {
+            return false;
+        }
+
+        var type = getType(value);
+        return type === '[object Function]' || type === '[object AsyncFunction]' || type === '[object GeneratorFunction]' || type === '[object Proxy]';
+    }
+
+    /**
+     * 判断一个值是不是一个朴素的'对象'
+     * 所谓"纯粹的对象"，就是该对象是通过"{}"或"new Object"创建的
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是朴素的'对象'返回true，否则返回false
+     */
+
+    function _isPlainObject(value) {
+        if (value === null || (typeof value === "undefined" ? "undefined" : _typeof(value)) !== 'object' || getType(value) != '[object Object]') {
+            return false;
+        }
+
+        // 如果原型为null
+        if (Object.getPrototypeOf(value) === null) {
+            return true;
+        }
+
+        var proto = value;
+        while (Object.getPrototypeOf(proto) !== null) {
+            proto = Object.getPrototypeOf(proto);
+        }
+        return Object.getPrototypeOf(value) === proto;
+    }
+
+    var domTypeHelp = function domTypeHelp(types, value) {
+        return value !== null && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && types.indexOf(value.nodeType) > -1 && !_isPlainObject(value);
+    };
+
+    /*!
+     * 💡 - 值类型判断方法
+     * https://github.com/hai2007/tool.js/blob/master/type.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
+
+    var isObject = _isObject;
+    var isNumber = _isNumber;
+    var isString = _isString;
+
+    // 引用类型
+    var isFunction = _isFunction;
+    var isArray = function isArray(input) {
+        return Array.isArray(input);
+    };
+
+    // 结点类型
+    var isElement = function isElement(input) {
+        return domTypeHelp([1, 9, 11], input);
+    };
+    var isText = function isText(input) {
+        return domTypeHelp([3], input);
+    };
 
     /**
      * 设置svg字符串
@@ -238,23 +253,32 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 2.'SVG'，svg结点(默认值)
     var toNode = function toNode(template, type) {
         var frame = void 0,
-            childNodes = void 0;
+            childNodes = void 0,
+            frameTagName = 'div';
         if (type === 'html' || type === 'HTML') {
+
+            // 大部分的标签可以直接使用div作为容器
+            // 部分特殊的需要特殊的容器标签
+
             if (/^<tr[> ]/.test(template)) {
-                frame = document.createElement("tbody");
+
+                frameTagName = "tbody";
             } else if (/^<th[> ]/.test(template) || /^<td[> ]/.test(template)) {
-                frame = document.createElement("tr");
+
+                frameTagName = "tr";
             } else if (/^<thead[> ]/.test(template) || /^<tbody[> ]/.test(template)) {
-                frame = document.createElement("table");
-            } else {
-                frame = document.createElement("div");
+
+                frameTagName = "table";
             }
+
+            frame = document.createElement(frameTagName);
             frame.innerHTML = template;
 
             // 比如tr标签，它应该被tbody或thead包含
-            // 这里容器是div，这类标签无法生成
+            // 如果采用别的标签，比如div,这类标签无法生成
+            // 为了方便校对，这里给出提示
             if (!/</.test(frame.innerHTML)) {
-                throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/yelloxing/image2D/issues");
+                throw new Error('This template cannot be generated using div as a container:' + template + "\nPlease contact us: https://github.com/hai2007/image2D/issues");
             }
         } else {
             frame = document.createElementNS(NAMESPACE.svg, 'svg');
@@ -283,7 +307,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 画布canvas特殊知道，一定是html
         if ("canvas" === mark.toLowerCase()) type = 'HTML';
 
-        // 此外，如果没有特殊设定，给常用的html标签默认
+        // 此外，如果没有特殊设定，规定一些标签是html标签
         if (!isString(type) && [
 
         // 三大display元素
@@ -293,7 +317,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         "em", "i",
 
         // 关系元素
-        "table", "ul", "ol", "dl",
+        "table", "ul", "ol", "dl", "dt", "li", "dd",
 
         // 表单相关
         "form", "input", "button", "textarea",
@@ -389,7 +413,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             else if (selector && (selector.constructor === Array || selector.constructor === HTMLCollection || selector.constructor === NodeList)) {
                     var _temp = [];
                     for (var _i = 0; _i < selector.length; _i++) {
+
+                        // 如果是结点
                         if (isElement(selector[_i])) _temp.push(selector[_i]);
+
+                        // 如果是image2D对象
+                        else if (selector[_i] && selector[_i].constructor === image2D) {
+                                for (var _j = 0; _j < selector[_i].length; _j++) {
+                                    _temp.push(selector[_i][_j]);
+                                }
+                            }
                     }
                     return _temp;
                 }
@@ -530,7 +563,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 // 一些对象的特殊属性不允许覆盖，比如name
                 // 执行：image2D.extend({'name':'新名称'})
                 // 会抛出TypeError
-                throw new Error("Illegal property value！");
+                throw new Error("Illegal property key：" + key + "！");
             }
         }
 
@@ -539,16 +572,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     image2D.prototype.init.prototype = image2D.prototype;
 
-    /**
-     * 无论绘制的树结构是什么样子的
-     * 计算时都假想目标树的样子如下：
-     *  1.根结点在最左边，且上下居中
-     *  2.树是从左往右生长的结构
-     *  3.每个结点都是一块1*1的正方形，top和left分别表示正方形中心的位置
-     * @since V0.2.0
-     * @public
+    /*!
+     * 🔪 - 基本的树结构位置生成算法
+     * https://github.com/hai2007/algorithm.js/blob/master/tree.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
      */
+
     function treeLayout(_config) {
+
+        /**
+         * 无论绘制的树结构是什么样子的
+         * 计算时都假想目标树的样子如下：
+         *  1.根结点在最左边，且上下居中
+         *  2.树是从左往右生长的结构
+         *  3.每个结点都是一块1*1的正方形，top和left分别表示正方形中心的位置
+         */
 
         var config = _config || {},
 
@@ -662,10 +704,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 "id": id,
                 "children": []
             };
+
+            var num = 1;
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
                     flag = void 0;
+                num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
                     tempTree[pid].children.push(id);
@@ -679,7 +724,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             })(temp, id);
 
-            return [rid, tempTree];
+            return {
+                value: [rid, tempTree],
+                num: num
+            };
         };
 
         // 可以传递任意格式的树原始数据
@@ -687,8 +735,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var tree = function tree(initTree) {
 
             var treeData = toInnerTree(initTree);
-            alltreedata = treeData[1];
-            rootid = treeData[0];
+            alltreedata = treeData.value[1];
+            rootid = treeData.value[0];
+
+            if (treeData.num == 1) {
+                alltreedata[rootid].left = 0.5;
+                alltreedata[rootid].top = 0.5;
+                return {
+                    deep: 1,
+                    node: alltreedata,
+                    root: rootid,
+                    size: 1
+                };
+            }
+
             return update();
         };
 
@@ -842,23 +902,40 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 }
             } else if (config.type === 'circle') {
 
-                // 每层间距
-                var _dis3 = config.radius / (orgData.deep - 1);
-                // 兄弟间隔弧度
-                var _dis4 = config.deg / (orgData.size - -0.5);
-                for (var _i4 in orgData.node) {
-                    var _node3 = orgData.node[_i4];
-                    orgData.node[_i4].deg = (config['begin-deg'] - -_dis4 * _node3.top) % (Math.PI * 2);
-                    var pos = _rotate2(config.cx, config.cy, orgData.node[_i4].deg, config.cx - -_dis3 * (_node3.left - 0.5), config.cy);
-                    orgData.node[_i4].left = +pos[0];
-                    orgData.node[_i4].top = +pos[1];
+                // 如果只有一个结点
+                if (orgData.deep == 1 && orgData.size == 1) {
+                    orgData.node[orgData.root].left = config.cx;
+                    orgData.node[orgData.root].top = config.cy;
                 }
+
+                // 如果有多个结点
+                else {
+
+                        // 每层间距
+                        var _dis3 = config.radius / (orgData.deep - 1);
+                        // 兄弟间隔弧度
+                        var _dis4 = config.deg / (orgData.size - -0.5);
+                        for (var _i4 in orgData.node) {
+                            var _node3 = orgData.node[_i4];
+                            orgData.node[_i4].deg = (config['begin-deg'] - -_dis4 * _node3.top) % (Math.PI * 2);
+                            var pos = _rotate2(config.cx, config.cy, orgData.node[_i4].deg, config.cx - -_dis3 * (_node3.left - 0.5), config.cy);
+                            orgData.node[_i4].left = +pos[0];
+                            orgData.node[_i4].top = +pos[1];
+                        }
+                    }
             }
 
             // 启动绘图
-            config.drawer(orgData);
+            if (isFunction(config.drawer)) {
 
-            return treeObj;
+                // 如果配置了绘图方法，就调用绘图方法
+                config.drawer(orgData);
+                return treeObj;
+            } else {
+
+                // 否则返回数据
+                return orgData;
+            }
         };
 
         // 配置
@@ -874,18 +951,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
 
         return treeObj;
-    }
-
-    /**
-     * 判断一个值是不是number。
-     *
-     * @since V0.1.3
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是number返回true，否则返回false
-     */
-    function isNumber(value) {
-        return typeof value === 'number' || value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && getType(value) === '[object Number]';
     }
 
     function pieLayout(config) {
@@ -954,6 +1019,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 启动绘图
             if (isFunction(config.drawer)) {
                 config.drawer(innerData);
+                return pieObj;
+            } else {
+                return innerData;
             }
         };
 
@@ -974,7 +1042,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 在(a,b,c)方向位移d
-     * @private
      */
     function _move(d, a, b, c) {
         c = c || 0;
@@ -986,8 +1053,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * 围绕0Z轴旋转
      * 其它的旋转可以借助transform实现
      * 旋转角度单位采用弧度制
-     * 
-     * @private
      */
     function _rotate(deg) {
         var sin = Math.sin(deg),
@@ -997,8 +1062,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     /**
      * 围绕圆心x、y和z分别缩放xTimes, yTimes和zTimes倍
-     * 
-     * @private
      */
     function _scale(xTimes, yTimes, zTimes, cx, cy, cz) {
         cx = cx || 0;cy = cy || 0;cz = cz || 0;
@@ -1009,8 +1072,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * 针对任意射线(a1,b1,c1)->(a2,b2,c2)
      * 计算出二个变换矩阵
      * 分别为：任意射线变成OZ轴变换矩阵 + OZ轴变回原来的射线的变换矩阵
-     * 
-     * @private
      */
     function _transform(a1, b1, c1, a2, b2, c2) {
 
@@ -1061,12 +1122,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return newParam;
     };
 
-    /**
-     * 4x4矩阵
-     * 列主序存储
-     * @since V0.2.0
-     * @public
+    /*!
+     * 💡 - 列主序存储的4x4矩阵
+     * https://github.com/hai2007/tool.js/blob/master/Matrix4.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
      */
+
     function Matrix4(initMatrix4) {
 
         var matrix4 = initMatrix4 || [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
@@ -1131,10 +1196,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     //定时器ID
     var $timerId = null;
 
+    /*!
+     * 💡 - 动画轮播
+     * https://github.com/hai2007/tool.js/blob/master/animation.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
+
     /**
-     * 动画轮播
-     * @since V0.2.0
-     * @public
      * @param {function} doback 轮询函数，有一个形参deep，0-1，表示执行进度
      * @param {number} duration 动画时长，可选
      * @param {function} callback 动画结束回调，可选，有一个形参deep，0-1，表示执行进度
@@ -1232,69 +1304,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
     }
 
-    var MAX_SAFE_INTEGER = 9007199254740991;
-
-    /**
-     * 判断是不是一个可以作为长度的整数（比如数组下标）
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isLength(value) {
-
-        return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-    }
-
-    /**
-     * 判断是不是一个类似数组的对象，是否可以通过length迭代
-     *
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isArrayLike(value) {
-
-        return value != null && typeof value != 'function' && isLength(value.length);
-    }
-
-    /**
-     * 和isArrayLike类似，不过特别排除以下类型：
-     *  1.字符串
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isArraySpec(value) {
-
-        return isArrayLike(value) && !isString(value);
-    }
-
-    /**
-     * 判断一个值是不是数组。
-     *
-     * @since V0.3.1
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @param {boolean} notStrict 是否不严格检查类型（默认false，如果为true表示判断是不是一个类似数组的类型）
-     * @returns {boolean} 如果是数组返回true，否则返回false
-     */
-    function isArray(value, notStrict) {
-        if (notStrict) {
-            return isArraySpec(value);
-        }
-        return Array.isArray(value);
-    }
-
     /**
      * 初始化配置文件
-     * 
-     * @private
+     *
      * @param {Json} init 默认值
      * @param {Json} data
      * @return {Json}
@@ -1309,12 +1321,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return init;
     }
 
-    /**
-     * Hermite三次插值
-     * @since V0.2.0
-     * @public
-     * @param {Json} config 可选
+    /*!
+     * 💡 - Hermite三次插值
+     * https://github.com/hai2007/tool.js/blob/master/Hermite.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
      */
+
     function hermite(config) {
 
         config = initConfig$1({
@@ -1522,10 +1538,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     // 获取一组随机色彩
-    var getRandomColors = function getRandomColors(num) {
+    var getRandomColors = function getRandomColors(num, alpha) {
+        if (!(alpha && alpha >= 0 && alpha <= 1)) alpha = 1;
         var temp = [];
         for (var flag = 1; flag <= num; flag++) {
-            temp.push('rgb(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ')');
+            temp.push('rgba(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + alpha + ')');
         }
         return temp;
     };
@@ -1616,6 +1633,99 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
         return this;
     };
+
+    /* 等角斜方位投影 */
+
+    var
+    // 围绕X轴旋转
+    _rotateX = function _rotateX(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x, y * cos - z * sin, y * sin + z * cos];
+    },
+
+    // 围绕Y轴旋转
+    _rotateY = function _rotateY(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [z * sin + x * cos, y, z * cos - x * sin];
+    },
+
+    // 围绕Z轴旋转
+    _rotateZ = function _rotateZ(deg, x, y, z) {
+        var cos = Math.cos(deg),
+            sin = Math.sin(deg);
+        return [x * cos - y * sin, x * sin + y * cos, z];
+    };
+
+    var p = [];
+
+    function eoap(config, longitude, latitude) {
+        /**
+         * 通过旋转的方法
+         * 先旋转出点的位置
+         * 然后根据把地心到旋转中心的这条射线变成OZ这条射线的变换应用到初始化点上
+         * 这样求的的点的x,y就是最终结果
+         *
+         *  计算过程：
+         *  1.初始化点的位置是p（x,0,0）,其中x的值是地球半径除以缩放倍速
+         *  2.根据点的纬度对p进行旋转，旋转后得到的p的坐标纬度就是目标纬度
+         *  3.同样的对此刻的p进行经度的旋转，这样就获取了极点作为中心点的坐标
+         *  4.接着想象一下为了让旋转中心移动到极点需要进行旋转的经纬度是多少，记为lo和la
+         *  5.然后再对p进行经度度旋转lo获得新的p
+         *  6.然后再对p进行纬度旋转la获得新的p
+         *  7.旋转结束
+         *
+         * 特别注意：第5和第6步顺序一定不可以调换，原因来自经纬度定义上
+         * 【除了经度为0的位置，不然纬度的旋转会改变原来的经度值，反过来不会】
+         *
+         */
+        p = _rotateY((360 - latitude) / 180 * Math.PI, 100 * config.scale, 0, 0);
+        p = _rotateZ(longitude / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateZ((90 - config.center[0]) / 180 * Math.PI, p[0], p[1], p[2]);
+        p = _rotateX((90 - config.center[1]) / 180 * Math.PI, p[0], p[1], p[2]);
+
+        return [-p[0], //加-号是因为浏览器坐标和地图不一样
+        p[1], p[2]];
+    }
+
+    function map(_config) {
+
+        var config = initConfig({
+
+            // 默认使用「等角斜方位投影」
+            type: 'eoap',
+
+            // 缩放比例
+            scale: 1,
+
+            // 投影中心经纬度
+            center: [107, 36]
+
+        }, _config);
+
+        var map = function map(longitude, latitude) {
+
+            switch (config.type) {
+                case 'eoap':
+                    {
+                        return eoap(config, longitude, latitude);
+                    }
+                default:
+                    {
+                        throw new Error('Map type configuration error!');
+                    }
+            }
+        };
+
+        // 修改配置
+        map.config = function (_config) {
+            config = initConfig(config, _config);
+            return map;
+        };
+
+        return map;
+    }
 
     /**
      * 把当前维护的结点加到目标结点内部的结尾
@@ -1920,8 +2030,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // beginA起点弧度，rotateA旋转弧度式
     function arc(beginA, rotateA, cx, cy, r1, r2, doback) {
 
-        if (rotateA > Math.PI * 2) rotateA = Math.PI * 2;
-        if (rotateA < -Math.PI * 2) rotateA = -Math.PI * 2;
+        // 有了前置的判断，这里可以省略了
+        // if (rotateA > Math.PI * 2) rotateA = Math.PI * 2;
+        // if (rotateA < -Math.PI * 2) rotateA = -Math.PI * 2;
 
         // 保证逆时针也是可以的
         if (rotateA < 0) {
@@ -1953,6 +2064,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 文字统一设置方法
     var initText = function initText(painter, config, x, y, deg) {
+
         painter.beginPath();
         painter.translate(x, y);
         painter.rotate(deg);
@@ -1962,6 +2074,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 画弧统一设置方法
     var initArc = function initArc(painter, config, cx, cy, r1, r2, beginDeg, deg) {
+
+        if (r1 > r2) {
+            var temp = r1;
+            r1 = r2;
+            r2 = temp;
+        }
+
+        beginDeg = beginDeg % (Math.PI * 2);
+
+        // 当|deg|>=2π的时候都认为是一个圆环
+        // 为什么不取2π比较，是怕部分浏览器浮点不精确，同时也是为了和svg保持一致
+        if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
+            deg = Math.PI * 2;
+        } else {
+            deg = deg % (Math.PI * 2);
+        }
+
         arc(beginDeg, deg, cx, cy, r1, r2, function (beginA, endA, begInnerX, begInnerY, begOuterX, begOuterY, endInnerX, endInnerY, endOuterX, endOuterY, r) {
             if (r < 0) r = -r;
             painter.beginPath();
@@ -1975,6 +2104,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 开头
             if (config["arc-start-cap"] != 'round') painter.lineTo(begInnerX, begInnerY);else painter.arc((begInnerX + begOuterX) * 0.5, (begInnerY + begOuterY) * 0.5, r, beginA, beginA - Math.PI, true);
         });
+        if (config["arc-start-cap"] == 'butt') painter.closePath();
         return painter;
     };
 
@@ -2024,7 +2154,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     // 加强版本的画笔
-    function painter_canvas2D(canvas) {
+    function painter_canvas2D(canvas, noHiddenWarn) {
 
         // 获取canvas2D画笔
         var painter = canvas.getContext("2d");
@@ -2038,7 +2168,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         height = isLayer ? canvas.getAttribute('height') : canvas.clientHeight;
 
         if (width == 0 || height == 0) {
-            console.warn('🍇 image2D: Canvas is hidden or size is zero!');
+
+            if (!noHiddenWarn) console.warn('Canvas is hidden or size is zero!');
 
             if (canvas.__image2D__noLayer_getSize__ == 'yes') {
 
@@ -2137,6 +2268,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 painter.restore();
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                painter.save();
+                initText(painter, config, x, y, deg || 0);
+                painter.fillText(text, 0, 0);
+                painter.strokeText(text, 0, 0);
+                painter.restore();
+                return enhancePainter;
+            },
 
             // 路径
             "beginPath": function beginPath() {
@@ -2160,6 +2299,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "stroke": function stroke() {
                 painter.stroke();return enhancePainter;
+            },
+            "full": function full() {
+                painter.fill();painter.stroke();return enhancePainter;
             },
 
             "save": function save() {
@@ -2221,6 +2363,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeArc": function strokeArc(cx, cy, r1, r2, beginDeg, deg) {
                 initArc(painter, config, cx, cy, r1, r2, beginDeg, deg).stroke();return enhancePainter;
             },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc(painter, config, cx, cy, r1, r2, beginDeg, deg);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 圆形
             "fillCircle": function fillCircle(cx, cy, r) {
@@ -2229,6 +2377,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "strokeCircle": function strokeCircle(cx, cy, r) {
                 initCircle(painter, cx, cy, r).stroke();return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle(painter, cx, cy, r);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2236,6 +2390,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             },
             "strokeRect": function strokeRect(x, y, width, height) {
                 initRect(painter, x, y, width, height).stroke();return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect(painter, x, y, width, height);
+                painter.fill();
+                painter.stroke();
+                return enhancePainter;
             },
 
             /**
@@ -2295,6 +2455,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var initText$1 = function initText$1(painter, config, x, y, deg) {
         if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'text') throw new Error('Need a <text> !');
 
+        deg = deg % (Math.PI * 2);
+
         // 垂直对齐采用dy实现
         painter.attr('dy', {
             "top": config['font-size'] * 0.5,
@@ -2318,7 +2480,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     // 画弧统一设置方法
     var initArc$1 = function initArc$1(painter, config, cx, cy, r1, r2, beginDeg, deg) {
+
         if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'path') throw new Error('Need a <path> !');
+
+        beginDeg = beginDeg % (Math.PI * 2);
+
+        if (r1 > r2) {
+            var temp = r1;
+            r1 = r2;
+            r2 = temp;
+        }
+
+        // 当|deg|>=2π的时候都认为是一个圆环
+        if (deg >= Math.PI * 1.999999 || deg <= -Math.PI * 1.999999) {
+            deg = Math.PI * 1.999999;
+        } else {
+            deg = deg % (Math.PI * 2);
+        }
+
         arc(beginDeg, deg, cx, cy, r1, r2, function (beginA, endA, begInnerX, begInnerY, begOuterX, begOuterY, endInnerX, endInnerY, endOuterX, endOuterY, r) {
             var f = endA - beginA > Math.PI ? 1 : 0,
                 d = "M" + begInnerX + " " + begInnerY;
@@ -2331,6 +2510,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             d += "A" + r2 + " " + r2 + " 0 " + f + " 0 " + begOuterX + " " + begOuterY;
             // 开头
             if (config["arc-start-cap"] != 'round') d += "L" + begInnerX + " " + begInnerY;else d += "A" + r + " " + r + " " + " 0 1 0 " + begInnerX + " " + begInnerY;
+            if (config["arc-start-cap"] == 'butt') d += "Z";
             painter.attr('d', d);
         });
         return painter;
@@ -2357,6 +2537,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     // 画矩形统一设置方法
     var initRect$1 = function initRect$1(painter, x, y, width, height) {
         if (!painter || painter.length <= 0 || painter[0].nodeName.toLowerCase() !== 'rect') throw new Error('Need a <rect> !');
+
+        // 由于height和宽不可以是负数，校对一下
+
+        if (height < 0) {
+            height *= -1;y -= height;
+        }
+
+        if (width < 0) {
+            width *= -1;x -= width;
+        }
+
         painter.attr({
             "x": x,
             "y": y,
@@ -2522,6 +2713,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 });
                 return enhancePainter;
             },
+            "full": function full() {
+                initPath(painter, path).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
 
             "save": function save() {
                 transform_history.push(transform_current);
@@ -2555,6 +2755,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 })[0].textContent = text;
                 return enhancePainter;
             },
+            "fullText": function fullText(text, x, y, deg) {
+                var returnJSon = initText$1(painter, _config2, x, y, deg || 0);
+                painter.attr('transform', transform_current + returnJSon.transform).attr({
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                })[0].textContent = text;
+                return enhancePainter;
+            },
 
             // 弧
             "fillArc": function fillArc(cx, cy, r1, r2, beginDeg, deg) {
@@ -2566,6 +2775,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });
+                return enhancePainter;
+            },
+            "fullArc": function fullArc(cx, cy, r1, r2, beginDeg, deg) {
+                initArc$1(painter, _config2, cx, cy, r1, r2, beginDeg, deg).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });
                 return enhancePainter;
@@ -2583,6 +2801,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
+            "fullCircle": function fullCircle(cx, cy, r) {
+                initCircle$1(painter, cx, cy, r).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
 
             // 矩形
             "fillRect": function fillRect(x, y, width, height) {
@@ -2593,6 +2819,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     "stroke-width": _config2.lineWidth,
                     "stroke": _config2.strokeStyle,
                     "fill": "none",
+                    "stroke-dasharray": _config2.lineDash.join(',')
+                });return enhancePainter;
+            },
+            "fullRect": function fullRect(x, y, width, height) {
+                initRect$1(painter, x, y, width, height).attr('transform', transform_current).attr({
+                    "stroke-width": _config2.lineWidth,
+                    "stroke": _config2.strokeStyle,
+                    "fill": _config2.fillStyle,
                     "stroke-dasharray": _config2.lineDash.join(',')
                 });return enhancePainter;
             },
@@ -2625,6 +2859,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             //  旋转
             "rotate": function rotate(deg) {
+                deg = deg % (Math.PI * 2);
                 transform_current += ' rotate(' + deg / Math.PI * 180 + ')';
                 return enhancePainter;
             },
@@ -2652,7 +2887,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             nodeName = target.nodeName.toLowerCase();
 
         // canvas2D
-        if (nodeName === 'canvas') return painter_canvas2D(target);
+        if (nodeName === 'canvas') return painter_canvas2D(target, arguments[0]);
 
         // svg
         if (nodeName === 'svg') return painter_svg(target, arguments[0]);
@@ -2762,7 +2997,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         formatColor: formatColor, getRandomColors: getRandomColors,
 
         // 事件相关
-        stopPropagation: stopPropagation, preventDefault: preventDefault
+        stopPropagation: stopPropagation, preventDefault: preventDefault,
+
+        // 地图映射
+        map: map
 
     });
     image2D.prototype.extend({
@@ -2789,8 +3027,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
     image2D.fn = image2D.prototype;
 
+    // 添加版本信息，方便调试
+    image2D.version = '1.11.0';
+
     // 判断当前环境，如果不是浏览器环境
-    if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
+    if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
         module.exports = image2D;
     }
     // 浏览器环境下
@@ -2830,3 +3071,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             window.image2D = window.$$ = image2D;
         }
 })();
+
+/*!
+
+    我还惊讶地意识到， 在我生命中有很多时刻， 每当我遇到一个遥不可及、令人害怕的情境，
+    并感到惊慌失措时， 我都能够应付——因为我回想起了很久以前自己上过的那一课。
+    我提醒自己不要看下面遥远的岩石， 而是注意相对轻松、容易的第一小步， 迈出一小步、再一小步，
+    就这样体会每一步带来的成就感， 直到完成了自己想要完成的， 达到了自己的目标，
+    然后再回头看时， 不禁对自己走过的这段漫漫长路感到惊讶和自豪。
+
+                                            ———— 摘自 莫顿·亨特《走一步，再走一步》
+
+*/

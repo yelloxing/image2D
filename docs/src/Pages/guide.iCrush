@@ -183,6 +183,11 @@
                                 颜色计算相关方法
                             </a>
                         </li>
+                        <li>
+                            <a href="#/api/tool?fixed=ruler" target="_blank">
+                                刻度尺辅助计算
+                            </a>
+                        </li>
                     </ol>
                 </li>
                 <li>

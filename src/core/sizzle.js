@@ -1,9 +1,7 @@
-import isElement from '@yelloxing/core.js/isElement';
-import isFunction from '@yelloxing/core.js/isFunction';
-import isString from '@yelloxing/core.js/isString';
 import { REGEXP } from './config';
 import toNode from './to-node';
 import image2D from '../library/core';
+import { isFunction, isString, isElement } from '@hai2007/tool/type';
 
 /**
  * 在指定上下文查找结点
