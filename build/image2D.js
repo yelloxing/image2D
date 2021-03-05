@@ -7,118 +7,22 @@
 *
 * author 你好2007
 *
-* version 1.12.4
+* version 1.13.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Thu Jan 07 2021 00:42:37 GMT+0800 (GMT+08:00)
+* Date:Fri Feb 26 2021 09:34:17 GMT+0800 (GMT+08:00)
 */
 
-'use strict';
+"use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function () {
     'use strict';
-
-    var toString = Object.prototype.toString;
-
-    /**
-     * 获取一个值的类型字符串[object type]
-     *
-     * @private
-     * @param {*} value 需要返回类型的值
-     * @returns {string} 返回类型字符串
-     */
-    function getType(value) {
-        if (value == null) {
-            return value === undefined ? '[object Undefined]' : '[object Null]';
-        }
-        return toString.call(value);
-    }
-
-    /**
-     * 判断一个值是不是一个朴素的'对象'
-     *
-     * @private
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是朴素的'对象'返回true，否则返回false
-     */
-
-    function isPlainObject(value) {
-        if (value === null || (typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object' || getType(value) != '[object Object]') {
-            return false;
-        }
-
-        // 如果原型为null
-        if (Object.getPrototypeOf(value) === null) {
-            return true;
-        }
-
-        var proto = value;
-        while (Object.getPrototypeOf(proto) !== null) {
-            proto = Object.getPrototypeOf(proto);
-        }
-        return Object.getPrototypeOf(value) === proto;
-    }
-
-    /**
-     * 判断一个值是不是结点元素。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是结点元素返回true，否则返回false
-     */
-    function isElement(value) {
-        return value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && (value.nodeType === 1 || value.nodeType === 9 || value.nodeType === 11) && !isPlainObject(value);
-    }
-
-    /**
-     * 判断一个值是不是Object。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是Object返回true，否则返回false
-     */
-    function isObject(value) {
-        var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
-        return value != null && (type === 'object' || type === 'function');
-    }
-
-    /**
-     * 判断一个值是不是Function。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是Function返回true，否则返回false
-     */
-    function isFunction(value) {
-        if (!isObject(value)) {
-            return false;
-        }
-
-        var type = getType(value);
-        return type === '[object Function]' || type === '[object AsyncFunction]' || type === '[object GeneratorFunction]' || type === '[object Proxy]';
-    }
-
-    /**
-     * 判断一个值是不是String。
-     *
-     * @since V0.1.2
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是String返回true，否则返回false
-     */
-    function isString(value) {
-        var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
-        return type === 'string' || type === 'object' && value != null && !Array.isArray(value) && getType(value) === '[object String]';
-    }
 
     /**
      * 初始化配置文件
@@ -126,6 +30,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @param {Json} data
      * @return {Json}
      */
+
     var initConfig = function initConfig(init, data) {
         for (var key in data) {
             try {
@@ -162,16 +67,123 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var XLINK_ATTRIBUTE = ["href", "title", "show", "type", "role", "actuate"];
 
     /**
-     * 判断一个值是不是文本结点。
+     * 判断一个值是不是Object。
      *
-     * @since V0.1.2
-     * @public
      * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是结点元素返回true，否则返回false
+     * @returns {boolean} 如果是Object返回true，否则返回false
      */
-    function isText(value) {
-        return value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.nodeType === 3 && !isPlainObject(value);
+    function _isObject(value) {
+        var type = typeof value === "undefined" ? "undefined" : _typeof(value);
+        return value != null && (type === 'object' || type === 'function');
     }
+
+    var toString = Object.prototype.toString;
+
+    /**
+     * 获取一个值的类型字符串[object type]
+     *
+     * @param {*} value 需要返回类型的值
+     * @returns {string} 返回类型字符串
+     */
+    function getType(value) {
+        if (value == null) {
+            return value === undefined ? '[object Undefined]' : '[object Null]';
+        }
+        return toString.call(value);
+    }
+
+    /**
+     * 判断一个值是不是number。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是number返回true，否则返回false
+     */
+    function _isNumber(value) {
+        return typeof value === 'number' || value !== null && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && getType(value) === '[object Number]';
+    }
+
+    /**
+     * 判断一个值是不是String。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是String返回true，否则返回false
+     */
+    function _isString(value) {
+        var type = typeof value === "undefined" ? "undefined" : _typeof(value);
+        return type === 'string' || type === 'object' && value != null && !Array.isArray(value) && getType(value) === '[object String]';
+    }
+
+    /**
+     * 判断一个值是不是Function。
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是Function返回true，否则返回false
+     */
+    function _isFunction(value) {
+        if (!_isObject(value)) {
+            return false;
+        }
+
+        var type = getType(value);
+        return type === '[object Function]' || type === '[object AsyncFunction]' || type === '[object GeneratorFunction]' || type === '[object Proxy]';
+    }
+
+    /**
+     * 判断一个值是不是一个朴素的'对象'
+     * 所谓"纯粹的对象"，就是该对象是通过"{}"或"new Object"创建的
+     *
+     * @param {*} value 需要判断类型的值
+     * @returns {boolean} 如果是朴素的'对象'返回true，否则返回false
+     */
+
+    function _isPlainObject(value) {
+        if (value === null || (typeof value === "undefined" ? "undefined" : _typeof(value)) !== 'object' || getType(value) != '[object Object]') {
+            return false;
+        }
+
+        // 如果原型为null
+        if (Object.getPrototypeOf(value) === null) {
+            return true;
+        }
+
+        var proto = value;
+        while (Object.getPrototypeOf(proto) !== null) {
+            proto = Object.getPrototypeOf(proto);
+        }
+        return Object.getPrototypeOf(value) === proto;
+    }
+
+    var domTypeHelp = function domTypeHelp(types, value) {
+        return value !== null && (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && types.indexOf(value.nodeType) > -1 && !_isPlainObject(value);
+    };
+
+    /*!
+     * 💡 - 值类型判断方法
+     * https://github.com/hai2007/tool.js/blob/master/type.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
+     */
+
+    var isObject = _isObject;
+    var isNumber = _isNumber;
+    var isString = _isString;
+
+    // 引用类型
+    var isFunction = _isFunction;
+    var isArray = function isArray(input) {
+        return Array.isArray(input);
+    };
+
+    // 结点类型
+    var isElement = function isElement(input) {
+        return domTypeHelp([1, 9, 11], input);
+    };
+    var isText = function isText(input) {
+        return domTypeHelp([3], input);
+    };
 
     /**
      * 设置svg字符串
@@ -583,10 +595,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var config = _config || {},
 
         // 维护的树
-        alltreedata = void 0,
+        alltreedata,
 
         // 根结点ID
-        rootid = void 0;
+        rootid;
 
         /**
          * 把内部保存的树结点数据
@@ -600,7 +612,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             (function positionCalc(pNode, deep) {
 
                 if (deep > maxDeep) maxDeep = deep;
-                var flag = void 0;
+                var flag;
                 for (flag = 0; flag < pNode.children.length; flag++) {
                     // 因为全部的子结点的位置确定了，父结点的y位置就是子结点的中间位置
                     // 因此有子结点的，先计算子结点
@@ -644,7 +656,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     (function doUp(_pid, _deep) {
                         alltreedata[_pid].top += needUp;
                         if (beforeDis[_deep] < alltreedata[_pid].top) beforeDis[_deep] = alltreedata[_pid].top;
-                        var _flag = void 0;
+                        var _flag;
                         for (_flag = 0; _flag < alltreedata[_pid].children.length; _flag++) {
                             doUp(alltreedata[_pid].children[_flag], _deep + 1);
                         }
@@ -683,8 +695,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var tempTree = {};
             // 根结点
             var temp = config.root(initTree),
-                id = void 0,
-                rid = void 0;
+                id,
+                rid;
             id = rid = config.id(temp);
             tempTree[id] = {
                 "data": temp,
@@ -697,7 +709,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
-                    flag = void 0;
+                    flag;
                 num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
@@ -939,18 +951,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
 
         return treeObj;
-    }
-
-    /**
-     * 判断一个值是不是number。
-     *
-     * @since V0.1.3
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @returns {boolean} 如果是number返回true，否则返回false
-     */
-    function isNumber(value) {
-        return typeof value === 'number' || value !== null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && getType(value) === '[object Number]';
     }
 
     function pieLayout(config) {
@@ -1215,13 +1215,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      */
     function animation(doback, duration, callback) {
 
+        // 如果没有传递时间，使用内置默认值
+        if (arguments.length < 2) duration = $speeds;
+
         var clock = {
             //把tick函数推入堆栈
             "timer": function timer(tick, duration, callback) {
                 if (!tick) {
                     throw new Error('Tick is required!');
                 }
-                duration = duration || $speeds;
                 var id = new Date().valueOf() + "_" + (Math.random() * 1000).toFixed(0);
                 $timers.push({
                     "id": id,
@@ -1243,13 +1245,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             //被定时器调用，遍历timers堆栈
             "tick": function tick() {
-                var createTime = void 0,
-                    flag = void 0,
-                    tick = void 0,
-                    callback = void 0,
-                    timer = void 0,
-                    duration = void 0,
-                    passTime = void 0,
+                var createTime,
+                    flag,
+                    tick,
+                    callback,
+                    timer,
+                    duration,
+                    passTime,
                     timers = $timers;
                 $timers = [];
                 $timers.length = 0;
@@ -1294,7 +1296,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 返回一个函数
         // 用于在动画结束前结束动画
         return function () {
-            var i = void 0;
+            var i;
             for (i in $timers) {
                 if ($timers[i].id == id) {
                     $timers[i].id = undefined;
@@ -1304,69 +1306,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
     }
 
-    var MAX_SAFE_INTEGER = 9007199254740991;
-
-    /**
-     * 判断是不是一个可以作为长度的整数（比如数组下标）
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isLength(value) {
-
-        return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-    }
-
-    /**
-     * 判断是不是一个类似数组的对象，是否可以通过length迭代
-     *
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isArrayLike(value) {
-
-        return value != null && typeof value != 'function' && isLength(value.length);
-    }
-
-    /**
-     * 和isArrayLike类似，不过特别排除以下类型：
-     *  1.字符串
-     *
-     * @private
-     * @param {any} value 需要判断的值
-     * @returns {boolean} 如果是返回true，否则返回false
-     */
-
-    function isArraySpec(value) {
-
-        return isArrayLike(value) && !isString(value);
-    }
-
-    /**
-     * 判断一个值是不是数组。
-     *
-     * @since V0.3.1
-     * @public
-     * @param {*} value 需要判断类型的值
-     * @param {boolean} notStrict 是否不严格检查类型（默认false，如果为true表示判断是不是一个类似数组的类型）
-     * @returns {boolean} 如果是数组返回true，否则返回false
-     */
-    function isArray(value, notStrict) {
-        if (notStrict) {
-            return isArraySpec(value);
-        }
-        return Array.isArray(value);
-    }
-
     /**
      * 初始化配置文件
-     * 
-     * @private
+     *
      * @param {Json} init 默认值
      * @param {Json} data
      * @return {Json}
@@ -1381,22 +1323,24 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }return init;
     }
 
-    /**
-     * Hermite三次插值
-     * @since V0.2.0
-     * @public
-     * @param {Json} config 可选
+    /*!
+     * 💡 - Hermite三次插值
+     * https://github.com/hai2007/tool.js/blob/master/Hermite.js
+     *
+     * author hai2007 < https://hai2007.gitee.io/sweethome >
+     *
+     * Copyright (c) 2020-present hai2007 走一步，再走一步。
+     * Released under the MIT license
      */
-    function Hermite(config) {
+
+    function hermite(config) {
 
         config = initConfig$1({
             // 张弛系数
             "u": 0.5
         }, config);
 
-        var MR = void 0,
-            a = void 0,
-            b = void 0;
+        var MR, a, b;
 
         /**
          * 根据x值返回y值
@@ -1472,7 +1416,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             return deep;
         };
         if (transition_timing && isArray(transition_timing) && transition_timing.length == 4) {
-            transition_timing_function = Hermite({
+            transition_timing_function = hermite({
                 "u": 1
             }).setP(0, 0, 1, 1, transition_timing[1] / transition_timing[0], (1 - transition_timing[3]) / (1 - transition_timing[2]));
         }
@@ -1485,89 +1429,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 callback(deep);
             }
         });
-    }
-
-    /**
-     * 初始化配置文件
-     *
-     * @param {Json} init 默认值
-     * @param {Json} data
-     * @return {Json}
-     */
-    function initConfig$2(init, data) {
-        for (var key in data) {
-            try {
-                init[key] = data[key];
-            } catch (e) {
-                throw new Error("Illegal property value！");
-            }
-        }return init;
-    }
-
-    /*!
-     * 💡 - Hermite三次插值
-     * https://github.com/hai2007/tool.js/blob/master/Hermite.js
-     *
-     * author hai2007 < https://hai2007.gitee.io/sweethome >
-     *
-     * Copyright (c) 2020-present hai2007 走一步，再走一步。
-     * Released under the MIT license
-     */
-
-    function hermite(config) {
-
-        config = initConfig$2({
-            // 张弛系数
-            "u": 0.5
-        }, config);
-
-        var MR = void 0,
-            a = void 0,
-            b = void 0;
-
-        /**
-         * 根据x值返回y值
-         * @param {Number} x
-         */
-        var hermite = function hermite(x) {
-            if (MR) {
-                var sx = (x - a) / (b - a),
-                    sx2 = sx * sx,
-                    sx3 = sx * sx2;
-                var sResult = sx3 * MR[0] + sx2 * MR[1] + sx * MR[2] + MR[3];
-                return sResult * (b - a);
-            } else throw new Error('You shoud first set the position!');
-        };
-
-        /**
-         * 设置点的位置
-         * @param {Number} x1 左边点的位置
-         * @param {Number} y1
-         * @param {Number} x2 右边点的位置
-         * @param {Number} y2
-         * @param {Number} s1 二个点的斜率
-         * @param {Number} s2
-         */
-        hermite.setP = function (x1, y1, x2, y2, s1, s2) {
-            if (x1 < x2) {
-                // 记录原始尺寸
-                a = x1;b = x2;
-                var p3 = config.u * s1,
-                    p4 = config.u * s2;
-                // 缩放到[0,1]定义域
-                y1 /= x2 - x1;
-                y2 /= x2 - x1;
-                // MR是提前计算好的多项式通解矩阵
-                // 为了加速计算
-                // 如上面说的
-                // 统一在[0,1]上计算后再通过缩放和移动恢复
-                // 避免了动态求解矩阵的麻烦
-                MR = [2 * y1 - 2 * y2 + p3 + p4, 3 * y2 - 3 * y1 - 2 * p3 - p4, p3, y1];
-            } else throw new Error('The point x-position should be increamented!');
-            return hermite;
-        };
-
-        return hermite;
     }
 
     /**
@@ -1684,6 +1545,44 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             temp.push('rgba(' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + (Math.random(1) * 230 + 20).toFixed(0) + ',' + alpha + ')');
         }
         return temp;
+    };
+
+    // 获取一组循环色彩
+    var getLoopColors = function getLoopColors(num, alpha) {
+        if (!(alpha && alpha >= 0 && alpha <= 1)) alpha = 1;
+        // 颜色集合
+        var colorList = ['rgba(84,112,198,' + alpha + ")", 'rgba(145,204,117,' + alpha + ")", 'rgba(250,200,88,' + alpha + ")", 'rgba(238,102,102,' + alpha + ")", 'rgba(115,192,222,' + alpha + ")", 'rgba(59,162,114,' + alpha + ")", 'rgba(252,132,82,' + alpha + ")", 'rgba(154,96,180,' + alpha + ")", 'rgba(234,124,204,' + alpha + ")"];
+
+        var colors = [];
+
+        // 根据情况返回颜色数组
+        if (num <= colorList.length) {
+            // 这种情况就不需要任何处理
+            return colorList;
+        } else {
+            // 如果正好是集合长度的倍数
+            if (num % colorList.length == 0) {
+                // 将颜色数组循环加入后再返回
+                for (var i = 0; i < num / colorList.length; i++) {
+                    colors = colors.concat(colorList);
+                }
+            } else {
+                for (var j = 1; j < num / colorList.length; j++) {
+                    colors = colors.concat(colorList);
+                }
+                // 防止最后一个颜色和第一个颜色重复
+                if (num % colorList.length == 1) {
+                    colors = colors.concat(colorList[4]);
+                } else {
+                    for (var k = 0; k < num % colorList.length; k++) {
+                        colors = colors.concat(colorList[k]);
+                    }
+                }
+            }
+        }
+
+        // 返回结果
+        return colors;
     };
 
     /**
@@ -1864,6 +1763,126 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
 
         return map;
+    }
+
+    var Math_trunc = function Math_trunc(value) {
+        return value < 0 ? Math.ceil(value) : Math.floor(value);
+    };
+
+    // 刻度计算
+    function ruler(cormax, cormin) {
+        var cornumber = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5;
+
+
+        var tmpstep = void 0,
+            corstep = void 0,
+            temp = void 0;
+
+        //先判断所有数据都相等的情况
+        if (cormax == cormin) {
+            //在数据相等的情况下先计算所有数为正数
+            if (cormin > 0) {
+                //直接求出初始间隔
+                corstep = cormax / cornumber;
+            } else if (cormin < 0) {
+                //当所有数为负数且相等时
+                corstep = cormax / cornumber;
+                //因为间隔为负影响下面的计算，所以直接取反
+                corstep = -corstep;
+            }
+            //求间隔corstep的数量级temp (10,100,1000)
+            if (Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10))) == corstep) {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)));
+            } else {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)) + 1);
+            }
+            //将间隔corstep进行归一化，求出tmpstep(tpmstep在0.1 0.2 0.25 0.5 1之间取值)
+            tmpstep = corstep / temp;
+            if (tmpstep >= 0 && tmpstep <= 0.1) {
+                tmpstep = 0.1;
+            } else if (tmpstep >= 0.100001 && tmpstep <= 0.2) {
+                tmpstep = 0.2;
+            } else if (tmpstep >= 0.200001 && tmpstep <= 0.25) {
+                tmpstep = 0.25;
+            } else if (tmpstep >= 0.250001 && tmpstep <= 0.5) {
+                tmpstep = 0.5;
+            } else {
+                tmpstep = 1;
+            }
+            //将间隔恢复，求出实际间隔距离
+            tmpstep = tmpstep * temp;
+            //刻度尺最小必须从0开始
+            cormin = 0;
+            //调整刻度尺的最大刻度
+            cormax = Math_trunc(cormax / tmpstep + 1) * tmpstep;
+            //求出刻度尺的间隔
+            cornumber = (cormax - cormin) / tmpstep;
+        } else if (cormax != cormin) {
+            //根据传入的数据初步求出刻度数之间的间隔corstep
+            corstep = (cormax - cormin) / cornumber;
+            //求间隔corstep的数量级temp (10,100,1000)
+            if (Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10))) == corstep) {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)));
+            } else {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)) + 1);
+            }
+
+            //将间隔corstep进行归一化，求出tmpstep(tpmstep在0.1 0.2 0.25 0.5 1之间取值)
+            tmpstep = corstep / temp;
+            if (tmpstep >= 0 && tmpstep <= 0.1) {
+                tmpstep = 0.1;
+            } else if (tmpstep >= 0.100001 && tmpstep <= 0.2) {
+                tmpstep = 0.2;
+            } else if (tmpstep >= 0.200001 && tmpstep <= 0.25) {
+                tmpstep = 0.25;
+            } else if (tmpstep >= 0.250001 && tmpstep <= 0.5) {
+                tmpstep = 0.5;
+            } else {
+                tmpstep = 1;
+            }
+
+            //将间隔恢复，求出实际间隔距离
+            tmpstep = tmpstep * temp;
+
+            //调整刻度尺的最小刻度
+            if (Math_trunc(cormin / tmpstep) != cormin / tmpstep) {
+                if (cormin < 0) {
+                    cormin = -1 * Math.ceil(Math.abs(cormin / tmpstep)) * tmpstep;
+                } else {
+                    cormin = Math_trunc(Math.abs(cormin / tmpstep)) * tmpstep;
+                }
+            }
+            //调整刻度尺的最大刻度
+            cormax = Math_trunc(cormax / tmpstep + 1) * tmpstep;
+
+            //求新的cornumber、cormax、cormin
+            var tmpnumber = (cormax - cormin) / tmpstep;
+            if (tmpnumber < cornumber) {
+                var extranumber = cornumber - tmpnumber;
+                tmpnumber = cornumber;
+                if (extranumber % 2 == 0) {
+                    cormax = cormax + tmpstep * Math_trunc(extranumber / 2);
+                } else {
+                    cormax = cormax + tmpstep * Math_trunc(extranumber / 2 + 1);
+                }
+                cormin = cormin - tmpstep * Math_trunc(extranumber / 2);
+            }
+            cornumber = tmpnumber;
+        }
+
+        var resultData = {
+            min: cormin,
+            max: cormax,
+            distance: tmpstep,
+            num: cornumber,
+            ruler: []
+        };
+
+        // 得出最终的刻度数组
+        for (var i = 0; i <= cornumber; i++) {
+            resultData.ruler.push(cormin + tmpstep * i);
+        }
+        return resultData;
     }
 
     /**
@@ -3133,13 +3152,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         cardinal: cardinal,
 
         // 色彩类
-        formatColor: formatColor, getRandomColors: getRandomColors,
+        formatColor: formatColor, getRandomColors: getRandomColors, getLoopColors: getLoopColors,
 
         // 事件相关
         stopPropagation: stopPropagation, preventDefault: preventDefault,
 
         // 地图映射
-        map: map
+        map: map,
+
+        // 刻度尺辅助计算
+        ruler: ruler
 
     });
     image2D.prototype.extend({
@@ -3170,7 +3192,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     image2D.version = '1.11.0';
 
     // 判断当前环境，如果不是浏览器环境
-    if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
+    if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
         module.exports = image2D;
     }
     // 浏览器环境下

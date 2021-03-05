@@ -1,7 +1,6 @@
 import { initConfig } from '../../core/config';
-import isFunction from '@yelloxing/core.js/isFunction';
-import isNumber from '@yelloxing/core.js/isNumber';
 import { rotate } from '../calculate/transform';
+import { isFunction, isNumber } from '@hai2007/tool/type';
 
 export default function (config) {
 

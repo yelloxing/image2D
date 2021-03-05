@@ -59,7 +59,7 @@
  */
 
 import sizzle from '../core/sizzle';
-import isObject from '@yelloxing/core.js/isObject';
+import { isObject } from '@hai2007/tool/type';
 
 let image2D = function (selector, context) {
     return new image2D.prototype.init(selector, context);

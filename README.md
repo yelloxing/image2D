@@ -10,6 +10,7 @@
   <a href="https://www.jsdelivr.com/package/npm/image2d"><img src="https://data.jsdelivr.com/v1/package/npm/image2d/badge" alt="CDN"></a>
   <a href="https://www.npmjs.com/package/image2d"><img src="https://img.shields.io/npm/v/image2d.svg" alt="Version"></a>
   <a href="https://github.com/hai2007/image2D/blob/master/LICENSE"><img src="https://img.shields.io/npm/l/image2d.svg" alt="License"></a>
+  <a href="https://github.com/hai2007/image2d" target='_blank'><img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/image2d?style=social"></a>
 </p>
 
 <h2 align="center" style='padding:10px 0 20px 0;color:red;'>🚀 关于项目</h2>
@@ -17,7 +18,7 @@
 使用ECMAScript绘制二维图片,开发这个库的初衷是希望越来越多的人可以更自由的发挥自己的创意，感受绘图的乐趣，并把积累的经验分享出来，推动库本身的发展，从而不断优化！因此，这个库永远都是自由、开源、讨论和进步的。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.12.4/build/image2D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/image2d@1.13.1/build/image2D.min.js"></script>
 ```
 
 你可以通过CDN的方式引入（[版本历史](https://github.com/hai2007/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。
@@ -96,7 +97,7 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 
 主要来自 [issue](https://github.com/hai2007/image2D/issues) 和前端本身的发展（可能一些新的技术等原因，催促一些改变是有意义的），如果你对未来版本有什么期望，也可以告诉我们。
 
-当前，这也包括 [接口文档](https://hai2007.gitee.io/image2d) 和 [教程](https://hai2007.gitee.io/image2d/#/course) 等，甚至包括 [用例](http://hai2007.gitee.io/image2d-examples/#/entry) ，一切围绕或和image2D相关的都可以提。
+当前，这也包括 [接口文档](https://hai2007.gitee.io/image2d) 和 [教程](https://hai2007.gitee.io/image2d/#/course) 等，甚至包括 [用例](https://hai2007.gitee.io/image2d/examples/index.html#/entry) ，一切围绕或和image2D相关的都可以提。
 
 ## 为什么要加入我们？
 
@@ -109,14 +110,9 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 - 用例开发和测试：在项目的test文件夹下有一些测试，而在examples项目中维护了一些用例。
 - 参与讨论：主要是讨论image2D未来如何发展，改造的方向等。
 
-如果有意向加入我们，你可以通过邮箱 <i>1276327934@qq.com</i> 和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
+如果有意向加入我们，你可以通过邮箱 <i>2501482523@qq.com</i> 和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
 
 你可以查看[.mailmap](https://github.com/hai2007/image2D/blob/master/.mailmap)文件了解当前主要维护人员，查看[AUTHORS.txt](https://github.com/hai2007/image2D/blob/master/AUTHORS.txt)了解所有的贡献者。
-
-## 联系我们
-
-- QQ: 2501482523
-- Email: 2501482523@qq.com
 
 开源协议
 ---------------------------------------
