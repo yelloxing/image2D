@@ -1,7 +1,7 @@
 import iCrush from 'icrush';
 
 // 兼容文件
-import 'promise-polyfill/src/polyfill';
+import '@hai2007/polyfill/Promise.js';
 
 // 引入启动界面
 import App from './App.iCrush';

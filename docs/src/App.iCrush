@@ -24,6 +24,10 @@
                     onclick="window.location.href='https://hai2007.gitee.io/image3d/'">
                     3D绘图
                 </li>
+                <li title='友情链接：更友好的绘图框架'
+                    onclick="window.location.href='https://hai2007.gitee.io/clunch/'">
+                    clunch.js
+                </li>
                 <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/hai2007/image2D/issues'">
                     参与讨论
                 </li>
