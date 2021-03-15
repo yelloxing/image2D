@@ -1,47 +1,44 @@
 const pages = {
     "guide": {
-        "content": () => import('../Pages/guide.iCrush')
+        "content": () => import('../Pages/guide.paper')
     },
     "api": {
-        "content": () => import('../Pages/api.iCrush'),
+        "content": () => import('../Pages/api.paper'),
         "how-to-use": {
-            "content": () => import('../Pages/api/how-to-use.iCrush')
+            "content": () => import('../Pages/api/how-to-use.paper')
         },
         "xhtml": {
-            "content": () => import('../Pages/api/xhtml.iCrush')
+            "content": () => import('../Pages/api/xhtml.paper')
         },
         "painter": {
-            "content": () => import('../Pages/api/painter.iCrush')
+            "content": () => import('../Pages/api/painter.paper')
         },
         "calculate": {
-            "content": () => import('../Pages/api/calculate.iCrush')
+            "content": () => import('../Pages/api/calculate.paper')
         },
         "tool": {
-            "content": () => import('../Pages/api/tool.iCrush')
+            "content": () => import('../Pages/api/tool.paper')
         },
         "_default_": "how-to-use"
     },
     "course": {
-        "content": () => import('../Pages/course.iCrush'),
+        "content": () => import('../Pages/course.paper'),
         "author": {
-            "content": () => import('../Pages/course/author.iCrush')
+            "content": () => import('../Pages/course/author.paper')
         },
         "install": {
-            "content": () => import('../Pages/course/install.iCrush')
+            "content": () => import('../Pages/course/install.paper')
         },
         "introduce": {
-            "content": () => import('../Pages/course/introduce.iCrush')
+            "content": () => import('../Pages/course/introduce.paper')
         },
         "svg-painter": {
-            "content": () => import('../Pages/course/svg-painter.iCrush')
+            "content": () => import('../Pages/course/svg-painter.paper')
         },
         "_default_": "install"
     },
     "QA": {
-        "content": () => import('../Pages/QA.iCrush')
-    },
-    "Sponsors": {
-        "content": () => import('../Pages/Sponsors.iCrush')
+        "content": () => import('../Pages/QA.paper')
     },
     "_default_": "guide"
 };

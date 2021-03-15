@@ -22,9 +22,9 @@
   },
   "homepage": "https://hai2007.gitee.io/image2d/",
   "devDependencies": {
-    "@hai2007/nodejs": "^0.1.0"
+    "@hai2007/nodejs": "^1.0.0"
   },
   "dependencies": {
-    "image2d": "^1.13.0"
+    "image2d": "^1.13.1"
   }
 }
