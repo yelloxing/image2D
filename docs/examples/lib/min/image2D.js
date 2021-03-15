@@ -7,14 +7,14 @@
 *
 * author 你好2007
 *
-* version 1.13.0
+* version 1.13.1
 *
 * build Thu Apr 11 2019
 *
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Sun Jan 10 2021 11:34:38 GMT+0800 (GMT+08:00)
+* Date:Fri Feb 26 2021 09:34:17 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -595,10 +595,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var config = _config || {},
 
         // 维护的树
-        alltreedata = void 0,
+        alltreedata,
 
         // 根结点ID
-        rootid = void 0;
+        rootid;
 
         /**
          * 把内部保存的树结点数据
@@ -612,7 +612,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             (function positionCalc(pNode, deep) {
 
                 if (deep > maxDeep) maxDeep = deep;
-                var flag = void 0;
+                var flag;
                 for (flag = 0; flag < pNode.children.length; flag++) {
                     // 因为全部的子结点的位置确定了，父结点的y位置就是子结点的中间位置
                     // 因此有子结点的，先计算子结点
@@ -656,7 +656,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     (function doUp(_pid, _deep) {
                         alltreedata[_pid].top += needUp;
                         if (beforeDis[_deep] < alltreedata[_pid].top) beforeDis[_deep] = alltreedata[_pid].top;
-                        var _flag = void 0;
+                        var _flag;
                         for (_flag = 0; _flag < alltreedata[_pid].children.length; _flag++) {
                             doUp(alltreedata[_pid].children[_flag], _deep + 1);
                         }
@@ -695,8 +695,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             var tempTree = {};
             // 根结点
             var temp = config.root(initTree),
-                id = void 0,
-                rid = void 0;
+                id,
+                rid;
             id = rid = config.id(temp);
             tempTree[id] = {
                 "data": temp,
@@ -709,7 +709,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             // 根据传递的原始数据，生成内部统一结构
             (function createTree(pdata, pid) {
                 var children = config.child(pdata, initTree),
-                    flag = void 0;
+                    flag;
                 num += children ? children.length : 0;
                 for (flag = 0; children && flag < children.length; flag++) {
                     id = config.id(children[flag]);
@@ -1215,13 +1215,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      */
     function animation(doback, duration, callback) {
 
+        // 如果没有传递时间，使用内置默认值
+        if (arguments.length < 2) duration = $speeds;
+
         var clock = {
             //把tick函数推入堆栈
             "timer": function timer(tick, duration, callback) {
                 if (!tick) {
                     throw new Error('Tick is required!');
                 }
-                duration = duration || $speeds;
                 var id = new Date().valueOf() + "_" + (Math.random() * 1000).toFixed(0);
                 $timers.push({
                     "id": id,
@@ -1243,13 +1245,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
             //被定时器调用，遍历timers堆栈
             "tick": function tick() {
-                var createTime = void 0,
-                    flag = void 0,
-                    tick = void 0,
-                    callback = void 0,
-                    timer = void 0,
-                    duration = void 0,
-                    passTime = void 0,
+                var createTime,
+                    flag,
+                    tick,
+                    callback,
+                    timer,
+                    duration,
+                    passTime,
                     timers = $timers;
                 $timers = [];
                 $timers.length = 0;
@@ -1294,7 +1296,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         // 返回一个函数
         // 用于在动画结束前结束动画
         return function () {
-            var i = void 0;
+            var i;
             for (i in $timers) {
                 if ($timers[i].id == id) {
                     $timers[i].id = undefined;
@@ -1338,9 +1340,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "u": 0.5
         }, config);
 
-        var MR = void 0,
-            a = void 0,
-            b = void 0;
+        var MR, a, b;
 
         /**
          * 根据x值返回y值
@@ -1547,6 +1547,44 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         return temp;
     };
 
+    // 获取一组循环色彩
+    var getLoopColors = function getLoopColors(num, alpha) {
+        if (!(alpha && alpha >= 0 && alpha <= 1)) alpha = 1;
+        // 颜色集合
+        var colorList = ['rgba(84,112,198,' + alpha + ")", 'rgba(145,204,117,' + alpha + ")", 'rgba(250,200,88,' + alpha + ")", 'rgba(238,102,102,' + alpha + ")", 'rgba(115,192,222,' + alpha + ")", 'rgba(59,162,114,' + alpha + ")", 'rgba(252,132,82,' + alpha + ")", 'rgba(154,96,180,' + alpha + ")", 'rgba(234,124,204,' + alpha + ")"];
+
+        var colors = [];
+
+        // 根据情况返回颜色数组
+        if (num <= colorList.length) {
+            // 这种情况就不需要任何处理
+            return colorList;
+        } else {
+            // 如果正好是集合长度的倍数
+            if (num % colorList.length == 0) {
+                // 将颜色数组循环加入后再返回
+                for (var i = 0; i < num / colorList.length; i++) {
+                    colors = colors.concat(colorList);
+                }
+            } else {
+                for (var j = 1; j < num / colorList.length; j++) {
+                    colors = colors.concat(colorList);
+                }
+                // 防止最后一个颜色和第一个颜色重复
+                if (num % colorList.length == 1) {
+                    colors = colors.concat(colorList[4]);
+                } else {
+                    for (var k = 0; k < num % colorList.length; k++) {
+                        colors = colors.concat(colorList[k]);
+                    }
+                }
+            }
+        }
+
+        // 返回结果
+        return colors;
+    };
+
     /**
      * 绑定事件
      * @param {string} eventType
@@ -1725,6 +1763,126 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         };
 
         return map;
+    }
+
+    var Math_trunc = function Math_trunc(value) {
+        return value < 0 ? Math.ceil(value) : Math.floor(value);
+    };
+
+    // 刻度计算
+    function ruler(cormax, cormin) {
+        var cornumber = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5;
+
+
+        var tmpstep = void 0,
+            corstep = void 0,
+            temp = void 0;
+
+        //先判断所有数据都相等的情况
+        if (cormax == cormin) {
+            //在数据相等的情况下先计算所有数为正数
+            if (cormin > 0) {
+                //直接求出初始间隔
+                corstep = cormax / cornumber;
+            } else if (cormin < 0) {
+                //当所有数为负数且相等时
+                corstep = cormax / cornumber;
+                //因为间隔为负影响下面的计算，所以直接取反
+                corstep = -corstep;
+            }
+            //求间隔corstep的数量级temp (10,100,1000)
+            if (Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10))) == corstep) {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)));
+            } else {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)) + 1);
+            }
+            //将间隔corstep进行归一化，求出tmpstep(tpmstep在0.1 0.2 0.25 0.5 1之间取值)
+            tmpstep = corstep / temp;
+            if (tmpstep >= 0 && tmpstep <= 0.1) {
+                tmpstep = 0.1;
+            } else if (tmpstep >= 0.100001 && tmpstep <= 0.2) {
+                tmpstep = 0.2;
+            } else if (tmpstep >= 0.200001 && tmpstep <= 0.25) {
+                tmpstep = 0.25;
+            } else if (tmpstep >= 0.250001 && tmpstep <= 0.5) {
+                tmpstep = 0.5;
+            } else {
+                tmpstep = 1;
+            }
+            //将间隔恢复，求出实际间隔距离
+            tmpstep = tmpstep * temp;
+            //刻度尺最小必须从0开始
+            cormin = 0;
+            //调整刻度尺的最大刻度
+            cormax = Math_trunc(cormax / tmpstep + 1) * tmpstep;
+            //求出刻度尺的间隔
+            cornumber = (cormax - cormin) / tmpstep;
+        } else if (cormax != cormin) {
+            //根据传入的数据初步求出刻度数之间的间隔corstep
+            corstep = (cormax - cormin) / cornumber;
+            //求间隔corstep的数量级temp (10,100,1000)
+            if (Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10))) == corstep) {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)));
+            } else {
+                temp = Math.pow(10, Math_trunc(Math.log(corstep) / Math.log(10)) + 1);
+            }
+
+            //将间隔corstep进行归一化，求出tmpstep(tpmstep在0.1 0.2 0.25 0.5 1之间取值)
+            tmpstep = corstep / temp;
+            if (tmpstep >= 0 && tmpstep <= 0.1) {
+                tmpstep = 0.1;
+            } else if (tmpstep >= 0.100001 && tmpstep <= 0.2) {
+                tmpstep = 0.2;
+            } else if (tmpstep >= 0.200001 && tmpstep <= 0.25) {
+                tmpstep = 0.25;
+            } else if (tmpstep >= 0.250001 && tmpstep <= 0.5) {
+                tmpstep = 0.5;
+            } else {
+                tmpstep = 1;
+            }
+
+            //将间隔恢复，求出实际间隔距离
+            tmpstep = tmpstep * temp;
+
+            //调整刻度尺的最小刻度
+            if (Math_trunc(cormin / tmpstep) != cormin / tmpstep) {
+                if (cormin < 0) {
+                    cormin = -1 * Math.ceil(Math.abs(cormin / tmpstep)) * tmpstep;
+                } else {
+                    cormin = Math_trunc(Math.abs(cormin / tmpstep)) * tmpstep;
+                }
+            }
+            //调整刻度尺的最大刻度
+            cormax = Math_trunc(cormax / tmpstep + 1) * tmpstep;
+
+            //求新的cornumber、cormax、cormin
+            var tmpnumber = (cormax - cormin) / tmpstep;
+            if (tmpnumber < cornumber) {
+                var extranumber = cornumber - tmpnumber;
+                tmpnumber = cornumber;
+                if (extranumber % 2 == 0) {
+                    cormax = cormax + tmpstep * Math_trunc(extranumber / 2);
+                } else {
+                    cormax = cormax + tmpstep * Math_trunc(extranumber / 2 + 1);
+                }
+                cormin = cormin - tmpstep * Math_trunc(extranumber / 2);
+            }
+            cornumber = tmpnumber;
+        }
+
+        var resultData = {
+            min: cormin,
+            max: cormax,
+            distance: tmpstep,
+            num: cornumber,
+            ruler: []
+        };
+
+        // 得出最终的刻度数组
+        for (var i = 0; i <= cornumber; i++) {
+            resultData.ruler.push(cormin + tmpstep * i);
+        }
+        return resultData;
     }
 
     /**
@@ -2994,13 +3152,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         cardinal: cardinal,
 
         // 色彩类
-        formatColor: formatColor, getRandomColors: getRandomColors,
+        formatColor: formatColor, getRandomColors: getRandomColors, getLoopColors: getLoopColors,
 
         // 事件相关
         stopPropagation: stopPropagation, preventDefault: preventDefault,
 
         // 地图映射
-        map: map
+        map: map,
+
+        // 刻度尺辅助计算
+        ruler: ruler
 
     });
     image2D.prototype.extend({
