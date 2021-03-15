@@ -1,10 +1,10 @@
-import iCrush from 'icrush';
+import QuickPaper from 'quick-paper';
 
 // 兼容文件
 import '@hai2007/polyfill/Promise.js';
 
 // 引入启动界面
-import App from './App.iCrush';
+import App from './App.paper';
 
 // 引入基础样式
 import '@hai2007/style/normalize.css';
@@ -18,17 +18,14 @@ document.getElementById('root').innerHTML = "";
 
 // 安装路由
 import { loadRouter, goRouter } from './Service/router.config.js';
-iCrush.prototype.loadRouter = loadRouter; iCrush.prototype.goRouter = goRouter;
-
-// 引入复制指令
-import './Directives/ui-copy';
+QuickPaper.prototype.loadRouter = loadRouter; QuickPaper.prototype.goRouter = goRouter;
 
 //根对象
-window.icrush = new iCrush({
+window.quickPaper = new QuickPaper({
 
     //挂载点
     el: document.getElementById('root'),
 
-    // 启动iCrush
+    // 启动QuickPaper
     render: createElement => createElement(App)
 });

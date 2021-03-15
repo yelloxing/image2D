@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "4.1.0",
+  "version": "5.0.0",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",
@@ -13,7 +13,7 @@
   "keywords": [
     "image2d",
     "doc",
-    "icrush"
+    "quick-paper"
   ],
   "author": "你好2007",
   "license": "MIT",
@@ -30,9 +30,6 @@
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "css-loader": "^2.1.1",
     "file-loader": "^4.2.0",
-    "icrush-loader": "^0.4.2",
-    "icrush-loader-plug": "^0.2.1",
-    "icrush-style-loader": "^1.0.4",
     "node-sass": "^4.13.1",
     "postcss": "^7.0.21",
     "postcss-loader": "^3.0.0",
@@ -46,8 +43,7 @@
   "dependencies": {
     "@hai2007/polyfill": "^0.1.1",
     "@hai2007/style": "^0.1.1",
-    "icrush": "^2.1.0",
     "image2d": "^1.13.0",
-    "wscode": "^2.1.0"
+    "quick-paper": "^0.4.1"
   }
 }

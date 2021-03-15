@@ -1,0 +1,154 @@
+<template>
+    <div class='course-view'>
+        <header id='fixed-top'>
+            安装
+        </header>
+        <h2 id='fixed-compatibility'>
+            兼容性
+        </h2>
+        <p>
+            image2D 不支持 IE9 以下版本（IE9支持），因为 IE9 以下对
+            <a href="https://caniuse.com/#search=canvas" target="_blank">Canvans</a>
+            和
+            <a href="https://caniuse.com/#search=svg" target="_blank">SVG</a>
+            本身就没有很好的支持，而且使用的人越来越少，没有太多兼容的意义。
+        </p>
+        <h2 id='fixed-log'>
+            更新日志
+        </h2>
+        <p>
+            最新稳定版本：
+            <span class="important">{{version}}</span>
+        </p>
+        <p>
+            每个版本的更新日志见
+            <a href="https://github.com/hai2007/image2D/blob/master/CHANGELOG" target="_blank">GitHub</a>
+            。
+        </p>
+        <h1 id='fixed-script'>
+            直接用 <span class='important'>script</span> 引入
+        </h1>
+        <p class="warn">
+            直接下载并用
+            <span class='important'>script</span>
+            标签引入，
+            <span class='important'>image2D</span>
+            和
+            <span class='important'>$$</span>
+            会被注册为一个全局变量。
+        </p>
+        <h2 id='fixed-cdn'>
+            CDN
+        </h2>
+        <p>
+            对于制作学习或者用例项目等，你可以这样使用最新版本：
+        </p>
+        <pre q-code='html'><script src="https://cdn.jsdelivr.net/npm/image2d"></script></pre>
+        <p>
+            对于生产环境，我们推荐链接到一个明确的版本号，以避免新版本造成的不可预期的破坏：
+        </p>
+        <pre q-code='html'><script src="https://cdn.jsdelivr.net/npm/image2d@1.13.1"></script></pre>
+        <p>
+            你可以在
+            <a href="https://cdn.jsdelivr.net/npm/image2d/" target="_blank">cdn.jsdelivr.net/npm/image2D</a>
+            浏览 NPM 包的源代码。
+        </p>
+        <h1 id='fixed-npm'>
+            通过 <span class="important">NPM</span> 方式管理
+        </h1>
+        <p>
+            同样的，你可以使用 NPM 安装。
+        </p>
+        <pre q-code>npm install image2d</pre>
+        <p>
+            安装好了以后，在需要的地方引入即可：
+        </p>
+        <pre q-code>import $$ from "image2d";</pre>
+        <h1 id='fixed-export'>
+            <span class="important">部分导入</span>
+        </h1>
+        <p>
+            如果你想基于
+            <span class='important'>image2D</span>
+            进行
+            <span class='important'>二次开发</span>
+            ，可能和之前直接使用本库不一样，比如你选择了SVG作为画笔，这样，Canvas部分对你而言可能就是“累赘”，我们希望提供按需导入的方式来帮助你减小你基于image2D开发的项目的最终产品尺寸。
+        </p>
+        <p>
+            我们来说明一下如何实现：
+        </p>
+        <pre q-code>import {
+
+    // 对象
+    image2D,
+
+    // 静态方法
+    treeLayout, pieLayout, Matrix4, animation, cardinal,
+    rotate, move, scale, dot, formatColor, getRandomColors,
+    stopPropagation, preventDefault, map,
+
+    // 对象方法
+    appendTo, prependTo, afterTo, beforeTo, remove, filter,
+    text, html, size, css, attr, datum, data, enter, exit,
+    loop, bind, unbind, position,
+    painter, painterCanvas2D, painterSVG, layer
+
+} from "image2d/src/export.js";</pre>
+        <p>
+            首先，你需要像上面这样导入需要的
+            <span class='important'>静态方法</span>
+            和
+            <span class='important'>对象方法</span>
+            ，而
+            <span class='important'>对象</span>
+            是必须的，上面列出了全部可导出方法，和
+            <a href="#/api" target="_blank">文档</a>
+            是对应的。
+        </p>
+        <p>
+            然后，拼接出你想要的
+            <span class='important'>image2D</span>
+            即可：
+        </p>
+        <pre q-code>// 挂载需要的静态方法
+image2D.extend({
+
+    animation
+
+});
+
+// 挂载需要的类方法
+image2D.prototype.extend({
+
+    css,
+    attr,
+
+    // 画笔比较特殊，默认是painter，你也可以选择只用canvas或者svg画笔，
+    // 因此名称没办法完全和接口保持一致
+    painter: painterCanvas2D
+
+});
+
+export default image2D;</pre>
+        <p>
+            比如上面导出的最终成品支持动画，可以设置样式和属性，还可以获取canvas2D画笔。
+        </p>
+        <p>
+            如果上面有没有说清楚的，欢迎去
+            <a href="https://github.com/hai2007/image2D/issues" target="_blank">issue</a>
+            给我们留言！
+        </p>
+    </div>
+</template>
+<script>
+    import changeActive from '../../Service/changeActive.js';
+    import fixedScroll from '../../Service/fixedScroll.js';
+    export default {
+        created() {
+            changeActive('menu-2', 'install');
+        },
+        mounted() {
+            fixedScroll(document.getElementById('course-id'), 44);
+        }
+    };
+</script>
