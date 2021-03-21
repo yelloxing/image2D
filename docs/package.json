@@ -1,6 +1,6 @@
 {
   "name": "image2d.doc",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "🍇 前端绘图工具库image2d官方文档",
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --config webpack.dev.js",
@@ -27,7 +27,6 @@
     "@hai2007/nodejs": "^0.1.0",
     "autoprefixer": "^9.7.1",
     "babel-loader": "^8.1.0",
-    "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "css-loader": "^2.1.1",
     "file-loader": "^4.2.0",
     "node-sass": "^4.13.1",
@@ -42,8 +41,8 @@
   },
   "dependencies": {
     "@hai2007/polyfill": "^0.1.1",
-    "@hai2007/style": "^0.1.1",
-    "image2d": "^1.13.0",
+    "@hai2007/style": "^0.2.3",
+    "image2d": "^1.13.1",
     "quick-paper": "^0.4.1"
   }
 }
