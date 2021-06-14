@@ -37,7 +37,7 @@
   },
   "homepage": "https://hai2007.gitee.io/image2d/index.html",
   "devDependencies": {
-    "@hai2007/nodejs": "^1.0.0",
+    "@hai2007/nodejs": "^1.0.1",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
@@ -47,7 +47,7 @@
     "uglify-js": "^3.5.6"
   },
   "dependencies": {
-    "@hai2007/algorithm": "^0.5.1",
-    "@hai2007/tool": "^0.6.2"
+    "@hai2007/algorithm": "^0.6.2",
+    "@hai2007/tool": "^0.6.6"
   }
 }

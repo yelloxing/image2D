@@ -18,7 +18,11 @@
         </h2>
         <p>
             最新稳定版本：
-            <span class="important">{{version}}</span>
+            <span class="important">
+                <a href="https://www.npmjs.com/package/image2d">
+                    <img src="https://img.shields.io/npm/v/image2d.svg" alt="Version">
+                </a>
+            </span>
         </p>
         <p>
             每个版本的更新日志见
