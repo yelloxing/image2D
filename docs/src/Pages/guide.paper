@@ -1,7 +1,9 @@
 <template>
     <div class='root'>
         <header>
-            image2D.js 官方文档<span :title='info' @click='goNpmList()'>{{version}}</span>
+            image2D.js 官方文档<span :title='info' @click='goHistoryList()'>
+                <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/hai2007/image2d?style=social">
+            </span>
             <p>
                 在此，我们对
                 <a href="https://github.com/hai2007/image2D/blob/master/AUTHORS.txt" target="_blank">
@@ -237,7 +239,7 @@
             };
         },
         methods: {
-            goNpmList() {
+            goHistoryList() {
                 window.location.href = 'https://github.com/hai2007/image2D/blob/master/CHANGELOG';
             }
         },
@@ -259,13 +261,9 @@
             padding: .3rem 0;
 
             &>span {
-                border: 1px solid gray;
-                background-color: white;
-                font-size: .12rem;
                 vertical-align: middle;
                 margin-left: .1rem;
                 padding: .03rem .06rem;
-                border-radius: .03rem;
             }
 
             &>p {

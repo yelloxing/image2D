@@ -22,11 +22,11 @@
                 <li class="line"></li>
                 <li title='友情链接：自由开源 JavaScript 3D绘图'
                     onclick="window.location.href='https://hai2007.gitee.io/image3d/'">
-                    3D绘图
+                    3D画笔
                 </li>
                 <li title='友情链接：更友好的绘图框架'
                     onclick="window.location.href='https://hai2007.gitee.io/clunch/'">
-                    clunch.js
+                    绘图框架
                 </li>
                 <li title='任何疑惑都可以在这里提问' onclick="window.location.href='https://github.com/hai2007/image2D/issues'">
                     参与讨论

@@ -119,5 +119,6 @@ export default function ruler(cormax, cormin, cornumber = 5) {
     for (let i = 0; i <= cornumber; i++) {
         resultData.ruler.push(cormin + tmpstep * i);
     }
+
     return resultData;
 }

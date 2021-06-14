@@ -18,7 +18,7 @@
 使用ECMAScript绘制二维图片,开发这个库的初衷是希望越来越多的人可以更自由的发挥自己的创意，感受绘图的乐趣，并把积累的经验分享出来，推动库本身的发展，从而不断优化！因此，这个库永远都是自由、开源、讨论和进步的。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/image2d@1.13.1/build/image2D.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/image2d"></script>
 ```
 
 你可以通过CDN的方式引入（[版本历史](https://github.com/hai2007/image2D/blob/master/CHANGELOG)），在代码中通过image2D或$$调用，当然，你也可以通过npm的方式引入。
@@ -110,7 +110,7 @@ painter.strokeArc(150, 150, 100, 130, Math.PI/2, Math.PI/2*3);
 - 用例开发和测试：在项目的test文件夹下有一些测试，而在examples项目中维护了一些用例。
 - 参与讨论：主要是讨论image2D未来如何发展，改造的方向等。
 
-如果有意向加入我们，你可以通过邮箱 <i>2501482523@qq.com</i> 和我们取到联系，请在邮件中简单说明一下情况，我们会尽快回复。
+如果有意向加入我们，你可以通过提 [issue](https://github.com/hai2007/image2D/issues) 和我们取到联系，请简单说明一下情况，我们会尽快回复。
 
 你可以查看[.mailmap](https://github.com/hai2007/image2D/blob/master/.mailmap)文件了解当前主要维护人员，查看[AUTHORS.txt](https://github.com/hai2007/image2D/blob/master/AUTHORS.txt)了解所有的贡献者。
 
