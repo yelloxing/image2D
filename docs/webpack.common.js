@@ -17,7 +17,7 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.(css|scss)$/,
-            loader: ['quick-paper/style-loader/index.js', 'css-loader', 'postcss-loader', 'sass-loader']
+            loader: ['quick-paper/style-loader/index.js', 'css-loader', 'postcss-loader', './scss-loader.js']
         }, {
             test: /\.js$/,
             loader: 'babel-loader',
