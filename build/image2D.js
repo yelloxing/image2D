@@ -7,14 +7,14 @@
 *
 * author 你好2007
 *
-* version 1.13.1
+* version 1.13.2
 *
 * build Thu Apr 11 2019
 *
 * Copyright hai2007 < https://hai2007.gitee.io/sweethome/ >
 * Released under the MIT license
 *
-* Date:Fri Feb 26 2021 09:34:17 GMT+0800 (GMT+08:00)
+* Date:Mon Jun 14 2021 13:16:20 GMT+0800 (GMT+08:00)
 */
 
 "use strict";
@@ -1882,6 +1882,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         for (var i = 0; i <= cornumber; i++) {
             resultData.ruler.push(cormin + tmpstep * i);
         }
+
         return resultData;
     }
 
